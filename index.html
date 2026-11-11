@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chelsea Fernández | Portafolio de Ingeniería & Software</title>
+  <meta name="description" content="Portafolio personal de Chelsea Fernández Hernández. Ingeniera de Telecomunicaciones especializada en desarrollo de software, arquitecturas distribuidas, VoIP, XR e inteligencia artificial.">
+
+  <!-- Google Fonts: Plus Jakarta Sans, Outfit & Caveat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Remix Icon CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Estilos del Portafolio -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==================== CABECERA Y NAVEGACIÓN ==================== -->
+  <header class="site-header">
+    <nav class="nav-pill">
+      <a href="#inicio" class="logo-brand">
+        <span class="logo-icon">✨</span>
+        <span>chelsea<span style="opacity: 0.6;">.dev</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+        <li><a href="#intereses" class="nav-link">Pasiones & Anime</a></li>
+        <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+        <li><a href="#habilidades" class="nav-link">Grimorio Tech</a></li>
+        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Selector de Vibra / Tema Pastel -->
+        <div class="theme-picker" title="Elige tu vibra pastel">
+          <button class="theme-btn active" data-theme="frieren" title="Tema Frieren: Cielo, Magia & Hechizos">
+            <span>✨</span> Frieren
+          </button>
+          <button class="theme-btn" data-theme="maomao" title="Tema Maomao: Boticaria, Hierbas & Pergamino">
+            <span>🌿</span> Maomao
+          </button>
+          <button class="theme-btn" data-theme="onepiece" title="Tema One Piece: Gran Línea & Sol de Nika">
+            <span>⚓</span> Nika
+          </button>
+        </div>
+
+        <a href="#contacto" class="btn-contact-nav">
+          <i class="ri-mail-send-line"></i>
+          <span>Hablemos</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ==================== SECCIÓN HERO ==================== -->
+    <section id="inicio" class="hero-section">
+      <div class="container hero-grid">
+        
+        <div class="hero-content">
+          <div class="hero-badge-wrap">
+            <i class="ri-sparkling-2-fill"></i>
+            <span>Ingeniería de Telecomunicaciones • Software & Redes</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hola, soy <span class="hero-title-highlight">Chelsea</span>
+          </h1>
+
+          <div class="hero-handwritten-note">
+            <i class="ri-quill-pen-line"></i>
+            <span>/* buscando siempre la magia detrás de cada línea de código */</span>
+          </div>
+
+          <p class="hero-lead">
+            Graduada en <strong>Ingeniería de Telecomunicaciones por la Universidad de Alcalá (UAH)</strong> y apasionada por construir sistemas robustos, arquitecturas distribuidas, telefonía IP y experiencias con tecnologías emergentes (XR e IA). Afronto los desafíos técnicos con la minuciosa curiosidad de una boticaria y el entusiasmo incombustible de surcar la Gran Línea.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#proyectos" class="btn-primary">
+              <i class="ri-compass-3-line"></i>
+              <span>Explorar Proyectos</span>
+            </a>
+            <a href="https://www.linkedin.com/in/chelsea-fernandez-hernandez-64a339189/" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <i class="ri-linkedin-box-fill"></i>
+              <span>Conectar en LinkedIn</span>
+            </a>
+            <a href="#contacto" class="btn-pill-cv" title="Espacio para descargar el CV en PDF">
+              <i class="ri-file-user-line"></i>
+              <span>CV (Próximamente)</span>
+            </a>
+          </div>
+
+          <div class="hero-socials">
+            <span class="hero-socials-label">Redes & Contacto:</span>
+            <a href="https://www.linkedin.com/in/chelsea-fernandez-hernandez-64a339189/" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="LinkedIn">
+              <i class="ri-linkedin-fill"></i>
+            </a>
+            <a href="https://github.com/Chelseafh" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="GitHub">
+              <i class="ri-github-fill"></i>
+            </a>
+            <a href="mailto:chelseafh2003@gmail.com" class="hero-social-link" title="Email directo">
+              <i class="ri-mail-line"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tarjeta Hero: Ficha de Personaje / Cuaderno de Aventurera -->
+        <div class="hero-visual">
+          <div class="character-card">
+            <div class="card-stamp">EDICIÓN ALQUIMISTA</div>
+            
+            <div class="character-header">
+              <div class="avatar-badge">
+                <i class="ri-code-s-slash-line"></i>
+              </div>
+              <div class="character-identity">
+                <h3>Chelsea Fernández</h3>
+                <p>Software & Systems Engineer</p>
+              </div>
+            </div>
+
+            <ul class="character-stats">
+              <li class="stat-item">
+                <span class="stat-label"><i class="ri-graduation-cap-line"></i> Formación</span>
+                <span class="stat-value">Ingeniería (UAH)</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label"><i class="ri-briefcase-4-line"></i> Beca de Investigación</span>
+                <span class="stat-value highlight">ALTEN & Inst. Cervantes</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label"><i class="ri-magic-line"></i> Especialidades</span>
+                <span class="stat-value">Flask • FastAPI • VoIP • XR</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label"><i class="ri-heart-3-line"></i> Inspiración</span>
+                <span class="stat-value">Frieren • Maomao • One Piece</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label"><i class="ri-cup-line"></i> Combustible</span>
+                <span class="stat-value">Té de jazmín & Curiosidad</span>
+              </li>
+            </ul>
+
+            <div class="character-quote-box">
+              <i class="ri-chat-quote-line"></i>
+              <span>"Los mejores sistemas no se programan con prisa, sino con la paciencia de quien colecciona hechizos que perdurarán en el tiempo."</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECCIÓN INTERESES & ANIME ==================== -->
+    <section id="intereses" class="interests-section">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag"><i class="ri-heart-pulse-line"></i> Personalidad & Filosofía</span>
+          <h2 class="section-title">El Rincón de Curiosidades & Pasiones</h2>
+          <p class="section-desc">
+            No todo es código binario: las historias que me inspiran marcan la forma en que resuelvo problemas, investigo errores y trabajo con las personas.
+          </p>
+        </div>
+
+        <div class="interests-grid">
+          
+          <!-- Card 1: Frieren -->
+          <div class="interest-card frieren">
+            <div class="interest-top">
+              <div class="interest-icon-badge">✨</div>
+              <span class="interest-tag-mini">Paciencia & Magia</span>
+            </div>
+            <h3 class="interest-title">Sousou no Frieren</h3>
+            <div class="interest-meta">葬送のフリーレン • La Belleza del Tiempo</div>
+            <p class="interest-text">
+              De Frieren aprendí que los grandes logros de ingeniería se componen de incontables pequeños esfuerzos acumulados a lo largo del camino. Me encanta refinar cada detalle de una arquitectura y disfrutar del proceso de aprendizaje continuo.
+            </p>
+            <div class="interest-takeaway">
+              <i class="ri-sparkling-fill"></i>
+              <span>Enfoque: Código limpio, sostenible y hecho con mimo.</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Kusuriya no Hitorigoto (Maomao) -->
+          <div class="interest-card maomao">
+            <div class="interest-top">
+              <div class="interest-icon-badge">🌿</div>
+              <span class="interest-tag-mini">Rigor & Diagnóstico</span>
+            </div>
+            <h3 class="interest-title">Los Diarios de la Boticaria</h3>
+            <div class="interest-meta">薬屋のひとりごと • Curiosidad Científica</div>
+            <p class="interest-text">
+              La fascinación de Maomao por las hierbas, pociones y venenos es idéntica a la emoción de investigar un bug misterioso o un fallo en un protocolo de red. No descanso hasta entender la causa raíz y formular la solución perfecta.
+            </p>
+            <div class="interest-takeaway">
+              <i class="ri-flask-fill"></i>
+              <span>Enfoque: Diagnóstico metódico, pruebas y depuración rigurosa.</span>
+            </div>
+          </div>
+
+          <!-- Card 3: One Piece -->
+          <div class="interest-card onepiece">
+            <div class="interest-top">
+              <div class="interest-icon-badge">⚓</div>
+              <span class="interest-tag-mini">Aventura & Nakama</span>
+            </div>
+            <h3 class="interest-title">One Piece & Sun God Nika</h3>
+            <div class="interest-meta">ワンピース • Libertad Creativa</div>
+            <p class="interest-text">
+              El espíritu aventurero de los Sombrero de Paja y la libertad contagiosa de Nika me inspiran a no temer a retos técnicos complejos (¡como mi proyecto de mensajería Nika App!). El trabajo en equipo y la lealtad con los compañeros son innegociables.
+            </p>
+            <div class="interest-takeaway">
+              <i class="ri-sun-fill"></i>
+              <span>Enfoque: Compañerismo, resiliencia y creatividad sin límites.</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Banner Interactivo: La Botica de Sabiduría -->
+        <div class="curiosities-banner">
+          <div class="curiosity-left">
+            <div class="curiosity-icon">🍵</div>
+            <div class="curiosity-info">
+              <h4 id="quoteAuthor">— Sabiduría de la Botica & Anime</h4>
+              <p id="quoteText">"El veneno y la medicina son solo dos caras de la misma moneda; al igual que los bugs y los mejores aprendizajes de un sistema."</p>
+            </div>
+          </div>
+          <button id="randomQuoteBtn" class="interactive-quote-btn" title="Haz clic para preparar una nueva dosis de inspiración">
+            <i class="ri-refresh-line"></i>
+            <span>Preparar Otra Frase</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECCIÓN PROYECTOS ==================== -->
+    <section id="proyectos" class="projects-section">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag"><i class="ri-folder-shared-line"></i> Portafolio de Trabajo</span>
+          <h2 class="section-title">Bitácora de Proyectos & Misiones</h2>
+          <p class="section-desc">
+            Organizados entre experiencias profesionales e investigadoras (Becas con ALTEN/Instituto Cervantes y Correos) y proyectos académicos de alta exigencia técnica.
+          </p>
+        </div>
+
+        <!-- Barra de Filtros -->
+        <div class="projects-filter-bar">
+          <button class="filter-tab active" data-filter="all">
+            <i class="ri-grid-fill"></i>
+            <span>Todas las Misiones</span>
+            <span class="filter-tab-count">4</span>
+          </button>
+          <button class="filter-tab" data-filter="beca">
+            <i class="ri-briefcase-3-fill"></i>
+            <span>Becas & Profesional</span>
+            <span class="filter-tab-count">2</span>
+          </button>
+          <button class="filter-tab" data-filter="academico">
+            <i class="ri-award-fill"></i>
+            <span>Académicos Destacados</span>
+            <span class="filter-tab-count">2</span>
+          </button>
+        </div>
+
+        <!-- Cuadrícula de Proyectos -->
+        <div class="projects-grid">
+          
+          <!-- Proyecto 1: Controlador VR/MR (Beca ALTEN & Cervantes) -->
+          <article class="project-card featured" data-category="beca">
+            <div class="project-meta-row">
+              <span class="project-category-badge category-beca">Beca de I+D</span>
+              <span class="project-institution"><i class="ri-building-line"></i> ALTEN Spain & Inst. Cervantes</span>
+            </div>
+
+            <h3 class="project-title">Controlador XR & Portal de Gestión VR/MR</h3>
+            <p class="project-desc">
+              Ecosistema distribuido para orquestar y supervisar en tiempo real sesiones formativas con visores de Realidad Mixta (Meta Quest) en sedes de todo el mundo.
+            </p>
+
+            <ul class="project-features">
+              <li class="feature-bullet">
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Portal web Flask 3.0 con RBAC, CSP Nonces y tematización accesible (Variables HSL).</span>
+              </li>
+              <li class="feature-bullet">
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>API-Servidor en FastAPI para comunicación de alta frecuencia y baja latencia con visores.</span>
+              </li>
+              <li class="feature-bullet">
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Integración de IA con transcripción Fast-Whisper (STT) y síntesis vocal Coqui (TTS).</span>
+              </li>
+              <li class="feature-bullet">
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Monitor en vivo (Live Tracker) con generación de códigos PIN para activación en aula.</span>
+              </li>
+            </ul>
+
+            <div class="project-tags">
+              <span class="project-tag">Flask 3.0</span>
+              <span class="project-tag">FastAPI</span>
+              <span class="project-tag">Meta Quest MR</span>
+              <span class="project-tag">Fast-Whisper STT</span>
+              <span class="project-tag">Coqui TTS</span>
+              <span class="project-tag">MariaDB / Redis</span>
+              <span class="project-tag">Docker</span>
+            </div>
+
+            <div class="project-actions">
+              <button class="btn-project-details" data-project="controlador-cervantes">
+                <i class="ri-article-line"></i>
+                <span>Ver Arquitectura & Detalles</span>
+              </button>
+              <span class="project-status-note"><i class="ri-shield-check-line"></i> En producción / Beca</span>
+            </div>
+          </article>
+
+          <!-- Proyecto 2: Conteo Correos Casillero (Correos) -->
+          <article class="project-card" data-category="beca">
+            <div class="project-meta-row">
+              <span class="project-category-badge category-beca">Proyecto Corporativo</span>
+              <span class="project-institution"><i class="ri-mail-line"></i> Correos y Telégrafos</span>
+            </div>
+
+            <h3 class="project-title">Conteo Correos: Auditoría de Casilleros por IA</h3>
+            <p class="project-desc">
+              Solución integral para auditar la carga postal pendiente en casilleros de Unidades de Reparto (UR) mediante captura móvil nativa y análisis fotográfico.
+            </p>
+
+            <ul class="project-features">
+              <li class="feature-bullet">
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>App Android nativa en Kotlin para captura en hitos críticos (salida a ruta y cierre de turno).</span>
+              </li>
+              <li class="feature-bullet">
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Portal web distribuido en Python Flask con histórico y analítica de los últimos 7 días.</span>
+              </li>
+              <li class="feature-bullet">
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Seguridad multicapa por anillos de protección (Área → Zona → Sector → Unidad de Reparto).</span>
+              </li>
+              <li class="feature-bullet">
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Módulo de visión artificial para estimación volumétrica de correspondencia sin entregar.</span>
+              </li>
+            </ul>
+
+            <div class="project-tags">
+              <span class="project-tag">Kotlin (Android)</span>
+              <span class="project-tag">Python Flask</span>
+              <span class="project-tag">Visión Artificial</span>
+              <span class="project-tag">MariaDB</span>
+              <span class="project-tag">RBAC Multicapa</span>
+              <span class="project-tag">Arquitectura Distribuida</span>
+            </div>
+
+            <div class="project-actions">
+              <button class="btn-project-details" data-project="correos-casillero">
+                <i class="ri-article-line"></i>
+                <span>Ver Arquitectura & Detalles</span>
+              </button>
+              <span class="project-status-note"><i class="ri-truck-line"></i> Logística Postal</span>
+            </div>
+          </article>
+
+          <!-- Proyecto 3: Marchel Asterisk VoIP (Académico UAH) -->
+          <article class="project-card" data-category="academico">
+            <div class="project-meta-row">
+              <span class="project-category-badge category-academico">Proyecto de Honor</span>
+              <span class="project-institution"><i class="ri-graduation-cap-line"></i> Universidad de Alcalá (UAH)</span>
+            </div>
+
+            <h3 class="project-title">Marchel: Central Telefónica PBX VoIP con Asterisk</h3>
+            <p class="project-desc">
+              Infraestructura PBX IP integral basada en Asterisk v22.2.0, con protocolo PJSIP, síntesis Festival TTS, árbol IVR interactivo y sistema de tarificación CDR.
+            </p>
+
+            <ul class="project-features">
+              <li class="feature-bullet">
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Despliegue sobre Ubuntu Linux en modo bridge con soporte para softphones SIP/PJSIP.</span>
+              </li>
+              <li class="feature-bullet">
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Menús interactivos IVR, colas de atención, buzón de voz (Voicemail) y salas de audio.</span>
+              </li>
+              <li class="feature-bullet">
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Síntesis de voz dinámica integrada mediante Festival TTS para locuciones automáticas.</span>
+              </li>
+              <li class="feature-bullet">
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Panel de control web en Flask y motor de facturación basado en registros MariaDB CDR.</span>
+              </li>
+            </ul>
+
+            <div class="project-tags">
+              <span class="project-tag">Asterisk 22</span>
+              <span class="project-tag">VoIP / PJSIP</span>
+              <span class="project-tag">Festival TTS</span>
+              <span class="project-tag">Python Flask</span>
+              <span class="project-tag">MariaDB CDR</span>
+              <span class="project-tag">Linux Ubuntu</span>
+            </div>
+
+            <div class="project-actions">
+              <button class="btn-project-details" data-project="marchel-asterisk">
+                <i class="ri-article-line"></i>
+                <span>Ver Arquitectura & Detalles</span>
+              </button>
+              <span class="project-status-note"><i class="ri-phone-line"></i> Redes & Telecom</span>
+            </div>
+          </article>
+
+          <!-- Proyecto 4: Nika App & Serverless Lambda (Académico UAH) -->
+          <article class="project-card" data-category="academico">
+            <div class="project-meta-row">
+              <span class="project-category-badge category-academico">Redes & Cloud</span>
+              <span class="project-institution"><i class="ri-graduation-cap-line"></i> Universidad de Alcalá (UAH)</span>
+            </div>
+
+            <h3 class="project-title">Nika App & Microservicio Serverless de Facturación</h3>
+            <p class="project-desc">
+              Plataforma de chat bidireccional en tiempo real inspirada en Sun God Nika (One Piece), combinando WebSockets con tarificación serverless en AWS Lambda.
+            </p>
+
+            <ul class="project-features">
+              <li class="feature-bullet">
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Canales WebSockets de baja latencia con Flask-SocketIO para salas grupales y privados.</span>
+              </li>
+              <li class="feature-bullet">
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Microservicio serverless en AWS Lambda para procesamiento automatizado de facturación.</span>
+              </li>
+              <li class="feature-bullet">
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Base de datos en la nube desplegada en AWS RDS MySQL con pooling de conexiones.</span>
+              </li>
+              <li class="feature-bullet">
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Panel de analíticas de tráfico con estadísticas de consumo en vivo.</span>
+              </li>
+            </ul>
+
+            <div class="project-tags">
+              <span class="project-tag">Flask-SocketIO</span>
+              <span class="project-tag">WebSockets</span>
+              <span class="project-tag">AWS Lambda</span>
+              <span class="project-tag">AWS RDS MySQL</span>
+              <span class="project-tag">Cloud Serverless</span>
+              <span class="project-tag">Python</span>
+            </div>
+
+            <div class="project-actions">
+              <button class="btn-project-details" data-project="nika-cloud">
+                <i class="ri-article-line"></i>
+                <span>Ver Arquitectura & Detalles</span>
+              </button>
+              <span class="project-status-note"><i class="ri-cloud-line"></i> Cloud & Serverless</span>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECCIÓN GRIMORIO TECH ==================== -->
+    <section id="habilidades" class="skills-section">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag"><i class="ri-magic-line"></i> Competencias Técnicas</span>
+          <h2 class="section-title">El Grimorio de Tecnologías & Alquimia</h2>
+          <p class="section-desc">
+            Un conjunto de hechizos y herramientas dominadas a través de proyectos reales de ingeniería, desde el hardware hasta la nube.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          
+          <!-- Skill Col 1: Backend & APIs -->
+          <div class="skill-card">
+            <div class="skill-icon-wrap">
+              <i class="ri-server-line"></i>
+            </div>
+            <h3 class="skill-category-title">Backend & APIs</h3>
+            <p class="skill-category-sub">Servidores, patrones MVC y servicios</p>
+            <div class="skill-badges">
+              <span class="skill-badge"><i class="ri-code-line"></i> Python</span>
+              <span class="skill-badge"><i class="ri-flask-line"></i> Flask 3.0</span>
+              <span class="skill-badge"><i class="ri-flashlight-line"></i> FastAPI</span>
+              <span class="skill-badge"><i class="ri-database-line"></i> SQLAlchemy</span>
+              <span class="skill-badge"><i class="ri-exchange-line"></i> RESTful APIs</span>
+              <span class="skill-badge"><i class="ri-broadcast-line"></i> WebSockets</span>
+              <span class="skill-badge"><i class="ri-layout-masonry-line"></i> Jinja2 SSR</span>
+            </div>
+          </div>
+
+          <!-- Skill Col 2: Redes, VoIP & Sistemas -->
+          <div class="skill-card">
+            <div class="skill-icon-wrap">
+              <i class="ri-rfid-line"></i>
+            </div>
+            <h3 class="skill-category-title">Redes & Telefonía IP</h3>
+            <p class="skill-category-sub">Comunicaciones VoIP y sistemas Linux</p>
+            <div class="skill-badges">
+              <span class="skill-badge"><i class="ri-phone-line"></i> Asterisk 22</span>
+              <span class="skill-badge"><i class="ri-router-line"></i> PJSIP / SIP</span>
+              <span class="skill-badge"><i class="ri-mic-line"></i> IVR Dinámico</span>
+              <span class="skill-badge"><i class="ri-ubuntu-line"></i> Ubuntu / Linux</span>
+              <span class="skill-badge"><i class="ri-terminal-box-line"></i> Bash / SSH</span>
+              <span class="skill-badge"><i class="ri-shield-keyhole-line"></i> Nginx Proxy</span>
+              <span class="skill-badge"><i class="ri-remote-control-line"></i> MobaXterm</span>
+            </div>
+          </div>
+
+          <!-- Skill Col 3: Cloud, Datos & DevOps -->
+          <div class="skill-card">
+            <div class="skill-icon-wrap">
+              <i class="ri-cloud-line"></i>
+            </div>
+            <h3 class="skill-category-title">Cloud & Datos</h3>
+            <p class="skill-category-sub">Almacenamiento e infraestructura serverless</p>
+            <div class="skill-badges">
+              <span class="skill-badge"><i class="ri-amazon-line"></i> AWS Lambda</span>
+              <span class="skill-badge"><i class="ri-database-2-line"></i> AWS RDS</span>
+              <span class="skill-badge"><i class="ri-database-line"></i> MariaDB</span>
+              <span class="skill-badge"><i class="ri-database-line"></i> MySQL</span>
+              <span class="skill-badge"><i class="ri-cpu-line"></i> Redis</span>
+              <span class="skill-badge"><i class="ri-box-3-line"></i> Docker Compose</span>
+              <span class="skill-badge"><i class="ri-git-branch-line"></i> Git / GitHub</span>
+            </div>
+          </div>
+
+          <!-- Skill Col 4: Hardware, XR & IA -->
+          <div class="skill-card">
+            <div class="skill-icon-wrap">
+              <i class="ri-glasses-2-line"></i>
+            </div>
+            <h3 class="skill-category-title">XR, Audio & Móvil</h3>
+            <p class="skill-category-sub">Dispositivos y modelos conversacionales</p>
+            <div class="skill-badges">
+              <span class="skill-badge"><i class="ri-eye-line"></i> Meta Quest MR</span>
+              <span class="skill-badge"><i class="ri-sound-module-line"></i> Fast-Whisper STT</span>
+              <span class="skill-badge"><i class="ri-voiceprint-line"></i> Coqui TTS</span>
+              <span class="skill-badge"><i class="ri-volume-up-line"></i> Festival TTS</span>
+              <span class="skill-badge"><i class="ri-android-line"></i> Kotlin Android</span>
+              <span class="skill-badge"><i class="ri-brain-line"></i> Agentes IA</span>
+              <span class="skill-badge"><i class="ri-contrast-drop-line"></i> CSS HSL</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECCIÓN CONTACTO & CV ==================== -->
+    <section id="contacto" class="contact-section">
+      <div class="container">
+        
+        <div class="contact-card">
+          <span class="contact-badge"><i class="ri-send-plane-fill"></i> ¿Construimos algo juntos?</span>
+          <h2 class="contact-title">¡Zarpemos hacia nuevos proyectos!</h2>
+          <p class="contact-desc">
+            Actualmente abierta a nuevas oportunidades profesionales, colaboraciones técnicas y proyectos de desarrollo de software, redes o tecnologías emergentes.
+          </p>
+
+          <div class="contact-grid">
+            <a href="https://www.linkedin.com/in/chelsea-fernandez-hernandez-64a339189/" target="_blank" rel="noopener noreferrer" class="contact-btn">
+              <i class="ri-linkedin-box-fill" style="color: #0A66C2;"></i>
+              <span>LinkedIn: Chelsea Fernández</span>
+            </a>
+
+            <a href="https://github.com/Chelseafh" target="_blank" rel="noopener noreferrer" class="contact-btn">
+              <i class="ri-github-fill"></i>
+              <span>GitHub: Chelseafh</span>
+            </a>
+
+            <button id="copyEmailBtn" class="contact-btn" title="Haz clic para copiar mi correo">
+              <i class="ri-mail-copy-line" style="color: var(--primary);"></i>
+              <span>chelseafh2003@gmail.com</span>
+            </button>
+          </div>
+
+          <!-- Módulo preparado para descargar el CV cuando se adjunte -->
+          <div class="cv-highlight-box">
+            <div class="cv-highlight-text">
+              <h5><i class="ri-file-pdf-2-line"></i> Currículum Vitae Completo</h5>
+              <p>Espacio reservado para consultar mi formación completa, experiencia y certificaciones en formato PDF.</p>
+            </div>
+            <a href="assets/CV_Chelsea_Fernandez.pdf" download class="btn-upload-cv-placeholder" title="Espacio para vincular el PDF de tu currículum">
+              <i class="ri-download-2-line"></i>
+              <span>Descargar CV</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== PIE DE PÁGINA ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p class="footer-note">"El viaje continúa, recopilando magia en cada commit." ✨</p>
+      <p class="footer-copy">© 2026 Chelsea Fernández Hernández • Diseñado con tonos pasteles, pasión y código propio.</p>
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL DE PROYECTO ==================== -->
+  <div id="projectModal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button id="modalCloseBtn" class="modal-close-btn" aria-label="Cerrar modal">
+        <i class="ri-close-line"></i>
+      </button>
+      <div id="modalContent">
+        <!-- Contenido renderizado dinámicamente con JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
