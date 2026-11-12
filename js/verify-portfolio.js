@@ -1055,20 +1055,38 @@
     const form = document.getElementById("contactForm");
     const nameInput = document.getElementById("contactName");
     const msgInput = document.getElementById("contactMessage");
+
+    const msgStyle = msgInput ? window.getComputedStyle(msgInput) : null;
+    const resizeNone = Boolean(msgStyle && msgStyle.resize === "none");
+
+    const initialMsgHeight = msgInput ? parseFloat(msgInput.style.height || (msgStyle ? msgStyle.height : "0")) : 0;
+    if (msgInput) {
+      msgInput.value = "Línea 1\nLínea 2\nLínea 3\nLínea 4\nLínea 5\nLínea 6\nLínea 7\nLínea 8";
+      msgInput.dispatchEvent(new Event("input", { bubbles: true }));
+    }
+    const expandedMsgHeight = msgInput ? parseFloat(msgInput.style.height || (msgStyle ? msgStyle.height : "0")) : 0;
+    const autoResizeWorks = Boolean(expandedMsgHeight > initialMsgHeight && expandedMsgHeight >= 84);
+
     nameInput.value = "";
     msgInput.value = "";
+    if (msgInput) msgInput.dispatchEvent(new Event("input", { bubbles: true }));
     form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
     const blockedEmpty = !form.getAttribute("data-last-mailto");
 
     nameInput.value = "Equipo QA";
     msgInput.value = "Hola Chelsea, nos interesa hablar sobre prácticas.";
+    if (msgInput) msgInput.dispatchEvent(new Event("input", { bubbles: true }));
     form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
     const mailtoVal = form.getAttribute("data-last-mailto") || "";
     const mailtoOk =
       mailtoVal.indexOf("mailto:chelseafh2003@gmail.com?") === 0 &&
       mailtoVal.indexOf("subject=") !== -1 &&
       !phonePattern.test(decodeURIComponent(mailtoVal));
-    check("Formulario contacto mailto:", blockedEmpty && mailtoOk, mailtoVal.slice(0, 64));
+    check(
+      "Formulario contacto mailto:",
+      blockedEmpty && mailtoOk && resizeNone && autoResizeWorks,
+      "resize=" + (msgStyle ? msgStyle.resize : "none") + ", autoResize=" + autoResizeWorks + ", mailto=" + mailtoVal.slice(0, 48)
+    );
 
     const uploadedNodes = document.querySelectorAll('[data-uploaded="true"]');
     const brokenImages = Array.from(document.querySelectorAll("img")).filter(

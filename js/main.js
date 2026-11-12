@@ -2817,12 +2817,24 @@
     }
 
     const form = document.getElementById("contactForm");
+    const msgInput = document.getElementById("contactMessage");
+
+    if (msgInput) {
+      const autoResizeTextarea = () => {
+        msgInput.style.height = "auto";
+        const nextH = Math.min(Math.max(msgInput.scrollHeight, 84), 380);
+        msgInput.style.height = nextH + "px";
+        msgInput.style.overflowY = msgInput.scrollHeight > 380 ? "auto" : "hidden";
+      };
+      msgInput.addEventListener("input", autoResizeTextarea);
+      autoResizeTextarea();
+    }
+
     if (form) {
       form.addEventListener("submit", (e) => {
         e.preventDefault();
         const nameInput = document.getElementById("contactName");
         const topicInput = document.getElementById("contactTopic");
-        const msgInput = document.getElementById("contactMessage");
 
         const senderName = nameInput ? nameInput.value.trim() : "";
         const topic = topicInput ? topicInput.value.trim() : "Contacto desde portafolio";

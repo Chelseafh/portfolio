@@ -4489,12 +4489,22 @@ html.js-anim .card-av.in .swoosh {
 .form-group select,
 .form-group textarea {
   width: 100%;
+  box-sizing: border-box;
   padding: 9px 12px;
   border-radius: 12px;
   border: 1.5px solid #E5D7B0;
   background: #FFFDF9;
   color: var(--straw-ink);
   font-size: .9rem;
+}
+
+.form-group textarea {
+  resize: none;
+  field-sizing: content;
+  min-height: 84px;
+  max-height: 380px;
+  line-height: 1.55;
+  overflow-y: hidden;
 }
 
 .switch {
