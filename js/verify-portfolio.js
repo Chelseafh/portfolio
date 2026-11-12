@@ -32,6 +32,7 @@
       ".js-sound",
       "#sobre-mi",
       ".frieren-chronicle",
+      ".frieren-chronicle-header .frieren-chronicle-intro",
       "#frierenInfiniteGallery",
       ".marquee-liner--games",
       ".marquee-liner--books",
@@ -205,9 +206,16 @@
     const intactTreasureContext =
       "Compaginar el grado en la UAH (2027) con becas de I+D y casi cuatro años trabajando los fines de semana en Parfois (Nov 2022 – Ago 2026) ha entrenado mi gestión del tiempo, resiliencia y trabajo bajo presión. Ahora busco prácticas curriculares (450 h) ampliables a 900 h.";
 
+    const frierenIntroEl = document.querySelector(".frieren-chronicle-header .frieren-chronicle-intro");
+    const frierenIntroOk = Boolean(
+      frierenIntroEl &&
+        frierenIntroEl.textContent.indexOf("Lejos de cualquier pantalla o reloj") !== -1
+    );
+
     const allIntactOk =
       frierenText.indexOf(intactFrierenReflection) !== -1 &&
       frierenText.indexOf(intactFrierenIntro) !== -1 &&
+      frierenIntroOk &&
       bodyText.indexOf(intactTreasureHeading) !== -1 &&
       bodyText.indexOf(intactTreasureQuote) !== -1 &&
       bodyText.indexOf(intactTreasureContext) !== -1;
@@ -1141,6 +1149,7 @@
     const justifySelectors = [
       ".hero .lead",
       ".sec-head .lead",
+      ".frieren-chronicle-intro",
       ".frieren-chronicle-p",
       ".card-av p",
       ".card-op-main p",
