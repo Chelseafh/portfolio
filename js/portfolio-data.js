@@ -213,7 +213,7 @@ window.PORTFOLIO_DATA = {
       reflection:
         "Para mí, Avatar Aang simboliza la importancia de escuchar y entender que alguien no es tu enemigo simplemente por pensar diferente. Habla de comprender, perdonar y respetar la libertad de pensar distinto siempre que no impida la libertad de los demás.",
       story:
-        "Lo que realmente descongeló mi curiosidad por la tecnología empezó en el instituto, entre asignaturas de robótica y programación, competiciones escolares como Robocampeones, un reto programando un robot con placa Bluetooth junto a Endesa y mi etapa como alumna senior en Technovation Girls creando una app frente al bullying en App Inventor. Aquello me demostró que aprender en comunidad te lleva mucho más lejos —y años después volví al punto de partida como mentora y colaboré en CNSM 2026 en Alcalá de Henares.",
+        "Lo que realmente descongeló mi curiosidad por la tecnología empezó en el instituto, entre asignaturas de robótica y programación, competiciones escolares como Robocampeones, un reto junto a Endesa diseñando un robot en 3D en AutoCAD, fabricándolo con impresora 3D y programando su placa Arduino, y mi etapa como alumna senior en Technovation Girls creando una app frente al bullying en App Inventor. Aquello me demostró que aprender en comunidad te lleva mucho más lejos —y años después volví al punto de partida como mentora y colaboré en CNSM 2026 en Alcalá de Henares.",
       elementsLabel: "Cuatro valores de comunidad y empatía",
       elements: [
         { name: "Aire", value: "Escuchar sin prejuicios" },
@@ -225,12 +225,12 @@ window.PORTFOLIO_DATA = {
         {
           id: "etapa-alumna",
           period: "Instituto · 2019",
-          title: "Mi etapa como alumna: Robocampeones, Endesa y Technovation Senior",
+          title: "Mi etapa como alumna: Robocampeones, reto Arduino Endesa y Technovation Senior",
           role: "Alumna de instituto y participante",
           description:
-            "En el instituto descubrí cuánto me gustaba crear cosas útiles entre asignaturas de robótica y programación: competí en Robocampeones, participé en un reto escolar junto a Endesa programando un robot con placa Bluetooth y, como alumna senior en Technovation Girls 2019, diseñé con mi equipo una app en App Inventor para ayudar a niños y niñas que sufrían bullying. Aquella etapa sembró la pasión que me ha traído hasta hoy.",
+            "En el instituto descubrí cuánto me gustaba crear cosas útiles entre asignaturas de robótica y programación: competí en Robocampeones, participé en un reto escolar junto a Endesa diseñando un robot en 3D en AutoCAD, fabricándolo con impresora 3D y programando su placa Arduino, y, como alumna senior en Technovation Girls 2019, diseñé con mi equipo una app en App Inventor para ayudar a niños y niñas que sufrían bullying. Aquella etapa sembró la pasión que me ha traído hasta hoy.",
           highlights: [
-            "Competición en Robocampeones y reto escolar programando un robot con placa Bluetooth junto a Endesa",
+            "Competición en Robocampeones y reto escolar con Endesa: modelado 3D en AutoCAD, fabricación en impresora 3D y programación de placa Arduino",
             "Alumna senior en Technovation Girls 2019 creando en App Inventor una app frente al bullying"
           ]
         },
@@ -330,19 +330,19 @@ window.PORTFOLIO_DATA = {
       repoFolder: "Controlador/",
       featured: true,
       myRole:
-        "Responsable íntegra del controlador general (api-servidor): todos los endpoints de las gafas VR, autenticación con el launcher, integración con MariaDB, corrección automática de notas, procesamiento concurrente (Faster-Whisper STT en paralelo con Regex + Ollama), configuración de Nginx, Docker y co-diseño de la arquitectura global.",
+        "Responsable íntegra del controlador general backend (api-servidor): diseño y desarrollo de todos los endpoints REST y WebSockets para las gafas VR, autenticación segura con el launcher, persistencia transaccional con MariaDB, corrección automática de notas, pipeline concurrente de audio (Faster-Whisper STT en paralelo con Regex + Ollama), configuración de Nginx TLS, contenedorización con Docker Compose y co-diseño de la arquitectura global del sistema.",
       teamContext:
-        "Trabajo multidisciplinar en equipo: compañeras diseñaron los juegos de Realidad Mixta en los visores VR, otro compañero desarrolló el portal web (api-web) y entre ambos definimos la arquitectura global del sistema.",
+        "Trabajo multidisciplinar en equipo: compañeras diseñaron los escenarios interactivos de Realidad Mixta en las gafas Meta Quest, otro compañero desarrolló el portal docente de gestión (api-web) y entre ambos coordinamos la arquitectura global cliente-servidor.",
       summary:
-        "Backend central en Docker Compose para un juego educativo de español en Realidad Virtual y Mixta con gafas Meta Quest. Me encargué de todo el controlador api-servidor que autentica los visores, sirve los escenarios por PIN, transcribe y evalúa la voz infantil en tiempo real y persiste las calificaciones en MariaDB.",
+        "Controlador central backend dockerizado para una plataforma educativa inmersiva de español en Realidad Virtual y Mixta (Meta Quest) desarrollada para ALTEN y el Instituto Cervantes. Lideré la ingeniería del servidor central que autentica dispositivos, distribuye dinámicamente escenarios pedagógicos por PIN, ingesta streaming de audio infantil en tiempo real vía WebSockets, evalúa la pronunciación con un flujo híbrido de IA y persiste calificaciones trazables en MariaDB.",
       problem:
-        "Las gafas VR/MR del proyecto educativo necesitaban un controlador robusto capaz de validar dispositivos desde el launcher, recibir audio continuo en español hablado por niños, evaluarlo con baja latencia sin bloquear la experiencia de juego y guardar notas trazables por alumno y escenario.",
+        "El proyecto educativo requería conectar múltiples visores Meta Quest simultáneos en aula sin latencia perceptible, validando dispositivos de forma segura, ingiriendo audio continuo infantil en español con diversos niveles de ruido y evaluando las respuestas en tiempo real sin bloquear la inmersión del juego ni perder trazabilidad académica.",
       solution:
-        "Desarrollé api-servidor con FastAPI y concurrencia asíncrona/multihilo: amplificación y empaquetado WAV en memoria del stream PCM16 recibido por WebSocket, transcripción con Faster-Whisper (STT) y evaluación paralela que combina coincidencia fonética/Regex instantánea con fallback semántico en Ollama (qwen2.5:1.5b), todo integrado con MariaDB, Nginx TLS y Docker Compose.",
+        "Diseñé e implementé el microservicio api-servidor con FastAPI y concurrencia multihilo/asíncrona: recepción de audio continuo PCM16 por WebSockets, amplificación y empaquetado WAV en memoria, transcripción automática con Faster-Whisper y motor de evaluación en paralelo que combina reglas deterministas fonéticas/Regex instantáneas con un fallback semántico en Ollama (qwen2.5:1.5b), cancelando la llamada a IA cuando la regla determinista aprueba. Todo el ecosistema opera orquestado en Docker Compose con MariaDB 10.6, proxy seguro Nginx y despliegue OTA para actualizaciones remotas.",
       highlights: [
-        "Controlador general api-servidor completo: endpoints REST para registro/autenticación del launcher (/inicio, /registro_gafa), descarga de configuración de escenarios por PIN (/configuracion), control de turno del alumnado (/siguiente_alumno), guardado transaccional de calificaciones (/notas_alumno) y despliegue OTA (/admin/deploy-ota).",
-        "Procesamiento concurrente de voz e IA: recepción de audio por WebSocket (/escenario/...), transcripción con Faster-Whisper en contenedor y ejecución en paralelo de reglas fonéticas/Regex junto con Ollama, cancelando la llamada al LLM cuando la evaluación determinista alcanza aprobado.",
-        "Infraestructura y seguridad de red: integración completa con la base de datos MariaDB, configuración de Nginx como reverse proxy HTTPS (TLS 1.2/1.3) y orquestación de servicios en Docker Compose co-diseñada junto al responsable del portal web."
+        "Controlador REST y WebSockets de alta disponibilidad: endpoints para registro y autenticación del launcher (/inicio, /registro_gafa), distribución de configuración de escenarios por PIN (/configuracion), gestión de turnos (/siguiente_alumno), persistencia transaccional de notas (/notas_alumno) y actualización remota OTA (/admin/deploy-ota).",
+        "Pipeline concurrente de voz e IA con optimización de latencia: streaming PCM16 por WebSocket (/escenario/...), transcripción con Faster-Whisper en contenedor y ejecución en paralelo de validación determinista y semántica con Ollama, minimizando los tiempos de respuesta para el usuario final.",
+        "Liderazgo técnico e integración de infraestructura: co-diseño de la arquitectura global con los módulos de frontend web y visores, integración con MariaDB respetando integridad referencial, reverse proxy Nginx con cifrado TLS 1.2/1.3 y orquestación reproducible en Docker Compose."
       ],
       tech: [
         "Python",
@@ -435,19 +435,19 @@ window.PORTFOLIO_DATA = {
       repoFolder: "Correos_casillero/Servidor/",
       featured: true,
       myRole:
-        "Responsable de toda la arquitectura backend, infraestructura y sistema de visión artificial (todo el ecosistema salvo el panel web): microservicios en Docker Compose, api-core en FastAPI, colas Redis, worker de inferencia ONNX/YOLO con soporte GPU local, PostgreSQL, Nginx, etiquetado en Label Studio y scripts de entrenamiento en curso.",
+        "Responsable integral de la infraestructura backend, la arquitectura de microservicios y el pipeline de visión artificial (todo el sistema excepto el panel web administrativo): orquestación con Docker Compose, API móvil FastAPI con JWT y validación binaria, cola desacoplada Redis AOF, worker de inferencia ONNX/YOLO con soporte GPU local/CPU, base de datos PostgreSQL 15, reverse proxy Nginx, etiquetado de datasets en Label Studio y scripts de entrenamiento en curso.",
       teamContext:
-        "Beca activa en la Cátedra de Correos y Telégrafos (UAH), asumiendo de extremo a extremo la ingesta, infraestructura, base de datos y visión por computador mientras el panel web administrativo evoluciona como módulo separado.",
+        "Beca de I+D en la Cátedra de Correos y Telégrafos (UAH): asumí de extremo a extremo la ingeniería de datos, infraestructura, ingesta segura y visión por computador, coordinándome con el desarrollo del panel web administrativo que evoluciona como módulo de consulta separado.",
       summary:
-        "Arquitectura distribuida de microservicios en Docker Compose para automatizar mediante visión por computador (YOLO / ONNX Runtime) el conteo de correspondencia en casilleros de 20 baldas a partir de fotografías tomadas en Unidades de Reparto.",
+        "Plataforma distribuida de microservicios en Docker para automatizar la auditoría y conteo de correspondencia en casilleros postales de 20 baldas mediante visión por computador (YOLOv8-seg / ONNX Runtime). Asumí de extremo a extremo la ingeniería del servidor: desde la ingesta móvil segura y la gestión asíncrona de colas hasta la inferencia local acelerada por hardware y la persistencia histórica en PostgreSQL.",
       problem:
-        "Contar manualmente las cartas en cada casillero consume tiempo operativo diario y no deja histórico trazable. Además, los envíos apilados en abanico requieren segmentación precisa y un pipeline desacoplado capaz de absorber picos de subidas sin bloquear la captura móvil.",
+        "El conteo manual diario de correspondencia en casilleros de Unidades de Reparto consume tiempo operativo crítico y genera discrepancias de inventario. El reto técnico exigía segmentar con precisión sobres apilados en distintas orientaciones en imágenes tomadas con PDAs móviles, procesando picos de carga en horas punta sin degradar el servicio ni perder solicitudes.",
       solution:
-        "Diseñé e implementé una arquitectura productor-consumidor en Docker Compose con proxy Nginx, ingesta rápida en FastAPI (api-core) con autenticación JWT y validación binaria JPEG, cola persistente en Redis y worker de análisis (ia-worker) con ONNX Runtime (aceleración GPU local / fallback CPU) que mapea las detecciones a 20 baldas y persiste resultados en PostgreSQL, acompañado de etiquetado propio en Label Studio y entrenamiento iterativo en curso.",
+        "Implementé un patrón productor-consumidor resiliente en Docker Compose: un gateway Nginx filtra y enruta el tráfico; api-core (FastAPI) valida credenciales JWT y analiza los magic bytes JPEG del stream para descartar ficheros corruptos; las tareas se encolan en Redis con persistencia AOF y rate limiting; y un worker especializado (ia-worker) ejecuta inferencia con YOLOv8-seg exportado a ONNX Runtime (CUDA en GPU local con fallback transparente a CPU), proyectando las detecciones poligonales a la matriz física 4×5 (20 baldas) y almacenando resultados trazables en PostgreSQL 15.",
       highlights: [
-        "Arquitectura completa de microservicios (salvo panel web): orquestación con Docker Compose, reverse proxy Nginx con límite de subida y cabeceras de seguridad, y esquema relacional en PostgreSQL 15 con migraciones e integridad referencial estricta.",
-        "Ingesta móvil segura en FastAPI (api-core): emisión/renovación JWT, lista blanca de roles revalidada en base de datos, control de tasa en Redis, comprobación binaria de cabecera JPEG (magic bytes) en streaming y publicación asíncrona en cola.",
-        "Visión artificial y entrenamiento en curso (ia-worker): inferencia con YOLOv8-seg exportado a ONNX Runtime (CUDAExecutionProvider en GPU local y soporte CPU), proyección espacial a la rejilla de 20 baldas (4×5), etiquetado de datasets en Label Studio y experimentación activa de mejora de modelos."
+        "Arquitectura productor-consumidor tolerante a fallos: desacoplamiento completo entre la API de ingesta móvil y el procesamiento de IA mediante colas Redis AOF, absorbiendo ráfagas de capturas simultáneas desde las PDAs de reparto sin cuellos de botella.",
+        "Pipeline de visión artificial de alta precisión: modelo YOLOv8-seg exportado a ONNX Runtime con aceleración GPU (CUDAExecutionProvider) y fallback automático a CPU, mapeo geométrico poligonal hacia las 20 baldas del casillero y ciclo continuo de etiquetado en Label Studio y reentrenamiento.",
+        "Seguridad y persistencia de nivel empresarial: autenticación JWT con control de acceso basado en roles (RBAC), validación binaria de cabeceras JPEG en streaming, esquema relacional robusto en PostgreSQL 15 con integridad referencial estricta y reverse proxy Nginx TLS."
       ],
       tech: [
         "Python",
@@ -551,17 +551,17 @@ window.PORTFOLIO_DATA = {
       repoFolder: "proyectos/Marchel-Asterisk/",
       featured: false,
       myRole:
-        "Desarrollado en pareja junto a Marcos Santos Aragón participando ambos de forma transversal en todo el sistema: despliegue de centralitas Asterisk v22.2.0, protocolo PJSIP, análisis de tráfico de red, síntesis de voz con Festival TTS, integración ODBC con MariaDB, scripts de tarificación y portal web Flask.",
+        "Co-desarrollo integral en pareja junto a Marcos Santos Aragón, participando transversalmente en todo el ciclo de vida del sistema: arquitectura y configuración de centralitas Asterisk v22.2.0 sobre Ubuntu Linux, protocolo PJSIP, análisis de tráfico de red y señalización SIP/RTP con Wireshark, síntesis de voz con Festival TTS, integración ODBC con MariaDB, motor de tarificación batch en Python/Cron y portal web de usuario en Flask.",
       summary:
-        "Central telefónica VoIP completa sobre Ubuntu Linux con Asterisk v22.2.0 y PJSIP. Implementada junto a Marcos Santos Aragón integrando menús IVR, colas, conferencias, síntesis vocal en español con Festival TTS, registro CDR en MariaDB, tarificación automática y panel de usuario en Flask.",
+        "Infraestructura integral de telefonía IP corporativa y tarificación automatizada desplegada sobre Ubuntu Linux con Asterisk v22.2.0 y pila PJSIP. Desarrollado en estrecha colaboración en pareja, el sistema abarca desde la conmutación de extensiones, IVR interactivo, salas de conferencia y síntesis vocal en español (Festival TTS) hasta el registro CDR en MariaDB, tarificación periódica por destino y consulta analítica en Flask.",
       problem:
-        "Construir de cero una infraestructura de telefonía IP realista capaz de enrutar llamadas internas y entre centralitas, analizar el tráfico de señalización y voz, generar locuciones dinámicas y facturar cada llamada de forma trazable.",
+        "Diseñar e implementar una solución de telecomunicaciones VoIP realista que gestione llamadas internas y externas entre múltiples sedes, garantice la calidad de servicio (QoS) en los flujos de voz, proporcione locuciones dinámicas en español para autoservicio del abonado y tarifique de forma auditable cada segundo de llamada según franjas horarias y destinos.",
       solution:
-        "Configuramos Asterisk v22 sobre Ubuntu con pila PJSIP (extensiones 2XXX en softphones Zoiper y troncales entre PBXs), Festival TTS como servicio systemd para locuciones dinámicas en español, conector ODBC hacia MariaDB para almacenar CDRs, scripts Python programados en Cron para calcular tarifas y una interfaz web en Flask para consulta de abonados.",
+        "Desplegamos Asterisk v22 con la pila PJSIP en Ubuntu Server configurando extensiones 2XXX para softphones Zoiper, buzones de voz, IVR, colas de atención, ConfBridge y enlaces troncales inter-PBX. Integramos Festival TTS mediante un servicio daemonizado en systemd para sintetizar locuciones en tiempo de ejecución. Conectamos el motor PBX con MariaDB mediante res_odbc para volcar automáticamente los registros CDR, implementamos scripts batch en Python gobernados por Cron para calcular tarifas dinámicas y construimos una interfaz web en Flask para que los usuarios consulten consumos y estadísticas.",
       highlights: [
-        "Núcleo VoIP Asterisk v22.2.0 con PJSIP: extensiones para softphones Zoiper, buzones de voz, música en espera, transferencias ciegas y asistidas, grabación MixMonitor, salas ConfBridge, colas y enlace troncal entre PBXs.",
-        "Tráfico de red y síntesis vocal: análisis de señalización SIP/RTP en red e integración de Festival TTS en español dentro del dialplan mediante systemd.",
-        "Integración MariaDB CDR y portal Flask: registro automático de llamadas vía res_odbc / cdr_adaptive_odbc, tarificación periódica por destino y franja horaria en Python/Cron y visualización de estadísticas en Flask."
+        "Centralita PBX VoIP avanzada con Asterisk v22 y PJSIP: extensiones SIP, buzón de voz unificado, conferencias ConfBridge, grabación MixMonitor, colas con música en espera y enlaces troncales entre sedes para enrutamiento inteligente de llamadas.",
+        "Análisis riguroso de protocolos y síntesis vocal: captura y verificación profunda de paquetes SIP/RTP con Wireshark para diagnóstico de red e integración de Festival TTS en español dentro del dialplan para menús interactivos dinámicos.",
+        "Sistema de facturación automatizado y panel web: persistencia de llamadas mediante MariaDB CDR vía ODBC, algoritmo de tarificación programado con Cron según destinos/horarios y portal web interactivo en Flask con métricas de consumo."
       ],
       tech: [
         "Asterisk",
@@ -653,17 +653,17 @@ window.PORTFOLIO_DATA = {
       repoFolder: "proyectos/LRSS-4/",
       featured: false,
       myRole:
-        "Desarrollado en pareja junto a Marcos Santos Aragón participando ambos en toda la arquitectura: aplicación web de chat y métricas en Flask + Flask-SocketIO, base de datos gestionada en AWS RDS MySQL y microservicio serverless de facturación en AWS Lambda.",
+        "Co-desarrollo integral en pareja junto a Marcos Santos Aragón, abarcando de extremo a extremo la arquitectura cloud: diseño de la aplicación de mensajería en tiempo real con Flask y Flask-SocketIO, modelado y administración de base de datos relacional en AWS RDS MySQL, desarrollo del microservicio serverless de cálculo de costes en AWS Lambda (Python) y panel de supervisión analítica.",
       summary:
-        "Aplicación web de mensajería instantánea y control de consumo bautizada como Nika App (One Piece). Combina comunicación bidireccional en Flask-SocketIO con persistencia en AWS RDS y cálculo automatizado de costes por kilobyte en AWS Lambda.",
+        "Plataforma cloud de mensajería interactiva en tiempo real y facturación serverless desplegada sobre servicios gestionados de AWS (RDS MySQL y Lambda). Desarrollada en equipo con Marcos Santos Aragón, combina comunicación bidireccional basada en WebSockets con arquitectura desacoplada en la nube para auditar el tráfico de datos y liquidar costes de consumo por kilobyte mediante funciones serverless.",
       problem:
-        "Construir un servicio de chat multiusuario con salas dinámicas, comandos interactivos y mensajería directa que midiera el volumen exacto de tráfico generado y desacoplara el cómputo de facturación hacia arquitectura serverless en la nube.",
+        "Crear un servicio de chat multiusuario escalable y dinámico (mensajes globales, salas privadas y comandos de consola en vivo) que no solo garantizara baja latencia en la entrega, sino que resolviera la necesidad de negocio de medir y facturar el consumo de datos de red de cada usuario sin sobrecargar el servidor web con procesos pesados de cálculo.",
       solution:
-        "Implementamos un servidor Flask + Flask-SocketIO encargado de las salas, comandos en tiempo real y panel /stats, conectado a una instancia AWS RDS MySQL compartida con una función AWS Lambda en Python que localiza mensajes pendientes, calcula su coste por KB y consolida estadísticas.",
+        "Estructuramos un backend en Python con Flask y Flask-SocketIO para gestionar conexiones persistentes, salas dinámicas y enrutamiento de comandos en tiempo real. Para la persistencia y desacoplamiento, conectamos la app a una instancia gestionada de AWS RDS MySQL. Implementamos la lógica de tarificación en una función serverless independiente en AWS Lambda (facturacion.py): procesa por lotes los mensajes no auditados mediante consultas transaccionales, calcula el coste exacto en función de los bytes transmitidos y actualiza los resúmenes financieros, visualizados en un panel web /stats.",
       highlights: [
-        "Chat bidireccional con Flask-SocketIO: soporte para mensajes globales (TODOS:), privados (DESTINATARIO:), salas grupales dinámicas (GRUPO / ABANDONAR), resolución automática de alias repetidos y comandos tipo CLI.",
-        "Despliegue cloud con AWS RDS y AWS Lambda: persistencia de mensajes y tamaño en bytes en MySQL gestionado y función Lambda independiente (facturacion.py) para tarificar tráfico sin acoplar el servidor web.",
-        "Panel /stats en Flask con cambio de tema claro/oscuro: visualización agregada de mensajes enviados, volumen en bytes y coste acumulado por usuario."
+        "Mensajería bidireccional en tiempo real con WebSockets: salas dinámicas, mensajes privados, control de presencia, alias únicos y comandos interactivos estilo CLI implementados con Flask-SocketIO para una comunicación ágil.",
+        "Arquitectura serverless desacoplada en AWS: función AWS Lambda en Python ejecutada bajo demanda para procesar transaccionalmente el volumen de tráfico y liquidar importes por kilobyte sin restar rendimiento al chat en vivo.",
+        "Infraestructura cloud y monitorización: persistencia relacional en AWS RDS MySQL con aislamiento de datos, dashboard analítico en Flask (/stats) para visualización de métricas de red y modelo económico de facturación por consumo."
       ],
       tech: [
         "Python",
@@ -813,12 +813,12 @@ window.PORTFOLIO_DATA = {
     {
       id: "comm-technovation-2019",
       period: "Instituto · 2019",
-      title: "Etapa como alumna: Robocampeones, Endesa Bluetooth & Technovation Girls",
+      title: "Etapa como alumna: Robocampeones, reto Arduino/AutoCAD Endesa & Technovation Girls",
       organization: "Instituto · Primeros pasos en comunidad y tecnología",
       type: "Infancia & Comunidad · Avatar Aang",
       summary:
-        "Entre asignaturas de robótica y programación en el instituto: competición en Robocampeones, reto escolar programando un robot con placa Bluetooth junto a Endesa, y etapa como alumna senior en Technovation Girls 2019 creando una app en App Inventor para ayudar a niños que sufrían bullying.",
-      stack: ["App Inventor", "Robótica", "Bluetooth", "Espíritu de equipo"],
+        "Entre asignaturas de robótica y programación en el instituto: competición en Robocampeones, reto escolar junto a Endesa diseñando un robot en 3D en AutoCAD, fabricándolo con impresora 3D y programando su placa Arduino, y etapa como alumna senior en Technovation Girls 2019 creando una app en App Inventor para ayudar a niños que sufrían bullying.",
+      stack: ["App Inventor", "Arduino", "AutoCAD 3D", "Impresión 3D", "Robótica"],
       linkedProjectId: null
     }
   ],
@@ -985,7 +985,7 @@ window.PORTFOLIO_DATA = {
       inspirationIcon: "assets/icons/appa.svg",
       tag: "Pilar 2 · Empatía & Comunidad",
       description:
-        "Pensar distinto no convierte a nadie en tu enemigo. Tres hitos marcan este camino: mi etapa como alumna en el instituto (Robocampeones, el reto del robot Bluetooth con Endesa y Technovation Girls 2019 con nuestra app antibullying en App Inventor), volver en 2026 como mentora del equipo «Inteligents» creando Saludea en el colegio Ernest Hemingway, y colaborar como staff en CNSM 2026 en Alcalá de Henares.",
+        "Pensar distinto no convierte a nadie en tu enemigo. Tres hitos marcan este camino: mi etapa como alumna en el instituto (Robocampeones, el reto del robot con Arduino, modelado 3D en AutoCAD e impresión 3D junto a Endesa y Technovation Girls 2019 con nuestra app antibullying en App Inventor), volver en 2026 como mentora del equipo «Inteligents» creando Saludea en el colegio Ernest Hemingway, y colaborar como staff en CNSM 2026 en Alcalá de Henares.",
       pills: ["Alumna · Robocampeones & Endesa", "Technovation 2019 & 2026", "Equipo Inteligents · Saludea", "Staff CNSM 2026"],
       takeaway: "Escuchar, comprender y construir comunidad respetando la libertad de pensar diferente."
     },

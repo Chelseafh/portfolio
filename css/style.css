@@ -329,9 +329,10 @@ html[data-theme="contact"] .scroll-progress-bar {
   z-index: 40;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
+  max-width: calc(100vw - 16px);
   gap: 6px;
   padding: 6px 8px;
-  max-width: calc(100% - 16px);
   background: var(--nb);
   border: 1.5px solid var(--nbd);
   color: var(--nc);
@@ -413,6 +414,7 @@ html[data-theme="contact"] .scroll-progress-bar {
   border: 0;
   background: rgba(52, 80, 59, .11);
   flex: none;
+  flex-shrink: 0;
   transition: transform .4s var(--bounce);
 }
 
@@ -441,6 +443,29 @@ html[data-theme="contact"] .scroll-progress-bar {
 
 .js-sound[aria-pressed="true"] .off {
   display: none;
+}
+
+@media (max-width: 480px) {
+  .nav {
+    gap: 4px;
+    padding: 5px 6px;
+    max-width: calc(100vw - 12px);
+  }
+
+  .nav a {
+    padding: 5px 7px;
+    font-size: .78rem;
+  }
+
+  .icon-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .icon-btn svg {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 @media (min-width: 600px) {
@@ -886,6 +911,12 @@ html.js-anim .gust.in {
   gap: 24px;
 }
 
+.about-grid > .rise:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 .about h2,
 .sec-head h2 {
   font-size: clamp(1.9rem, 3.4vw + .7rem, 2.9rem);
@@ -1283,6 +1314,10 @@ html.js-anim .gust.in {
     grid-template-columns: .92fr 1.08fr;
     gap: 52px;
     align-items: start;
+  }
+
+  .about-grid > .rise:last-child .lead {
+    margin-top: calc(1.9rem + 8px);
   }
 
   .frieren-chronicle {
@@ -2821,7 +2856,10 @@ html.js-anim .card-av.in .swoosh {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding-bottom: 10px;
+  min-height: 44px;
+  padding-bottom: 12px;
+  margin-bottom: 0;
+  box-sizing: border-box;
   border-bottom: 1px solid rgba(23, 80, 106, .12);
 }
 
@@ -2871,8 +2909,10 @@ html.js-anim .card-av.in .swoosh {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  min-height: 44px;
   padding-bottom: 12px;
   margin-bottom: 12px;
+  box-sizing: border-box;
   border-bottom: 1px solid rgba(23, 80, 106, .12);
 }
 

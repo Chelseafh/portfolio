@@ -113,6 +113,7 @@
       "#skillsMatrix .skill-chip[role='button']",
       "#trayectoria",
       ".timeline-filters",
+      '[data-timeline-filter="academico"]',
       "#timelineContainer",
       '#contacto[data-theme-zone="contact"]',
       "#copyEmailBtn",
@@ -185,6 +186,8 @@
     const cubaMatchesData = serializedData.match(/\bcuba\b/gi) || [];
     const badRoboDom = bodyTextContent.match(/ROBOcampeones/g) || [];
     const badRoboData = serializedData.match(/ROBOcampeones/g) || [];
+    const bluetoothMatchesDom = bodyTextContent.match(/placa\s+Bluetooth/gi) || [];
+    const bluetoothMatchesData = serializedData.match(/placa\s+Bluetooth/gi) || [];
     const goodRoboCount = (bodyTextContent.match(/Robocampeones/g) || []).length;
     const islaMatchesSobreMi = (sobreMiEl ? sobreMiEl.textContent : "").match(/nac[ií] en una isla/gi) || [];
     const heroLeadText = ((document.querySelector("#inicio .lead") || {}).textContent || "").replace(/\s+/g, " ").trim();
@@ -215,6 +218,8 @@
         cubaMatchesData.length === 0 &&
         badRoboDom.length === 0 &&
         badRoboData.length === 0 &&
+        bluetoothMatchesDom.length === 0 &&
+        bluetoothMatchesData.length === 0 &&
         goodRoboCount >= 2 &&
         islaMatchesSobreMi.length === 1 &&
         heroClean &&
@@ -223,6 +228,8 @@
         (cubaMatchesDom.length + cubaMatchesData.length) +
         ", badRobo=" +
         (badRoboDom.length + badRoboData.length) +
+        ", bt=" +
+        (bluetoothMatchesDom.length + bluetoothMatchesData.length) +
         ", isla=" +
         islaMatchesSobreMi.length +
         ", intact=" +
@@ -399,10 +406,18 @@
     const allReset =
       soundBtns.length >= 2 &&
       soundBtns.every((b) => b.getAttribute("aria-pressed") === "false");
+    const navEl = document.querySelector(".nav");
+    const soundInNav = document.querySelector(".nav .icon-btn.js-sound");
+    let navSoundContained = true;
+    if (navEl && soundInNav) {
+      const nr = navEl.getBoundingClientRect();
+      const sr = soundInNav.getBoundingClientRect();
+      navSoundContained = sr.right <= nr.right + 2 && sr.left >= nr.left - 2;
+    }
     check(
       "Sincronización .js-sound y audio Brook/Sombrero/Robin",
-      allPressed && allReset,
-      "pressed=" + allPressed + ", reset=" + allReset
+      allPressed && allReset && navSoundContained,
+      "pressed=" + allPressed + ", reset=" + allReset + ", navContained=" + navSoundContained
     );
 
     // 9. Modo anime #animeToggle
@@ -853,6 +868,7 @@
     const tlAll = document.querySelector('[data-timeline-filter="all"]');
     const tlBecas = document.querySelector('[data-timeline-filter="becas"]');
     const tlComunidad = document.querySelector('[data-timeline-filter="comunidad"]');
+    const tlAcademico = document.querySelector('[data-timeline-filter="academico"]');
     const countVisibleTl = () =>
       Array.from(document.querySelectorAll("#timelineContainer .timeline-item")).filter((el) => !el.hidden).length;
     const tlInitCount = countVisibleTl();
@@ -862,6 +878,11 @@
     const tlBecasCount = countVisibleTl();
     click(tlComunidad);
     const tlComCount = countVisibleTl();
+    let tlAcadCount = 0;
+    if (tlAcademico) {
+      click(tlAcademico);
+      tlAcadCount = countVisibleTl();
+    }
     click(tlFeatured);
     const tlBackCount = countVisibleTl();
     check(
@@ -870,8 +891,17 @@
         tlAllCount === 8 &&
         tlBecasCount === 2 &&
         tlComCount === 3 &&
+        Boolean(tlAcademico && tlAcadCount >= 1) &&
         tlBackCount === 5,
-      "featured=" + tlInitCount + ", all=" + tlAllCount + ", becas=" + tlBecasCount + ", comunidad=" + tlComCount
+      "featured=" +
+        tlInitCount +
+        ", all=" +
+        tlAllCount +
+        ", becas=" +
+        tlBecasCount +
+        ", comunidad=" +
+        tlComCount +
+        (tlAcademico ? ", academico=" + tlAcadCount : "")
     );
 
     const galleryFooterEl = document.querySelector(".projects-gallery-footer");
