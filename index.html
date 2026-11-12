@@ -1,641 +1,1433 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="frieren" data-anime="on">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chelsea Fernández | Portafolio de Ingeniería & Software</title>
-  <meta name="description" content="Portafolio personal de Chelsea Fernández Hernández. Ingeniera de Telecomunicaciones especializada en desarrollo de software, arquitecturas distribuidas, VoIP, XR e inteligencia artificial.">
+  <meta name="theme-color" content="#FBF7EC">
+  <title>Chelsea Fernández Hernández — Portafolio Narrativo (CHFH)</title>
+  <meta name="description" content="Portafolio narrativo de Chelsea Fernández Hernández: vida sin prisas en Madrid, comunidad y proyectos de Ingeniería Telemática (UAH · Prom. 2027).">
 
-  <!-- Google Fonts: Plus Jakarta Sans, Outfit & Caveat -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='10' fill='%2345674B'/%3E%3Ctext x='16' y='19.5' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='10.2' fill='%23FFFDF7'%3ECHFH%3C/text%3E%3C/svg%3E">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Remix Icon CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
-
-  <!-- Estilos del Portafolio -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <div class="scroll-progress" aria-hidden="true">
+    <span id="scrollProgressBar" class="scroll-progress-bar"></span>
+  </div>
+  <canvas id="fx" aria-hidden="true"></canvas>
 
-  <!-- ==================== CABECERA Y NAVEGACIÓN ==================== -->
-  <header class="site-header">
-    <nav class="nav-pill">
-      <a href="#inicio" class="logo-brand">
-        <span class="logo-icon">✨</span>
-        <span>chelsea<span style="opacity: 0.6;">.dev</span></span>
-      </a>
-
-      <ul class="nav-links">
-        <li><a href="#inicio" class="nav-link active">Inicio</a></li>
-        <li><a href="#intereses" class="nav-link">Pasiones & Anime</a></li>
-        <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
-        <li><a href="#habilidades" class="nav-link">Grimorio Tech</a></li>
-        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+  <!-- ==================== NAV FLOTANTE METAMÓRFICO ==================== -->
+  <header class="nav" data-theme="frieren">
+    <a class="brand" href="#inicio" aria-label="Chelsea Fernández Hernández, inicio">CHFH</a>
+    <nav aria-label="Capítulos del portafolio">
+      <ul>
+        <li><a href="#inicio" data-zone="frieren" aria-current="true">Paz</a></li>
+        <li><a href="#comunidad" data-zone="avatar">Comunidad</a></li>
+        <li><a href="#aventura" data-zone="onepiece">Aventura</a></li>
+        <li><a href="#contacto" data-zone="contact">Contacto</a></li>
       </ul>
-
-      <div class="nav-actions">
-        <!-- Selector de Vibra / Tema Pastel -->
-        <div class="theme-picker" title="Elige tu vibra pastel">
-          <button class="theme-btn active" data-theme="frieren" title="Tema Frieren: Cielo, Magia & Hechizos">
-            <span>✨</span> Frieren
-          </button>
-          <button class="theme-btn" data-theme="maomao" title="Tema Maomao: Boticaria, Hierbas & Pergamino">
-            <span>🌿</span> Maomao
-          </button>
-          <button class="theme-btn" data-theme="onepiece" title="Tema One Piece: Gran Línea & Sol de Nika">
-            <span>⚓</span> Nika
-          </button>
-        </div>
-
-        <a href="#contacto" class="btn-contact-nav">
-          <i class="ri-mail-send-line"></i>
-          <span>Hablemos</span>
-        </a>
-      </div>
     </nav>
+    <button class="icon-btn js-sound" type="button" aria-pressed="false" aria-label="Sonido ambiente" title="Activar o silenciar sonido ambiente">
+      <svg class="off" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
+      <svg class="on" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+    </button>
   </header>
 
-  <main>
-    <!-- ==================== SECCIÓN HERO ==================== -->
-    <section id="inicio" class="hero-section">
-      <div class="container hero-grid">
-        
-        <div class="hero-content">
-          <div class="hero-badge-wrap">
-            <i class="ri-sparkling-2-fill"></i>
-            <span>Ingeniería de Telecomunicaciones • Software & Redes</span>
-          </div>
+  <main id="contenido">
+    <!-- ==================== CAPÍTULO I: FRIEREN ==================== -->
+    <section class="frieren" id="inicio" data-theme-zone="frieren">
+      <!-- Orbes perlados cristalinos y hojas botánicas SVG flotando -->
+      <span class="orb orb--glint" style="left:6%;top:18%;width:26px;height:26px;--d:9.5s;--ox:16px" aria-hidden="true"></span>
+      <span class="orb orb--glint" style="left:43%;top:11%;width:16px;height:16px;--d:7.5s;--dl:-2s;--ox:-14px" aria-hidden="true"></span>
+      <span class="orb orb--glint" style="left:89%;top:28%;width:22px;height:22px;--d:11s;--dl:-4s;--ox:-12px" aria-hidden="true"></span>
+      <span class="orb" style="left:21%;top:54%;width:12px;height:12px;--d:8.2s;--dl:-1.5s;--ox:-15px" aria-hidden="true"></span>
+      <span class="orb orb--glint" style="left:67%;top:66%;width:20px;height:20px;--d:10.5s;--dl:-5.5s;--ox:14px" aria-hidden="true"></span>
+      <span class="orb" style="left:32%;top:8%;width:8px;height:8px;--d:6.8s;--dl:-3.2s;--ox:10px" aria-hidden="true"></span>
+      <span class="orb orb--glint" style="left:93%;top:62%;width:24px;height:24px;--d:12s;--dl:-7s;--ox:-16px" aria-hidden="true"></span>
+      <span class="orb" style="left:11%;top:79%;width:10px;height:10px;--d:8.8s;--dl:-2.8s;--ox:12px" aria-hidden="true"></span>
+      <span class="orb orb--glint" style="left:54%;top:46%;width:18px;height:18px;--d:9.8s;--dl:-4.6s;--ox:-10px" aria-hidden="true"></span>
+      <span class="orb" style="left:76%;top:85%;width:14px;height:14px;--d:8.4s;--dl:-6.1s;--ox:13px" aria-hidden="true"></span>
 
-          <h1 class="hero-title">
-            Hola, soy <span class="hero-title-highlight">Chelsea</span>
-          </h1>
-
-          <div class="hero-handwritten-note">
-            <i class="ri-quill-pen-line"></i>
-            <span>/* buscando siempre la magia detrás de cada línea de código */</span>
-          </div>
-
-          <p class="hero-lead">
-            Graduada en <strong>Ingeniería de Telecomunicaciones por la Universidad de Alcalá (UAH)</strong> y apasionada por construir sistemas robustos, arquitecturas distribuidas, telefonía IP y experiencias con tecnologías emergentes (XR e IA). Afronto los desafíos técnicos con la minuciosa curiosidad de una boticaria y el entusiasmo incombustible de surcar la Gran Línea.
-          </p>
-
-          <div class="hero-cta-group">
-            <a href="#proyectos" class="btn-primary">
-              <i class="ri-compass-3-line"></i>
-              <span>Explorar Proyectos</span>
-            </a>
-            <a href="https://www.linkedin.com/in/chelsea-fernandez-hernandez-64a339189/" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-              <i class="ri-linkedin-box-fill"></i>
-              <span>Conectar en LinkedIn</span>
-            </a>
-            <a href="#contacto" class="btn-pill-cv" title="Espacio para descargar el CV en PDF">
-              <i class="ri-file-user-line"></i>
-              <span>CV (Próximamente)</span>
-            </a>
-          </div>
-
-          <div class="hero-socials">
-            <span class="hero-socials-label">Redes & Contacto:</span>
-            <a href="https://www.linkedin.com/in/chelsea-fernandez-hernandez-64a339189/" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="LinkedIn">
-              <i class="ri-linkedin-fill"></i>
-            </a>
-            <a href="https://github.com/Chelseafh" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="GitHub">
-              <i class="ri-github-fill"></i>
-            </a>
-            <a href="mailto:chelseafh2003@gmail.com" class="hero-social-link" title="Email directo">
-              <i class="ri-mail-line"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Tarjeta Hero: Ficha de Personaje / Cuaderno de Aventurera -->
-        <div class="hero-visual">
-          <div class="character-card">
-            <div class="card-stamp">EDICIÓN ALQUIMISTA</div>
-            
-            <div class="character-header">
-              <div class="avatar-badge">
-                <i class="ri-code-s-slash-line"></i>
-              </div>
-              <div class="character-identity">
-                <h3>Chelsea Fernández</h3>
-                <p>Software & Systems Engineer</p>
-              </div>
-            </div>
-
-            <ul class="character-stats">
-              <li class="stat-item">
-                <span class="stat-label"><i class="ri-graduation-cap-line"></i> Formación</span>
-                <span class="stat-value">Ingeniería (UAH)</span>
-              </li>
-              <li class="stat-item">
-                <span class="stat-label"><i class="ri-briefcase-4-line"></i> Beca de Investigación</span>
-                <span class="stat-value highlight">ALTEN & Inst. Cervantes</span>
-              </li>
-              <li class="stat-item">
-                <span class="stat-label"><i class="ri-magic-line"></i> Especialidades</span>
-                <span class="stat-value">Flask • FastAPI • VoIP • XR</span>
-              </li>
-              <li class="stat-item">
-                <span class="stat-label"><i class="ri-heart-3-line"></i> Inspiración</span>
-                <span class="stat-value">Frieren • Maomao • One Piece</span>
-              </li>
-              <li class="stat-item">
-                <span class="stat-label"><i class="ri-cup-line"></i> Combustible</span>
-                <span class="stat-value">Té de jazmín & Curiosidad</span>
-              </li>
-            </ul>
-
-            <div class="character-quote-box">
-              <i class="ri-chat-quote-line"></i>
-              <span>"Los mejores sistemas no se programan con prisa, sino con la paciencia de quien colecciona hechizos que perdurarán en el tiempo."</span>
-            </div>
-          </div>
-        </div>
-
+      <div class="frieren-leaves" aria-hidden="true">
+        <svg class="frieren-leaf frieren-leaf--a" style="left:4%;top:9%;--lw:21px;--ld:15s;--ldl:-3.5s;--lx:34px" viewBox="0 0 28 28"><path d="M14 24 C14 21, 14 19, 13.5 18 C7 15, 6 7, 14.5 3 C21.5 7, 21 15.5, 14.5 18 Z" fill="#7D9E77"/><path class="leaf-vein" d="M14 24 L14.3 6" stroke="#EEF5EA" stroke-width="1.25" stroke-linecap="round" fill="none"/></svg>
+        <svg class="frieren-leaf frieren-leaf--b" style="left:13%;top:34%;--lw:15px;--ld:16.5s;--ldl:-6s;--lx:-30px" viewBox="0 0 28 28"><path d="M13 24 C13.5 21, 14 19.5, 13.5 18.5 C6.5 16, 6.5 8, 16 3.5 C22 8.5, 20.5 16.5, 14.5 18.5 Z" fill="#D1B062"/><path class="leaf-vein" d="M13.2 24 C14 18, 14.6 12, 15.6 5.5" stroke="#FFF6DD" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+        <svg class="frieren-leaf frieren-leaf--c" style="left:23%;top:7%;--lw:13px;--ld:14.5s;--ldl:-4.5s;--lx:28px" viewBox="0 0 28 28"><path d="M14 24.5 L14 18.5 C8.5 15.5, 8 8.5, 14 3 C20 8.5, 19.5 15.5, 14 18.5 Z" fill="#95B48A"/><path class="leaf-vein" d="M14 24.5 L14 5.5" stroke="#F4F9F0" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+        <svg class="frieren-leaf frieren-leaf--a" style="left:36%;top:25%;--lw:18px;--ld:17.5s;--ldl:-8.5s;--lx:-34px" viewBox="0 0 28 28"><path d="M13.5 24 C14 20.5, 14 19, 13.5 18 C6.5 15, 7 7, 15.5 3 C22 7.5, 21 15.5, 14.5 18 Z" fill="#668A6E"/><path class="leaf-vein" d="M13.7 24 C14 17, 14.5 11, 15.2 5" stroke="#E4EFE6" stroke-width="1.25" stroke-linecap="round" fill="none"/></svg>
+        <svg class="frieren-leaf frieren-leaf--b" style="left:49%;top:14%;--lw:14px;--ld:15.5s;--ldl:-10.5s;--lx:26px" viewBox="0 0 28 28"><path d="M14 24 L14 18.5 C7.5 15.5, 7.5 8, 14.5 3 C21 8, 20.5 15.5, 14.5 18.5 Z" fill="#AFC69B"/><path class="leaf-vein" d="M14 24 L14.4 5.5" stroke="#FAFDF7" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+        <svg class="frieren-leaf frieren-leaf--c" style="left:62%;top:18%;--lw:22px;--ld:18s;--ldl:-5s;--lx:-32px" viewBox="0 0 28 28"><path d="M13.5 24.5 C14 21, 14 19, 13.5 18 C7 15, 6 7, 14.5 2.8 C21.5 7, 21 15.5, 14.5 18 Z" fill="#7D9E77"/><path class="leaf-vein" d="M13.8 24.5 L14.4 5.5" stroke="#EEF5EA" stroke-width="1.25" stroke-linecap="round" fill="none"/></svg>
+        <svg class="frieren-leaf frieren-leaf--a" style="left:75%;top:11%;--lw:16px;--ld:15s;--ldl:-7.5s;--lx:30px" viewBox="0 0 28 28"><path d="M13 24 C13.5 21, 14 19.5, 13.5 18.5 C6.5 16, 6.5 8, 16 3.5 C22 8.5, 20.5 16.5, 14.5 18.5 Z" fill="#95B48A"/><path class="leaf-vein" d="M13.2 24 C14 18, 14.6 12, 15.6 5.5" stroke="#F4F9F0" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+        <svg class="frieren-leaf frieren-leaf--b" style="left:87%;top:22%;--lw:24px;--ld:19s;--ldl:-11.5s;--lx:-36px" viewBox="0 0 28 28"><path d="M14 24 C14 20.5, 14 19, 13.5 18 C6.5 15, 7 7, 15.5 3 C22 7.5, 21 15.5, 14.5 18 Z" fill="#668A6E"/><path class="leaf-vein" d="M14 24 L15 5" stroke="#E4EFE6" stroke-width="1.25" stroke-linecap="round" fill="none"/></svg>
+        <svg class="frieren-leaf frieren-leaf--c" style="left:92%;top:43%;--lw:15px;--ld:14s;--ldl:-4s;--lx:-28px" viewBox="0 0 28 28"><path d="M14 24.5 L14 18.5 C8.5 15.5, 8 8.5, 14 3 C20 8.5, 19.5 15.5, 14 18.5 Z" fill="#D1B062"/><path class="leaf-vein" d="M14 24.5 L14 5.5" stroke="#FFF6DD" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+        <svg class="frieren-leaf frieren-leaf--a" style="left:7%;top:58%;--lw:19px;--ld:17s;--ldl:-9.5s;--lx:32px" viewBox="0 0 28 28"><path d="M13.5 24 C14 20.5, 14 19, 13.5 18 C6.5 15, 7 7, 15.5 3 C22 7.5, 21 15.5, 14.5 18 Z" fill="#AFC69B"/><path class="leaf-vein" d="M13.8 24 L15 5" stroke="#FAFDF7" stroke-width="1.25" stroke-linecap="round" fill="none"/></svg>
+        <svg class="frieren-leaf frieren-leaf--b" style="left:19%;top:72%;--lw:12px;--ld:13.5s;--ldl:-3.5s;--lx:-26px" viewBox="0 0 28 28"><path d="M14 24 L14 18.5 C7.5 15.5, 7.5 8, 14.5 3 C21 8, 20.5 15.5, 14.5 18.5 Z" fill="#7D9E77"/><path class="leaf-vein" d="M14 24 L14.4 5.5" stroke="#EEF5EA" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+        <svg class="frieren-leaf frieren-leaf--c" style="left:41%;top:64%;--lw:17px;--ld:17.5s;--ldl:-11s;--lx:30px" viewBox="0 0 28 28"><path d="M13 24 C13.5 21, 14 19.5, 13.5 18.5 C6.5 16, 6.5 8, 16 3.5 C22 8.5, 20.5 16.5, 14.5 18.5 Z" fill="#95B48A"/><path class="leaf-vein" d="M13.2 24 C14 18, 14.6 12, 15.6 5.5" stroke="#F4F9F0" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+        <svg class="frieren-leaf frieren-leaf--a" style="left:64%;top:54%;--lw:20px;--ld:16s;--ldl:-7s;--lx:-34px" viewBox="0 0 28 28"><path d="M13.5 24.5 C14 21, 14 19, 13.5 18 C7 15, 6 7, 14.5 2.8 C21.5 7, 21 15.5, 14.5 18 Z" fill="#668A6E"/><path class="leaf-vein" d="M13.8 24.5 L14.4 5.5" stroke="#E4EFE6" stroke-width="1.25" stroke-linecap="round" fill="none"/></svg>
+        <svg class="frieren-leaf frieren-leaf--b" style="left:82%;top:69%;--lw:16px;--ld:15s;--ldl:-9s;--lx:28px" viewBox="0 0 28 28"><path d="M14 24 L14 18.5 C7.5 15.5, 7.5 8, 14.5 3 C21 8, 20.5 15.5, 14.5 18.5 Z" fill="#D1B062"/><path class="leaf-vein" d="M14 24 L14.4 5.5" stroke="#FFF6DD" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+        <svg class="frieren-leaf frieren-leaf--c" style="left:53%;top:79%;--lw:23px;--ld:18.5s;--ldl:-12s;--lx:-32px" viewBox="0 0 28 28"><path d="M14 24 C14 20.5, 14 19, 13.5 18 C6.5 15, 7 7, 15.5 3 C22 7.5, 21 15.5, 14.5 18 Z" fill="#AFC69B"/><path class="leaf-vein" d="M14 24 L15 5" stroke="#FAFDF7" stroke-width="1.25" stroke-linecap="round" fill="none"/></svg>
       </div>
-    </section>
 
-    <!-- ==================== SECCIÓN INTERESES & ANIME ==================== -->
-    <section id="intereses" class="interests-section">
-      <div class="container">
-        
-        <div class="section-header">
-          <span class="section-tag"><i class="ri-heart-pulse-line"></i> Personalidad & Filosofía</span>
-          <h2 class="section-title">El Rincón de Curiosidades & Pasiones</h2>
-          <p class="section-desc">
-            No todo es código binario: las historias que me inspiran marcan la forma en que resuelvo problemas, investigo errores y trabajo con las personas.
-          </p>
-        </div>
-
-        <div class="interests-grid">
-          
-          <!-- Card 1: Frieren -->
-          <div class="interest-card frieren">
-            <div class="interest-top">
-              <div class="interest-icon-badge">✨</div>
-              <span class="interest-tag-mini">Paciencia & Magia</span>
-            </div>
-            <h3 class="interest-title">Sousou no Frieren</h3>
-            <div class="interest-meta">葬送のフリーレン • La Belleza del Tiempo</div>
-            <p class="interest-text">
-              De Frieren aprendí que los grandes logros de ingeniería se componen de incontables pequeños esfuerzos acumulados a lo largo del camino. Me encanta refinar cada detalle de una arquitectura y disfrutar del proceso de aprendizaje continuo.
-            </p>
-            <div class="interest-takeaway">
-              <i class="ri-sparkling-fill"></i>
-              <span>Enfoque: Código limpio, sostenible y hecho con mimo.</span>
-            </div>
-          </div>
-
-          <!-- Card 2: Kusuriya no Hitorigoto (Maomao) -->
-          <div class="interest-card maomao">
-            <div class="interest-top">
-              <div class="interest-icon-badge">🌿</div>
-              <span class="interest-tag-mini">Rigor & Diagnóstico</span>
-            </div>
-            <h3 class="interest-title">Los Diarios de la Boticaria</h3>
-            <div class="interest-meta">薬屋のひとりごと • Curiosidad Científica</div>
-            <p class="interest-text">
-              La fascinación de Maomao por las hierbas, pociones y venenos es idéntica a la emoción de investigar un bug misterioso o un fallo en un protocolo de red. No descanso hasta entender la causa raíz y formular la solución perfecta.
-            </p>
-            <div class="interest-takeaway">
-              <i class="ri-flask-fill"></i>
-              <span>Enfoque: Diagnóstico metódico, pruebas y depuración rigurosa.</span>
-            </div>
-          </div>
-
-          <!-- Card 3: One Piece -->
-          <div class="interest-card onepiece">
-            <div class="interest-top">
-              <div class="interest-icon-badge">⚓</div>
-              <span class="interest-tag-mini">Aventura & Nakama</span>
-            </div>
-            <h3 class="interest-title">One Piece & Sun God Nika</h3>
-            <div class="interest-meta">ワンピース • Libertad Creativa</div>
-            <p class="interest-text">
-              El espíritu aventurero de los Sombrero de Paja y la libertad contagiosa de Nika me inspiran a no temer a retos técnicos complejos (¡como mi proyecto de mensajería Nika App!). El trabajo en equipo y la lealtad con los compañeros son innegociables.
-            </p>
-            <div class="interest-takeaway">
-              <i class="ri-sun-fill"></i>
-              <span>Enfoque: Compañerismo, resiliencia y creatividad sin límites.</span>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Banner Interactivo: La Botica de Sabiduría -->
-        <div class="curiosities-banner">
-          <div class="curiosity-left">
-            <div class="curiosity-icon">🍵</div>
-            <div class="curiosity-info">
-              <h4 id="quoteAuthor">— Sabiduría de la Botica & Anime</h4>
-              <p id="quoteText">"El veneno y la medicina son solo dos caras de la misma moneda; al igual que los bugs y los mejores aprendizajes de un sistema."</p>
-            </div>
-          </div>
-          <button id="randomQuoteBtn" class="interactive-quote-btn" title="Haz clic para preparar una nueva dosis de inspiración">
-            <i class="ri-refresh-line"></i>
-            <span>Preparar Otra Frase</span>
-          </button>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ==================== SECCIÓN PROYECTOS ==================== -->
-    <section id="proyectos" class="projects-section">
-      <div class="container">
-        
-        <div class="section-header">
-          <span class="section-tag"><i class="ri-folder-shared-line"></i> Portafolio de Trabajo</span>
-          <h2 class="section-title">Bitácora de Proyectos & Misiones</h2>
-          <p class="section-desc">
-            Organizados entre experiencias profesionales e investigadoras (Becas con ALTEN/Instituto Cervantes y Correos) y proyectos académicos de alta exigencia técnica.
-          </p>
-        </div>
-
-        <!-- Barra de Filtros -->
-        <div class="projects-filter-bar">
-          <button class="filter-tab active" data-filter="all">
-            <i class="ri-grid-fill"></i>
-            <span>Todas las Misiones</span>
-            <span class="filter-tab-count">4</span>
-          </button>
-          <button class="filter-tab" data-filter="beca">
-            <i class="ri-briefcase-3-fill"></i>
-            <span>Becas & Profesional</span>
-            <span class="filter-tab-count">2</span>
-          </button>
-          <button class="filter-tab" data-filter="academico">
-            <i class="ri-award-fill"></i>
-            <span>Académicos Destacados</span>
-            <span class="filter-tab-count">2</span>
-          </button>
-        </div>
-
-        <!-- Cuadrícula de Proyectos -->
-        <div class="projects-grid">
-          
-          <!-- Proyecto 1: Controlador VR/MR (Beca ALTEN & Cervantes) -->
-          <article class="project-card featured" data-category="beca">
-            <div class="project-meta-row">
-              <span class="project-category-badge category-beca">Beca de I+D</span>
-              <span class="project-institution"><i class="ri-building-line"></i> ALTEN Spain & Inst. Cervantes</span>
-            </div>
-
-            <h3 class="project-title">Controlador XR & Portal de Gestión VR/MR</h3>
-            <p class="project-desc">
-              Ecosistema distribuido para orquestar y supervisar en tiempo real sesiones formativas con visores de Realidad Mixta (Meta Quest) en sedes de todo el mundo.
-            </p>
-
-            <ul class="project-features">
-              <li class="feature-bullet">
-                <i class="ri-checkbox-circle-fill"></i>
-                <span>Portal web Flask 3.0 con RBAC, CSP Nonces y tematización accesible (Variables HSL).</span>
-              </li>
-              <li class="feature-bullet">
-                <i class="ri-checkbox-circle-fill"></i>
-                <span>API-Servidor en FastAPI para comunicación de alta frecuencia y baja latencia con visores.</span>
-              </li>
-              <li class="feature-bullet">
-                <i class="ri-checkbox-circle-fill"></i>
-                <span>Integración de IA con transcripción Fast-Whisper (STT) y síntesis vocal Coqui (TTS).</span>
-              </li>
-              <li class="feature-bullet">
-                <i class="ri-checkbox-circle-fill"></i>
-                <span>Monitor en vivo (Live Tracker) con generación de códigos PIN para activación en aula.</span>
-              </li>
-            </ul>
-
-            <div class="project-tags">
-              <span class="project-tag">Flask 3.0</span>
-              <span class="project-tag">FastAPI</span>
-              <span class="project-tag">Meta Quest MR</span>
-              <span class="project-tag">Fast-Whisper STT</span>
-              <span class="project-tag">Coqui TTS</span>
-              <span class="project-tag">MariaDB / Redis</span>
-              <span class="project-tag">Docker</span>
-            </div>
-
-            <div class="project-actions">
-              <button class="btn-project-details" data-project="controlador-cervantes">
-                <i class="ri-article-line"></i>
-                <span>Ver Arquitectura & Detalles</span>
-              </button>
-              <span class="project-status-note"><i class="ri-shield-check-line"></i> En producción / Beca</span>
-            </div>
-          </article>
-
-          <!-- Proyecto 2: Conteo Correos Casillero (Correos) -->
-          <article class="project-card" data-category="beca">
-            <div class="project-meta-row">
-              <span class="project-category-badge category-beca">Proyecto Corporativo</span>
-              <span class="project-institution"><i class="ri-mail-line"></i> Correos y Telégrafos</span>
-            </div>
-
-            <h3 class="project-title">Conteo Correos: Auditoría de Casilleros por IA</h3>
-            <p class="project-desc">
-              Solución integral para auditar la carga postal pendiente en casilleros de Unidades de Reparto (UR) mediante captura móvil nativa y análisis fotográfico.
-            </p>
-
-            <ul class="project-features">
-              <li class="feature-bullet">
-                <i class="ri-checkbox-circle-fill"></i>
-                <span>App Android nativa en Kotlin para captura en hitos críticos (salida a ruta y cierre de turno).</span>
-              </li>
-              <li class="feature-bullet">
-                <i class="ri-checkbox-circle-fill"></i>
-                <span>Portal web distribuido en Python Flask con histórico y analítica de los últimos 7 días.</span>
-              </li>
-              <li class="feature-bullet">
-                <i class="ri-checkbox-circle-fill"></i>
-                <span>Seguridad multicapa por anillos de protección (Área → Zona → Sector → Unidad de Reparto).</span>
-              </li>
-              <li class="feature-bullet">
-                <i class="ri-checkbox-circle-fill"></i>
-                <span>Módulo de visión artificial para estimación volumétrica de correspondencia sin entregar.</span>
-              </li>
-            </ul>
-
-            <div class="project-tags">
-              <span class="project-tag">Kotlin (Android)</span>
-              <span class="project-tag">Python Flask</span>
-              <span class="project-tag">Visión Artificial</span>
-              <span class="project-tag">MariaDB</span>
-              <span class="project-tag">RBAC Multicapa</span>
-              <span class="project-tag">Arquitectura Distribuida</span>
-            </div>
-
-            <div class="project-actions">
-              <button class="btn-project-details" data-project="correos-casillero">
-                <i class="ri-article-line"></i>
-                <span>Ver Arquitectura & Detalles</span>
-              </button>
-              <span class="project-status-note"><i class="ri-truck-line"></i> Logística Postal</span>
-            </div>
-          </article>
-
-          <!-- Proyecto 3: Marchel Asterisk VoIP (Académico UAH) -->
-          <article class="project-card" data-category="academico">
-            <div class="project-meta-row">
-              <span class="project-category-badge category-academico">Proyecto de Honor</span>
-              <span class="project-institution"><i class="ri-graduation-cap-line"></i> Universidad de Alcalá (UAH)</span>
-            </div>
-
-            <h3 class="project-title">Marchel: Central Telefónica PBX VoIP con Asterisk</h3>
-            <p class="project-desc">
-              Infraestructura PBX IP integral basada en Asterisk v22.2.0, con protocolo PJSIP, síntesis Festival TTS, árbol IVR interactivo y sistema de tarificación CDR.
-            </p>
-
-            <ul class="project-features">
-              <li class="feature-bullet">
-                <i class="ri-checkbox-circle-fill"></i>
-                <span>Despliegue sobre Ubuntu Linux en modo bridge con soporte para softphones SIP/PJSIP.</span>
-              </li>
-              <li class="feature-bullet">
-                <i class="ri-checkbox-circle-fill"></i>
-                <span>Menús interactivos IVR, colas de atención, buzón de voz (Voicemail) y salas de audio.</span>
-              </li>
-              <li class="feature-bullet">
-                <i class="ri-checkbox-circle-fill"></i>
-                <span>Síntesis de voz dinámica integrada mediante Festival TTS para locuciones automáticas.</span>
-              </li>
-              <li class="feature-bullet">
-                <i class="ri-checkbox-circle-fill"></i>
-                <span>Panel de control web en Flask y motor de facturación basado en registros MariaDB CDR.</span>
-              </li>
-            </ul>
-
-            <div class="project-tags">
-              <span class="project-tag">Asterisk 22</span>
-              <span class="project-tag">VoIP / PJSIP</span>
-              <span class="project-tag">Festival TTS</span>
-              <span class="project-tag">Python Flask</span>
-              <span class="project-tag">MariaDB CDR</span>
-              <span class="project-tag">Linux Ubuntu</span>
-            </div>
-
-            <div class="project-actions">
-              <button class="btn-project-details" data-project="marchel-asterisk">
-                <i class="ri-article-line"></i>
-                <span>Ver Arquitectura & Detalles</span>
-              </button>
-              <span class="project-status-note"><i class="ri-phone-line"></i> Redes & Telecom</span>
-            </div>
-          </article>
-
-          <!-- Proyecto 4: Nika App & Serverless Lambda (Académico UAH) -->
-          <article class="project-card" data-category="academico">
-            <div class="project-meta-row">
-              <span class="project-category-badge category-academico">Redes & Cloud</span>
-              <span class="project-institution"><i class="ri-graduation-cap-line"></i> Universidad de Alcalá (UAH)</span>
-            </div>
-
-            <h3 class="project-title">Nika App & Microservicio Serverless de Facturación</h3>
-            <p class="project-desc">
-              Plataforma de chat bidireccional en tiempo real inspirada en Sun God Nika (One Piece), combinando WebSockets con tarificación serverless en AWS Lambda.
-            </p>
-
-            <ul class="project-features">
-              <li class="feature-bullet">
-                <i class="ri-checkbox-circle-fill"></i>
-                <span>Canales WebSockets de baja latencia con Flask-SocketIO para salas grupales y privados.</span>
-              </li>
-              <li class="feature-bullet">
-                <i class="ri-checkbox-circle-fill"></i>
-                <span>Microservicio serverless en AWS Lambda para procesamiento automatizado de facturación.</span>
-              </li>
-              <li class="feature-bullet">
-                <i class="ri-checkbox-circle-fill"></i>
-                <span>Base de datos en la nube desplegada en AWS RDS MySQL con pooling de conexiones.</span>
-              </li>
-              <li class="feature-bullet">
-                <i class="ri-checkbox-circle-fill"></i>
-                <span>Panel de analíticas de tráfico con estadísticas de consumo en vivo.</span>
-              </li>
-            </ul>
-
-            <div class="project-tags">
-              <span class="project-tag">Flask-SocketIO</span>
-              <span class="project-tag">WebSockets</span>
-              <span class="project-tag">AWS Lambda</span>
-              <span class="project-tag">AWS RDS MySQL</span>
-              <span class="project-tag">Cloud Serverless</span>
-              <span class="project-tag">Python</span>
-            </div>
-
-            <div class="project-actions">
-              <button class="btn-project-details" data-project="nika-cloud">
-                <i class="ri-article-line"></i>
-                <span>Ver Arquitectura & Detalles</span>
-              </button>
-              <span class="project-status-note"><i class="ri-cloud-line"></i> Cloud & Serverless</span>
-            </div>
-          </article>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ==================== SECCIÓN GRIMORIO TECH ==================== -->
-    <section id="habilidades" class="skills-section">
-      <div class="container">
-        
-        <div class="section-header">
-          <span class="section-tag"><i class="ri-magic-line"></i> Competencias Técnicas</span>
-          <h2 class="section-title">El Grimorio de Tecnologías & Alquimia</h2>
-          <p class="section-desc">
-            Un conjunto de hechizos y herramientas dominadas a través de proyectos reales de ingeniería, desde el hardware hasta la nube.
-          </p>
-        </div>
-
-        <div class="skills-grid">
-          
-          <!-- Skill Col 1: Backend & APIs -->
-          <div class="skill-card">
-            <div class="skill-icon-wrap">
-              <i class="ri-server-line"></i>
-            </div>
-            <h3 class="skill-category-title">Backend & APIs</h3>
-            <p class="skill-category-sub">Servidores, patrones MVC y servicios</p>
-            <div class="skill-badges">
-              <span class="skill-badge"><i class="ri-code-line"></i> Python</span>
-              <span class="skill-badge"><i class="ri-flask-line"></i> Flask 3.0</span>
-              <span class="skill-badge"><i class="ri-flashlight-line"></i> FastAPI</span>
-              <span class="skill-badge"><i class="ri-database-line"></i> SQLAlchemy</span>
-              <span class="skill-badge"><i class="ri-exchange-line"></i> RESTful APIs</span>
-              <span class="skill-badge"><i class="ri-broadcast-line"></i> WebSockets</span>
-              <span class="skill-badge"><i class="ri-layout-masonry-line"></i> Jinja2 SSR</span>
-            </div>
-          </div>
-
-          <!-- Skill Col 2: Redes, VoIP & Sistemas -->
-          <div class="skill-card">
-            <div class="skill-icon-wrap">
-              <i class="ri-rfid-line"></i>
-            </div>
-            <h3 class="skill-category-title">Redes & Telefonía IP</h3>
-            <p class="skill-category-sub">Comunicaciones VoIP y sistemas Linux</p>
-            <div class="skill-badges">
-              <span class="skill-badge"><i class="ri-phone-line"></i> Asterisk 22</span>
-              <span class="skill-badge"><i class="ri-router-line"></i> PJSIP / SIP</span>
-              <span class="skill-badge"><i class="ri-mic-line"></i> IVR Dinámico</span>
-              <span class="skill-badge"><i class="ri-ubuntu-line"></i> Ubuntu / Linux</span>
-              <span class="skill-badge"><i class="ri-terminal-box-line"></i> Bash / SSH</span>
-              <span class="skill-badge"><i class="ri-shield-keyhole-line"></i> Nginx Proxy</span>
-              <span class="skill-badge"><i class="ri-remote-control-line"></i> MobaXterm</span>
-            </div>
-          </div>
-
-          <!-- Skill Col 3: Cloud, Datos & DevOps -->
-          <div class="skill-card">
-            <div class="skill-icon-wrap">
-              <i class="ri-cloud-line"></i>
-            </div>
-            <h3 class="skill-category-title">Cloud & Datos</h3>
-            <p class="skill-category-sub">Almacenamiento e infraestructura serverless</p>
-            <div class="skill-badges">
-              <span class="skill-badge"><i class="ri-amazon-line"></i> AWS Lambda</span>
-              <span class="skill-badge"><i class="ri-database-2-line"></i> AWS RDS</span>
-              <span class="skill-badge"><i class="ri-database-line"></i> MariaDB</span>
-              <span class="skill-badge"><i class="ri-database-line"></i> MySQL</span>
-              <span class="skill-badge"><i class="ri-cpu-line"></i> Redis</span>
-              <span class="skill-badge"><i class="ri-box-3-line"></i> Docker Compose</span>
-              <span class="skill-badge"><i class="ri-git-branch-line"></i> Git / GitHub</span>
-            </div>
-          </div>
-
-          <!-- Skill Col 4: Hardware, XR & IA -->
-          <div class="skill-card">
-            <div class="skill-icon-wrap">
-              <i class="ri-glasses-2-line"></i>
-            </div>
-            <h3 class="skill-category-title">XR, Audio & Móvil</h3>
-            <p class="skill-category-sub">Dispositivos y modelos conversacionales</p>
-            <div class="skill-badges">
-              <span class="skill-badge"><i class="ri-eye-line"></i> Meta Quest MR</span>
-              <span class="skill-badge"><i class="ri-sound-module-line"></i> Fast-Whisper STT</span>
-              <span class="skill-badge"><i class="ri-voiceprint-line"></i> Coqui TTS</span>
-              <span class="skill-badge"><i class="ri-volume-up-line"></i> Festival TTS</span>
-              <span class="skill-badge"><i class="ri-android-line"></i> Kotlin Android</span>
-              <span class="skill-badge"><i class="ri-brain-line"></i> Agentes IA</span>
-              <span class="skill-badge"><i class="ri-contrast-drop-line"></i> CSS HSL</span>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ==================== SECCIÓN CONTACTO & CV ==================== -->
-    <section id="contacto" class="contact-section">
-      <div class="container">
-        
-        <div class="contact-card">
-          <span class="contact-badge"><i class="ri-send-plane-fill"></i> ¿Construimos algo juntos?</span>
-          <h2 class="contact-title">¡Zarpemos hacia nuevos proyectos!</h2>
-          <p class="contact-desc">
-            Actualmente abierta a nuevas oportunidades profesionales, colaboraciones técnicas y proyectos de desarrollo de software, redes o tecnologías emergentes.
+      <div class="wrap hero">
+        <div>
+          <p class="eyebrow">Capítulo I · Frieren — Paz / Ideal de vida</p>
+          <h1>Chelsea Fernández Hernández</h1>
+          <p class="role">Madrid · Vida sin prisas · Entre el mar, la comunidad y nuevos horizontes</p>
+          <p class="lead">
+            Vivo en Madrid y me gusta disfrutar de los días sin tanta prisa, rodeada de buena compañía, un libro abierto o una sobremesa larga. Este espacio recorre quién soy en tres etapas: la calma con la que entiendo la vida, la comunidad en la que crecí ayudando a otros y, más adelante al llegar a mar abierto, el camino y los proyectos que hoy me traen hasta aquí.
           </p>
 
-          <div class="contact-grid">
-            <a href="https://www.linkedin.com/in/chelsea-fernandez-hernandez-64a339189/" target="_blank" rel="noopener noreferrer" class="contact-btn">
-              <i class="ri-linkedin-box-fill" style="color: #0A66C2;"></i>
-              <span>LinkedIn: Chelsea Fernández</span>
-            </a>
-
-            <a href="https://github.com/Chelseafh" target="_blank" rel="noopener noreferrer" class="contact-btn">
-              <i class="ri-github-fill"></i>
-              <span>GitHub: Chelseafh</span>
-            </a>
-
-            <button id="copyEmailBtn" class="contact-btn" title="Haz clic para copiar mi correo">
-              <i class="ri-mail-copy-line" style="color: var(--primary);"></i>
-              <span>chelseafh2003@gmail.com</span>
+          <div class="cta">
+            <a class="btn btn-sage" href="#sobre-mi">Comenzar el viaje</a>
+            <button class="btn btn-ghost js-sound" type="button" aria-pressed="false">
+              <svg class="off" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
+              <svg class="on" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+              Sonido ambiente
             </button>
           </div>
+        </div>
 
-          <!-- Módulo preparado para descargar el CV cuando se adjunte -->
-          <div class="cv-highlight-box">
-            <div class="cv-highlight-text">
-              <h5><i class="ri-file-pdf-2-line"></i> Currículum Vitae Completo</h5>
-              <p>Espacio reservado para consultar mi formación completa, experiencia y certificaciones en formato PDF.</p>
-            </div>
-            <a href="assets/CV_Chelsea_Fernandez.pdf" download class="btn-upload-cv-placeholder" title="Espacio para vincular el PDF de tu currículum">
-              <i class="ri-download-2-line"></i>
-              <span>Descargar CV</span>
-            </a>
+        <!-- Ilustración SVG original en arco (claro de bosque) + medallón mágico dorado -->
+        <div class="portrait">
+          <div class="arch" aria-label="Ilustración original de un claro de bosque luminoso con rayos de sol y reflejos de agua">
+            <svg viewBox="0 0 360 504" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Claro de bosque entre hojas, rayos de sol y agua tranquila">
+              <defs>
+                <linearGradient id="forestSky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#FFF9E3"/>
+                  <stop offset="48%" stop-color="#E7EED3"/>
+                  <stop offset="100%" stop-color="#BFD4B5"/>
+                </linearGradient>
+                <linearGradient id="sunBeam" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#FFFDF7" stop-opacity=".75"/>
+                  <stop offset="100%" stop-color="#FFF9E3" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="streamWater" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#B9D7DE"/>
+                  <stop offset="50%" stop-color="#E1F1F3"/>
+                  <stop offset="100%" stop-color="#A8CBD4"/>
+                </linearGradient>
+              </defs>
+              <rect width="360" height="504" fill="url(#forestSky)"/>
+              <!-- Rayos de sol suaves -->
+              <polygon points="180,0 295,0 165,390 85,390" fill="url(#sunBeam)"/>
+              <polygon points="270,0 360,0 280,350 215,350" fill="url(#sunBeam)" opacity=".65"/>
+              <!-- Colinas y copa de árboles lejanos -->
+              <ellipse cx="180" cy="348" rx="220" ry="72" fill="#9BB892" opacity=".55"/>
+              <path d="M0 360 Q95 315 190 348 T360 330 L360 504 L0 504 Z" fill="#7D9F78" opacity=".68"/>
+              <!-- Troncos y follaje cálido -->
+              <path d="M36 504 C42 350, 38 190, 52 24 L80 24 C70 190, 74 350, 82 504 Z" fill="#6D7D63" opacity=".82"/>
+              <path d="M292 504 C284 340, 290 180, 278 30 L306 30 C316 180, 310 340, 326 504 Z" fill="#5D7259" opacity=".82"/>
+              <circle cx="90" cy="72" r="76" fill="#88A97F" opacity=".65"/>
+              <circle cx="272" cy="84" r="82" fill="#6F936D" opacity=".62"/>
+              <circle cx="184" cy="48" r="64" fill="#A9C396" opacity=".52"/>
+              <!-- Arroyo cristalino y claro cubierto de hierba -->
+              <path d="M0 390 Q110 370 195 392 T360 385 L360 504 L0 504 Z" fill="#5E8563"/>
+              <path d="M128 386 Q210 402 140 442 T225 504 L305 504 Q232 454 275 418 T242 384 Z" fill="url(#streamWater)"/>
+              <!-- Reflejos de agua y florecillas pastel -->
+              <ellipse cx="204" cy="442" rx="26" ry="3.5" fill="#FFFDF7" opacity=".75"/>
+              <ellipse cx="232" cy="472" rx="34" ry="4" fill="#FFFDF7" opacity=".6"/>
+              <circle cx="78" cy="430" r="4.5" fill="#DCE7F7"/>
+              <circle cx="96" cy="446" r="3.5" fill="#FFFDF7"/>
+              <circle cx="114" cy="422" r="4" fill="#DCE7F7"/>
+              <circle cx="298" cy="438" r="4.5" fill="#F2CF7A"/>
+              <circle cx="268" cy="236" r="5" fill="#FFFDF7" opacity=".85"/>
+              <circle cx="144" cy="198" r="3.5" fill="#FFFDF7" opacity=".75"/>
+              <circle cx="212" cy="148" r="4" fill="#FFF4CC" opacity=".9"/>
+            </svg>
+          </div>
+
+          <div class="medal" aria-label="Medallón con círculo arcano dorado">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Círculo mágico dorado sobre fondo claro">
+              <defs>
+                <radialGradient id="magicBg" cx="50%" cy="50%" r="55%">
+                  <stop offset="0%" stop-color="#FFFDF7"/>
+                  <stop offset="65%" stop-color="#F6EED0"/>
+                  <stop offset="100%" stop-color="#DCE8D2"/>
+                </radialGradient>
+              </defs>
+              <rect width="200" height="200" fill="url(#magicBg)"/>
+              <circle cx="100" cy="100" r="82" fill="none" stroke="#C9A24B" stroke-width="2.2"/>
+              <circle cx="100" cy="100" r="72" fill="none" stroke="#C9A24B" stroke-width="1.1" stroke-dasharray="5 4"/>
+              <rect x="48" y="48" width="104" height="104" fill="none" stroke="#C9A24B" stroke-width="1.6"/>
+              <rect x="48" y="48" width="104" height="104" fill="none" stroke="#C9A24B" stroke-width="1.6" transform="rotate(45 100 100)"/>
+              <circle cx="100" cy="100" r="36" fill="none" stroke="#7A5A14" stroke-width="1.4" opacity=".6"/>
+              <path d="M100 56 L108 92 L144 100 L108 108 L100 144 L92 108 L56 100 L92 92 Z" fill="#F2CF7A" stroke="#C9A24B" stroke-width="1.5"/>
+              <circle cx="100" cy="100" r="9" fill="#FFFDF7" stroke="#C9A24B" stroke-width="1.8"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sobre mí & Crónica tejida de Frieren -->
+      <div class="wrap about" id="sobre-mi">
+        <div class="about-grid">
+          <div class="rise">
+            <p class="eyebrow">Sobre mí · Ideal de vida</p>
+            <h2>Un viaje tranquilo, con rumbo claro</h2>
+            <p class="frieren-reflection-box">
+              «Frieren me recuerda que debemos tomarnos las cosas con calma. Las personas vivimos demasiado poco y casi siempre vamos con prisa, olvidándonos de lo sencillo. Al final, lo único que da verdadero valor a la vida es disfrutar de las pequeñas cosas con tranquilidad y dedicar tiempo de calidad a quienes quieres, sin olvidarte de vivir.»
+            </p>
+          </div>
+          <div class="rise">
+            <p class="lead">
+              Lejos de cualquier pantalla o reloj, mi ritmo cotidiano busca cuidar esos pequeños rituales que me devuelven al equilibrio: escuchar las olas, sentarme alrededor de una mesa con los míos o perderme en una buena historia sobre una manta en el campo.
+            </p>
           </div>
         </div>
 
+        <article class="frieren-chronicle rise" aria-labelledby="frierenChronicleTitle">
+          <div class="frieren-chronicle-prose">
+            <header class="frieren-chronicle-header">
+              <span class="frieren-chronicle-eyebrow">De la isla al norte verde · Sobremesas · Libros</span>
+              <h3 id="frierenChronicleTitle" class="frieren-chronicle-title">Mi ritmo fuera del reloj</h3>
+            </header>
+            <p class="frieren-chronicle-p frieren-chronicle-p--lead" data-passage="mar" tabindex="0">
+              Nací en una isla, y creo que de ahí viene lo mucho que quiero al mar: basta quedarme observándolo y escuchando romper sus olas para volver a sentirme en calma. Cuando el plan es escaparme tierra adentro, me encanta el norte de España, perderme entre sus paisajes verdes y el rumor de los ríos, y extender una manta en el suelo para pasar horas leyendo sin prisa. Esa misma ilusión por descubrir sitios con tranquilidad vive también en una tradición anual que mantengo con mi pareja: celebrar cada cumpleaños y nuestro aniversario viajando, como hicimos en Milán y en Copenhague.
+            </p>
+            <p class="frieren-chronicle-p" data-passage="juegos" tabindex="0">
+              Pero no hace falta hacer las maletas para detener el reloj. Desde muy pequeña, reunirnos alrededor de una mesa en familia o con amigos significa tardes interminables de risas, pique sano y conversación. Crecí entre partidas de Monopoly, Dominó, Trivial y juegos de cartas, y hoy esas sobremesas siguen siendo sagradas sumando Party &amp; Co, Hitster, Catán, Cluedo, Virus, puzles y ratos tranquilos construyendo LEGO.
+            </p>
+            <p class="frieren-chronicle-p" data-passage="lectura" tabindex="0">
+              Y aunque de pequeña no era de leer demasiado, con los años los libros han ido ganando cada vez más espacio en mi día a día hasta convertirse en uno de mis refugios favoritos. Entre las historias que más me han marcado está San Manuel Bueno, mártir, cuya reflexión filosófica y religiosa sobre la fe y el cuidado hacia los demás me removió muchísimo precisamente por leerla desde una mirada no creyente pero profundamente empática. Hoy salto de los mangas en edición grimorio de The Witch Hat Atelier a la fantasía de Brandon Sanderson con Trenza del mar esmeralda y Nacidos de la bruma, novelas como El paciente, Últimos días en Berlín o El día que se perdió la cordura, clásicos como 1984 de George Orwell y mi lectura actual, El cuento de la criada —porque, al final, disfrutar de todo esto con calma y junto a quienes quieres es lo que da sentido a cada etapa.
+            </p>
+          </div>
+
+          <aside class="frieren-chronicle-aside" aria-label="Postales de viaje de Frieren">
+            <div id="frierenPhotoGallery" class="frieren-postal-slot has-photo" data-planned-src="assets/images/norte_españa.jpg" data-uploaded="true">
+              <div class="frieren-chronicle-travel" aria-label="Postales de viajes tranquilos">
+                <div class="frieren-travel-head">
+                  <span class="chronicle-collection-label">Postales de viaje · Del mar al norte verde</span>
+                </div>
+                <div class="frieren-travel-gallery">
+                  <figure class="frieren-travel-card">
+                    <button type="button" class="frieren-travel-btn" data-travel-src="assets/images/norte_españa.jpg" data-travel-badge="Norte de España" data-travel-caption="El mar y el verde del norte, calma sin prisas." aria-pressed="false">
+                      <img src="assets/images/norte_españa.jpg" alt="Norte de España — mar y verde" loading="lazy" class="frieren-photo">
+                      <figcaption>Norte de España</figcaption>
+                    </button>
+                  </figure>
+                  <figure class="frieren-travel-card">
+                    <button type="button" class="frieren-travel-btn" data-travel-src="assets/images/milan.jpg" data-travel-badge="Milán · Aniversario" data-travel-caption="Escapada tranquila de cumpleaños y aniversario por Milán." aria-pressed="false">
+                      <img src="assets/images/milan.jpg" alt="Viaje a Milán" loading="lazy" class="frieren-photo">
+                      <figcaption>Milán</figcaption>
+                    </button>
+                  </figure>
+                  <figure class="frieren-travel-card">
+                    <button type="button" class="frieren-travel-btn" data-travel-src="assets/images/copehenague.jpg" data-travel-badge="Copenhague" data-travel-caption="Paseos sin prisa junto al agua en Copenhague." aria-pressed="false">
+                      <img src="assets/images/copehenague.jpg" alt="Viaje a Copenhague" loading="lazy" class="frieren-photo">
+                      <figcaption>Copenhague</figcaption>
+                    </button>
+                  </figure>
+                  <figure class="frieren-travel-card">
+                    <button type="button" class="frieren-travel-btn" data-travel-src="assets/images/copehenague2.jpg" data-travel-badge="Copenhague · Aniversario" data-travel-caption="Canales y calma en Copenhague celebrando nuestro aniversario." aria-pressed="false">
+                      <img src="assets/images/copehenague2.jpg" alt="Canales y calma en Copenhague" loading="lazy" class="frieren-photo">
+                      <figcaption>Copenhague · Aniversario</figcaption>
+                    </button>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Fila inferior: Dados 3D separados de Frieren -->
+          <div class="frieren-chronicle-dice-row" aria-label="Dados 3D de juegos de mesa y lecturas">
+            <div class="frieren-dice-tray">
+              <!-- Dado 1: Juegos de mesa -->
+              <div class="frieren-dice-slot">
+                <button id="frierenGameDiceBtn" class="dice-3d-trigger dice-3d-trigger--games" type="button" aria-label="Lanzar dado — juego de mesa al azar">
+                  <span class="dice-3d-scene" aria-hidden="true">
+                    <span id="frierenDiceCubeA" class="dice-3d-cube dice-3d-cube--a">
+                      <span class="dice-3d-face dice-3d-face--1" data-face="1"><i class="pip"></i></span>
+                      <span class="dice-3d-face dice-3d-face--2" data-face="2"><i class="pip"></i><i class="pip"></i></span>
+                      <span class="dice-3d-face dice-3d-face--3" data-face="3"><i class="pip"></i><i class="pip"></i><i class="pip"></i></span>
+                      <span class="dice-3d-face dice-3d-face--4" data-face="4"><i class="pip"></i><i class="pip"></i><i class="pip"></i><i class="pip"></i></span>
+                      <span class="dice-3d-face dice-3d-face--5" data-face="5"><i class="pip"></i><i class="pip"></i><i class="pip"></i><i class="pip"></i><i class="pip"></i></span>
+                      <span class="dice-3d-face dice-3d-face--6" data-face="6"><i class="pip"></i><i class="pip"></i><i class="pip"></i><i class="pip"></i><i class="pip"></i><i class="pip"></i></span>
+                    </span>
+                  </span>
+                  <span class="dice-label">🎲 Juego al azar</span>
+                </button>
+                <p id="frierenGameDiceResult" class="frieren-dice-result" aria-live="polite" hidden></p>
+              </div>
+              <!-- Dado 2: Libros -->
+              <div class="frieren-dice-slot">
+                <button id="frierenBookDiceBtn" class="dice-3d-trigger dice-3d-trigger--books" type="button" aria-label="Lanzar dado — lectura al azar">
+                  <span class="dice-3d-scene" aria-hidden="true">
+                    <span id="frierenDiceCubeB" class="dice-3d-cube dice-3d-cube--b">
+                      <span class="dice-3d-face dice-3d-face--1" data-face="1"><i class="pip"></i></span>
+                      <span class="dice-3d-face dice-3d-face--2" data-face="2"><i class="pip"></i><i class="pip"></i></span>
+                      <span class="dice-3d-face dice-3d-face--3" data-face="3"><i class="pip"></i><i class="pip"></i><i class="pip"></i></span>
+                      <span class="dice-3d-face dice-3d-face--4" data-face="4"><i class="pip"></i><i class="pip"></i><i class="pip"></i><i class="pip"></i></span>
+                      <span class="dice-3d-face dice-3d-face--5" data-face="5"><i class="pip"></i><i class="pip"></i><i class="pip"></i><i class="pip"></i><i class="pip"></i></span>
+                      <span class="dice-3d-face dice-3d-face--6" data-face="6"><i class="pip"></i><i class="pip"></i><i class="pip"></i><i class="pip"></i><i class="pip"></i><i class="pip"></i></span>
+                    </span>
+                  </span>
+                  <span class="dice-label">📚 Libro al azar</span>
+                </button>
+                <p id="frierenBookDiceResult" class="frieren-dice-result" aria-live="polite" hidden></p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Galería infinita sutil: sobremesas y lecturas -->
+        <div id="frierenInfiniteGallery" class="frieren-marquee rise" aria-label="Galería continua de juegos de mesa y lecturas">
+          <div class="frieren-marquee-bar">
+            <span class="chronicle-collection-label">Sobremesas y lecturas</span>
+          </div>
+
+          <div class="marquee-viewport">
+            <div class="marquee-liner marquee-liner--games">
+              <ul id="frierenGamesList" class="stop-list marquee-list" aria-label="Juegos de mesa favoritos">
+                <li><button type="button" class="stop-tag stop-tag--btn" data-game="Monopoly">Monopoly</button></li>
+                <li><button type="button" class="stop-tag stop-tag--btn" data-game="Dominó">Dominó</button></li>
+                <li><button type="button" class="stop-tag stop-tag--btn" data-game="Trivial">Trivial</button></li>
+                <li><button type="button" class="stop-tag stop-tag--highlight stop-tag--btn" data-game="Party &amp; Co">Party &amp; Co</button></li>
+                <li><button type="button" class="stop-tag stop-tag--highlight stop-tag--btn" data-game="Hitster">Hitster</button></li>
+                <li><button type="button" class="stop-tag stop-tag--btn" data-game="Juegos de cartas">Juegos de cartas</button></li>
+                <li><button type="button" class="stop-tag stop-tag--highlight stop-tag--btn" data-game="Catán">Catán</button></li>
+                <li><button type="button" class="stop-tag stop-tag--btn" data-game="Cluedo">Cluedo</button></li>
+                <li><button type="button" class="stop-tag stop-tag--btn" data-game="Puzles">Puzles</button></li>
+                <li><button type="button" class="stop-tag stop-tag--btn" data-game="Virus">Virus</button></li>
+                <li><button type="button" class="stop-tag stop-tag--btn" data-game="LEGO">LEGO</button></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="marquee-viewport">
+            <div class="marquee-liner marquee-liner--books">
+              <ul id="frierenBooksGrid" class="stop-list marquee-list" aria-label="Lecturas reales y lugares tranquilos">
+                <li><button type="button" class="stop-tag stop-tag--highlight stop-tag--btn" data-book="San Manuel Bueno, mártir">San Manuel Bueno, mártir</button></li>
+                <li><button type="button" class="stop-tag stop-tag--highlight stop-tag--btn" data-book="The Witch Hat Atelier (ed. grimorio)">The Witch Hat Atelier (ed. grimorio)</button></li>
+                <li><button type="button" class="stop-tag stop-tag--btn" data-book="Trenza del mar esmeralda · B. Sanderson">Trenza del mar esmeralda · B. Sanderson</button></li>
+                <li><button type="button" class="stop-tag stop-tag--btn" data-book="Nacidos de la bruma · B. Sanderson">Nacidos de la bruma · B. Sanderson</button></li>
+                <li><button type="button" class="stop-tag stop-tag--btn" data-book="El paciente">El paciente</button></li>
+                <li><button type="button" class="stop-tag stop-tag--btn" data-book="Últimos días en Berlín">Últimos días en Berlín</button></li>
+                <li><button type="button" class="stop-tag stop-tag--btn" data-book="El día que se perdió la cordura">El día que se perdió la cordura</button></li>
+                <li><button type="button" class="stop-tag stop-tag--btn" data-book="1984 · George Orwell">1984 · George Orwell</button></li>
+                <li><button type="button" class="stop-tag stop-tag--highlight stop-tag--btn" data-book="El cuento de la criada (leyendo ahora)">El cuento de la criada (leyendo ahora)</button></li>
+                <li><span class="stop-tag stop-tag--travel">El mar</span></li>
+                <li><span class="stop-tag stop-tag--travel">Norte verde</span></li>
+                <li><span class="stop-tag stop-tag--travel">Milán</span></li>
+                <li><span class="stop-tag stop-tag--travel">Copenhague</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Zona interactiva del Báculo de Frieren -->
+      <div class="staff-zone">
+        <button class="staff" id="staff" type="button" aria-label="Activar el báculo de Frieren y lanzar un destello de magia" aria-describedby="spell">
+          <span class="staff-rune" aria-hidden="true"></span>
+          <span class="staff-rig">
+            <svg viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="staffLacquer" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#F06860"/>
+                  <stop offset="30%" stop-color="#DF4341"/>
+                  <stop offset="68%" stop-color="#C6282C"/>
+                  <stop offset="100%" stop-color="#7C141A"/>
+                </linearGradient>
+                <linearGradient id="staffGold" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#FFF3C4"/>
+                  <stop offset="35%" stop-color="#EBC867"/>
+                  <stop offset="68%" stop-color="#D9AE45"/>
+                  <stop offset="100%" stop-color="#8B6418"/>
+                </linearGradient>
+                <linearGradient id="staffGoldDark" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#D9AE45"/>
+                  <stop offset="55%" stop-color="#AA7D22"/>
+                  <stop offset="100%" stop-color="#755110"/>
+                </linearGradient>
+                <radialGradient id="staffRuby" cx="34%" cy="32%" r="68%">
+                  <stop offset="0%" stop-color="#FFA69B"/>
+                  <stop offset="34%" stop-color="#EE4645"/>
+                  <stop offset="70%" stop-color="#CE242A"/>
+                  <stop offset="100%" stop-color="#5E0A12"/>
+                </radialGradient>
+                <linearGradient id="staffRibbon" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#D8373C"/>
+                  <stop offset="65%" stop-color="#B62228"/>
+                  <stop offset="100%" stop-color="#7B1218"/>
+                </linearGradient>
+                <filter id="staffSoftShadow" x="-20%" y="-10%" width="140%" height="125%">
+                  <feDropShadow dx="2" dy="6" stdDeviation="3.5" flood-color="#5E462C" flood-opacity=".22"/>
+                </filter>
+              </defs>
+
+              <g filter="url(#staffSoftShadow)">
+                <!-- Asta vertical lacada en rojo carmesí -->
+                <rect x="135.5" y="109" width="9" height="139" rx="4.5" fill="url(#staffLacquer)" stroke="#751218" stroke-width="1"/>
+                <line x1="138" y1="112" x2="138" y2="244" stroke="#FFABA2" stroke-width="1.3" stroke-linecap="round" opacity=".55"/>
+
+                <!-- Pomo inferior dorado tipo campana (remate en y~262) -->
+                <rect x="132" y="242" width="16" height="5" rx="2.5" fill="url(#staffGold)" stroke="#7A5614" stroke-width="1"/>
+                <path d="M134 247 C131 253, 128 256.5, 127 258.5 L153 258.5 C152 256.5, 149 253, 146 247 Z" fill="url(#staffGold)" stroke="#7A5614" stroke-width="1" stroke-linejoin="round"/>
+                <rect x="126.5" y="257" width="27" height="4" rx="2" fill="url(#staffGold)" stroke="#7A5614" stroke-width="1"/>
+                <circle cx="140" cy="261.5" r="2.5" fill="#D9AE45" stroke="#7A5614" stroke-width=".9"/>
+
+                <!-- Vástago interior dorado que atraviesa por detrás del rubí hasta conectar con la parte superior de la C -->
+                <rect x="137" y="29" width="6" height="71" rx="2" fill="url(#staffGoldDark)" stroke="#7A5614" stroke-width=".8"/>
+
+                <!-- Collarín escalonado dorado bajo la cabeza -->
+                <rect x="130.5" y="108.5" width="19" height="5" rx="2.5" fill="url(#staffGold)" stroke="#7A5614" stroke-width="1"/>
+                <path d="M132 103 L148 103 L146.5 108.5 L133.5 108.5 Z" fill="url(#staffGoldDark)" stroke="#7A5614" stroke-width=".9"/>
+                <rect x="128.5" y="98.5" width="23" height="5.5" rx="2.75" fill="url(#staffGold)" stroke="#7A5614" stroke-width="1"/>
+                <line x1="131" y1="100.3" x2="144" y2="100.3" stroke="#FFF9DF" stroke-width="1.1" stroke-linecap="round"/>
+
+                <!-- Aro C dorado circular y continuo alrededor de (140, 58), abierto limpiamente entre ~3:15 y ~4:45 con espolón sutil a la ~1:00 -->
+                <path d="M 168.3 61.5 A 28.5 28.5 0 1 0 159.1 79.2 C 164.2 76.8, 169.4 81.4, 167.1 88.1 A 40.5 40.5 0 1 1 156.5 21.0 C 161.5 18.8, 166.8 16.8, 170.8 15.8 C 169.0 21.0, 168.5 26.8, 171.9 33.1 A 40.5 40.5 0 0 1 180.2 62.9 C 179.6 67.2, 173.4 67.8, 168.3 61.5 Z" fill="url(#staffGold)" stroke="#7A5614" stroke-width="1.2" stroke-linejoin="round"/>
+                <path d="M 122.7 88.0 A 34.5 34.5 0 1 1 171.8 45.2" fill="none" stroke="#FFF3C4" stroke-width="1.4" stroke-linecap="round" opacity=".58"/>
+
+                <!-- Aro interior dorado y rubí profundo centrado en (140, 58) -->
+                <circle cx="140" cy="58" r="19.5" fill="url(#staffGold)" stroke="#7A5614" stroke-width="1.2"/>
+                <circle cx="140" cy="58" r="18.2" fill="none" stroke="#FFF3C4" stroke-width=".9" opacity=".55"/>
+                <circle cx="140" cy="58" r="16.8" fill="#755110"/>
+                <circle cx="140" cy="58" r="15.5" fill="url(#staffRuby)" stroke="#5E0A12" stroke-width="1.2"/>
+                <path d="M129 55 A12 12 0 0 1 142 46 A13 13 0 0 0 130.8 58 Z" fill="#FFF6F4" opacity=".88"/>
+                <circle cx="147.5" cy="66.5" r="2" fill="#FFB8AE" opacity=".52"/>
+
+                <!-- Cinta carmesí única y limpia: caída recta con corte oblicuo + banda dorada y abrazo ajustado en arco izquierdo (7:30–9:30) -->
+                <polygon points="99.4,76.7 109.6,80.3 72.8,187.1 65.5,175.1" fill="url(#staffRibbon)" stroke="#6E1117" stroke-width="1.1" stroke-linejoin="round"/>
+                <line x1="101.8" y1="86" x2="74.2" y2="165" stroke="#F06860" stroke-width="1.2" opacity=".42" stroke-linecap="round"/>
+                <polygon points="70.1,161.8 77.4,173.9 76.2,177.2 69.0,165.1" fill="url(#staffGold)" stroke="#8B6418" stroke-width=".45"/>
+                <path d="M 113.8 52.4 A 26.8 26.8 0 0 0 121.4 77.3 L 110.7 88.4 A 42.2 42.2 0 0 1 98.7 49.2 Z" fill="url(#staffRibbon)" stroke="#6E1117" stroke-width="1.1" stroke-linejoin="round"/>
+                <path d="M 103.5 55.2 A 37.5 37.5 0 0 0 112.2 81.8" fill="none" stroke="#F06860" stroke-width="1.2" opacity=".4" stroke-linecap="round"/>
+              </g>
+            </svg>
+            <span class="gem" aria-hidden="true"></span>
+          </span>
+        </button>
+        <p class="spell" id="spell" aria-live="polite">Toca el báculo para lanzar un hechizo de calma.</p>
+        <p class="seal">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="24" cy="24" r="21" fill="#FFFDF7" stroke="#C9A24B" stroke-width="2"/>
+            <path d="M24 6 A18 18 0 0 1 24 42 A9 9 0 0 1 24 24 A9 9 0 0 0 24 6 Z" fill="#45674B"/>
+            <circle cx="24" cy="15" r="3" fill="#FFFDF7"/>
+            <circle cx="24" cy="33" r="3" fill="#45674B"/>
+          </svg>
+          <span>和 · armonía entre la calma cotidiana, las pequeñas cosas y el tiempo con quienes quieres</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== CAPÍTULO II: AVATAR AANG ==================== -->
+    <section class="avatar" id="comunidad" data-theme-zone="avatar">
+      <div class="wave" style="--from:#EEF3E2;--to:#D9ECF5" aria-hidden="true">
+        <svg class="back" viewBox="0 0 2400 120" preserveAspectRatio="none"><path d="M0 64C133 30 267 96 400 64C533 30 667 96 800 64C933 30 1067 96 1200 64C1333 30 1467 96 1600 64C1733 30 1867 96 2000 64C2133 30 2267 96 2400 64V120H0Z"/></svg>
+        <svg class="front" viewBox="0 0 2400 120" preserveAspectRatio="none"><path d="M0 64C200 28 400 96 600 64C800 28 1000 96 1200 64C1400 28 1600 96 1800 64C2000 28 2200 96 2400 64V120H0Z"/></svg>
+      </div>
+
+      <div class="wind-bg" aria-hidden="true">
+        <svg class="swirl" style="width:220px;left:-40px;top:16%;--dx:140px;--rot:260deg" viewBox="0 0 24 24"><path d="M12 12a2 2 0 0 1 4 0a4 4 0 0 1-8 0a6 6 0 0 1 12 0a8 8 0 0 1-16 0"/></svg>
+        <svg class="swirl" style="width:150px;right:6%;top:38%;--dx:-180px;--rot:-320deg" viewBox="0 0 24 24"><path d="M12 12a2 2 0 0 1 4 0a4 4 0 0 1-8 0a6 6 0 0 1 12 0a8 8 0 0 1-16 0"/></svg>
+        <svg class="swirl" style="width:300px;right:-80px;top:66%;--dx:-120px;--dy:-60px;--rot:200deg" viewBox="0 0 24 24"><path d="M12 12a2 2 0 0 1 4 0a4 4 0 0 1-8 0a6 6 0 0 1 12 0a8 8 0 0 1-16 0"/></svg>
+        <svg class="swirl" style="width:110px;left:12%;top:82%;--dx:220px;--rot:-260deg" viewBox="0 0 24 24"><path d="M12 12a2 2 0 0 1 4 0a4 4 0 0 1-8 0a6 6 0 0 1 12 0a8 8 0 0 1-16 0"/></svg>
+        <svg class="stream" style="top:24%;--d:9s" viewBox="0 0 900 80" preserveAspectRatio="none"><path pathLength="900" d="M0 40C150 0 300 80 450 40S750 0 900 40"/></svg>
+        <svg class="stream" style="top:52%;--d:12s" viewBox="0 0 900 80" preserveAspectRatio="none"><path pathLength="900" d="M0 30C180 70 320 0 460 40S760 70 900 24"/></svg>
+        <svg class="stream" style="top:78%;--d:7.5s" viewBox="0 0 900 80" preserveAspectRatio="none"><path pathLength="900" d="M0 50C150 10 300 70 450 36S750 10 900 46"/></svg>
+      </div>
+
+      <div class="wrap">
+        <header class="sec-head rise">
+          <p class="eyebrow">Capítulo II · Avatar Aang — Comunidad e Infancia</p>
+          <h2>Lo que se comparte llega más lejos</h2>
+          <p class="lead">
+            Lo que realmente descongeló mi curiosidad por la tecnología empezó en el instituto, entre asignaturas de robótica y programación, competiciones escolares como Robocampeones, un reto programando un robot con placa Bluetooth junto a Endesa y mi etapa como alumna senior en Technovation Girls creando una app frente al bullying en App Inventor. Aquello me demostró que aprender en comunidad te lleva mucho más lejos —y años después volví al punto de partida como mentora y colaboré en CNSM 2026 en Alcalá de Henares.
+          </p>
+        </header>
+
+        <div id="aangPhotoGallery" class="cards-av avatar-flow">
+          <!-- Hito 1: Mi etapa como alumna -->
+          <article class="card-av card-av--with-photo gust" data-av-index="0" data-planned-src="assets/images/robocampeones.jpg" data-uploaded="true">
+            <svg class="swoosh a" viewBox="0 0 120 44" aria-hidden="true"><path d="M4 30C30 6 70 6 92 20c14 9 6 22-6 16"/></svg>
+            <svg class="swoosh b" viewBox="0 0 120 44" aria-hidden="true"><path d="M4 30C30 6 70 6 92 20c14 9 6 22-6 16"/></svg>
+            <div class="inner">
+              <div class="av-text-col">
+                <div class="av-milestone-head">
+                  <span class="av-milestone-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2 15 9l7 3-7 3-3 7-3-7-7-3 7-3Z"/></svg></span>
+                  <span class="tag">Alumna · Instituto · 2019</span>
+                </div>
+                <h3>Mi etapa como alumna: Robocampeones, Endesa y Technovation Senior</h3>
+                <p>
+                  En el instituto descubrí cuánto me gustaba crear cosas útiles entre asignaturas de robótica y programación: competí en Robocampeones, participé en un reto escolar junto a Endesa programando un robot con placa Bluetooth y, como alumna senior en Technovation Girls 2019, diseñé con mi equipo una app en App Inventor para ayudar a niños y niñas que sufrían bullying.
+                </p>
+                <button type="button" class="av-bullets-toggle" aria-expanded="false" aria-controls="avBullets0" data-av-toggle>
+                  <span class="av-toggle-dot" aria-hidden="true"></span>
+                  <span>Ver hitos clave</span>
+                </button>
+                <ul id="avBullets0" class="av-milestone-list" hidden>
+                  <li>Competición en Robocampeones y reto escolar programando un robot con placa Bluetooth junto a Endesa</li>
+                  <li>Alumna senior en Technovation Girls 2019 creando en App Inventor una app frente al bullying</li>
+                </ul>
+                <p class="av-milestone-note">
+                  Aquella etapa sembró la pasión por aprender creando en equipo y usar las ideas para cuidar a los demás.
+                </p>
+              </div>
+              <figure class="pic avatar-photo-slot has-photo">
+                <img src="assets/images/robocampeones.jpg" alt="Chelsea en Robocampeones, instituto" loading="lazy" class="av-photo">
+                <span class="slot-badge">Robocampeones · Instituto</span>
+              </figure>
+            </div>
+          </article>
+
+          <!-- Hito 2: Mentora en Technovation Girls 2026 -->
+          <article class="card-av card-av--with-photo gust" data-av-index="1" data-planned-src="assets/images/tecnoGirls_mentora.jpg" data-uploaded="true">
+            <svg class="swoosh a" viewBox="0 0 120 44" aria-hidden="true"><path d="M4 30C30 6 70 6 92 20c14 9 6 22-6 16"/></svg>
+            <svg class="swoosh b" viewBox="0 0 120 44" aria-hidden="true"><path d="M4 30C30 6 70 6 92 20c14 9 6 22-6 16"/></svg>
+            <div class="inner">
+              <div class="av-text-col">
+                <div class="av-milestone-head">
+                  <span class="av-milestone-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                  <span class="tag">Mentora · 2026 · App «Saludea»</span>
+                </div>
+                <h3>Mentora en Technovation Girls 2026 (Equipo «Inteligents»)</h3>
+                <p>
+                  Cerrar el círculo acompañando como mentora a un equipo de niñas principiantes del colegio Ernest Hemingway («Inteligents»). Juntas dieron forma a Saludea, una app pensada para ayudar a personas con medicación a evitar alimentos que interfieren con su tratamiento; verlas idear, organizarse, superar frustraciones y celebrar el resultado final fue inolvidable.
+                </p>
+                <button type="button" class="av-bullets-toggle" aria-expanded="false" aria-controls="avBullets1" data-av-toggle>
+                  <span class="av-toggle-dot" aria-hidden="true"></span>
+                  <span>Ver hitos clave</span>
+                </button>
+                <ul id="avBullets1" class="av-milestone-list" hidden>
+                  <li><strong>App Saludea (2026):</strong> guía clara para evitar interacciones entre medicamentos y alimentos</li>
+                  <li>Acompañamiento cercano ideando, organizándose y superando frustraciones en equipo</li>
+                </ul>
+              </div>
+              <figure class="pic avatar-photo-slot has-photo">
+                <img src="assets/images/tecnoGirls_mentora.jpg" alt="Chelsea como mentora en Technovation" loading="lazy" class="av-photo">
+                <span class="slot-badge">Mentora · Technovation 2026</span>
+                <p class="slot-caption">Espacio reservado para fotografía con el equipo «Inteligents».</p>
+              </figure>
+            </div>
+          </article>
+
+          <!-- Hito 3: Staff en CNSM 2026 -->
+          <article class="card-av card-av--with-photo card-av--reverse gust" data-av-index="2" data-planned-src="assets/images/cnsm.jpg" data-uploaded="true">
+            <svg class="swoosh a" viewBox="0 0 120 44" aria-hidden="true"><path d="M4 30C30 6 70 6 92 20c14 9 6 22-6 16"/></svg>
+            <svg class="swoosh b" viewBox="0 0 120 44" aria-hidden="true"><path d="M4 30C30 6 70 6 92 20c14 9 6 22-6 16"/></svg>
+            <div class="inner">
+              <div class="av-text-col">
+                <div class="av-milestone-head">
+                  <span class="av-milestone-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+                  <span class="tag">Staff · 26–30 Oct 2026</span>
+                </div>
+                <h3>Staff en CNSM 2026 (Alcalá de Henares)</h3>
+                <p>
+                  Formé parte del equipo de staff en el <em>22nd International Conference on Network and Service Management</em> (<em>'Evolving Network and Service Management: From Automation to Agentic Intelligence'</em>), ayudando en organización, acreditaciones y guiado por la universidad, además de asistir a charlas, practicar inglés y compartir con asistentes de todo el mundo.
+                </p>
+                <button type="button" class="av-bullets-toggle" aria-expanded="false" aria-controls="avBullets2" data-av-toggle>
+                  <span class="av-toggle-dot" aria-hidden="true"></span>
+                  <span>Ver hitos clave</span>
+                </button>
+                <ul id="avBullets2" class="av-milestone-list" hidden>
+                  <li>Organización de jornadas, acreditaciones y guiado de asistentes por Alcalá de Henares</li>
+                  <li>Asistencia a charlas, práctica de inglés y encuentro con comunidad internacional</li>
+                </ul>
+              </div>
+              <figure class="pic avatar-photo-slot has-photo">
+                <img src="assets/images/cnsm.jpg" alt="Chelsea en CNSM 2024" loading="lazy" class="av-photo">
+                <span class="slot-badge">Staff · CNSM 2026</span>
+                <p class="slot-caption">Espacio reservado para fotografía como Staff en CNSM 2026.</p>
+              </figure>
+            </div>
+          </article>
+        </div>
+
+        <!-- 4 Elementos -->
+        <ul class="elements" aria-label="Cuatro valores de comunidad y empatía">
+          <li class="el el--aire rise" role="button" tabindex="0" aria-pressed="false" data-element="aire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a2 2 0 0 1 4 0a4 4 0 0 1-8 0a6 6 0 0 1 12 0a8 8 0 0 1-16 0"/></svg><div><b>Aire</b><span>Escuchar sin prejuicios</span></div></li>
+          <li class="el el--agua rise" role="button" tabindex="0" aria-pressed="false" data-element="agua" style="transition-delay:.08s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg><div><b>Agua</b><span>Empatía y adaptación</span></div></li>
+          <li class="el el--tierra rise" role="button" tabindex="0" aria-pressed="false" data-element="tierra" style="transition-delay:.16s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16V4H6v12h10V8h-6v4h2"/></svg><div><b>Tierra</b><span>Constancia y cuidado</span></div></li>
+          <li class="el el--fuego rise" role="button" tabindex="0" aria-pressed="false" data-element="fuego" style="transition-delay:.24s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><div><b>Fuego</b><span>Iniciativa y mentoría</span></div></li>
+        </ul>
+        <p id="elementPulseNote" class="element-pulse-note" aria-live="polite">Pulsa un elemento para sentir su energía</p>
+
+        <!-- Equilibrio Koi Yin-Yang + Reflexión Aang + Polaroid Té -->
+        <div class="balance">
+          <svg class="koi-svg" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustración SVG animada de dos peces Koi en equilibrio Yin-Yang">
+            <circle cx="70" cy="70" r="62" fill="rgba(255,253,248,.65)" stroke="#7FB0C8" stroke-width="2" stroke-dasharray="6 5"/>
+            <!-- Pez Koi oscuro/agua -->
+            <path d="M70 18 C 98 18, 114 44, 102 68 C 96 80, 78 86, 72 72 C 68 62, 76 50, 70 42 C 62 32, 54 34, 50 40 C 48 26, 58 18, 70 18 Z" fill="#2F6480"/>
+            <path d="M48 36 C 36 32, 30 42, 38 48 C 42 50, 48 44, 48 36 Z" fill="#7FB0C8"/>
+            <circle cx="88" cy="36" r="2.6" fill="#FFFDF8"/>
+            <!-- Pez Koi crema/oro -->
+            <path d="M70 122 C 42 122, 26 96, 38 72 C 44 60, 62 54, 68 68 C 72 78, 64 90, 70 98 C 78 108, 86 106, 90 100 C 92 114, 82 122, 70 122 Z" fill="#FFFDF8" stroke="#4E3B25" stroke-width="1.6"/>
+            <path d="M92 104 C 104 108, 110 98, 102 92 C 98 90, 92 96, 92 104 Z" fill="#C9A24B"/>
+            <circle cx="52" cy="104" r="2.6" fill="#4E3B25"/>
+          </svg>
+
+          <blockquote>
+            «Pensar distinto no convierte a nadie en tu enemigo: escuchar, comprender, perdonar y respetar la libertad del otro es lo que construye comunidad.»
+            <cite>Mi lectura de Avatar: La Leyenda de Aang</cite>
+          </blockquote>
+
+          <figure class="polaroid">
+            <svg viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustración de una tetera caliente de jazmín en el rincón de té">
+              <rect width="120" height="140" fill="#ECF3EC"/>
+              <path d="M44 38 Q 38 28, 46 20 M62 34 Q 56 24, 64 16 M78 40 Q 74 30, 80 22" fill="none" stroke="#7FB0C8" stroke-width="2.2" stroke-linecap="round"/>
+              <ellipse cx="60" cy="84" rx="30" ry="24" fill="#45674B"/>
+              <path d="M88 76 C 104 72, 106 96, 88 94" fill="none" stroke="#45674B" stroke-width="4" stroke-linecap="round"/>
+              <path d="M32 76 L 18 66 L 22 61 L 36 68" fill="#45674B"/>
+              <ellipse cx="60" cy="60" rx="14" ry="4" fill="#739574"/>
+              <circle cx="60" cy="54" r="4" fill="#C9A24B"/>
+              <rect x="20" y="108" width="80" height="8" rx="4" fill="#D5C09D"/>
+            </svg>
+            <figcaption>Rincón de Té · Tío Iroh</figcaption>
+          </figure>
+        </div>
+
+        <!-- Rincón de Té del Tío Iroh -->
+        <div class="tea-corner wind-reveal" role="region" aria-label="El Rincón de Té del Tío Iroh">
+          <div>
+            <span class="tea-corner-label">EL RINCÓN DE TÉ DEL TÍO IROH</span>
+            <blockquote id="teaQuoteText" class="tea-quote-text">
+              «Compartir una buena taza de té con alguien que aprecias —incluso con un extraño— es uno de los mayores placeres sencillos de la vida.»
+            </blockquote>
+            <p class="tea-quote-meta">
+              <span id="teaQuoteAuthor">Tío Iroh</span> · <span id="teaQuoteSource">Avatar: La Leyenda de Aang</span>
+            </p>
+          </div>
+          <button type="button" id="nextQuoteBtn" class="tea-next-btn">Servir otra taza</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CAPÍTULO III: ONE PIECE ==================== -->
+    <section class="onepiece" id="aventura" data-theme-zone="onepiece">
+      <div class="wave" style="--from:#F3EAD6;--to:#CFE9EF" aria-hidden="true">
+        <svg class="back" viewBox="0 0 2400 120" preserveAspectRatio="none"><path d="M0 64C133 30 267 96 400 64C533 30 667 96 800 64C933 30 1067 96 1200 64C1333 30 1467 96 1600 64C1733 30 1867 96 2000 64C2133 30 2267 96 2400 64V120H0Z"/></svg>
+        <svg class="front" viewBox="0 0 2400 120" preserveAspectRatio="none"><path d="M0 64C200 28 400 96 600 64C800 28 1000 96 1200 64C1400 28 1600 96 1800 64C2000 28 2200 96 2400 64V120H0Z"/></svg>
+      </div>
+
+      <!-- Burbujas marinas cristalinas flotando suavemente -->
+      <div class="onepiece-bubbles" aria-hidden="true">
+        <span class="sea-bubble sea-bubble--glint" style="left:6%;top:26%;width:22px;height:22px;--bd:12s;--bdl:-2s;--bx:16px"></span>
+        <span class="sea-bubble" style="left:16%;top:58%;width:12px;height:12px;--bd:10s;--bdl:-5s;--bx:-14px"></span>
+        <span class="sea-bubble sea-bubble--glint" style="left:28%;top:18%;width:18px;height:18px;--bd:13.5s;--bdl:-8s;--bx:12px"></span>
+        <span class="sea-bubble" style="left:47%;top:74%;width:10px;height:10px;--bd:9.5s;--bdl:-3s;--bx:-10px"></span>
+        <span class="sea-bubble sea-bubble--glint" style="left:66%;top:36%;width:24px;height:24px;--bd:14.5s;--bdl:-6.5s;--bx:-16px"></span>
+        <span class="sea-bubble" style="left:79%;top:64%;width:14px;height:14px;--bd:11s;--bdl:-9s;--bx:14px"></span>
+        <span class="sea-bubble sea-bubble--glint" style="left:89%;top:22%;width:20px;height:20px;--bd:12.8s;--bdl:-1.5s;--bx:-12px"></span>
+        <span class="sea-bubble" style="left:93%;top:82%;width:16px;height:16px;--bd:11.6s;--bdl:-4.5s;--bx:11px"></span>
+      </div>
+
+      <svg class="twinkle" style="left:9%;top:150px" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg>
+      <svg class="twinkle" style="right:12%;top:210px;--dl:-.9s" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg>
+      <svg class="twinkle" style="right:5%;top:52%;--dl:-1.6s" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg>
+
+      <div class="wrap">
+        <header class="sec-head rise">
+          <svg class="hat" viewBox="0 0 64 40" aria-hidden="true">
+            <ellipse cx="32" cy="29" rx="30" ry="8" fill="#E3B954"/>
+            <path d="M14 28C14 14 22 4 32 4s18 10 18 24c-6 3-30 3-36 0z" fill="#F2CF7A"/>
+            <path d="M14.4 23.5c6 3.4 29.2 3.4 35.2 0L50 28c-6 3-30 3-36 0z" fill="#C8553D"/>
+          </svg>
+          <p class="eyebrow">Capítulo III · One Piece — Futuro, Becas y Proyectos</p>
+          <h2>En busca de mi One Piece</h2>
+          <p class="lead">
+            Aquí empieza el mar abierto de mi camino técnico: el último curso de Ingeniería Telemática en la UAH, las becas reales de I+D donde diseñé backends, colas y modelos de IA, y los proyectos de redes y nube construidos codo con codo junto a buenos nakamas.
+          </p>
+        </header>
+
+        <!-- Toolbar de filtros de proyectos (para Agente 4) -->
+        <div id="proyectos">
+          <div class="projects-toolbar" role="region" aria-label="Filtros de proyectos">
+            <div class="toolbar-top">
+              <div class="search-field">
+                <svg class="search-icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+                <label for="projectSearchInput" class="sr-only">Buscar proyectos</label>
+                <input type="search" id="projectSearchInput" placeholder="Buscar por título, beca o tecnología (FastAPI, YOLO, Asterisk, AWS)..." autocomplete="off">
+              </div>
+
+              <div id="projectCategoryFilters" class="filter-pills" role="group" aria-label="Filtrar por categoría">
+                <button type="button" class="filter-pill active" data-category="all">Todos</button>
+                <button type="button" class="filter-pill" data-category="profesional">Becas I+D</button>
+                <button type="button" class="filter-pill" data-category="academico">Proyectos UAH</button>
+              </div>
+
+              <span id="projectsCountBadge" class="count-badge" aria-live="polite">4 proyectos</span>
+              <span id="activeSkillChipBadge" class="active-skill-badge" hidden aria-live="polite"></span>
+              <button type="button" id="clearFiltersBtn" class="btn btn-elastic btn-elastic--soft" hidden>Limpiar</button>
+            </div>
+          </div>
+
+          <!-- Galería dinámica One Piece (< > + puntos inferiores) -->
+          <div class="project-stage-shell">
+            <div class="projects-gallery-frame">
+              <button id="projectPrevBtn" class="gallery-arrow gallery-arrow--prev" type="button" aria-label="Proyecto anterior">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+
+              <div id="projectsGrid" class="cards-op projects-stage">
+              <!-- Proyecto 1: Controlador XR (ALTEN & Instituto Cervantes) -->
+              <article class="card-op rise is-active-stage" data-project-id="controlador-cervantes" data-category="profesional">
+                <div class="card-op-split">
+                  <div class="card-op-main">
+                    <div class="card-op-head">
+                      <div class="card-op-head-left">
+                        <span class="card-op-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="10" rx="3"/><path d="M8 17l2-3h4l2 3"/><circle cx="7.5" cy="12" r="1.5"/><circle cx="16.5" cy="12" r="1.5"/></svg>
+                        </span>
+                        <div class="card-op-sub">
+                          <span class="k">Beca I+D · Dic 2025 – May 2026</span>
+                          <span class="card-op-repo">Repo: Controlador/</span>
+                        </div>
+                      </div>
+                      <span class="card-op-badge">Destacado · XR &amp; Voz</span>
+                    </div>
+
+                    <h3>Controlador Backend XR (ALTEN &amp; Cervantes)</h3>
+                    <p class="card-op-inst">UAH · ALTEN Spain &amp; Instituto Cervantes</p>
+
+                    <p>
+                      Backend central en Docker Compose para un juego educativo de español en gafas Meta Quest: autenticación del launcher, escenarios por PIN, audio WebSocket en tiempo real y notas en MariaDB.
+                    </p>
+
+                    <div class="role-callout">
+                      <strong>Mi rol exacto</strong>
+                      Responsable íntegra de <code>api-servidor</code> (FastAPI): todos los endpoints de las gafas VR, auth con el launcher, MariaDB, corrección automática, concurrencia (Faster-Whisper STT + Regex/Ollama en paralelo), Nginx, Docker y co-diseño global junto al compañero de <code>api-web</code> (y juegos MR de mis compañeras).
+                    </div>
+
+                    <ul class="more" id="m1">
+                      <li>Endpoints REST/WS: <code>/inicio</code>, <code>/registro_gafa</code>, <code>/configuracion</code>, <code>/siguiente_alumno</code>, <code>/notas_alumno</code> y audio PCM16</li>
+                      <li>Evaluación concurrente de voz infantil con Faster-Whisper + Regex fonético en paralelo con Ollama (qwen2.5:1.5b)</li>
+                    </ul>
+
+                    <div class="card-op-tech">
+                      <span class="tech-tag">FastAPI</span>
+                      <span class="tech-tag">WebSockets</span>
+                      <span class="tech-tag">Faster-Whisper</span>
+                      <span class="tech-tag">Ollama</span>
+                      <span class="tech-tag">MariaDB</span>
+                      <span class="tech-tag">Nginx</span>
+                      <span class="tech-tag">Docker</span>
+                    </div>
+
+                    <div class="card-op-actions">
+                      <button class="btn btn-elastic btn-elastic--soft" type="button" data-project-open="controlador-cervantes">Ficha completa</button>
+                      <a class="btn btn-elastic btn-elastic--soft" href="#arquitectura" data-project-arch="controlador-cervantes">Arquitectura</a>
+                    </div>
+                  </div>
+
+                  <div class="card-op-console">
+                    <div class="console-frame-head">
+                      <span class="console-badge-live"><i aria-hidden="true"></i>LIVE · XR Voice</span>
+                      <span class="console-frame-label">Controlador/</span>
+                    </div>
+                    <div class="project-toy toy-vr" aria-label="Simulador interactivo de visor Meta Quest y voz XR">
+                      <div class="vr-3d-stage" aria-hidden="true">
+                        <span class="vr-3d-shadow"></span>
+                        <div class="vr-3d-headset">
+                          <svg class="vr-3d-quest-svg" viewBox="0 0 220 128" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Visor Meta Quest 3 en perspectiva 3D">
+                            <defs>
+                              <linearGradient id="questShell" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FFFDF8"/>
+                                <stop offset="56%" stop-color="#EDF5F8"/>
+                                <stop offset="100%" stop-color="#CEE2EB"/>
+                              </linearGradient>
+                              <linearGradient id="questBevel" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#DCEBF1"/>
+                                <stop offset="100%" stop-color="#B8D3DF"/>
+                              </linearGradient>
+                              <linearGradient id="questStrap" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#F6F9FA"/>
+                                <stop offset="100%" stop-color="#C8DCE5"/>
+                              </linearGradient>
+                              <linearGradient id="questGasket" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#28546B"/>
+                                <stop offset="100%" stop-color="#173B4D"/>
+                              </linearGradient>
+                            </defs>
+                            <!-- Cinta superior arqueada en perspectiva 3/4 -->
+                            <path d="M68 41 C72 13, 146 11, 174 44 C180 51, 182 58, 179 64 L167 62 C168 56, 165 49, 159 44 C138 24, 86 24, 80 43 Z" fill="url(#questStrap)" stroke="#2F6480" stroke-width="1.6" stroke-linejoin="round"/>
+                            <!-- Aro trasero de sujeción en perspectiva -->
+                            <path d="M138 56 C174 51, 200 59, 198 73 C196 86, 164 93, 128 90 L127 81 C159 83, 184 78, 186 70 C187 63, 168 58, 139 63 Z" fill="url(#questStrap)" stroke="#2F6480" stroke-width="1.6" stroke-linejoin="round"/>
+                            <!-- Parte interior de la cinta trasera -->
+                            <path d="M185 68 C191 74, 178 82, 142 84" fill="none" stroke="#1E3E4F" stroke-width="2.2" stroke-linecap="round" opacity=".55"/>
+                            <!-- Almohadilla facial (interface gasket) oscura en 3D -->
+                            <path d="M114 38 C134 39, 146 50, 146 68 C146 84, 132 95, 110 95 L98 92 C116 90, 124 80, 124 67 C124 52, 117 44, 102 41 Z" fill="url(#questGasket)" stroke="#173B4D" stroke-width="1.5"/>
+                            <!-- Brazo lateral derecho rígido con bisagra -->
+                            <path d="M126 57 L154 57 C159 57, 162 60, 162 65 C162 70, 159 73, 154 73 L126 73 Z" fill="url(#questBevel)" stroke="#28546B" stroke-width="1.6"/>
+                            <circle cx="137" cy="65" r="4.5" fill="#FFFDF8" stroke="#28546B" stroke-width="1.4"/>
+                            <!-- Cuerpo principal curvado Meta Quest 3 (perspectiva 3/4) -->
+                            <path d="M24 54 C24 41, 44 34, 72 34 C99 34, 122 40, 126 55 C129 66, 128 80, 121 89 C114 97, 94 100, 70 100 C43 100, 26 93, 24 80 C22 71, 22 62, 24 54 Z" fill="url(#questShell)" stroke="#173B4D" stroke-width="2"/>
+                            <!-- Bisel 3D lateral izquierdo y brillo superior -->
+                            <path d="M31 46 C47 39, 88 39, 113 47" fill="none" stroke="#FFFDF8" stroke-width="2.5" stroke-linecap="round" opacity=".95"/>
+                            <path d="M28 83 C44 93, 94 94, 116 85" fill="none" stroke="#B6D1DD" stroke-width="2.2" stroke-linecap="round" opacity=".75"/>
+                            <!-- Las 3 pastillas verticales frontales características de Meta Quest 3 -->
+                            <!-- Pastilla izquierda -->
+                            <g transform="translate(36 52) rotate(-3)">
+                              <rect x="0" y="0" width="12" height="31" rx="6" fill="#173B4D"/>
+                              <circle cx="6" cy="9" r="3.4" fill="#2F6480" stroke="#7FB0C8" stroke-width="0.9"/>
+                              <circle cx="5" cy="8" r="1.1" fill="#E8F5FA"/>
+                              <circle cx="6" cy="22" r="3" fill="#28546B" stroke="#7FB0C8" stroke-width="0.8"/>
+                              <circle cx="5.2" cy="21.2" r="0.9" fill="#FFFDF8"/>
+                            </g>
+                            <!-- Pastilla central (sensores de profundidad + cámaras) -->
+                            <g transform="translate(65 50)">
+                              <rect x="0" y="0" width="12.5" height="32" rx="6.2" fill="#173B4D"/>
+                              <circle cx="6.25" cy="9.5" r="2.8" fill="#28546B" stroke="#7FB0C8" stroke-width="0.8"/>
+                              <circle cx="6.25" cy="22" r="3.2" fill="#2F6480" stroke="#93C6DA" stroke-width="0.9"/>
+                              <circle cx="5.2" cy="21" r="1" fill="#FFFDF8"/>
+                            </g>
+                            <!-- Pastilla derecha (escorzo 3/4) -->
+                            <g transform="translate(95 52) rotate(3)">
+                              <rect x="0" y="0" width="11" height="30" rx="5.5" fill="#173B4D"/>
+                              <circle cx="5.5" cy="9" r="3.2" fill="#2F6480" stroke="#7FB0C8" stroke-width="0.9"/>
+                              <circle cx="4.6" cy="8" r="1" fill="#E8F5FA"/>
+                              <circle cx="5.5" cy="21.5" r="2.6" fill="#28546B" stroke="#7FB0C8" stroke-width="0.8"/>
+                            </g>
+                            <!-- Detalle puente nasal inferior y LED de estado -->
+                            <path d="M58 98 C65 93, 77 93, 84 98" fill="none" stroke="#28546B" stroke-width="1.6" stroke-linecap="round"/>
+                            <circle cx="117" cy="60" r="2.1" fill="#668A6E"/>
+                            <!-- Cámara de seguimiento lateral en brazo derecho -->
+                            <circle cx="122" cy="66" r="2.4" fill="#173B4D" stroke="#7FB0C8" stroke-width="0.8"/>
+                          </svg>
+                        </div>
+                        <div class="toy-vr-wave">
+                          <i></i><i></i><i></i><i></i><i></i>
+                        </div>
+                      </div>
+                      <div class="toy-vr-controls">
+                        <button type="button" class="toy-btn js-toy-vr">Probar voz XR</button>
+                      </div>
+                      <div class="toy-vr-screen" aria-live="polite">PIN 4821 · Pulsa para simular frase</div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Proyecto 2: Cátedra de Correos -->
+              <article class="card-op rise" data-project-id="correos-casillero" data-category="profesional" hidden>
+                <div class="card-op-split">
+                  <div class="card-op-main">
+                    <div class="card-op-head">
+                      <div class="card-op-head-left">
+                        <span class="card-op-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+                        </span>
+                        <div class="card-op-sub">
+                          <span class="k">Beca I+D · Jun 2026 – Actualidad</span>
+                          <span class="card-op-repo">Repo: Correos_casillero/</span>
+                        </div>
+                      </div>
+                      <span class="card-op-badge">Destacado · Visión IA</span>
+                    </div>
+
+                    <h3>Visión Artificial &amp; Microservicios (Cátedra Correos)</h3>
+                    <p class="card-op-inst">Cátedra de Correos y Telégrafos · UAH</p>
+
+                    <p>
+                      Pipeline distribuido en Docker Compose para automatizar mediante visión por computador (YOLO / ONNX) el conteo de cartas en casilleros de 20 baldas desde fotografías de Unidades de Reparto.
+                    </p>
+
+                    <div class="role-callout">
+                      <strong>Mi rol exacto</strong>
+                      Responsable de todo el sistema salvo el panel web: Docker Compose, <code>api-core</code> FastAPI con JWT y validación JPEG, colas Redis, <code>ia-worker</code> ONNX/YOLO (GPU local o CPU), PostgreSQL 15, Nginx, etiquetado en Label Studio y scripts de entrenamiento en curso.
+                    </div>
+
+                    <ul class="more" id="m2">
+                      <li>Productor-consumidor desacoplado con Redis AOF y rate limiting frente a picos de captura</li>
+                      <li>Segmentación YOLOv8-seg exportada a ONNX Runtime proyectada sobre la matriz 4×5 (20 baldas)</li>
+                    </ul>
+
+                    <div class="card-op-tech">
+                      <span class="tech-tag">FastAPI</span>
+                      <span class="tech-tag">YOLO</span>
+                      <span class="tech-tag">ONNX</span>
+                      <span class="tech-tag">OpenCV</span>
+                      <span class="tech-tag">Redis</span>
+                      <span class="tech-tag">PostgreSQL</span>
+                      <span class="tech-tag">Label Studio</span>
+                    </div>
+
+                    <div class="card-op-actions">
+                      <button class="btn btn-elastic btn-elastic--soft" type="button" data-project-open="correos-casillero">Ficha completa</button>
+                      <a class="btn btn-elastic btn-elastic--soft" href="#arquitectura" data-project-arch="correos-casillero">Arquitectura</a>
+                    </div>
+                  </div>
+
+                  <div class="card-op-console">
+                    <div class="console-frame-head">
+                      <span class="console-badge-live"><i aria-hidden="true"></i>LIVE · Vision IA</span>
+                      <span class="console-frame-label">Correos_casillero/</span>
+                    </div>
+                    <div class="project-toy toy-casillero" aria-label="Simulador de casillero de cartas y escaneo YOLO/ONNX">
+                      <div class="mail-3d-stage" aria-hidden="true">
+                        <div class="mail-3d-stack">
+                          <span class="mail-3d-env mail-3d-env--1">
+                            <span class="mail-3d-flap"></span>
+                            <span class="mail-3d-stripe"></span>
+                          </span>
+                          <span class="mail-3d-env mail-3d-env--2">
+                            <span class="mail-3d-flap"></span>
+                            <span class="mail-3d-stripe"></span>
+                          </span>
+                          <span class="mail-3d-env mail-3d-env--3">
+                            <span class="mail-3d-flap"></span>
+                            <span class="mail-3d-stripe"></span>
+                            <span class="mail-3d-stamp">ONNX</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="toy-casillero-grid" role="group" aria-label="Baldas interactivas del casillero">
+                        <button type="button" class="toy-slot has-mail" data-slot="A1" aria-pressed="true" aria-label="Casilla A1"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>A1</span></button>
+                        <button type="button" class="toy-slot" data-slot="A2" aria-pressed="false" aria-label="Casilla A2"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>A2</span></button>
+                        <button type="button" class="toy-slot has-mail" data-slot="A3" aria-pressed="true" aria-label="Casilla A3"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>A3</span></button>
+                        <button type="button" class="toy-slot" data-slot="A4" aria-pressed="false" aria-label="Casilla A4"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>A4</span></button>
+                        <button type="button" class="toy-slot" data-slot="B1" aria-pressed="false" aria-label="Casilla B1"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>B1</span></button>
+                        <button type="button" class="toy-slot has-mail" data-slot="B2" aria-pressed="true" aria-label="Casilla B2"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>B2</span></button>
+                        <button type="button" class="toy-slot" data-slot="B3" aria-pressed="false" aria-label="Casilla B3"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>B3</span></button>
+                        <button type="button" class="toy-slot has-mail" data-slot="B4" aria-pressed="true" aria-label="Casilla B4"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>B4</span></button>
+                        <span class="toy-scan-line" aria-hidden="true"></span>
+                      </div>
+                      <div class="toy-casillero-foot">
+                        <button type="button" class="toy-btn js-toy-mail">Escanear cartas (ONNX)</button>
+                        <span class="toy-mail-readout" aria-live="polite">4/8 casillas con carta</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Proyecto 3: Marchel-Asterisk -->
+              <article class="card-op rise" data-project-id="marchel-asterisk" data-category="academico" hidden>
+                <div class="card-op-split">
+                  <div class="card-op-main">
+                    <div class="card-op-head">
+                      <div class="card-op-head-left">
+                        <span class="card-op-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </span>
+                        <div class="card-op-sub">
+                          <span class="k">Proyecto UAH · 2025</span>
+                          <span class="card-op-repo">Repo: proyectos/Marchel-Asterisk/</span>
+                        </div>
+                      </div>
+                      <span class="tech-tag">Redes &amp; VoIP</span>
+                    </div>
+
+                    <h3>Marchel: Centralita IP Asterisk v22 &amp; Tarificación</h3>
+                    <p class="card-op-inst">UAH · Lab. Redes, Señales y Sistemas</p>
+
+                    <p>
+                      Infraestructura VoIP completa en Ubuntu Linux con Asterisk v22.2.0 y pila PJSIP: extensiones Zoiper, IVR, colas, conferencias, análisis de tráfico de red, síntesis vocal en español con Festival TTS, MariaDB CDR y portal Flask.
+                    </p>
+
+                    <div class="role-callout">
+                      <strong>Trabajo en pareja</strong>
+                      Desarrollado junto a <strong>Marcos Santos Aragón</strong> participando ambos en todo: centralitas PJSIP, tráfico SIP/RTP, Festival TTS, conector ODBC a MariaDB, tarificador Cron y web Flask.
+                    </div>
+
+                    <ul class="more" id="m3">
+                      <li>Troncales entre PBXs, buzón de voz, transferencias ciegas/asistidas, ConfBridge y grabación MixMonitor</li>
+                      <li>Síntesis de voz Festival TTS integrada en el dialplan mediante servicio systemd</li>
+                    </ul>
+
+                    <div class="card-op-tech">
+                      <span class="tech-tag">Asterisk v22</span>
+                      <span class="tech-tag">PJSIP</span>
+                      <span class="tech-tag">Wireshark</span>
+                      <span class="tech-tag">Festival TTS</span>
+                      <span class="tech-tag">Flask</span>
+                      <span class="tech-tag">MariaDB</span>
+                    </div>
+
+                    <div class="card-op-actions">
+                      <button class="btn btn-elastic btn-elastic--soft" type="button" data-project-open="marchel-asterisk">Ficha completa</button>
+                      <a class="btn btn-elastic btn-elastic--soft" href="#arquitectura" data-project-arch="marchel-asterisk">Arquitectura</a>
+                    </div>
+                  </div>
+
+                  <div class="card-op-console">
+                    <div class="console-frame-head">
+                      <span class="console-badge-live"><i aria-hidden="true"></i>LIVE · VoIP PJSIP</span>
+                      <span class="console-frame-label">Marchel-Asterisk/</span>
+                    </div>
+                    <div class="project-toy toy-pbx" aria-label="Mini centralita VoIP Asterisk interactiva">
+                      <div class="marchel-3d-stage">
+                        <div class="marchel-3d-badge">
+                          <span class="marchel-3d-ring" aria-hidden="true"></span>
+                          <img src="assets/images/logo-marchel.png" alt="Logo de Marchel Centralita Asterisk" class="marchel-3d-logo" width="60" height="60">
+                        </div>
+                      </div>
+                      <div class="toy-pbx-top">
+                        <span class="toy-led" aria-hidden="true"></span>
+                        <span class="toy-pbx-readout" aria-live="polite">Centralita Asterisk lista</span>
+                      </div>
+                      <div class="toy-pbx-keys">
+                        <button type="button" class="toy-key js-toy-pbx" data-ext="101">Ext 101</button>
+                        <button type="button" class="toy-key js-toy-pbx" data-ext="102">Ext 102</button>
+                        <button type="button" class="toy-key js-toy-pbx" data-ext="IVR">IVR Voz</button>
+                        <button type="button" class="toy-key toy-key--hang js-toy-pbx" data-ext="hang">Colgar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Proyecto 4: Nika App (AWS Cloud) -->
+              <article class="card-op rise" data-project-id="nika-cloud" data-category="academico" hidden>
+                <div class="card-op-split">
+                  <div class="card-op-main">
+                    <div class="card-op-head">
+                      <div class="card-op-head-left">
+                        <span class="card-op-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+                        </span>
+                        <div class="card-op-sub">
+                          <span class="k">Proyecto UAH · 2025</span>
+                          <span class="card-op-repo">Repo: proyectos/LRSS-4/</span>
+                        </div>
+                      </div>
+                      <span class="tech-tag">Cloud Serverless</span>
+                    </div>
+
+                    <h3>Nika App: Chat en Tiempo Real &amp; Facturación AWS</h3>
+                    <p class="card-op-inst">UAH · Lab. Redes, Sistemas y Servicios</p>
+
+                    <p>
+                      Plataforma de mensajería instantánea en Flask + Flask-SocketIO (salas grupales, mensajes directos y panel <code>/stats</code>) con persistencia en AWS RDS MySQL y microservicio serverless en AWS Lambda para tarificar por KB.
+                    </p>
+
+                    <div class="role-callout">
+                      <strong>Trabajo en pareja</strong>
+                      Desarrollado junto a <strong>Marcos Santos Aragón</strong> participando ambos de principio a fin en Flask-SocketIO, esquema AWS RDS y función Python en AWS Lambda.
+                    </div>
+
+                    <ul class="more" id="m4">
+                      <li>Comandos interactivos (<code>TODOS:</code>, <code>DESTINATARIO:</code>, <code>GRUPO / ABANDONAR</code>) y métricas agregadas en <code>/stats</code></li>
+                      <li>Función serverless <code>facturacion.py</code> desacoplada en AWS Lambda conectada a MySQL gestionado</li>
+                    </ul>
+
+                    <div class="card-op-tech">
+                      <span class="tech-tag">Python</span>
+                      <span class="tech-tag">Flask-SocketIO</span>
+                      <span class="tech-tag">AWS Lambda</span>
+                      <span class="tech-tag">AWS RDS MySQL</span>
+                      <span class="tech-tag">Serverless</span>
+                    </div>
+
+                    <div class="card-op-actions">
+                      <button class="btn btn-elastic btn-elastic--soft" type="button" data-project-open="nika-cloud">Ficha completa</button>
+                      <a class="btn btn-elastic btn-elastic--soft" href="#arquitectura" data-project-arch="nika-cloud">Arquitectura</a>
+                    </div>
+                  </div>
+
+                  <div class="card-op-console">
+                    <div class="console-frame-head">
+                      <span class="console-badge-live"><i aria-hidden="true"></i>LIVE · AWS Cloud</span>
+                      <span class="console-frame-label">LRSS-4/</span>
+                    </div>
+                    <div class="project-toy toy-chat" aria-label="Simulador de chat WebSocket y tarificación AWS Lambda">
+                      <div class="nika-3d-stage">
+                        <div class="nika-3d-badge">
+                          <span class="nika-3d-halo" aria-hidden="true"></span>
+                          <img src="assets/icons/nika.svg" alt="Emblema de Nika App AWS" class="nika-3d-logo" width="54" height="54">
+                        </div>
+                      </div>
+                      <div class="toy-chat-log" aria-live="polite">
+                        <p class="toy-chat-msg"><b>SocketIO:</b> Sala abierta en vivo</p>
+                        <p class="toy-chat-msg toy-chat-msg--reply"><b>Lambda:</b> Esperando comandos…</p>
+                      </div>
+                      <div class="toy-chat-foot">
+                        <div class="toy-chat-cmds">
+                          <button type="button" class="toy-key js-toy-chat" data-cmd="TODOS:">TODOS:</button>
+                          <button type="button" class="toy-key js-toy-chat" data-cmd="GRUPO">GRUPO</button>
+                          <button type="button" class="toy-key js-toy-chat" data-cmd="/stats">/stats</button>
+                        </div>
+                        <span class="toy-chat-meter" aria-live="polite">0.00 KB · Lambda</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              </div>
+
+              <button id="projectNextBtn" class="gallery-arrow gallery-arrow--next" type="button" aria-label="Siguiente proyecto">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+
+            <div class="projects-gallery-footer">
+              <div id="projectStageDots" class="gallery-dots" role="tablist" aria-label="Indicador de proyectos">
+                <button type="button" class="gallery-dot is-active" role="tab" aria-selected="true" data-stage-index="0" data-project-id="controlador-cervantes" aria-label="Proyecto 1: Controlador Backend XR"></button>
+                <button type="button" class="gallery-dot" role="tab" aria-selected="false" data-stage-index="1" data-project-id="correos-casillero" aria-label="Proyecto 2: Visión Artificial Cátedra Correos"></button>
+                <button type="button" class="gallery-dot" role="tab" aria-selected="false" data-stage-index="2" data-project-id="marchel-asterisk" aria-label="Proyecto 3: Marchel Centralita Asterisk"></button>
+                <button type="button" class="gallery-dot" role="tab" aria-selected="false" data-stage-index="3" data-project-id="nika-cloud" aria-label="Proyecto 4: Nika App Chat AWS"></button>
+              </div>
+              <span id="projectStageCounter" class="stage-counter" aria-live="polite">01 / 04</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rincón Nakama: Easter eggs de Brook & Nico Robin -->
+        <div class="nakama-eggs rise" role="region" aria-label="Guiños de tripulación: Brook y Nico Robin">
+          <div class="nakama-egg-controls">
+            <button id="brookEggBtn" class="nakama-egg-btn nakama-egg-btn--brook btn-elastic" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V6l11-2v12"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+              <span>Brook · ¡Yohohoho!</span>
+            </button>
+            <button id="robinEggBtn" class="nakama-egg-btn nakama-egg-btn--robin btn-elastic" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6M9 12h4M9 15h6"/></svg>
+              <span>Nico Robin · Poneglyph</span>
+            </button>
+          </div>
+          <div id="nakamaEggBubble" class="nakama-egg-bubble" aria-live="polite">
+            <span id="nakamaEggChar" class="nakama-egg-char">Brook · Músico de a bordo</span>
+            <p id="nakamaEggQuote" class="nakama-egg-quote">¡Yohohoho! Ver tantos microservicios en marcha da ganas de sacar el violín y tocar «Binks' Sake» de puerto en puerto.</p>
+          </div>
+        </div>
+
+        <!-- Bloque horizontal: El tesoro no es el destino -->
+        <div class="treasure rise">
+          <svg viewBox="0 0 560 315" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustración original de un sombrero de paja con cinta roja bajo rayos dorados de amanecer sobre el mar">
+            <defs>
+              <linearGradient id="treasureSky" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#FCE4C4"/>
+                <stop offset="55%" stop-color="#FFF8E2"/>
+                <stop offset="100%" stop-color="#CBE7EE"/>
+              </linearGradient>
+              <linearGradient id="treasureRay" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#FFFDF7" stop-opacity=".85"/>
+                <stop offset="100%" stop-color="#F2CF7A" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <rect width="560" height="315" fill="url(#treasureSky)"/>
+            <g class="treasure-rays">
+              <polygon points="410,0 560,0 320,275 180,275" fill="url(#treasureRay)"/>
+              <polygon points="240,0 350,0 180,260 90,260" fill="url(#treasureRay)" opacity=".6"/>
+            </g>
+            <circle class="treasure-sun" cx="446" cy="76" r="28" fill="#FFF3C4" opacity=".9"/>
+            <path class="treasure-wave-back" d="M-24 226 Q 140 202, 280 228 T 584 218 L 584 325 L -24 325 Z" fill="#89C3D4"/>
+            <path class="treasure-wave-front" d="M-24 258 Q 160 240, 320 262 T 584 254 L 584 325 L -24 325 Z" fill="#5D9EB4"/>
+            <!-- Sombrero de paja en primer plano -->
+            <g class="treasure-hat">
+              <ellipse cx="280" cy="196" rx="142" ry="38" fill="#E3B954" stroke="#B68B2D" stroke-width="2.5"/>
+              <path d="M196 192 C196 112, 364 112, 364 192 C334 206, 226 206, 196 192 Z" fill="#F2CF7A" stroke="#B68B2D" stroke-width="2.5"/>
+              <path d="M198 168 C236 184, 324 184, 362 168 L364 190 C324 206, 236 206, 196 190 Z" fill="#C8553D"/>
+            </g>
+          </svg>
+          <div>
+            <h3>El tesoro no es el destino</h3>
+            <p>
+              «Sigo en plena travesía descubriendo cuáles son todos mis sueños y cómo hacerlos realidad, pero tengo claro cómo quiero vivir el viaje: rodeada de buenos nakamas, aprendiendo en cada proyecto complejo y celebrando cada festín por el camino.»
+              <br><br>
+              Compaginar el grado en la UAH (2027) con becas de I+D y casi cuatro años trabajando los fines de semana en <strong>Parfois (Nov 2022 – Ago 2026)</strong> ha entrenado mi gestión del tiempo, resiliencia y trabajo bajo presión. Ahora busco <strong>prácticas curriculares (450 h) ampliables a 900 h</strong>.
+            </p>
+            <div class="cta" style="margin-top:18px;">
+              <a id="cvActionBtn" class="btn btn-elastic js-cv-trigger" href="assets/CV_Chelsea_Fdez_Hdez.pdf" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                Ver / Descargar CV
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Explorador Interactivo de Arquitectura -->
+        <div id="arquitectura" class="op-panel rise">
+          <div class="op-panel-head">
+            <div>
+              <h3>Explorador de Arquitectura de Sistemas</h3>
+              <p>Topología real de clientes, APIs, modelos de IA, colas y bases de datos.</p>
+            </div>
+          </div>
+
+          <div class="arch-toolbar">
+            <div id="archProjectTabs" class="arch-tabs" role="tablist" aria-label="Seleccionar proyecto">
+              <button type="button" class="arch-tab active" role="tab" aria-selected="true" data-project="controlador-cervantes">Controlador XR (ALTEN)</button>
+              <button type="button" class="arch-tab" role="tab" aria-selected="false" data-project="correos-casillero">Visión IA (Correos)</button>
+              <button type="button" class="arch-tab" role="tab" aria-selected="false" data-project="marchel-asterisk">Marchel (Asterisk)</button>
+              <button type="button" class="arch-tab" role="tab" aria-selected="false" data-project="nika-cloud">Nika App (AWS)</button>
+            </div>
+
+            <div class="arch-layer-legend" role="group" aria-label="Filtrar o destacar capas del sistema">
+              <button type="button" class="legend-item" data-layer="cliente" aria-pressed="false"><span class="legend-dot"></span>Cliente</button>
+              <button type="button" class="legend-item" data-layer="web" aria-pressed="false"><span class="legend-dot"></span>Web</button>
+              <button type="button" class="legend-item" data-layer="api" aria-pressed="false"><span class="legend-dot"></span>API</button>
+              <button type="button" class="legend-item" data-layer="ia" aria-pressed="false"><span class="legend-dot"></span>IA</button>
+              <button type="button" class="legend-item" data-layer="datos" aria-pressed="false"><span class="legend-dot"></span>Datos</button>
+              <button type="button" class="legend-item" data-layer="infra" aria-pressed="false"><span class="legend-dot"></span>Infra</button>
+            </div>
+          </div>
+
+          <div id="archSummary" class="arch-summary">
+            <strong>Controlador Backend XR:</strong> Los visores Meta Quest (juegos MR de mis compañeras) se comunican con mi controlador <code>api-servidor</code> (FastAPI) para autenticación, configuración por PIN, streaming WebSocket y notas en MariaDB, con Nginx enrutando junto al portal <code>api-web</code>.
+          </div>
+
+          <div class="arch-workspace">
+            <div id="archGraphCanvas" class="arch-canvas" role="region" aria-label="Mapa de nodos de arquitectura">
+              <button type="button" class="arch-node-card">
+                <span class="arch-node-layer arch-node-layer--cliente">Cliente</span>
+                <span class="arch-node-title">Visores Meta Quest</span>
+                <span class="arch-node-role">Juegos educativos VR/MR del equipo de visor</span>
+                <span class="arch-node-flow">→ api-servidor · nginx-proxy</span>
+              </button>
+              <button type="button" class="arch-node-card">
+                <span class="arch-node-layer arch-node-layer--infra">Infra</span>
+                <span class="arch-node-title">Nginx Reverse Proxy (Mi rol)</span>
+                <span class="arch-node-role">Terminación TLS 1.2/1.3 y enrutamiento</span>
+                <span class="arch-node-flow">→ portal-web · api-servidor</span>
+              </button>
+              <button type="button" class="arch-node-card is-selected">
+                <span class="arch-node-layer arch-node-layer--api">API</span>
+                <span class="arch-node-title">Controlador api-servidor (Mi rol)</span>
+                <span class="arch-node-role">FastAPI: endpoints VR, notas y concurrencia</span>
+                <span class="arch-node-flow">→ ia-voz · mariadb-db</span>
+              </button>
+              <button type="button" class="arch-node-card">
+                <span class="arch-node-layer arch-node-layer--ia">IA</span>
+                <span class="arch-node-title">Pipeline Voz &amp; IA</span>
+                <span class="arch-node-role">Faster-Whisper STT, Ollama y Coqui TTS</span>
+                <span class="arch-node-flow">← api-servidor</span>
+              </button>
+              <button type="button" class="arch-node-card">
+                <span class="arch-node-layer arch-node-layer--web">Web</span>
+                <span class="arch-node-title">Portal api-web (Compañero)</span>
+                <span class="arch-node-role">Panel docente en Flask + Jinja2</span>
+                <span class="arch-node-flow">→ mariadb-db</span>
+              </button>
+              <button type="button" class="arch-node-card">
+                <span class="arch-node-layer arch-node-layer--datos">Datos</span>
+                <span class="arch-node-title">MariaDB</span>
+                <span class="arch-node-role">Dispositivos, PINs, sesiones y notas</span>
+                <span class="arch-node-flow">← api-servidor · portal-web</span>
+              </button>
+            </div>
+
+            <aside id="archNodeDetail" class="arch-inspector" aria-live="polite" aria-label="Inspector de nodo">
+              <p class="inspector-kicker">NODO SELECCIONADO · CAPA API</p>
+              <h4 class="inspector-title">Controlador api-servidor (Mi rol)</h4>
+              <p class="inspector-desc">
+                Implementé todos los endpoints para gafas VR, autenticación con el launcher, volcado transaccional en MariaDB y el pipeline concurrente (Faster-Whisper + Regex fonético en paralelo con Ollama).
+              </p>
+              <div class="inspector-tags">
+                <span class="tech-tag">FastAPI</span>
+                <span class="tech-tag">WebSockets</span>
+                <span class="tech-tag">Multithreading</span>
+                <span class="tech-tag">Gunicorn / Uvicorn</span>
+              </div>
+              <p class="inspector-links">Conecta con: Pipeline Voz &amp; IA · MariaDB</p>
+            </aside>
+          </div>
+        </div>
+
+        <!-- Competencias Técnicas del CV -->
+        <div id="habilidades" class="op-panel rise">
+          <div class="op-panel-head">
+            <div>
+              <h3>Competencias Técnicas del CV</h3>
+              <p>Tecnologías reales usadas en becas de I+D y proyectos de la UAH.</p>
+            </div>
+          </div>
+
+          <div id="skillsMatrix" class="skills-matrix">
+            <article class="skill-group-card">
+              <h4>Lenguajes y Herramientas</h4>
+              <p>Programación de sistemas, automatización, contenedores y documentación.</p>
+              <div class="skill-chips-row">
+                <span class="skill-chip">Python</span><span class="skill-chip">C</span><span class="skill-chip">C#</span><span class="skill-chip">Bash</span><span class="skill-chip">Git</span><span class="skill-chip">Docker</span><span class="skill-chip">Docker Compose</span><span class="skill-chip">LaTeX</span>
+              </div>
+            </article>
+            <article class="skill-group-card">
+              <h4>Tecnologías, APIs y Cloud</h4>
+              <p>Backends asíncronos, WebSockets, colas y despliegue serverless.</p>
+              <div class="skill-chips-row">
+                <span class="skill-chip">FastAPI</span><span class="skill-chip">Flask</span><span class="skill-chip">Redis</span><span class="skill-chip">WebSockets</span><span class="skill-chip">Multithreading</span><span class="skill-chip">Linux</span><span class="skill-chip">AWS Lambda</span><span class="skill-chip">AWS RDS</span>
+              </div>
+            </article>
+            <article class="skill-group-card">
+              <h4>Sistemas, Redes y VoIP</h4>
+              <p>Telefonía IP, señalización, análisis de tráfico y proxy inverso.</p>
+              <div class="skill-chips-row">
+                <span class="skill-chip">Redes SIP</span><span class="skill-chip">Asterisk</span><span class="skill-chip">PJSIP</span><span class="skill-chip">Wireshark</span><span class="skill-chip">Nginx</span>
+              </div>
+            </article>
+            <article class="skill-group-card">
+              <h4>IA Aplicada y Bases de Datos</h4>
+              <p>Visión artificial, transcripción/síntesis de voz, LLMs y BBDD relacionales.</p>
+              <div class="skill-chips-row">
+                <span class="skill-chip">YOLO</span><span class="skill-chip">ONNX</span><span class="skill-chip">Faster-Whisper</span><span class="skill-chip">Ollama</span><span class="skill-chip">Festival TTS</span><span class="skill-chip">MariaDB</span><span class="skill-chip">PostgreSQL</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Bitácora Cronológica -->
+        <div id="trayectoria" class="op-panel rise">
+          <div class="op-panel-head">
+            <div style="display:flex;align-items:center;gap:14px;">
+              <img src="assets/icons/chopper.svg" alt="Emblema de Chopper" width="40" height="40">
+              <div>
+                <h3>Bitácora de Travesía</h3>
+                <p>De los primeros pasos escolares en robótica a las becas de investigación en la UAH.</p>
+              </div>
+            </div>
+            <div class="timeline-filters" role="group" aria-label="Filtrar hitos de trayectoria">
+              <button type="button" class="filter-pill active" data-timeline-filter="featured">Destacados</button>
+              <button type="button" class="filter-pill" data-timeline-filter="all">Todos (8)</button>
+              <button type="button" class="filter-pill" data-timeline-filter="becas">Becas I+D</button>
+              <button type="button" class="filter-pill" data-timeline-filter="comunidad">Comunidad</button>
+            </div>
+          </div>
+
+          <div id="timelineContainer" class="timeline-list">
+            <article class="timeline-item" data-timeline-kind="becas" data-timeline-featured="true">
+              <div class="timeline-top"><span class="timeline-period">Jun 2026 – Actualidad</span><span class="timeline-type">Beca I+D · One Piece</span></div>
+              <h4>Beca de Investigación — Sistemas Distribuidos &amp; Visión Artificial</h4>
+              <p class="timeline-org">Cátedra de Correos y Telégrafos · Universidad de Alcalá (UAH)</p>
+              <p class="timeline-summary">Todo el sistema salvo panel web: Docker Compose, api-core FastAPI/JWT, colas Redis, ia-worker ONNX/YOLO (GPU/CPU), PostgreSQL, Nginx, Label Studio y entrenamiento en curso.</p>
+            </article>
+            <article class="timeline-item" data-timeline-kind="comunidad" data-timeline-featured="true">
+              <div class="timeline-top"><span class="timeline-period">26–30 Oct 2026</span><span class="timeline-type timeline-type--avatar">Comunidad · Avatar Aang</span></div>
+              <h4>Staff en CNSM 2026 (22nd Int. Conference on Network and Service Management)</h4>
+              <p class="timeline-org">Alcalá de Henares · Organización, acreditaciones y guiado</p>
+              <p class="timeline-summary">Apoyo de organización en el congreso, asistencia a charlas técnicas, práctica de inglés y contacto con referentes del sector.</p>
+            </article>
+            <article class="timeline-item" data-timeline-kind="comunidad" data-timeline-featured="true">
+              <div class="timeline-top"><span class="timeline-period">2026</span><span class="timeline-type timeline-type--avatar">Voluntariado · Avatar Aang</span></div>
+              <h4>Mentora en Technovation Girls (Equipo «Inteligents» · App Saludea)</h4>
+              <p class="timeline-org">Colegio Ernest Hemingway · Ingeniería Telemática UAH</p>
+              <p class="timeline-summary">Mentoría a niñas principiantes desarrollando Saludea, app para evitar interacciones entre medicamentos y alimentos.</p>
+            </article>
+            <article class="timeline-item" data-timeline-kind="becas" data-timeline-featured="true">
+              <div class="timeline-top"><span class="timeline-period">Dic 2025 – May 2026</span><span class="timeline-type">Beca I+D · One Piece</span></div>
+              <h4>Beca de Investigación — Backend XR &amp; Procesamiento de Voz</h4>
+              <p class="timeline-org">UAH · ALTEN Spain &amp; Instituto Cervantes</p>
+              <p class="timeline-summary">Responsable de api-servidor (FastAPI): endpoints de gafas Meta Quest, auth launcher, MariaDB, notas automáticas, concurrencia Faster-Whisper + Regex/Ollama, Nginx y Docker.</p>
+            </article>
+            <article class="timeline-item" data-timeline-kind="academico">
+              <div class="timeline-top"><span class="timeline-period">2025</span><span class="timeline-type">Proyectos UAH · One Piece</span></div>
+              <h4>Marchel (Asterisk v22 VoIP) &amp; Nika App (Flask-SocketIO + AWS Lambda/RDS)</h4>
+              <p class="timeline-org">Universidad de Alcalá (UAH) · En pareja con Marcos Santos Aragón</p>
+              <p class="timeline-summary">Centralita PJSIP, tráfico de red, Festival TTS y MariaDB CDR; chat en tiempo real y cálculo serverless de costes por KB.</p>
+            </article>
+            <article class="timeline-item" data-timeline-kind="base">
+              <div class="timeline-top"><span class="timeline-period">Nov 2022 – Ago 2026</span><span class="timeline-type timeline-type--base">Experiencia laboral paralela</span></div>
+              <h4>Dependienta de Fines de Semana — Parfois</h4>
+              <p class="timeline-org">Parfois</p>
+              <p class="timeline-summary">Casi 4 años compaginando atención al público con la carrera: gestión del tiempo, resiliencia y tolerancia a la presión.</p>
+            </article>
+            <article class="timeline-item" data-timeline-kind="base" data-timeline-featured="true">
+              <div class="timeline-top"><span class="timeline-period">En curso · Prev. 2027</span><span class="timeline-type timeline-type--base">Formación · Prácticas 450–900 h</span></div>
+              <h4>Grado en Ingeniería Telemática (Último año)</h4>
+              <p class="timeline-org">Universidad de Alcalá (UAH) · Valorando máster habilitante</p>
+              <p class="timeline-summary">Disponible para prácticas curriculares (450 h) ampliables a extracurriculares (hasta 900 h). Español nativo e Inglés ~B2 práctico.</p>
+            </article>
+            <article class="timeline-item" data-timeline-kind="comunidad">
+              <div class="timeline-top"><span class="timeline-period">2019 · Etapa escolar</span><span class="timeline-type timeline-type--avatar">Infancia · Avatar Aang</span></div>
+              <h4>Technovation Girls (Alumna senior) &amp; Robocampeones / Endesa</h4>
+              <p class="timeline-org">Instituto · Despertar tecnológico</p>
+              <p class="timeline-summary">Robocampeones, reto escolar programando un robot con placa Bluetooth junto a Endesa y app antibullying en App Inventor.</p>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- ==================== PIE DE PÁGINA ==================== -->
-  <footer class="site-footer">
-    <div class="container footer-content">
-      <p class="footer-note">"El viaje continúa, recopilando magia en cada commit." ✨</p>
-      <p class="footer-copy">© 2026 Chelsea Fernández Hernández • Diseñado con tonos pasteles, pasión y código propio.</p>
+  <!-- ==================== FOOTER / CONTACTO & CV ==================== -->
+  <footer class="contact" id="contacto" data-theme-zone="contact">
+    <div class="wave" style="--from:#A9D6E2;--to:#FBF3E4" aria-hidden="true">
+      <svg class="back" viewBox="0 0 2400 120" preserveAspectRatio="none"><path d="M0 64C133 30 267 96 400 64C533 30 667 96 800 64C933 30 1067 96 1200 64C1333 30 1467 96 1600 64C1733 30 1867 96 2000 64C2133 30 2267 96 2400 64V120H0Z"/></svg>
+      <svg class="front" viewBox="0 0 2400 120" preserveAspectRatio="none"><path d="M0 64C200 28 400 96 600 64C800 28 1000 96 1200 64C1400 28 1600 96 1800 64C2000 28 2200 96 2400 64V120H0Z"/></svg>
+    </div>
+
+    <div class="wrap">
+      <p class="eyebrow">Contacto &amp; CV</p>
+      <h2>¿Zarpamos?</h2>
+      <p class="lead">
+        Disponible para prácticas curriculares (450 h) ampliables a extracurriculares (hasta 900 h). Si buscas alguien con base en redes, sistemas distribuidos, IA y espíritu de equipo, estaré encantada de conversar.
+      </p>
+      <span class="contact-avail">Madrid · Alcalá de Henares · Español nativo · Inglés ~B2 práctico</span>
+
+      <ul class="social">
+        <li>
+          <button type="button" id="copyEmailBtn" aria-label="Copiar correo chelseafh2003@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span id="emailDisplay">chelseafh2003@gmail.com</span>
+          </button>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/chelsea-fernandez-hernandez-64a339189/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/Chelseafh" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            GitHub (@Chelseafh)
+          </a>
+        </li>
+      </ul>
+
+      <a class="btn btn-elastic" id="cv" href="assets/CV_Chelsea_Fdez_Hdez.pdf" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Descargar CV (PDF)
+      </a>
+
+      <form id="contactForm" class="contact-form-wrap" novalidate>
+        <h3>Compositor rápido de correo</h3>
+        <p>Prepara un correo dirigido a <code>chelseafh2003@gmail.com</code> (el teléfono figura únicamente en el PDF del CV).</p>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="contactName">Tu nombre o equipo</label>
+            <input type="text" id="contactName" name="name" placeholder="Ej. Laura · Equipo de Ingeniería" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="contactTopic">Motivo</label>
+            <select id="contactTopic" name="topic">
+              <option value="Prácticas curriculares / extracurriculares (450-900h)">Prácticas curriculares / extracurriculares (450–900 h)</option>
+              <option value="Colaboración técnica / I+D">Colaboración técnica / I+D</option>
+              <option value="Consulta sobre arquitectura o código">Consulta sobre arquitectura o código</option>
+              <option value="Recomendación de libros o juegos de mesa">Recomendación de libros o juegos de mesa</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contactMessage">Mensaje</label>
+            <textarea id="contactMessage" name="message" rows="3" placeholder="Cuéntame en qué equipo o proyecto estás trabajando..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-elastic" style="width:100%;justify-content:center;">Preparar correo</button>
+        </div>
+      </form>
+
+      <div>
+        <button class="switch" id="animeToggle" type="button" role="switch" aria-checked="true">
+          <span class="t" aria-hidden="true"></span>
+          Modo anime interactivo
+        </button>
+      </div>
+
+      <p class="fine">© 2026 Chelsea Fernández Hernández · Ingeniería Telemática (UAH) · Con la calma de Frieren, la empatía de Aang y el espíritu nakama de One Piece</p>
     </div>
   </footer>
 
-  <!-- ==================== MODAL DE PROYECTO ==================== -->
-  <div id="projectModal" class="modal-overlay" role="dialog" aria-modal="true">
-    <div class="modal-box">
-      <button id="modalCloseBtn" class="modal-close-btn" aria-label="Cerrar modal">
-        <i class="ri-close-line"></i>
-      </button>
-      <div id="modalContent">
-        <!-- Contenido renderizado dinámicamente con JavaScript -->
-      </div>
+  <!-- ==================== MODALES & TOAST (CONTRATO FASE 4) ==================== -->
+  <div id="projectModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <button type="button" id="projectModalClose" class="modal-close" aria-label="Cerrar detalle del proyecto">×</button>
+      <div id="projectModalContent"></div>
     </div>
   </div>
 
-  <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <div id="cvModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Vista previa del Currículum Vitae" aria-hidden="true">
+    <div class="modal-dialog">
+      <button type="button" id="cvModalClose" class="modal-close" aria-label="Cerrar vista previa del CV">×</button>
+      <div id="cvModalBody"></div>
+    </div>
+  </div>
+
+  <div id="siteToast" class="toast" role="status" aria-live="polite"></div>
+
+  <script defer src="js/portfolio-data.js"></script>
+  <script defer src="js/main.js"></script>
 </body>
 </html>

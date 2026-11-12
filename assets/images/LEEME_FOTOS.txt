@@ -1,0 +1,15 @@
+CARPETAS DE FOTOGRAFÍAS DEL PORTAFOLIO — CHELSEA FERNÁNDEZ
+
+Cuando tengas listas tus fotografías esta semana, colócalas en las subcarpetas correspondientes usando estos nombres recomendados (formatos .jpg, .jpeg o .png):
+
+1. Pilar Frieren (viajes, mar, norte de España o lectura):
+   - assets/images/frieren/viaje-playa-norte.jpg
+
+2. Pilar Avatar Aang (comunidad, voluntariado y eventos):
+   - assets/images/aang/technovation-2026.jpg
+   - assets/images/aang/cnsm-2026.jpg
+
+Nota:
+- Mientras no subas los archivos físicos, el portafolio mostrará espacios elegantes preparados sin imágenes rotas.
+- Si decides subir fotos adicionales o cambiar nombres, basta con actualizar `src` / `plannedPath` en `js/portfolio-data.js`.
+- Recuerda también colocar tu currículum en `assets/CV_Chelsea_Fernandez.pdf` (según indica `assets/LEEME_CV.txt`).

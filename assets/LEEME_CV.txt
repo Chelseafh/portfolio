@@ -1,0 +1,6 @@
+Coloca aquí tu archivo de currículum en formato PDF renombrado como:
+CV_Chelsea_Fernandez.pdf
+
+El botón de descarga del portafolio ya está configurado para apuntar a:
+assets/CV_Chelsea_Fernandez.pdf
+
