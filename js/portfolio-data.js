@@ -1047,3 +1047,429 @@ window.PORTFOLIO_DATA = {
     }
   ]
 };
+
+/* ============================================================================
+   PORTFOLIO_I18N — Diccionario bilingüe (ES / EN) para Internacionalización
+   ============================================================================ */
+window.PORTFOLIO_I18N = {
+  es: {
+    nav: {
+      frieren: "Paz",
+      avatar: "Comunidad",
+      onepiece: "Aventura",
+      contact: "Contacto",
+      soundAria: "Activar o silenciar sonido ambiente"
+    },
+    hero: {
+      eyebrow: "Capítulo I · Frieren — Paz / Ideal de vida",
+      role: "Madrid · Vida sin prisas · Entre el mar, la comunidad y nuevos horizontes",
+      lead: "Vivo en Madrid y me gusta disfrutar de los días sin tanta prisa, rodeada de buena compañía, un libro abierto o una sobremesa larga. Este espacio recorre quién soy en tres etapas: la calma con la que entiendo la vida, la comunidad en la que crecí ayudando a otros y, más adelante al llegar a mar abierto, el camino y los proyectos que hoy me traen hasta aquí.",
+      startBtn: "Comenzar el viaje",
+      soundBtn: "Sonido ambiente"
+    },
+    frieren: {
+      aboutEyebrow: "Sobre mí · Ideal de vida",
+      aboutTitle: "Un viaje tranquilo, con rumbo claro",
+      frierenQuote: "«Frieren me recuerda que debemos tomarnos las cosas con calma. Las personas vivimos demasiado poco y casi siempre vamos con prisa, olvidándonos de lo sencillo. Al final, lo único que da verdadero valor a la vida es disfrutar de las pequeñas cosas con tranquilidad y dedicar tiempo de calidad a quienes quieres, sin olvidarte de vivir.»",
+      chronicleEyebrow: "De la isla al norte verde · Sobremesas · Libros",
+      chronicleTitle: "Mi ritmo fuera del reloj",
+      chronicleIntro: "Lejos de cualquier pantalla o reloj, mi ritmo cotidiano busca cuidar esos pequeños rituales que me devuelven al equilibrio: escuchar las olas, sentarme alrededor de una mesa con los míos o perderme en una buena historia sobre una manta en el campo.",
+      tabs: {
+        mar: "🌊 El mar y el norte",
+        juegos: "🎲 Juegos de mesa",
+        lectura: "📖 Lectura",
+        all: "✨ Ver todo"
+      },
+      marPassage: "Nací en una isla, y creo que de ahí viene lo mucho que quiero al mar: basta quedarme observándolo y escuchando romper sus olas para volver a sentirme en calma. Cuando el plan es escaparme tierra adentro, me encanta el norte de España, perderme entre sus paisajes verdes y el rumor de los ríos, y extender una manta en el suelo para pasar horas leyendo sin prisa. Esa misma ilusión por descubrir sitios con tranquilidad vive también en una tradición anual que mantengo con mi pareja: celebrar cada cumpleaños y nuestro aniversario viajando, como hicimos en Milán y en Copenhague.",
+      juegosPassage: "Pero no hace falta hacer las maletas para detener el reloj. Desde muy pequeña, reunirnos alrededor de una mesa en familia o con amigos significa tardes interminables de risas, pique sano y conversación. Crecí entre partidas de Monopoly, Dominó, Trivial y juegos de cartas, y hoy esas sobremesas siguen siendo sagradas sumando Party & Co, Hitster, Catán, Cluedo, Virus, puzles y ratos tranquilos construyendo LEGO.",
+      lecturaPassage: "Y aunque de pequeña no era de leer demasiado, con los años los libros han ido ganando cada vez más espacio en mi día a día hasta convertirse en uno de mis refugios favoritos. Entre las historias que más me han marcado está San Manuel Bueno, mártir, cuya reflexión filosófica y religiosa sobre la fe y el cuidado hacia los demás me removió muchísimo precisamente por leerla desde una mirada no creyente pero profundamente empática. Hoy salto de los mangas en edición grimorio de The Witch Hat Atelier a la fantasía de Brandon Sanderson con Trenza del mar esmeralda y Nacidos de la bruma, novelas como El paciente, Últimos días en Berlín o El día que se perdió la cordura, clásicos como 1984 de George Orwell y mi lectura actual, El cuento de la criada —porque, al final, disfrutar de todo esto con calma y junto a quienes quieres es lo que da sentido a cada etapa.",
+      travelLabel: "Postales de viaje · Del mar al norte verde",
+      diceLabels: {
+        games: "🎲 Tirar dado de juegos",
+        books: "📚 Tirar dado de libros",
+        gamesTitle: "Juegos de mesa desde pequeña",
+        booksTitle: "Lectura & tiempo para mí",
+        booksNote: "San Manuel Bueno, mártir me hizo reflexionar muchísimo por su trasfondo filosófico y humano."
+      },
+      staffPrompt: "Toca el báculo para lanzar un hechizo de calma.",
+      sealText: "和 · armonía entre la calma cotidiana, las pequeñas cosas y el tiempo con quienes quieres"
+    },
+    avatar: {
+      avatarEyebrow: "Capítulo II · Avatar Aang — Comunidad e Infancia",
+      avatarTitle: "Lo que se comparte llega más lejos",
+      avatarLead: "Lo que realmente descongeló mi curiosidad por la tecnología empezó en el instituto, entre asignaturas de robótica y programación, competiciones escolares como Robocampeones, un reto junto a Endesa diseñando un robot en 3D en AutoCAD, fabricándolo con impresora 3D y programando su placa Arduino, y mi etapa como alumna senior en Technovation Girls creando una app frente al bullying en App Inventor. Aquello me demostró que aprender en comunidad te lleva mucho más lejos —y años después volví al punto de partida como mentora y colaboré en CNSM 2026 en Alcalá de Henares.",
+      milestones: [
+        {
+          tag: "Instituto · 2019",
+          title: "Mi etapa como alumna: Robocampeones, reto Arduino Endesa y Technovation Senior",
+          desc: "En el instituto descubrí cuánto me gustaba crear cosas útiles entre asignaturas de robótica y programación: competí en Robocampeones, participé en un reto escolar junto a Endesa diseñando un robot en 3D en AutoCAD, fabricándolo con impresora 3D y programando su placa Arduino, y, como alumna senior en Technovation Girls 2019, diseñé con mi equipo una app en App Inventor para ayudar a niños y niñas que sufrían bullying.",
+          toggleOpen: "Ver detalles del hito",
+          toggleClose: "Ocultar detalles"
+        },
+        {
+          tag: "Mentoría · 2026",
+          title: "Mentora en Technovation Girls 2026 (Equipo «Inteligents» · Saludea)",
+          desc: "Cerrar el círculo acompañando como mentora a un equipo de niñas principiantes del colegio Ernest Hemingway («Inteligents»). Juntas dieron forma a Saludea, una app pensada para ayudar a personas con medicación a evitar alimentos que interfieren con su tratamiento; verlas idear, organizarse, superar frustraciones y celebrar el resultado final fue inolvidable.",
+          toggleOpen: "Ver detalles del hito",
+          toggleClose: "Ocultar detalles"
+        },
+        {
+          tag: "Congreso · Oct 2026",
+          title: "Staff en CNSM 2026 (Alcalá de Henares)",
+          desc: "Formé parte del equipo de staff en el 22nd International Conference on Network and Service Management ('Evolving Network and Service Management: From Automation to Agentic Intelligence'), ayudando en organización, acreditaciones y guiado por la universidad, además de asistir a charlas, practicar inglés y compartir con asistentes de todo el mundo.",
+          toggleOpen: "Ver detalles del hito",
+          toggleClose: "Ocultar detalles"
+        }
+      ],
+      elements: {
+        label: "Cuatro valores de comunidad y empatía",
+        aire: "Escuchar sin prejuicios",
+        agua: "Empatía y adaptación",
+        tierra: "Constancia y cuidado",
+        fuego: "Iniciativa y mentoría",
+        prompt: "Pulsa un elemento para sentir su energía"
+      },
+      koiQuote: "«Pensar distinto no convierte a nadie en tu enemigo: escuchar, comprender, perdonar y respetar la libertad del otro es lo que construye comunidad.»",
+      koiCite: "Mi lectura de Avatar: La Leyenda de Aang",
+      teaCorner: {
+        label: "EL RINCÓN DE TÉ DEL TÍO IROH",
+        btn: "Servir otra taza"
+      }
+    },
+    onepiece: {
+      opEyebrow: "Capítulo III · One Piece — Futuro, Becas y Proyectos",
+      opTitle: "En busca de mi One Piece",
+      opLead: "Aquí empieza el mar abierto de mi camino técnico: el último curso de Ingeniería Telemática en la UAH, las becas reales de I+D donde diseñé backends, colas y modelos de IA, y los proyectos de redes y nube construidos codo con codo junto a buenos nakamas.",
+      projectFilters: {
+        all: "Todos",
+        profesional: "Becas I+D",
+        academico: "Proyectos UAH",
+        searchPlaceholder: "Buscar por título, beca o tecnología (FastAPI, YOLO, Asterisk, AWS)...",
+        clearBtn: "Limpiar",
+        countSuffix: "proyectos"
+      },
+      projects: {
+        controlador: {
+          badge: "Destacado · XR & Voz",
+          tag: "Beca I+D · Dic 2025 – May 2026",
+          title: "Controlador Backend XR & Evaluación Vocal (Juego Educativo VR/MR)",
+          inst: "UAH · ALTEN Spain & Instituto Cervantes · Repo: Controlador/",
+          summary: "Controlador central backend dockerizado para una plataforma educativa inmersiva de español en Realidad Virtual y Mixta (Meta Quest) desarrollada para ALTEN y el Instituto Cervantes. Lideré la ingeniería del servidor central que autentica dispositivos, distribuye dinámicamente escenarios pedagógicos por PIN, ingesta streaming de audio infantil en tiempo real vía WebSockets, evalúa la pronunciación con un flujo híbrido de IA y persiste calificaciones trazables en MariaDB.",
+          roleLabel: "Mi rol exacto",
+          role: "Responsable íntegra del controlador general backend (api-servidor): diseño y desarrollo de todos los endpoints REST y WebSockets para las gafas VR, autenticación segura con el launcher, persistencia transaccional con MariaDB, corrección automática de notas, pipeline concurrente de audio (Faster-Whisper STT en paralelo con Regex + Ollama), configuración de Nginx TLS, contenedorización con Docker Compose y co-diseño de la arquitectura global del sistema.",
+          detailsBtn: "Ver detalles",
+          sheetBtn: "Ficha completa",
+          archBtn: "Arquitectura",
+          toyBtn: "Probar voz XR",
+          toyScreen: "PIN 4821 · Pulsa para simular frase"
+        },
+        correos: {
+          badge: "Destacado · Visión IA",
+          tag: "Beca I+D · Jun 2026 – Actualidad",
+          title: "Sistema de Visión Artificial & Microservicios (Cátedra de Correos)",
+          inst: "Cátedra de Correos y Telégrafos · UAH · Repo: Correos_casillero/Servidor/",
+          summary: "Plataforma distribuida de microservicios en Docker para automatizar la auditoría y conteo de correspondencia en casilleros postales de 20 baldas mediante visión por computador (YOLOv8-seg / ONNX Runtime). Asumí de extremo a extremo la ingeniería del servidor: desde la ingesta móvil segura y la gestión asíncrona de colas hasta la inferencia local acelerada por hardware y la persistencia histórica en PostgreSQL.",
+          roleLabel: "Mi rol exacto",
+          role: "Responsable integral de la infraestructura backend, la arquitectura de microservicios y el pipeline de visión artificial (todo el sistema excepto el panel web administrativo): orquestación con Docker Compose, API móvil FastAPI con JWT y validación binaria, cola desacoplada Redis AOF, worker de inferencia ONNX/YOLO con soporte GPU local/CPU, base de datos PostgreSQL 15, reverse proxy Nginx, etiquetado de datasets en Label Studio y scripts de entrenamiento en curso.",
+          detailsBtn: "Ver detalles",
+          sheetBtn: "Ficha completa",
+          archBtn: "Arquitectura",
+          toyBtn: "Escanear cartas (ONNX)",
+          toyReadout: "Casillero 4x5 · 20 baldas listas"
+        },
+        marchel: {
+          badge: "Redes & VoIP",
+          tag: "Proyecto UAH · 2025",
+          title: "Marchel: Sistema de Telefonía IP con Asterisk & Tarificación",
+          inst: "UAH · Lab. Redes, Señales y Sistemas · Repo: proyectos/Marchel-Asterisk/",
+          summary: "Infraestructura integral de telefonía IP corporativa y tarificación automatizada desplegada sobre Ubuntu Linux con Asterisk v22.2.0 y pila PJSIP. Desarrollado en estrecha colaboración en pareja, el sistema abarca desde la conmutación de extensiones, IVR interactivo, salas de conferencia y síntesis vocal en español (Festival TTS) hasta el registro CDR en MariaDB, tarificación periódica por destino y consulta analítica en Flask.",
+          roleLabel: "Trabajo en pareja",
+          role: "Co-desarrollo integral en pareja junto a Marcos Santos Aragón, participando transversalmente en todo el ciclo de vida del sistema: arquitectura y configuración de centralitas Asterisk v22.2.0 sobre Ubuntu Linux, protocolo PJSIP, análisis de tráfico de red y señalización SIP/RTP con Wireshark, síntesis de voz con Festival TTS, integración ODBC con MariaDB, motor de tarificación batch en Python/Cron y portal web de usuario en Flask.",
+          detailsBtn: "Ver detalles",
+          sheetBtn: "Ficha completa",
+          archBtn: "Arquitectura",
+          toyBtn: "Llamar ext. 2001",
+          toyScreen: "SIP:2001 · Listo para marcar"
+        },
+        nika: {
+          badge: "Cloud Serverless",
+          tag: "Proyecto UAH · 2025",
+          title: "Nika App: Plataforma Cloud de Chat & Facturación Serverless",
+          inst: "UAH · Lab. Redes, Sistemas y Servicios · Repo: proyectos/LRSS-4/",
+          summary: "Plataforma cloud de mensajería interactiva en tiempo real y facturación serverless desplegada sobre servicios gestionados de AWS (RDS MySQL y Lambda). Desarrollada en equipo con Marcos Santos Aragón, combina comunicación bidireccional basada en WebSockets con arquitectura desacoplada en la nube para auditar el tráfico de datos y liquidar costes de consumo por kilobyte mediante funciones serverless.",
+          roleLabel: "Trabajo en pareja",
+          role: "Co-desarrollo integral en pareja junto a Marcos Santos Aragón, abarcando de extremo a extremo la arquitectura cloud: diseño de la aplicación de mensajería en tiempo real con Flask y Flask-SocketIO, modelado y administración de base de datos relacional en AWS RDS MySQL, desarrollo del microservicio serverless de cálculo de costes en AWS Lambda (Python) y panel de supervisión analítica.",
+          detailsBtn: "Ver detalles",
+          sheetBtn: "Ficha completa",
+          archBtn: "Arquitectura",
+          toyBtn: "Enviar mensaje (KB)",
+          toyFeed: "Chat Nika en vivo · 0 KB facturados"
+        }
+      },
+      easterEggs: {
+        brookBtn: "Brook · ¡Yohohoho!",
+        robinBtn: "Nico Robin · Poneglyph"
+      },
+      treasureTitle: "El tesoro no es el destino",
+      treasureQuote: "«Sigo en plena travesía descubriendo cuáles son todos mis sueños y cómo hacerlos realidad, pero tengo claro cómo quiero vivir el viaje: rodeada de buenos nakamas, aprendiendo en cada proyecto complejo y celebrando cada festín por el camino.»",
+      treasureText: "Compaginar el grado en la UAH (2027) con becas de I+D y casi cuatro años trabajando los fines de semana en Parfois (Nov 2022 – Ago 2026) ha entrenado mi gestión del tiempo, resiliencia y trabajo bajo presión. Ahora busco prácticas curriculares (450 h) ampliables a 900 h.",
+      cvBtn: "Ver / Descargar CV (PDF)",
+      archTitle: "Explorador de Arquitectura de Sistemas",
+      archSubtitle: "Topología real de clientes, APIs, modelos de IA, colas y bases de datos.",
+      archLayers: {
+        cliente: "Cliente",
+        web: "Web",
+        api: "API",
+        ia: "IA",
+        datos: "Datos",
+        infra: "Infra"
+      },
+      skillsTitle: "Competencias Técnicas del CV",
+      skillsSubtitle: "Tecnologías reales usadas en becas de I+D y proyectos de la UAH.",
+      timelineTitle: "Bitácora de Travesía",
+      timelineSubtitle: "De los primeros pasos escolares en robótica a las becas de investigación en la UAH.",
+      timelineFilters: {
+        featured: "Destacados",
+        all: "Todos (8)",
+        becas: "Becas I+D",
+        comunidad: "Comunidad",
+        academico: "Proyectos UAH"
+      }
+    },
+    contact: {
+      contactEyebrow: "Contacto & CV",
+      contactTitle: "¿Zarpamos?",
+      contactLead: "Disponible para prácticas curriculares (450 h) ampliables a extracurriculares (hasta 900 h). Si buscas alguien con base en redes, sistemas distribuidos, IA y espíritu de equipo, estaré encantada de conversar.",
+      contactAvail: "Madrid · Alcalá de Henares · Español nativo · Inglés ~B2 práctico",
+      copyEmailLabel: "Copiar correo chelseafh2003@gmail.com",
+      downloadCvBtn: "Descargar CV (PDF)",
+      formTitle: "Compositor rápido de correo",
+      formSubtitle: "Prepara un correo dirigido a chelseafh2003@gmail.com (el teléfono figura únicamente en el PDF del CV).",
+      nameLabel: "Tu nombre o equipo",
+      namePlaceholder: "Ej. Laura · Equipo de Ingeniería",
+      topicLabel: "Motivo",
+      topicOptions: {
+        internship: "Prácticas curriculares / extracurriculares (450–900 h)",
+        collaboration: "Colaboración técnica / I+D",
+        inquiry: "Consulta sobre arquitectura o código",
+        booksGames: "Recomendación de libros o juegos de mesa"
+      },
+      messageLabel: "Mensaje",
+      messagePlaceholder: "Cuéntame en qué equipo o proyecto estás trabajando...",
+      submitBtn: "Preparar correo",
+      animeMode: "Modo anime interactivo",
+      footerFine: "© 2026 Chelsea Fernández Hernández · Ingeniería Telemática (UAH) · Con la calma de Frieren, la empatía de Aang y el espíritu nakama de One Piece"
+    }
+  },
+
+  en: {
+    nav: {
+      frieren: "Peace",
+      avatar: "Community",
+      onepiece: "Adventure",
+      contact: "Contact",
+      soundAria: "Turn ambient sound on or off"
+    },
+    hero: {
+      eyebrow: "Chapter I · Frieren — Peace / Way of Life",
+      role: "Madrid · Unhurried life · Between the sea, community, and new horizons",
+      lead: "I live in Madrid and love enjoying days without rushing, surrounded by good company, an open book, or long table conversations. This space travels through who I am in three chapters: the calm with which I understand life, the community where I grew up supporting others, and later on upon reaching the open sea, the engineering journey and projects that brought me here.",
+      startBtn: "Begin the journey",
+      soundBtn: "Ambient sound"
+    },
+    frieren: {
+      aboutEyebrow: "About me · Way of life",
+      aboutTitle: "An unhurried journey, with a clear direction",
+      frierenQuote: "«Frieren reminds me that we need to take things calmly. We live too briefly and almost always rush, forgetting what is simple. In the end, what truly brings value to life is enjoying small moments peacefully and dedicating quality time to those you love, without forgetting to live.»",
+      chronicleEyebrow: "From the island to the green north · Table conversations · Books",
+      chronicleTitle: "My pace outside the clock",
+      chronicleIntro: "Far from any screen or clock, my daily rhythm cherishes small rituals that bring me back to balance: listening to ocean waves, sitting around a table with loved ones, or getting lost in a good story on a blanket in the fields.",
+      tabs: {
+        mar: "🌊 The Sea & North",
+        juegos: "🎲 Board Games",
+        lectura: "📖 Reading",
+        all: "✨ View All"
+      },
+      marPassage: "I was born on an island, and I believe that's where my deep love for the sea comes from: simply watching it and listening to the breaking waves brings me peace. When escaping inland, I adore northern Spain, getting lost among its green landscapes and the murmur of rivers, spreading a blanket to spend hours reading without haste. That same passion for exploring peacefully lives in an annual tradition with my partner: celebrating each birthday and anniversary traveling, as we did in Milan and Copenhagen.",
+      juegosPassage: "Yet there's no need to pack bags to stop the clock. Since childhood, gathering around a table with family or friends has meant endless afternoons of laughter, healthy banter, and conversation. I grew up playing Monopoly, Dominoes, Trivial, and card games, and today those post-dinner table sessions remain sacred with Party & Co, Hitster, Catan, Cluedo, Virus, puzzles, and peaceful hours building LEGO.",
+      lecturaPassage: "And although I wasn't an avid reader as a child, over the years books have earned a central place in my life, becoming one of my favorite sanctuaries. Among stories that touched me most is San Manuel Bueno, Martyr, whose philosophical reflection on faith and caring for others deeply moved me from a non-believing yet deeply empathetic perspective. Today I leap from the grimoire edition of Witch Hat Atelier to Brandon Sanderson's fantasy with Tress of the Emerald Sea and Mistborn, psychological thrillers, classics like Orwell's 1984, and currently The Handmaid's Tale — because enjoying all of this peacefully with those you care about is what gives meaning to every chapter.",
+      travelLabel: "Travel postcards · From the sea to the green north",
+      diceLabels: {
+        games: "🎲 Random board game",
+        books: "📚 Random book",
+        gamesTitle: "Board games since childhood",
+        booksTitle: "Reading & personal time",
+        booksNote: "San Manuel Bueno, Martyr: reading with a deep philosophical and empathetic backdrop."
+      },
+      staffPrompt: "Touch the staff to cast a spell of calm.",
+      sealText: "和 · harmony between daily calm, small moments, and time with loved ones"
+    },
+    avatar: {
+      avatarEyebrow: "Chapter II · Avatar Aang — Community & Upbringing",
+      avatarTitle: "What is shared reaches further",
+      avatarLead: "What truly sparked my curiosity for technology began in high school, between robotics and programming courses, school competitions like Robocampeones, an engineering challenge with Endesa programming an Arduino board, designing the 3D chassis in AutoCAD and 3D printing it, and my stage as a senior student in Technovation Girls creating an anti-bullying app in App Inventor. That taught me that learning in community takes you much further — and years later I came full circle as a mentor and contributed to CNSM 2026 in Alcalá de Henares.",
+      milestones: [
+        {
+          tag: "High School · 2019",
+          title: "My stage as a student: Robocampeones, Endesa Arduino challenge & Technovation Senior",
+          desc: "In high school I discovered my passion for building useful technology between robotics and programming courses: competed in Robocampeones, took on an engineering challenge with Endesa designing a robot in 3D in AutoCAD, 3D printing it and programming its Arduino board, and as a senior participant in Technovation Girls 2019, built an App Inventor app to help kids facing bullying.",
+          toggleOpen: "Read milestone details",
+          toggleClose: "Hide details"
+        },
+        {
+          tag: "Mentorship · 2026",
+          title: "Technovation Girls 2026 Mentor (Team «Inteligents» · Saludea App)",
+          desc: "Coming full circle as a mentor for a beginner girls team from Ernest Hemingway School («Inteligents»). Together they created Saludea, an app helping people taking medication avoid harmful food interactions. Supporting them while brainstorming, organizing, overcoming hurdles, and celebrating the final outcome was unforgettable.",
+          toggleOpen: "Read milestone details",
+          toggleClose: "Hide details"
+        },
+        {
+          tag: "Conference · Oct 2026",
+          title: "Staff at CNSM 2026 (Alcalá de Henares)",
+          desc: "Part of the organizing staff at the 22nd International Conference on Network and Service Management ('Evolving Network and Service Management: From Automation to Agentic Intelligence'), assisting with registration, guiding international attendees across the campus, attending keynote sessions, and practicing technical English.",
+          toggleOpen: "Read milestone details",
+          toggleClose: "Hide details"
+        }
+      ],
+      elements: {
+        label: "Four values of community and empathy",
+        aire: "Listening without prejudice",
+        agua: "Empathy and adaptability",
+        tierra: "Constancy and care",
+        fuego: "Initiative and mentorship",
+        prompt: "Tap an element to feel its energy"
+      },
+      koiQuote: "«Thinking differently does not make anyone your enemy: listening, understanding, forgiving, and respecting each other's freedom is what builds community.»",
+      koiCite: "My perspective on Avatar: The Last Airbender",
+      teaCorner: {
+        label: "UNCLE IROH'S TEA CORNER",
+        btn: "Pour another cup"
+      }
+    },
+    onepiece: {
+      opEyebrow: "Chapter III · One Piece — Future, R&D Grants & Projects",
+      opTitle: "In search of my One Piece",
+      opLead: "Here begins the open sea of my engineering path: final year of Telematics Engineering at UAH, real R&D research grants building distributed backends, queues, and AI models, and cloud & networking projects built alongside great nakamas.",
+      projectFilters: {
+        all: "All",
+        profesional: "R&D Grants",
+        academico: "UAH Projects",
+        searchPlaceholder: "Search by title, grant or technology (FastAPI, YOLO, Asterisk, AWS)...",
+        clearBtn: "Clear",
+        countSuffix: "projects"
+      },
+      projects: {
+        controlador: {
+          badge: "Featured · XR & Voice AI",
+          tag: "R&D Grant · Dec 2025 – May 2026",
+          title: "XR Backend Controller & Speech Evaluation (VR/MR Educational Game)",
+          inst: "UAH · ALTEN Spain & Instituto Cervantes · Repo: Controlador/",
+          summary: "Dockerized central backend controller for an immersive Spanish learning platform in VR/MR (Meta Quest) developed for ALTEN and Instituto Cervantes. Led server engineering to authenticate headsets, distribute pin-based scenarios, ingest real-time PCM16 audio via WebSockets, evaluate pronunciation through a hybrid AI pipeline, and persist grades in MariaDB.",
+          roleLabel: "My exact role",
+          role: "Full ownership of the backend controller (api-servidor): REST/WebSocket endpoints for VR headsets, launcher authentication, MariaDB transactional storage, automated grading, concurrent audio pipeline (Faster-Whisper STT parallel with Regex + Ollama), Nginx TLS, Docker Compose, and co-designing the overall architecture.",
+          detailsBtn: "View details",
+          sheetBtn: "Full project sheet",
+          archBtn: "Architecture",
+          toyBtn: "Test XR voice",
+          toyScreen: "PIN 4821 · Tap to simulate phrase"
+        },
+        correos: {
+          badge: "Featured · Computer Vision",
+          tag: "R&D Grant · Jun 2026 – Present",
+          title: "Computer Vision & Microservices System (Correos Chair)",
+          inst: "Correos Chair · UAH · Repo: Correos_casillero/Servidor/",
+          summary: "Distributed microservices platform on Docker Compose to automate mail sorting audits across 20-pigeonhole furniture using computer vision (YOLOv8-seg / ONNX Runtime). Owned end-to-end server engineering: secure mobile ingestion, asynchronous Redis queues, hardware-accelerated local inference, and historical persistence in PostgreSQL.",
+          roleLabel: "My exact role",
+          role: "Complete ownership of backend infrastructure, microservices architecture, and computer vision pipeline: Docker Compose orchestration, FastAPI mobile API with JWT, decoupled Redis AOF queue, ONNX/YOLO inference worker with local GPU/CPU fallback, PostgreSQL 15 database, Nginx proxy, Label Studio annotation, and retraining scripts.",
+          detailsBtn: "View details",
+          sheetBtn: "Full project sheet",
+          archBtn: "Architecture",
+          toyBtn: "Scan mail (ONNX)",
+          toyReadout: "Grid 4x5 · 20 slots ready"
+        },
+        marchel: {
+          badge: "Networking & VoIP",
+          tag: "UAH Project · 2025",
+          title: "Marchel: IP PBX System with Asterisk v22 & Billing",
+          inst: "UAH · Lab. Networks, Signals & Systems · Repo: proyectos/Marchel-Asterisk/",
+          summary: "Comprehensive corporate VoIP telephony and automated rating infrastructure deployed on Ubuntu Linux with Asterisk v22.2.0 and PJSIP stack. Co-developed in pair programming: extension routing, interactive IVR, conference bridges, Spanish TTS (Festival), MariaDB CDR logging via ODBC, batch billing in Python/Cron, and Flask web portal.",
+          roleLabel: "Pair project",
+          role: "Co-development alongside Marcos Santos Aragón across the entire lifecycle: Asterisk v22.2.0 PBX architecture on Ubuntu Linux, PJSIP protocol, SIP/RTP network analysis with Wireshark, Festival TTS voice synthesis via systemd, ODBC MariaDB integration, Python/Cron billing engine, and Flask web portal.",
+          detailsBtn: "View details",
+          sheetBtn: "Full project sheet",
+          archBtn: "Architecture",
+          toyBtn: "Call ext. 2001",
+          toyScreen: "SIP:2001 · Ready to dial"
+        },
+        nika: {
+          badge: "Cloud Serverless",
+          tag: "UAH Project · 2025",
+          title: "Nika App: Real-Time Chat & Serverless AWS Billing",
+          inst: "UAH · Lab. Networks, Systems & Services · Repo: proyectos/LRSS-4/",
+          summary: "Real-time interactive messaging and serverless billing cloud platform deployed on AWS managed services (RDS MySQL and Lambda). Developed in pair with Marcos Santos Aragón, combining WebSocket-based communication with decoupled cloud architecture to meter traffic and calculate per-KB consumption rates.",
+          roleLabel: "Pair project",
+          role: "End-to-end cloud architecture in pair with Marcos Santos Aragón: real-time chat application with Flask and Flask-SocketIO, managed relational database modeling in AWS RDS MySQL, serverless cost calculation microservice in AWS Lambda (Python), and analytical monitoring dashboard.",
+          detailsBtn: "View details",
+          sheetBtn: "Full project sheet",
+          archBtn: "Architecture",
+          toyBtn: "Send message (KB)",
+          toyFeed: "Nika chat live · 0 KB billed"
+        }
+      },
+      easterEggs: {
+        brookBtn: "Brook · Yohohoho!",
+        robinBtn: "Nico Robin · Poneglyph"
+      },
+      treasureTitle: "The treasure is not the destination",
+      treasureQuote: "«I am still sailing discovering all my dreams and how to achieve them, but I know how I want to live the voyage: surrounded by great nakamas, learning in every complex project, and celebrating every banquet along the way.»",
+      treasureText: "Balancing my Telematics Engineering degree at UAH (grad. 2027) with R&D research grants and nearly four years working weekends at Parfois (Nov 2022 – Aug 2026) has honed my time management, resilience, and composure under pressure. Currently seeking curricular internships (450 h) extendable to 900 h.",
+      cvBtn: "View / Download CV (PDF)",
+      archTitle: "System Architecture Explorer",
+      archSubtitle: "Real topology of clients, APIs, AI models, message queues, and databases.",
+      archLayers: {
+        cliente: "Client",
+        web: "Web",
+        api: "API",
+        ia: "AI",
+        datos: "Data",
+        infra: "Infra"
+      },
+      skillsTitle: "Technical Competencies (CV)",
+      skillsSubtitle: "Real technologies used in R&D grants and university projects.",
+      timelineTitle: "Voyage Logbook",
+      timelineSubtitle: "From early school steps in robotics to research grants at UAH.",
+      timelineFilters: {
+        featured: "Featured",
+        all: "All (8)",
+        becas: "R&D Grants",
+        comunidad: "Community",
+        academico: "UAH Projects"
+      }
+    },
+    contact: {
+      contactEyebrow: "Contact & Resume",
+      contactTitle: "Shall we set sail?",
+      contactLead: "Available for curricular internships (450 h) extendable to extracurricular (up to 900 h). If you are looking for someone with foundations in networking, distributed systems, applied AI, and teamwork spirit, I will be delighted to connect.",
+      contactAvail: "Madrid · Alcalá de Henares · Native Spanish · Practical English (~B2)",
+      copyEmailLabel: "Copy email chelseafh2003@gmail.com",
+      downloadCvBtn: "Download Resume (PDF)",
+      formTitle: "Quick Email Composer",
+      formSubtitle: "Draft an email to chelseafh2003@gmail.com (phone number is only included inside the PDF CV).",
+      nameLabel: "Your name or team",
+      namePlaceholder: "e.g. Laura · Engineering Team",
+      topicLabel: "Subject / Purpose",
+      topicOptions: {
+        internship: "Curricular / extracurricular internship (450–900 h)",
+        collaboration: "Technical collaboration / R&D",
+        inquiry: "Inquiry about architecture or codebase",
+        booksGames: "Book or board game recommendation"
+      },
+      messageLabel: "Message",
+      messagePlaceholder: "Tell me what project or team you are working on...",
+      submitBtn: "Prepare Email",
+      animeMode: "Interactive anime mode",
+      footerFine: "© 2026 Chelsea Fernández Hernández · Telematics Engineering (UAH) · With Frieren's calm, Aang's empathy, and One Piece's nakama spirit"
+    }
+  }
+};
+

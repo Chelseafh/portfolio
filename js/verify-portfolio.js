@@ -131,7 +131,8 @@
       "#cvModal",
       "#cvModalClose",
       "#cvModalBody",
-      "#siteToast"
+      "#siteToast",
+      "#langToggleBtn"
     ];
 
     const missingSelectors = requiredSelectors.filter((sel) => !document.querySelector(sel));
@@ -1165,6 +1166,55 @@
       "Texto justificado en bloques narrativos, proyectos e hitos",
       allJustified,
       justifyResults.map((r) => r.sel + "=" + r.align).join(", ")
+    );
+
+    // 29. Internacionalización bilingüe (ES / EN)
+    const langBtn = document.getElementById("langToggleBtn");
+    const langBtnExists = Boolean(langBtn);
+
+    let i18nSwitchToEnOk = false;
+    let i18nSwitchToEsOk = false;
+
+    if (langBtn) {
+      // 1. Simular clic para pasar a inglés
+      click(langBtn);
+      const isEn = document.documentElement.lang === "en";
+      const frierenLinkEn = (document.querySelector('.nav a[data-zone="frieren"]') || {}).textContent;
+      const avatarLinkEn = (document.querySelector('.nav a[data-zone="avatar"]') || {}).textContent;
+      const opLinkEn = (document.querySelector('.nav a[data-zone="onepiece"]') || {}).textContent;
+      const contactLinkEn = (document.querySelector('.nav a[data-zone="contact"]') || {}).textContent;
+      const heroEyebrowEn = (document.querySelector("#inicio .hero .eyebrow") || {}).textContent || "";
+
+      i18nSwitchToEnOk =
+        isEn &&
+        frierenLinkEn === "Peace" &&
+        avatarLinkEn === "Community" &&
+        opLinkEn === "Adventure" &&
+        contactLinkEn === "Contact" &&
+        heroEyebrowEn.indexOf("Chapter I") !== -1;
+
+      // 2. Simular segundo clic para volver a español
+      click(langBtn);
+      const isEs = document.documentElement.lang === "es";
+      const frierenLinkEs = (document.querySelector('.nav a[data-zone="frieren"]') || {}).textContent;
+      const avatarLinkEs = (document.querySelector('.nav a[data-zone="avatar"]') || {}).textContent;
+      const opLinkEs = (document.querySelector('.nav a[data-zone="onepiece"]') || {}).textContent;
+      const contactLinkEs = (document.querySelector('.nav a[data-zone="contact"]') || {}).textContent;
+      const heroEyebrowEs = (document.querySelector("#inicio .hero .eyebrow") || {}).textContent || "";
+
+      i18nSwitchToEsOk =
+        isEs &&
+        frierenLinkEs === "Paz" &&
+        avatarLinkEs === "Comunidad" &&
+        opLinkEs === "Aventura" &&
+        contactLinkEs === "Contacto" &&
+        heroEyebrowEs.indexOf("Capítulo I") !== -1;
+    }
+
+    check(
+      "Internacionalización bilingüe (ES / EN)",
+      langBtnExists && i18nSwitchToEnOk && i18nSwitchToEsOk,
+      "btn=" + langBtnExists + ", toEn=" + i18nSwitchToEnOk + ", toEs=" + i18nSwitchToEsOk
     );
 
     const passed = results.filter((r) => r.pass).length;

@@ -3457,6 +3457,294 @@
     applyTimelineFilter("featured");
   }
 
+  /* ==================== INTERNACIONALIZACIÓN (I18N) ==================== */
+
+  function setupI18n() {
+    const toggleBtn = document.getElementById("langToggleBtn");
+    if (!window.PORTFOLIO_I18N) return;
+
+    let currentLang = "es";
+    try {
+      const paramLang = new URLSearchParams(window.location.search).get("lang");
+      if (paramLang === "en" || paramLang === "es") {
+        currentLang = paramLang;
+      } else {
+        const stored = localStorage.getItem("preferredLang");
+        if (stored === "en" || stored === "es") {
+          currentLang = stored;
+        }
+      }
+    } catch (_) {}
+
+    let isInitial = true;
+
+    function setLanguage(lang, forceUpdate) {
+      if (lang !== "es" && lang !== "en") return;
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      if (toggleBtn) {
+        toggleBtn.setAttribute("data-current-lang", lang);
+        toggleBtn.setAttribute(
+          "aria-label",
+          lang === "es"
+            ? "Switch language to English / Cambiar a inglés"
+            : "Cambiar idioma a español / Switch language to Spanish"
+        );
+        const esOpt = toggleBtn.querySelector('.lang-opt[data-lang-code="es"]');
+        const enOpt = toggleBtn.querySelector('.lang-opt[data-lang-code="en"]');
+        if (esOpt) esOpt.classList.toggle("is-active", lang === "es");
+        if (enOpt) enOpt.classList.toggle("is-active", lang === "en");
+      }
+
+      try {
+        localStorage.setItem("preferredLang", lang);
+      } catch (_) {}
+
+      try {
+        if (window.history && window.history.replaceState) {
+          const u = new URL(window.location.href);
+          u.searchParams.set("lang", lang);
+          window.history.replaceState(null, "", u.toString());
+        }
+      } catch (_) {}
+
+      if (isInitial && lang === "es" && !forceUpdate) {
+        isInitial = false;
+        return;
+      }
+      isInitial = false;
+
+      const dict = window.PORTFOLIO_I18N[lang];
+      if (!dict) return;
+
+      const updateText = (sel, val) => {
+        if (!val) return;
+        const el = document.querySelector(sel);
+        if (el) el.textContent = val;
+      };
+
+      // 1. Nav
+      if (dict.nav) {
+        updateText('.nav a[data-zone="frieren"]', dict.nav.frieren);
+        updateText('.nav a[data-zone="avatar"]', dict.nav.avatar);
+        updateText('.nav a[data-zone="onepiece"]', dict.nav.onepiece);
+        updateText('.nav a[data-zone="contact"]', dict.nav.contact);
+        const soundBtn = document.querySelector(".icon-btn.js-sound");
+        if (soundBtn && dict.nav.soundAria) {
+          soundBtn.setAttribute("aria-label", dict.nav.soundAria);
+        }
+      }
+
+      // 2. Hero
+      if (dict.hero) {
+        updateText("#inicio .hero .eyebrow", dict.hero.eyebrow);
+        updateText("#inicio .hero .role", dict.hero.role);
+        updateText("#inicio .hero .lead", dict.hero.lead);
+        updateText('#inicio .hero a[href="#sobre-mi"]', dict.hero.startBtn);
+        const heroSound = document.querySelector("#inicio .hero .js-sound");
+        if (heroSound && dict.hero.soundBtn) {
+          for (let n of heroSound.childNodes) {
+            if (n.nodeType === 3 && n.textContent.trim()) {
+              n.textContent = " " + dict.hero.soundBtn;
+              break;
+            }
+          }
+        }
+      }
+
+      // 3. Frieren
+      if (dict.frieren) {
+        updateText("#sobre-mi .sec-head .eyebrow", dict.frieren.aboutEyebrow);
+        updateText("#sobre-mi .sec-head h2", dict.frieren.aboutTitle);
+        updateText("#sobre-mi .frieren-reflection-box", dict.frieren.frierenQuote);
+        updateText(".frieren-chronicle-header .frieren-chronicle-eyebrow", dict.frieren.chronicleEyebrow);
+        updateText("#frierenChronicleTitle", dict.frieren.chronicleTitle);
+        updateText(".frieren-chronicle-intro", dict.frieren.chronicleIntro);
+        updateText('.frieren-chronicle-p[data-passage="mar"]', dict.frieren.marPassage);
+        updateText('.frieren-chronicle-p[data-passage="juegos"]', dict.frieren.juegosPassage);
+        updateText('.frieren-chronicle-p[data-passage="lectura"]', dict.frieren.lecturaPassage);
+        updateText(".frieren-chronicle-travel .chronicle-collection-label", dict.frieren.travelLabel);
+        if (dict.frieren.diceLabels) {
+          updateText("#frierenGameDiceBtn .dice-label", dict.frieren.diceLabels.games);
+          updateText("#frierenBookDiceBtn .dice-label", dict.frieren.diceLabels.books);
+        }
+        updateText("#staff .staff-prompt", dict.frieren.staffPrompt);
+        updateText("#sobre-mi .seal-text", dict.frieren.sealText);
+      }
+
+      // 4. Avatar
+      if (dict.avatar) {
+        updateText("#comunidad .sec-head .eyebrow", dict.avatar.avatarEyebrow);
+        updateText("#comunidad .sec-head h2", dict.avatar.avatarTitle);
+        updateText("#comunidad .sec-head .lead", dict.avatar.avatarLead);
+        if (Array.isArray(dict.avatar.milestones)) {
+          dict.avatar.milestones.forEach((m, i) => {
+            const card = document.querySelector(`.card-av[data-av-index="${i}"]`);
+            if (card) {
+              const h3 = card.querySelector("h3");
+              const p = card.querySelector(".av-text-col > p");
+              if (h3) h3.textContent = m.title;
+              if (p) p.textContent = m.p;
+            }
+          });
+        }
+        if (dict.avatar.elements) {
+          updateText("#comunidad .elements .el--aire .el-name", dict.avatar.elements.aire);
+          updateText("#comunidad .elements .el--agua .el-name", dict.avatar.elements.agua);
+          updateText("#comunidad .elements .el--tierra .el-name", dict.avatar.elements.tierra);
+          updateText("#comunidad .elements .el--fuego .el-name", dict.avatar.elements.fuego);
+        }
+        updateText("#comunidad .balance blockquote p", dict.avatar.koiQuote);
+        updateText("#comunidad .balance cite", dict.avatar.koiCite);
+        if (dict.avatar.teaCorner) {
+          updateText("#comunidad .tea-corner .eyebrow", dict.avatar.teaCorner.label);
+          updateText("#nextQuoteBtn", dict.avatar.teaCorner.btn);
+        }
+      }
+
+      // 5. One Piece
+      if (dict.onepiece) {
+        updateText("#aventura .sec-head .eyebrow", dict.onepiece.opEyebrow);
+        updateText("#aventura .sec-head h2", dict.onepiece.opTitle);
+        updateText("#aventura .sec-head .lead", dict.onepiece.opLead);
+        if (dict.onepiece.projectFilters) {
+          updateText('.filter-pill[data-category="all"]', dict.onepiece.projectFilters.all);
+          updateText('.filter-pill[data-category="profesional"]', dict.onepiece.projectFilters.profesional);
+          updateText('.filter-pill[data-category="academico"]', dict.onepiece.projectFilters.academico);
+        }
+        if (dict.onepiece.projects) {
+          const pMap = {
+            "controlador-cervantes": dict.onepiece.projects.controlador,
+            "correos-casillero": dict.onepiece.projects.correos,
+            "marchel-asterisk": dict.onepiece.projects.marchel,
+            "nika-cloud": dict.onepiece.projects.nika
+          };
+          Object.entries(pMap).forEach(([pid, pData]) => {
+            if (!pData) return;
+            const card = document.querySelector(`.card-op[data-project-id="${pid}"]`);
+            if (card) {
+              const badge = card.querySelector(".card-op-badge");
+              const tag = card.querySelector(".card-op-tag");
+              const h3 = card.querySelector("h3");
+              const inst = card.querySelector(".card-op-inst");
+              const mainP = card.querySelector(".card-op-main p");
+              const roleBox = card.querySelector(".role-callout");
+              const sheetBtn = card.querySelector("[data-project-open]");
+              const archBtn = card.querySelector("[data-project-arch]");
+              const toyBtn = card.querySelector('[class*="js-toy-"]');
+
+              if (badge) badge.textContent = pData.badge;
+              if (tag) tag.textContent = pData.tag;
+              if (h3) h3.textContent = pData.title;
+              if (inst) inst.textContent = pData.inst;
+              if (mainP) mainP.textContent = pData.summary;
+              if (roleBox) {
+                roleBox.innerHTML = "<strong>" + pData.roleLabel + "</strong> " + pData.role;
+              }
+              if (sheetBtn) sheetBtn.textContent = pData.sheetBtn;
+              if (archBtn) archBtn.textContent = pData.archBtn;
+              if (toyBtn) toyBtn.textContent = pData.toyBtn;
+            }
+          });
+        }
+        if (dict.onepiece.easterEggs) {
+          updateText("#brookEggBtn span", dict.onepiece.easterEggs.brookBtn);
+          updateText("#robinEggBtn span", dict.onepiece.easterEggs.robinBtn);
+        }
+        updateText(".treasure h3", dict.onepiece.treasureTitle);
+        updateText(".treasure .quote p", dict.onepiece.treasureQuote);
+        updateText(".treasure .context p", dict.onepiece.treasureText);
+        updateText("#cvActionBtn", dict.onepiece.cvBtn);
+        updateText("#archTitle", dict.onepiece.archTitle);
+        updateText("#archSubtitle", dict.onepiece.archSubtitle);
+        if (dict.onepiece.archLayers) {
+          const lMap = dict.onepiece.archLayers;
+          Object.entries(lMap).forEach(([layerKey, layerText]) => {
+            const btn = document.querySelector(`.arch-layer-legend [data-layer="${layerKey}"]`);
+            if (btn) {
+              btn.innerHTML = '<span class="legend-dot"></span>' + layerText;
+            }
+          });
+        }
+        updateText("#skillsTitle", dict.onepiece.skillsTitle);
+        updateText("#skillsSubtitle", dict.onepiece.skillsSubtitle);
+        updateText("#timelineTitle", dict.onepiece.timelineTitle);
+        updateText("#timelineSubtitle", dict.onepiece.timelineSubtitle);
+        if (dict.onepiece.timelineFilters) {
+          updateText('[data-timeline-filter="featured"]', dict.onepiece.timelineFilters.featured);
+          updateText('[data-timeline-filter="all"]', dict.onepiece.timelineFilters.all);
+          updateText('[data-timeline-filter="becas"]', dict.onepiece.timelineFilters.becas);
+          updateText('[data-timeline-filter="comunidad"]', dict.onepiece.timelineFilters.comunidad);
+          updateText('[data-timeline-filter="academico"]', dict.onepiece.timelineFilters.academico);
+        }
+      }
+
+      // 6. Contact
+      if (dict.contact) {
+        updateText("#contacto .sec-head .eyebrow", dict.contact.contactEyebrow);
+        updateText("#contacto .sec-head h2", dict.contact.contactTitle);
+        updateText("#contacto .sec-head .lead", dict.contact.contactLead);
+        updateText("#contacto .status-note", dict.contact.contactAvail);
+        const copyEmail = document.getElementById("copyEmailBtn");
+        if (copyEmail && dict.contact.copyEmailLabel) {
+          copyEmail.setAttribute("aria-label", dict.contact.copyEmailLabel);
+        }
+        const cvBtn = document.getElementById("cv");
+        if (cvBtn && dict.contact.downloadCvBtn) {
+          for (let n of cvBtn.childNodes) {
+            if (n.nodeType === 3 && n.textContent.trim()) {
+              n.textContent = " " + dict.contact.downloadCvBtn;
+              break;
+            }
+          }
+        }
+        updateText("#contactForm h3", dict.contact.formTitle);
+        const formSub = document.querySelector("#contactForm > p");
+        if (formSub && dict.contact.formSubtitle) {
+          formSub.textContent = dict.contact.formSubtitle;
+        }
+        updateText('label[for="contactName"]', dict.contact.nameLabel);
+        const nameInput = document.getElementById("contactName");
+        if (nameInput && dict.contact.namePlaceholder) {
+          nameInput.placeholder = dict.contact.namePlaceholder;
+        }
+        updateText('label[for="contactTopic"]', dict.contact.topicLabel);
+        const topicSelect = document.getElementById("contactTopic");
+        if (topicSelect && dict.contact.topicOptions) {
+          const opts = topicSelect.options;
+          if (opts.length >= 4) {
+            opts[0].textContent = dict.contact.topicOptions.internship;
+            opts[1].textContent = dict.contact.topicOptions.collaboration;
+            opts[2].textContent = dict.contact.topicOptions.inquiry;
+            opts[3].textContent = dict.contact.topicOptions.booksGames;
+          }
+        }
+        updateText('label[for="contactMessage"]', dict.contact.messageLabel);
+        const msgInput = document.getElementById("contactMessage");
+        if (msgInput && dict.contact.messagePlaceholder) {
+          msgInput.placeholder = dict.contact.messagePlaceholder;
+        }
+        updateText('#contactForm button[type="submit"]', dict.contact.submitBtn);
+        const animeBtn = document.getElementById("animeToggle");
+        if (animeBtn && dict.contact.animeMode) {
+          animeBtn.innerHTML = '<span class="t" aria-hidden="true"></span> ' + dict.contact.animeMode;
+        }
+        updateText("footer .fine", dict.contact.footerFine);
+      }
+    }
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", () => {
+        const nextLang = currentLang === "es" ? "en" : "es";
+        setLanguage(nextLang);
+      });
+    }
+
+    setLanguage(currentLang);
+    window.setLanguage = setLanguage;
+  }
+
   /* ==================== ARRANQUE ==================== */
 
   function init() {
@@ -3475,6 +3763,7 @@
     setupModals();
     setupContact();
     setupPlannedPhotoSlots();
+    setupI18n();
   }
 
   if (document.readyState === "loading") {
