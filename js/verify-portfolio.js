@@ -1185,13 +1185,45 @@
       const contactLinkEn = (document.querySelector('.nav a[data-zone="contact"]') || {}).textContent;
       const heroEyebrowEn = (document.querySelector("#inicio .hero .eyebrow") || {}).textContent || "";
 
+      // Verificaciones profundas Ronda 17 en inglés (#142):
+      // a. Descripción principal del proyecto (sin colisión con .card-op-inst)
+      const ctrlCard = document.querySelector('.card-op[data-project-id="controlador-cervantes"]');
+      const ctrlDescEn = ctrlCard ? ctrlCard.querySelector(".card-op-main > p:not(.card-op-inst)") : null;
+      const ctrlDescEnText = ctrlDescEn ? ctrlDescEn.textContent : "";
+      const projDescEnOk =
+        ctrlDescEnText.indexOf("Central backend in Docker Compose") !== -1 ||
+        ctrlDescEnText.indexOf("Meta Quest") !== -1;
+
+      // b. 4 Elementos de Avatar en inglés (div b)
+      const elAireB = (document.querySelector('.elements .el[data-element="aire"] div b') || {}).textContent;
+      const elAguaB = (document.querySelector('.elements .el[data-element="agua"] div b') || {}).textContent;
+      const elTierraB = (document.querySelector('.elements .el[data-element="tierra"] div b') || {}).textContent;
+      const elFuegoB = (document.querySelector('.elements .el[data-element="fuego"] div b') || {}).textContent;
+      const avatarElementsEnOk =
+        elAireB === "Air" && elAguaB === "Water" && elTierraB === "Earth" && elFuegoB === "Fire";
+
+      // c. Timeline item 0 en inglés
+      const tlItem0 = document.querySelectorAll("#timelineContainer .timeline-item")[0];
+      const tlTitle0En = tlItem0 ? (tlItem0.querySelector("h4") || {}).textContent || "" : "";
+      const tlType0En = tlItem0 ? (tlItem0.querySelector(".timeline-type") || {}).textContent || "" : "";
+      const timelineEnOk =
+        tlTitle0En.indexOf("Research Grant") !== -1 || tlType0En.indexOf("R&D Grant") !== -1;
+
+      // d. Bloque del tesoro en inglés
+      const treasureH3En = (document.querySelector(".treasure > div > h3") || {}).textContent || "";
+      const treasureEnOk = treasureH3En === "The treasure is not the destination";
+
       i18nSwitchToEnOk =
         isEn &&
         frierenLinkEn === "Peace" &&
         avatarLinkEn === "Community" &&
         opLinkEn === "Adventure" &&
         contactLinkEn === "Contact" &&
-        heroEyebrowEn.indexOf("Chapter I") !== -1;
+        heroEyebrowEn.indexOf("Chapter I") !== -1 &&
+        projDescEnOk &&
+        avatarElementsEnOk &&
+        timelineEnOk &&
+        treasureEnOk;
 
       // 2. Simular segundo clic para volver a español
       click(langBtn);
@@ -1202,13 +1234,37 @@
       const contactLinkEs = (document.querySelector('.nav a[data-zone="contact"]') || {}).textContent;
       const heroEyebrowEs = (document.querySelector("#inicio .hero .eyebrow") || {}).textContent || "";
 
+      // Verificaciones de restauración en español:
+      const ctrlDescEs = ctrlCard ? ctrlCard.querySelector(".card-op-main > p:not(.card-op-inst)") : null;
+      const ctrlDescEsText = ctrlDescEs ? ctrlDescEs.textContent : "";
+      const projDescEsOk =
+        ctrlDescEsText.indexOf("Backend central en Docker Compose") !== -1 ||
+        ctrlDescEsText.indexOf("gafas Meta Quest") !== -1;
+
+      const elAireBEs = (document.querySelector('.elements .el[data-element="aire"] div b') || {}).textContent;
+      const elAguaBEs = (document.querySelector('.elements .el[data-element="agua"] div b') || {}).textContent;
+      const elTierraBEs = (document.querySelector('.elements .el[data-element="tierra"] div b') || {}).textContent;
+      const elFuegoBEs = (document.querySelector('.elements .el[data-element="fuego"] div b') || {}).textContent;
+      const avatarElementsEsOk =
+        elAireBEs === "Aire" && elAguaBEs === "Agua" && elTierraBEs === "Tierra" && elFuegoBEs === "Fuego";
+
+      const tlTitle0Es = tlItem0 ? (tlItem0.querySelector("h4") || {}).textContent || "" : "";
+      const timelineEsOk = tlTitle0Es.indexOf("Beca de Investigación") !== -1;
+
+      const treasureH3Es = (document.querySelector(".treasure > div > h3") || {}).textContent || "";
+      const treasureEsOk = treasureH3Es === "El tesoro no es el destino";
+
       i18nSwitchToEsOk =
         isEs &&
         frierenLinkEs === "Paz" &&
         avatarLinkEs === "Comunidad" &&
         opLinkEs === "Aventura" &&
         contactLinkEs === "Contacto" &&
-        heroEyebrowEs.indexOf("Capítulo I") !== -1;
+        heroEyebrowEs.indexOf("Capítulo I") !== -1 &&
+        projDescEsOk &&
+        avatarElementsEsOk &&
+        timelineEsOk &&
+        treasureEsOk;
     }
 
     check(

@@ -1092,7 +1092,9 @@ window.PORTFOLIO_I18N = {
         booksNote: "San Manuel Bueno, mártir me hizo reflexionar muchísimo por su trasfondo filosófico y humano."
       },
       staffPrompt: "Toca el báculo para lanzar un hechizo de calma.",
-      sealText: "和 · armonía entre la calma cotidiana, las pequeñas cosas y el tiempo con quienes quieres"
+      spell: "Toca el báculo para lanzar un hechizo de calma.",
+      sealText: "和 · armonía entre la calma cotidiana, las pequeñas cosas y el tiempo con quienes quieres",
+      seal: "和 · armonía entre la calma cotidiana, las pequeñas cosas y el tiempo con quienes quieres"
     },
     avatar: {
       avatarEyebrow: "Capítulo II · Avatar Aang — Comunidad e Infancia",
@@ -1102,38 +1104,63 @@ window.PORTFOLIO_I18N = {
         {
           tag: "Instituto · 2019",
           title: "Mi etapa como alumna: Robocampeones, reto Arduino Endesa y Technovation Senior",
+          p: "En el instituto descubrí cuánto me gustaba crear cosas útiles entre asignaturas de robótica y programación: competí en Robocampeones, participé en un reto escolar junto a Endesa diseñando un robot en 3D en AutoCAD, fabricándolo con impresora 3D y programando su placa Arduino, y, como alumna senior en Technovation Girls 2019, diseñé con mi equipo una app en App Inventor para ayudar a niños y niñas que sufrían bullying.",
           desc: "En el instituto descubrí cuánto me gustaba crear cosas útiles entre asignaturas de robótica y programación: competí en Robocampeones, participé en un reto escolar junto a Endesa diseñando un robot en 3D en AutoCAD, fabricándolo con impresora 3D y programando su placa Arduino, y, como alumna senior en Technovation Girls 2019, diseñé con mi equipo una app en App Inventor para ayudar a niños y niñas que sufrían bullying.",
+          toggleBtn: "Ver hitos clave",
           toggleOpen: "Ver detalles del hito",
-          toggleClose: "Ocultar detalles"
+          toggleClose: "Ocultar detalles",
+          bullets: [
+            "Competición en Robocampeones y reto escolar junto a Endesa programando una placa Arduino, diseño 3D en AutoCAD e impresión 3D",
+            "Alumna senior en Technovation Girls 2019 creando en App Inventor una app frente al bullying"
+          ],
+          note: "Reto escolar con Endesa: modelado 3D en AutoCAD, impresión 3D y programación de placa Arduino."
         },
         {
           tag: "Mentoría · 2026",
           title: "Mentora en Technovation Girls 2026 (Equipo «Inteligents» · Saludea)",
+          p: "Cerrar el círculo acompañando como mentora a un equipo de niñas principiantes del colegio Ernest Hemingway («Inteligents»). Juntas dieron forma a Saludea, una app pensada para ayudar a personas con medicación a evitar alimentos que interfieren con su tratamiento; verlas idear, organizarse, superar frustraciones y celebrar el resultado final fue inolvidable.",
           desc: "Cerrar el círculo acompañando como mentora a un equipo de niñas principiantes del colegio Ernest Hemingway («Inteligents»). Juntas dieron forma a Saludea, una app pensada para ayudar a personas con medicación a evitar alimentos que interfieren con su tratamiento; verlas idear, organizarse, superar frustraciones y celebrar el resultado final fue inolvidable.",
+          toggleBtn: "Ver hitos clave",
           toggleOpen: "Ver detalles del hito",
-          toggleClose: "Ocultar detalles"
+          toggleClose: "Ocultar detalles",
+          bullets: [
+            "App Saludea (2026): guía clara para evitar interacciones entre medicamentos y alimentos",
+            "Acompañamiento cercano ideando, organizándose y superando frustraciones en equipo"
+          ],
+          note: "Acompañamiento pedagógico y motivación técnica para el equipo principiante."
         },
         {
           tag: "Congreso · Oct 2026",
           title: "Staff en CNSM 2026 (Alcalá de Henares)",
+          p: "Formé parte del equipo de staff en el 22nd International Conference on Network and Service Management ('Evolving Network and Service Management: From Automation to Agentic Intelligence'), ayudando en organización, acreditaciones y guiado por la universidad, además de asistir a charlas, practicar inglés y compartir con asistentes de todo el mundo.",
           desc: "Formé parte del equipo de staff en el 22nd International Conference on Network and Service Management ('Evolving Network and Service Management: From Automation to Agentic Intelligence'), ayudando en organización, acreditaciones y guiado por la universidad, además de asistir a charlas, practicar inglés y compartir con asistentes de todo el mundo.",
+          toggleBtn: "Ver hitos clave",
           toggleOpen: "Ver detalles del hito",
-          toggleClose: "Ocultar detalles"
+          toggleClose: "Ocultar detalles",
+          bullets: [
+            "Organización de jornadas, acreditaciones y guiado de asistentes por Alcalá de Henares",
+            "Asistencia a charlas técnicas, práctica de inglés y encuentro con la comunidad internacional"
+          ],
+          note: "22nd International Conference on Network and Service Management en la UAH."
         }
       ],
       elements: {
         label: "Cuatro valores de comunidad y empatía",
-        aire: "Escuchar sin prejuicios",
-        agua: "Empatía y adaptación",
-        tierra: "Constancia y cuidado",
-        fuego: "Iniciativa y mentoría",
+        aire: { name: "Aire", desc: "Escuchar sin prejuicios" },
+        agua: { name: "Agua", desc: "Empatía y adaptación" },
+        tierra: { name: "Tierra", desc: "Constancia y cuidado" },
+        fuego: { name: "Fuego", desc: "Iniciativa y mentoría" },
+        note: "Pulsa un elemento para sentir su energía",
         prompt: "Pulsa un elemento para sentir su energía"
       },
       koiQuote: "«Pensar distinto no convierte a nadie en tu enemigo: escuchar, comprender, perdonar y respetar la libertad del otro es lo que construye comunidad.»",
       koiCite: "Mi lectura de Avatar: La Leyenda de Aang",
       teaCorner: {
         label: "EL RINCÓN DE TÉ DEL TÍO IROH",
-        btn: "Servir otra taza"
+        btn: "Servir otra taza",
+        initialQuote: "«El destino es algo curioso. Nunca se sabe cómo van a salir las cosas. Pero si mantienes la mente abierta y el corazón dispuesto, encontrarás tu camino.»",
+        author: "Tío Iroh",
+        source: "Avatar: La Leyenda de Aang · Sabiduría cotidiana"
       }
     },
     onepiece: {
@@ -1150,72 +1177,124 @@ window.PORTFOLIO_I18N = {
       },
       projects: {
         controlador: {
-          badge: "Destacado · XR & Voz",
+          k: "Beca I+D · Dic 2025 – May 2026",
           tag: "Beca I+D · Dic 2025 – May 2026",
-          title: "Controlador Backend XR & Evaluación Vocal (Juego Educativo VR/MR)",
-          inst: "UAH · ALTEN Spain & Instituto Cervantes · Repo: Controlador/",
-          summary: "Controlador central backend dockerizado para una plataforma educativa inmersiva de español en Realidad Virtual y Mixta (Meta Quest) desarrollada para ALTEN y el Instituto Cervantes. Lideré la ingeniería del servidor central que autentica dispositivos, distribuye dinámicamente escenarios pedagógicos por PIN, ingesta streaming de audio infantil en tiempo real vía WebSockets, evalúa la pronunciación con un flujo híbrido de IA y persiste calificaciones trazables en MariaDB.",
+          badge: "Destacado · XR & Voz",
+          title: "Controlador Backend XR (ALTEN & Cervantes)",
+          inst: "UAH · ALTEN Spain & Instituto Cervantes",
+          summary: "Backend central en Docker Compose para un juego educativo de español en gafas Meta Quest: autenticación del launcher, escenarios por PIN, audio WebSocket en tiempo real y notas en MariaDB.",
           roleLabel: "Mi rol exacto",
-          role: "Responsable íntegra del controlador general backend (api-servidor): diseño y desarrollo de todos los endpoints REST y WebSockets para las gafas VR, autenticación segura con el launcher, persistencia transaccional con MariaDB, corrección automática de notas, pipeline concurrente de audio (Faster-Whisper STT en paralelo con Regex + Ollama), configuración de Nginx TLS, contenedorización con Docker Compose y co-diseño de la arquitectura global del sistema.",
+          role: "Responsable íntegra de api-servidor (FastAPI): todos los endpoints de las gafas VR, auth con el launcher, MariaDB, corrección automática, concurrencia (Faster-Whisper STT + Regex/Ollama en paralelo), Nginx, Docker y co-diseño global junto al compañero de api-web (y juegos MR de mis compañeras).",
+          bullets: [
+            "Endpoints REST/WS: /inicio, /registro_gafa, /configuracion, /siguiente_alumno, /notas_alumno y audio PCM16",
+            "Evaluación concurrente de voz infantil con Faster-Whisper + Regex fonético en paralelo con Ollama (qwen2.5:1.5b)"
+          ],
           detailsBtn: "Ver detalles",
           sheetBtn: "Ficha completa",
           archBtn: "Arquitectura",
           toyBtn: "Probar voz XR",
-          toyScreen: "PIN 4821 · Pulsa para simular frase"
+          toyScreen: "PIN 4821 · Pulsa para simular frase",
+          toy: {
+            label: "Simulador interactivo · Controlador/",
+            btn: "Probar voz XR",
+            screen: "PIN 4821 · Toca para simular frase"
+          }
         },
         correos: {
-          badge: "Destacado · Visión IA",
+          k: "Beca I+D · Jun 2026 – Actualidad",
           tag: "Beca I+D · Jun 2026 – Actualidad",
-          title: "Sistema de Visión Artificial & Microservicios (Cátedra de Correos)",
-          inst: "Cátedra de Correos y Telégrafos · UAH · Repo: Correos_casillero/Servidor/",
-          summary: "Plataforma distribuida de microservicios en Docker para automatizar la auditoría y conteo de correspondencia en casilleros postales de 20 baldas mediante visión por computador (YOLOv8-seg / ONNX Runtime). Asumí de extremo a extremo la ingeniería del servidor: desde la ingesta móvil segura y la gestión asíncrona de colas hasta la inferencia local acelerada por hardware y la persistencia histórica en PostgreSQL.",
+          badge: "Destacado · Visión & IA",
+          title: "Casillero Inteligente de Paquetería (Cátedra Correos)",
+          inst: "Cátedra de Correos y Telégrafos · UAH",
+          summary: "Plataforma de visión artificial y backend distribuido para verificar la ocupación de 20 casilleros postales mediante inferencia YOLOv8/ONNX con GPU, colas Redis y PostgreSQL.",
           roleLabel: "Mi rol exacto",
-          role: "Responsable integral de la infraestructura backend, la arquitectura de microservicios y el pipeline de visión artificial (todo el sistema excepto el panel web administrativo): orquestación con Docker Compose, API móvil FastAPI con JWT y validación binaria, cola desacoplada Redis AOF, worker de inferencia ONNX/YOLO con soporte GPU local/CPU, base de datos PostgreSQL 15, reverse proxy Nginx, etiquetado de datasets en Label Studio y scripts de entrenamiento en curso.",
+          role: "Desarrollo completo de la arquitectura backend e IA (todo el sistema salvo el panel web): microservicios en Docker Compose con FastAPI (api-core), Redis AOF, worker de inferencia YOLOv8/ONNX local con GPU, PostgreSQL, Nginx, etiquetado en Label Studio y entrenamiento en curso.",
+          bullets: [
+            "Productor-consumidor desacoplado con Redis AOF y rate limiting frente a picos de captura",
+            "Segmentación YOLOv8-seg exportada a ONNX Runtime proyectada sobre la matriz 4×5 (20 baldas)"
+          ],
           detailsBtn: "Ver detalles",
           sheetBtn: "Ficha completa",
           archBtn: "Arquitectura",
-          toyBtn: "Escanear cartas (ONNX)",
-          toyReadout: "Casillero 4x5 · 20 baldas listas"
+          toyBtn: "Escanear correo (ONNX)",
+          toyReadout: "4/8 casilleros con carta",
+          toy: {
+            label: "Banco de visión · Correos_casillero/",
+            btn: "Escanear correo (ONNX)",
+            readout: "4/8 casilleros con carta"
+          }
         },
         marchel: {
-          badge: "Redes & VoIP",
-          tag: "Proyecto UAH · 2025",
-          title: "Marchel: Sistema de Telefonía IP con Asterisk & Tarificación",
-          inst: "UAH · Lab. Redes, Señales y Sistemas · Repo: proyectos/Marchel-Asterisk/",
-          summary: "Infraestructura integral de telefonía IP corporativa y tarificación automatizada desplegada sobre Ubuntu Linux con Asterisk v22.2.0 y pila PJSIP. Desarrollado en estrecha colaboración en pareja, el sistema abarca desde la conmutación de extensiones, IVR interactivo, salas de conferencia y síntesis vocal en español (Festival TTS) hasta el registro CDR en MariaDB, tarificación periódica por destino y consulta analítica en Flask.",
-          roleLabel: "Trabajo en pareja",
-          role: "Co-desarrollo integral en pareja junto a Marcos Santos Aragón, participando transversalmente en todo el ciclo de vida del sistema: arquitectura y configuración de centralitas Asterisk v22.2.0 sobre Ubuntu Linux, protocolo PJSIP, análisis de tráfico de red y señalización SIP/RTP con Wireshark, síntesis de voz con Festival TTS, integración ODBC con MariaDB, motor de tarificación batch en Python/Cron y portal web de usuario en Flask.",
+          k: "Proyecto UAH · Redes VoIP · 2025",
+          tag: "Proyecto UAH · Redes VoIP · 2025",
+          badge: "VoIP & Telecom",
+          title: "Centralita IP Corporativa & Tarificación (Marchel-Asterisk)",
+          inst: "UAH · Lab. Redes, Señales y Sistemas (LRSS)",
+          summary: "Infraestructura integral de telefonía IP corporativa con Asterisk v22 y PJSIP sobre Ubuntu Linux: IVR interactivo, locuciones Festival TTS, tarificación periódica con Cron/Python y portal web Flask.",
+          roleLabel: "Mi rol exacto",
+          role: "Co-desarrollo integral en pareja junto a Marcos Santos Aragón, participando transversalmente en todo el ciclo: arquitectura Asterisk v22, PJSIP, análisis de tráfico SIP/RTP con Wireshark, síntesis Festival TTS, MariaDB ODBC, motor de tarificación batch en Python y portal web en Flask.",
+          bullets: [
+            "Troncales entre PBXs, buzón de voz, transferencias ciegas/asistidas, ConfBridge y grabación MixMonitor",
+            "Síntesis de voz Festival TTS integrada en el dialplan mediante servicio systemd"
+          ],
           detailsBtn: "Ver detalles",
           sheetBtn: "Ficha completa",
           archBtn: "Arquitectura",
-          toyBtn: "Llamar ext. 2001",
-          toyScreen: "SIP:2001 · Listo para marcar"
+          toyBtn: "Colgar",
+          toyScreen: "SIP:2001 · Listo para marcar",
+          toy: {
+            label: "PBX en vivo · Marchel-Asterisk/",
+            btn: "Colgar",
+            readout: "Asterisk PBX lista",
+            extIvr: "Voz IVR"
+          }
         },
         nika: {
-          badge: "Cloud Serverless",
-          tag: "Proyecto UAH · 2025",
-          title: "Nika App: Plataforma Cloud de Chat & Facturación Serverless",
-          inst: "UAH · Lab. Redes, Sistemas y Servicios · Repo: proyectos/LRSS-4/",
-          summary: "Plataforma cloud de mensajería interactiva en tiempo real y facturación serverless desplegada sobre servicios gestionados de AWS (RDS MySQL y Lambda). Desarrollada en equipo con Marcos Santos Aragón, combina comunicación bidireccional basada en WebSockets con arquitectura desacoplada en la nube para auditar el tráfico de datos y liquidar costes de consumo por kilobyte mediante funciones serverless.",
-          roleLabel: "Trabajo en pareja",
-          role: "Co-desarrollo integral en pareja junto a Marcos Santos Aragón, abarcando de extremo a extremo la arquitectura cloud: diseño de la aplicación de mensajería en tiempo real con Flask y Flask-SocketIO, modelado y administración de base de datos relacional en AWS RDS MySQL, desarrollo del microservicio serverless de cálculo de costes en AWS Lambda (Python) y panel de supervisión analítica.",
+          k: "Proyecto UAH · Cloud Serverless · 2025",
+          tag: "Proyecto UAH · Cloud Serverless · 2025",
+          badge: "Cloud & WebSockets",
+          title: "Chat Distribuido en Tiempo Real & Auditoría AWS (Nika App)",
+          inst: "UAH · Lab. Redes, Señales y Sistemas (LRSS)",
+          summary: "Plataforma de mensajería multi-sala en tiempo real con Flask-SocketIO, control de presencia, auditoría de consumo y pipeline de costes serverless desplegado en AWS Lambda con Amazon RDS MySQL.",
+          roleLabel: "Mi rol exacto",
+          role: "Co-desarrollo integral en pareja junto a Marcos Santos Aragón: eventos bidireccionales WebSocket, protocolo de comandos de chat, persistencia en Amazon RDS MySQL, función serverless en Python en AWS Lambda para agregación de métricas y dashboard reactivo.",
+          bullets: [
+            "Comandos interactivos (/TODOS, /DESTINATARIO, /GRUPO) y métricas agregadas en /stats",
+            "Función serverless facturacion.py desacoplada en AWS Lambda conectada a MySQL gestionado"
+          ],
           detailsBtn: "Ver detalles",
           sheetBtn: "Ficha completa",
           archBtn: "Arquitectura",
-          toyBtn: "Enviar mensaje (KB)",
-          toyFeed: "Chat Nika en vivo · 0 KB facturados"
+          toyBtn: "Enviar ping",
+          toyFeed: "Chat Nika en vivo · 0 KB facturados",
+          toy: {
+            label: "Canal en vivo · LRSS-4/",
+            msgLive: "Sala activa",
+            msgReply: "Esperando comandos...",
+            meter: "0.00 KB · Lambda"
+          }
         }
       },
       easterEggs: {
-        brookBtn: "Brook · ¡Yohohoho!",
-        robinBtn: "Nico Robin · Poneglyph"
+        brookBtn: "Tocar Binks no Sake con Brook",
+        robinBtn: "Descifrar Poneglyph con Robin",
+        brookChar: "Brook (Músico de los Sombrero de Paja)",
+        brookQuote: "«¡Yohohoho! Una taza de té caliente, una melodía alegre y el corazón sereno hacen que cualquier viaje valga la pena.»",
+        robinChar: "Nico Robin (Arqueóloga de los Sombrero de Paja)",
+        robinQuote: "«La historia nunca se borra por completo; cada esfuerzo, cada línea de código y cada aprendizaje dejan una huella imborrable en el camino hacia la verdad.»"
       },
       treasureTitle: "El tesoro no es el destino",
-      treasureQuote: "«Sigo en plena travesía descubriendo cuáles son todos mis sueños y cómo hacerlos realidad, pero tengo claro cómo quiero vivir el viaje: rodeada de buenos nakamas, aprendiendo en cada proyecto complejo y celebrando cada festín por el camino.»",
-      treasureText: "Compaginar el grado en la UAH (2027) con becas de I+D y casi cuatro años trabajando los fines de semana en Parfois (Nov 2022 – Ago 2026) ha entrenado mi gestión del tiempo, resiliencia y trabajo bajo presión. Ahora busco prácticas curriculares (450 h) ampliables a 900 h.",
+      treasureQuote: "«Aún sigo navegando y descubriendo todos mis sueños y la forma de alcanzarlos, pero sé cómo quiero vivir la travesía: rodeada de buenos nakamas, aprendiendo en cada proyecto complejo y celebrando cada banquete en el camino.»",
+      treasureText: "Compaginar el grado de Ingeniería Telemática en la UAH (grad. 2027) con becas reales de investigación I+D y casi cuatro años trabajando fines de semana en Parfois (Nov 2022 – Ago 2026) ha forjado mi gestión del tiempo, resiliencia y templanza bajo presión. En búsqueda activa de prácticas curriculares (450 h) prorrogables a 900 h.",
       cvBtn: "Ver / Descargar CV (PDF)",
+      treasure: {
+        title: "El tesoro no es el destino",
+        quote: "«Aún sigo navegando y descubriendo todos mis sueños y la forma de alcanzarlos, pero sé cómo quiero vivir la travesía: rodeada de buenos nakamas, aprendiendo en cada proyecto complejo y celebrando cada banquete en el camino.»",
+        text: "Compaginar el grado de Ingeniería Telemática en la UAH (grad. 2027) con becas reales de investigación I+D y casi cuatro años trabajando fines de semana en Parfois (Nov 2022 – Ago 2026) ha forjado mi gestión del tiempo, resiliencia y templanza bajo presión. En búsqueda activa de prácticas curriculares (450 h) prorrogables a 900 h.",
+        cvBtn: "Ver / Descargar CV (PDF)"
+      },
       archTitle: "Explorador de Arquitectura de Sistemas",
-      archSubtitle: "Topología real de clientes, APIs, modelos de IA, colas y bases de datos.",
+      archSubtitle: "Topología real de clientes, APIs, modelos de IA, colas de mensajería y bases de datos.",
       archLayers: {
         cliente: "Cliente",
         web: "Web",
@@ -1224,16 +1303,136 @@ window.PORTFOLIO_I18N = {
         datos: "Datos",
         infra: "Infra"
       },
+      architecture: {
+        title: "Explorador de Arquitectura de Sistemas",
+        subtitle: "Topología real de clientes, APIs, modelos de IA, colas de mensajería y bases de datos.",
+        summaries: {
+          "controlador-cervantes": "Las gafas Meta Quest (con los juegos MR desarrollados por mis compañeras) se comunican con mi controlador api-servidor (FastAPI) para autenticación del launcher, configuración por PIN, streaming de audio WebSocket y registro de notas en MariaDB, mientras Nginx enruta el ecosistema dockerizado junto al portal api-web.",
+          "correos-casillero": "Arquitectura backend orientada a microservicios: la PDA móvil consume api-core en FastAPI con JWT, las tareas pesadas de visión se encolan en Redis para el worker GPU con YOLO/ONNX, y PostgreSQL persiste la trazabilidad de paquetes.",
+          "marchel-asterisk": "Infraestructura VoIP con Asterisk v22 y PJSIP sobre Ubuntu Linux: señalización SIP y audio RTP analizados con Wireshark, síntesis de voz interactiva con Festival TTS, CDR en MariaDB y tarificación automatizada con Cron/Python.",
+          "nika-cloud": "Arquitectura híbrida WebSockets y Serverless: servidor Flask-SocketIO para mensajería y presencia en tiempo real, funciones AWS Lambda en Python para auditoría de tráfico y costes, y Amazon RDS MySQL como base de datos gestionada."
+        },
+        layers: {
+          cliente: "Cliente",
+          web: "Web",
+          api: "API",
+          ia: "IA",
+          datos: "Datos",
+          infra: "Infra"
+        }
+      },
       skillsTitle: "Competencias Técnicas del CV",
-      skillsSubtitle: "Tecnologías reales usadas en becas de I+D y proyectos de la UAH.",
+      skillsSubtitle: "Tecnologías reales aplicadas en becas I+D y proyectos de ingeniería en la UAH.",
+      skills: {
+        title: "Competencias Técnicas del CV",
+        subtitle: "Tecnologías reales aplicadas en becas I+D y proyectos de ingeniería en la UAH.",
+        groupDescriptions: [
+          "Programación de sistemas, automatización, contenedores y documentación técnica.",
+          "Backends asíncronos, WebSockets, colas y despliegue serverless.",
+          "Telefonía IP, señalización SIP, análisis de tráfico y proxy inverso.",
+          "Visión artificial, transcripción/síntesis de voz, LLMs y bases de datos relacionales.",
+          "Arquitectura distribuida, buenas prácticas de ingeniería y metodologías ágiles."
+        ],
+        groups: [
+          {
+            title: "Lenguajes y Herramientas",
+            desc: "Programación de sistemas, automatización, contenedores y documentación técnica."
+          },
+          {
+            title: "Tecnologías, APIs y Cloud",
+            desc: "Backends asíncronos, WebSockets, colas y despliegue serverless."
+          },
+          {
+            title: "Sistemas, Redes y VoIP",
+            desc: "Telefonía IP, señalización SIP, análisis de tráfico y proxy inverso."
+          },
+          {
+            title: "IA Aplicada y Bases de Datos",
+            desc: "Visión artificial, transcripción/síntesis de voz, LLMs y bases de datos relacionales."
+          },
+          {
+            title: "Arquitectura y Metodología",
+            desc: "Arquitectura distribuida, buenas prácticas de ingeniería y metodologías ágiles."
+          }
+        ]
+      },
       timelineTitle: "Bitácora de Travesía",
-      timelineSubtitle: "De los primeros pasos escolares en robótica a las becas de investigación en la UAH.",
+      timelineSubtitle: "Desde los primeros pasos en robótica en el instituto hasta becas universitarias de investigación I+D en la UAH.",
       timelineFilters: {
         featured: "Destacados",
         all: "Todos (8)",
         becas: "Becas I+D",
         comunidad: "Comunidad",
         academico: "Proyectos UAH"
+      },
+      timeline: {
+        title: "Bitácora de Travesía",
+        subtitle: "Desde los primeros pasos en robótica en el instituto hasta becas universitarias de investigación I+D en la UAH.",
+        filters: {
+          featured: "Destacados",
+          all: "Todos (8)",
+          becas: "Becas I+D",
+          comunidad: "Comunidad",
+          academico: "Proyectos UAH"
+        },
+        items: [
+          {
+            period: "Jun 2026 – Actualidad",
+            type: "Beca I+D · One Piece",
+            title: "Beca de Investigación — Sistemas Distribuidos & Visión Artificial",
+            org: "Cátedra de Correos y Telégrafos · Universidad de Alcalá (UAH)",
+            summary: "Desarrollo integral de la arquitectura backend e IA (todo el sistema salvo el panel web): microservicios en Docker Compose con FastAPI (api-core), colas Redis, worker de inferencia YOLO/ONNX con GPU local, PostgreSQL, Nginx, etiquetado en Label Studio y scripts de entrenamiento en curso."
+          },
+          {
+            period: "26–30 Oct 2026",
+            type: "Comunidad · Avatar Aang",
+            title: "Staff en CNSM 2026 (Congreso Internacional de Redes)",
+            org: "22nd Int. Conference on Network and Service Management · Alcalá de Henares",
+            summary: "Participación como staff en organización, acreditaciones y guiado universitario durante el congreso ('Evolving Network and Service Management: From Automation to Agentic Intelligence'), asistiendo a charlas técnicas, practicando inglés y compartiendo con referentes del sector."
+          },
+          {
+            period: "2026",
+            type: "Voluntariado · Avatar Aang",
+            title: "Mentora en Technovation Girls (Equipo Inteligents · App Saludea)",
+            org: "Technovation Girls · Colegio Ernest Hemingway",
+            summary: "Mentoría desde Ingeniería Telemática a un equipo de niñas principiantes en el diseño y desarrollo de Saludea, una app que ayuda a personas con medicación a evitar alimentos que interfieren con su tratamiento. Acompañamiento en ideación, organización y superación de retos."
+          },
+          {
+            period: "Dic 2025 – May 2026",
+            type: "Beca I+D · One Piece",
+            title: "Beca de Investigación — Backend XR & Procesamiento de Voz",
+            org: "UAH · ALTEN Spain & Instituto Cervantes",
+            summary: "Responsable del controlador general (api-servidor en FastAPI) para un juego educativo en gafas Meta Quest: todos los endpoints, autenticación del launcher, MariaDB, corrección automática de notas, procesamiento concurrente (Faster-Whisper STT + Regex/Ollama), Nginx, Docker y co-diseño de arquitectura."
+          },
+          {
+            period: "2025",
+            type: "Proyectos UAH · One Piece",
+            title: "Proyectos de Redes VoIP & Cloud Serverless (Marchel & Nika App)",
+            org: "Universidad de Alcalá (UAH) · En pareja con Marcos Santos Aragón",
+            summary: "Implementación transversal en pareja de una centralita VoIP con Asterisk v22, PJSIP, tráfico de red, Festival TTS y MariaDB (Marchel-Asterisk), y de una plataforma de chat y análisis de costes en Flask-SocketIO desplegada con AWS Lambda y AWS RDS (Nika App)."
+          },
+          {
+            period: "Nov 2022 – Ago 2026",
+            type: "Experiencia laboral paralela",
+            title: "Dependienta de Fines de Semana",
+            org: "Parfois",
+            summary: "Casi cuatro años compaginando atención directa al público los fines de semana con los estudios de Ingeniería Telemática, fortaleciendo la gestión del tiempo, la resiliencia y la tolerancia a la presión."
+          },
+          {
+            period: "En curso · Graduación 2027",
+            type: "Formación · Prácticas 450–900 h",
+            title: "Grado en Ingeniería Telemática (Último año)",
+            org: "Universidad de Alcalá (UAH) · Madrid, España",
+            summary: "Cursando el último año de Ingeniería Telemática (con interés en cursar máster habilitante). Disponible para prácticas curriculares de 450 horas ampliables a extracurriculares de hasta 900 horas."
+          },
+          {
+            period: "Instituto · 2019",
+            type: "Infancia & Comunidad · Avatar Aang",
+            title: "Etapa como alumna: Robocampeones, reto Arduino/AutoCAD Endesa & Technovation Girls",
+            org: "Instituto · Primeros pasos en comunidad y tecnología",
+            summary: "Entre asignaturas de robótica y programación en el instituto: competición en Robocampeones, reto escolar junto a Endesa diseñando un robot en 3D en AutoCAD, fabricándolo con impresora 3D y programando su placa Arduino, y etapa como alumna senior en Technovation Girls 2019 creando una app en App Inventor para ayudar a niños que sufrían bullying."
+          }
+        ]
       }
     },
     contact: {
@@ -1302,48 +1501,75 @@ window.PORTFOLIO_I18N = {
         booksNote: "San Manuel Bueno, Martyr: reading with a deep philosophical and empathetic backdrop."
       },
       staffPrompt: "Touch the staff to cast a spell of calm.",
-      sealText: "和 · harmony between daily calm, small moments, and time with loved ones"
+      spell: "Touch the staff to cast a spell of calm.",
+      sealText: "和 · harmony between daily calm, small moments, and time with loved ones",
+      seal: "和 · harmony between daily calm, small moments, and time with loved ones"
     },
     avatar: {
       avatarEyebrow: "Chapter II · Avatar Aang — Community & Upbringing",
-      avatarTitle: "What is shared reaches further",
-      avatarLead: "What truly sparked my curiosity for technology began in high school, between robotics and programming courses, school competitions like Robocampeones, an engineering challenge with Endesa programming an Arduino board, designing the 3D chassis in AutoCAD and 3D printing it, and my stage as a senior student in Technovation Girls creating an anti-bullying app in App Inventor. That taught me that learning in community takes you much further — and years later I came full circle as a mentor and contributed to CNSM 2026 in Alcalá de Henares.",
+      avatarTitle: "What Is Shared Reaches Further",
+      avatarLead: "What truly unlocked my curiosity for technology began in high school, between robotics and programming courses, school competitions like Robocampeones, an Endesa challenge designing a 3D robot in AutoCAD, manufacturing with a 3D printer, and programming its Arduino board, and my time as a senior student in Technovation Girls creating an anti-bullying app in App Inventor. That showed me that learning in community takes you so much further—and years later I returned full circle as a mentor and collaborated with CNSM 2026 in Alcalá de Henares.",
       milestones: [
         {
           tag: "High School · 2019",
-          title: "My stage as a student: Robocampeones, Endesa Arduino challenge & Technovation Senior",
-          desc: "In high school I discovered my passion for building useful technology between robotics and programming courses: competed in Robocampeones, took on an engineering challenge with Endesa designing a robot in 3D in AutoCAD, 3D printing it and programming its Arduino board, and as a senior participant in Technovation Girls 2019, built an App Inventor app to help kids facing bullying.",
+          title: "Early Student Journey: Robocampeones, Endesa Arduino Challenge & Technovation Senior",
+          p: "In high school I discovered how much I enjoyed creating useful things between robotics and programming courses: competing in Robocampeones, participating in an Endesa school challenge designing a 3D robot in AutoCAD, manufacturing with a 3D printer and programming an Arduino board, and joining Technovation Girls 2019 as a senior student designing an App Inventor app to help children facing bullying.",
+          desc: "In high school I discovered how much I enjoyed creating useful things between robotics and programming courses: competing in Robocampeones, participating in an Endesa school challenge designing a 3D robot in AutoCAD, manufacturing with a 3D printer and programming an Arduino board, and joining Technovation Girls 2019 as a senior student designing an App Inventor app to help children facing bullying.",
+          toggleBtn: "View key milestones",
           toggleOpen: "Read milestone details",
-          toggleClose: "Hide details"
+          toggleClose: "Hide details",
+          bullets: [
+            "Competition in Robocampeones and school challenge with Endesa programming an Arduino board, 3D AutoCAD design, and 3D printing",
+            "Senior student in Technovation Girls 2019 creating an anti-bullying app in App Inventor"
+          ],
+          note: "School challenge with Endesa: 3D modeling in AutoCAD, 3D printing, and Arduino board programming."
         },
         {
           tag: "Mentorship · 2026",
-          title: "Technovation Girls 2026 Mentor (Team «Inteligents» · Saludea App)",
-          desc: "Coming full circle as a mentor for a beginner girls team from Ernest Hemingway School («Inteligents»). Together they created Saludea, an app helping people taking medication avoid harmful food interactions. Supporting them while brainstorming, organizing, overcoming hurdles, and celebrating the final outcome was unforgettable.",
+          title: "Mentor in Technovation Girls 2026 («Inteligents» Team · Saludea)",
+          p: "Closing the circle by mentoring a team of beginner girls from Ernest Hemingway School («Inteligents»). Together they built Saludea, an app designed to help people on medication avoid food-drug interactions; seeing them brainstorm, organize, overcome frustrations, and celebrate the final product was unforgettable.",
+          desc: "Closing the circle by mentoring a team of beginner girls from Ernest Hemingway School («Inteligents»). Together they built Saludea, an app designed to help people on medication avoid food-drug interactions; seeing them brainstorm, organize, overcome frustrations, and celebrate the final product was unforgettable.",
+          toggleBtn: "View key milestones",
           toggleOpen: "Read milestone details",
-          toggleClose: "Hide details"
+          toggleClose: "Hide details",
+          bullets: [
+            "Saludea App (2026): clear guide preventing food and medication interactions",
+            "Close mentorship guiding ideation, team organization, and overcoming technical challenges"
+          ],
+          note: "Pedagogical guidance and technical motivation for the beginner team."
         },
         {
           tag: "Conference · Oct 2026",
           title: "Staff at CNSM 2026 (Alcalá de Henares)",
-          desc: "Part of the organizing staff at the 22nd International Conference on Network and Service Management ('Evolving Network and Service Management: From Automation to Agentic Intelligence'), assisting with registration, guiding international attendees across the campus, attending keynote sessions, and practicing technical English.",
+          p: "I served as part of the staff team at the 22nd International Conference on Network and Service Management ('Evolving Network and Service Management: From Automation to Agentic Intelligence'), assisting with event organization, attendee accreditation, and campus guidance, while attending keynote sessions, practicing professional English, and networking with global researchers.",
+          desc: "I served as part of the staff team at the 22nd International Conference on Network and Service Management ('Evolving Network and Service Management: From Automation to Agentic Intelligence'), assisting with event organization, attendee accreditation, and campus guidance, while attending keynote sessions, practicing professional English, and networking with global researchers.",
+          toggleBtn: "View key milestones",
           toggleOpen: "Read milestone details",
-          toggleClose: "Hide details"
+          toggleClose: "Hide details",
+          bullets: [
+            "Event logistics, attendee accreditation, and campus guidance throughout Alcalá de Henares",
+            "Attending technical talks, practicing professional English, and connecting with the international community"
+          ],
+          note: "22nd International Conference on Network and Service Management at UAH."
         }
       ],
       elements: {
         label: "Four values of community and empathy",
-        aire: "Listening without prejudice",
-        agua: "Empathy and adaptability",
-        tierra: "Constancy and care",
-        fuego: "Initiative and mentorship",
-        prompt: "Tap an element to feel its energy"
+        aire: { name: "Air", desc: "Listening without prejudice" },
+        agua: { name: "Water", desc: "Empathy and adaptability" },
+        tierra: { name: "Earth", desc: "Constancy and care" },
+        fuego: { name: "Fire", desc: "Initiative and mentorship" },
+        note: "Touch an element to feel its energy",
+        prompt: "Touch an element to feel its energy"
       },
       koiQuote: "«Thinking differently does not make anyone your enemy: listening, understanding, forgiving, and respecting each other's freedom is what builds community.»",
       koiCite: "My perspective on Avatar: The Last Airbender",
       teaCorner: {
         label: "UNCLE IROH'S TEA CORNER",
-        btn: "Pour another cup"
+        btn: "Pour another cup",
+        initialQuote: "«Destiny is a funny thing. You never know how things will work out. But if you keep an open mind and a willing heart, you will find your own way.»",
+        author: "Uncle Iroh",
+        source: "Avatar: The Last Airbender · Daily Wisdom"
       }
     },
     onepiece: {
@@ -1360,70 +1586,122 @@ window.PORTFOLIO_I18N = {
       },
       projects: {
         controlador: {
-          badge: "Featured · XR & Voice AI",
+          k: "R&D Grant · Dec 2025 – May 2026",
           tag: "R&D Grant · Dec 2025 – May 2026",
-          title: "XR Backend Controller & Speech Evaluation (VR/MR Educational Game)",
-          inst: "UAH · ALTEN Spain & Instituto Cervantes · Repo: Controlador/",
-          summary: "Dockerized central backend controller for an immersive Spanish learning platform in VR/MR (Meta Quest) developed for ALTEN and Instituto Cervantes. Led server engineering to authenticate headsets, distribute pin-based scenarios, ingest real-time PCM16 audio via WebSockets, evaluate pronunciation through a hybrid AI pipeline, and persist grades in MariaDB.",
-          roleLabel: "My exact role",
-          role: "Full ownership of the backend controller (api-servidor): REST/WebSocket endpoints for VR headsets, launcher authentication, MariaDB transactional storage, automated grading, concurrent audio pipeline (Faster-Whisper STT parallel with Regex + Ollama), Nginx TLS, Docker Compose, and co-designing the overall architecture.",
+          badge: "Featured · XR & Voice",
+          title: "XR Backend Controller (ALTEN & Cervantes)",
+          inst: "UAH · ALTEN Spain & Instituto Cervantes",
+          summary: "Central backend in Docker Compose for an immersive Spanish educational game on Meta Quest headsets: launcher auth, PIN-based scenarios, real-time WebSocket audio, and MariaDB grades.",
+          roleLabel: "Exact role:",
+          role: "Sole developer in charge of api-servidor (FastAPI): all endpoints for VR headsets, launcher auth, MariaDB, automatic scoring, concurrency (Faster-Whisper STT + Regex/Ollama in parallel), Nginx, Docker, and overall system co-design with the api-web colleague (and MR games by teammates).",
+          bullets: [
+            "REST/WS Endpoints: /inicio, /registro_gafa, /configuracion, /siguiente_alumno, /notas_alumno, and PCM16 audio",
+            "Concurrent evaluation of children's voice with Faster-Whisper + phonetic Regex in parallel with Ollama (qwen2.5:1.5b)"
+          ],
           detailsBtn: "View details",
-          sheetBtn: "Full project sheet",
+          sheetBtn: "Full details",
           archBtn: "Architecture",
           toyBtn: "Test XR voice",
-          toyScreen: "PIN 4821 · Tap to simulate phrase"
+          toyScreen: "PIN 4821 · Tap to simulate phrase",
+          toy: {
+            label: "Interactive simulator · Controlador/",
+            btn: "Test XR voice",
+            screen: "PIN 4821 · Tap to simulate phrase"
+          }
         },
         correos: {
-          badge: "Featured · Computer Vision",
+          k: "R&D Grant · Jun 2026 – Present",
           tag: "R&D Grant · Jun 2026 – Present",
-          title: "Computer Vision & Microservices System (Correos Chair)",
-          inst: "Correos Chair · UAH · Repo: Correos_casillero/Servidor/",
-          summary: "Distributed microservices platform on Docker Compose to automate mail sorting audits across 20-pigeonhole furniture using computer vision (YOLOv8-seg / ONNX Runtime). Owned end-to-end server engineering: secure mobile ingestion, asynchronous Redis queues, hardware-accelerated local inference, and historical persistence in PostgreSQL.",
-          roleLabel: "My exact role",
-          role: "Complete ownership of backend infrastructure, microservices architecture, and computer vision pipeline: Docker Compose orchestration, FastAPI mobile API with JWT, decoupled Redis AOF queue, ONNX/YOLO inference worker with local GPU/CPU fallback, PostgreSQL 15 database, Nginx proxy, Label Studio annotation, and retraining scripts.",
+          badge: "Featured · Vision & AI",
+          title: "Smart Parcel Locker Vision System (Correos Chair)",
+          inst: "Chair of Correos and Telegraphs · UAH",
+          summary: "Computer vision platform and distributed backend to verify the occupancy of 20 postal locker slots using GPU-accelerated YOLOv8/ONNX inference, Redis queues, and PostgreSQL.",
+          roleLabel: "Exact role:",
+          role: "End-to-end development of the backend and AI architecture (entire system except the web panel): microservices in Docker Compose with FastAPI (api-core), Redis AOF, local GPU YOLOv8/ONNX inference worker, PostgreSQL, Nginx, Label Studio annotation, and ongoing training.",
+          bullets: [
+            "Decoupled producer-consumer pipeline with Redis AOF and rate limiting against capture bursts",
+            "YOLOv8-seg segmentation exported to ONNX Runtime projected onto the 4×5 shelf matrix (20 slots)"
+          ],
           detailsBtn: "View details",
-          sheetBtn: "Full project sheet",
+          sheetBtn: "Full details",
           archBtn: "Architecture",
           toyBtn: "Scan mail (ONNX)",
-          toyReadout: "Grid 4x5 · 20 slots ready"
+          toyReadout: "4/8 slots with mail",
+          toy: {
+            label: "Vision workbench · Correos_casillero/",
+            btn: "Scan mail (ONNX)",
+            readout: "4/8 slots with mail"
+          }
         },
         marchel: {
-          badge: "Networking & VoIP",
-          tag: "UAH Project · 2025",
-          title: "Marchel: IP PBX System with Asterisk v22 & Billing",
-          inst: "UAH · Lab. Networks, Signals & Systems · Repo: proyectos/Marchel-Asterisk/",
-          summary: "Comprehensive corporate VoIP telephony and automated rating infrastructure deployed on Ubuntu Linux with Asterisk v22.2.0 and PJSIP stack. Co-developed in pair programming: extension routing, interactive IVR, conference bridges, Spanish TTS (Festival), MariaDB CDR logging via ODBC, batch billing in Python/Cron, and Flask web portal.",
-          roleLabel: "Pair project",
-          role: "Co-development alongside Marcos Santos Aragón across the entire lifecycle: Asterisk v22.2.0 PBX architecture on Ubuntu Linux, PJSIP protocol, SIP/RTP network analysis with Wireshark, Festival TTS voice synthesis via systemd, ODBC MariaDB integration, Python/Cron billing engine, and Flask web portal.",
+          k: "UAH Project · VoIP Networks · 2025",
+          tag: "UAH Project · VoIP Networks · 2025",
+          badge: "VoIP & Telecom",
+          title: "Corporate IP PBX & Call Rating (Marchel-Asterisk)",
+          inst: "UAH · Lab of Networks, Signals and Systems (LRSS)",
+          summary: "Corporate IP telephony infrastructure with Asterisk v22 and PJSIP on Ubuntu Linux: interactive IVR, Festival TTS voice synthesis, periodic automated billing with Cron/Python, and Flask user portal.",
+          roleLabel: "Exact role:",
+          role: "End-to-end joint development in partnership with Marcos Santos Aragón across the entire lifecycle: Asterisk v22 architecture, PJSIP, SIP/RTP traffic analysis with Wireshark, Festival TTS voice synthesis, MariaDB ODBC, Python batch rating engine, and Flask web portal.",
+          bullets: [
+            "Trunks between PBXs, voicemail, blind/attended transfers, ConfBridge, and MixMonitor recording",
+            "Festival TTS voice synthesis integrated into dialplan via systemd service"
+          ],
           detailsBtn: "View details",
-          sheetBtn: "Full project sheet",
+          sheetBtn: "Full details",
           archBtn: "Architecture",
-          toyBtn: "Call ext. 2001",
-          toyScreen: "SIP:2001 · Ready to dial"
+          toyBtn: "Hang up",
+          toyScreen: "SIP:2001 · Ready to dial",
+          toy: {
+            label: "Live PBX · Marchel-Asterisk/",
+            btn: "Hang up",
+            readout: "Asterisk PBX ready",
+            extIvr: "IVR Voice"
+          }
         },
         nika: {
-          badge: "Cloud Serverless",
-          tag: "UAH Project · 2025",
-          title: "Nika App: Real-Time Chat & Serverless AWS Billing",
-          inst: "UAH · Lab. Networks, Systems & Services · Repo: proyectos/LRSS-4/",
-          summary: "Real-time interactive messaging and serverless billing cloud platform deployed on AWS managed services (RDS MySQL and Lambda). Developed in pair with Marcos Santos Aragón, combining WebSocket-based communication with decoupled cloud architecture to meter traffic and calculate per-KB consumption rates.",
-          roleLabel: "Pair project",
-          role: "End-to-end cloud architecture in pair with Marcos Santos Aragón: real-time chat application with Flask and Flask-SocketIO, managed relational database modeling in AWS RDS MySQL, serverless cost calculation microservice in AWS Lambda (Python), and analytical monitoring dashboard.",
+          k: "UAH Project · Cloud Serverless · 2025",
+          tag: "UAH Project · Cloud Serverless · 2025",
+          badge: "Cloud & WebSockets",
+          title: "Real-Time Distributed Chat & AWS Auditing (Nika App)",
+          inst: "UAH · Lab of Networks, Signals and Systems (LRSS)",
+          summary: "Real-time multi-room messaging platform with Flask-SocketIO, presence tracking, consumption auditing, and a serverless cost pipeline deployed on AWS Lambda with Amazon RDS MySQL.",
+          roleLabel: "Exact role:",
+          role: "End-to-end joint development in partnership with Marcos Santos Aragón: bidirectional WebSocket events, chat command protocol, Amazon RDS MySQL persistence, serverless Python function on AWS Lambda for metric aggregation, and reactive dashboard.",
+          bullets: [
+            "Interactive commands (/TODOS, /DESTINATARIO, /GRUPO) and aggregated metrics at /stats",
+            "Decoupled serverless function facturacion.py on AWS Lambda connected to managed MySQL"
+          ],
           detailsBtn: "View details",
-          sheetBtn: "Full project sheet",
+          sheetBtn: "Full details",
           archBtn: "Architecture",
-          toyBtn: "Send message (KB)",
-          toyFeed: "Nika chat live · 0 KB billed"
+          toyBtn: "Send ping",
+          toyFeed: "Nika chat live · 0 KB billed",
+          toy: {
+            label: "Live channel · LRSS-4/",
+            msgLive: "Room live",
+            msgReply: "Waiting for commands...",
+            meter: "0.00 KB · Lambda"
+          }
         }
       },
       easterEggs: {
-        brookBtn: "Brook · Yohohoho!",
-        robinBtn: "Nico Robin · Poneglyph"
+        brookBtn: "Play Binks' Sake with Brook",
+        robinBtn: "Decipher Poneglyph with Robin",
+        brookChar: "Brook (Straw Hat Musician)",
+        brookQuote: "«Yohohoho! A hot cup of tea, a cheerful tune, and a calm heart make any journey worthwhile.»",
+        robinChar: "Nico Robin (Straw Hat Archaeologist)",
+        robinQuote: "«History is never entirely erased; every effort, every line of code, and every lesson leaves an indelible trace on the path to truth.»"
       },
       treasureTitle: "The treasure is not the destination",
       treasureQuote: "«I am still sailing discovering all my dreams and how to achieve them, but I know how I want to live the voyage: surrounded by great nakamas, learning in every complex project, and celebrating every banquet along the way.»",
       treasureText: "Balancing my Telematics Engineering degree at UAH (grad. 2027) with R&D research grants and nearly four years working weekends at Parfois (Nov 2022 – Aug 2026) has honed my time management, resilience, and composure under pressure. Currently seeking curricular internships (450 h) extendable to 900 h.",
       cvBtn: "View / Download CV (PDF)",
+      treasure: {
+        title: "The treasure is not the destination",
+        quote: "«I am still sailing discovering all my dreams and how to achieve them, but I know how I want to live the voyage: surrounded by great nakamas, learning in every complex project, and celebrating every banquet along the way.»",
+        text: "Balancing my Telematics Engineering degree at UAH (grad. 2027) with R&D research grants and nearly four years working weekends at Parfois (Nov 2022 – Aug 2026) has honed my time management, resilience, and composure under pressure. Currently seeking curricular internships (450 h) extendable to 900 h.",
+        cvBtn: "View / Download CV (PDF)"
+      },
       archTitle: "System Architecture Explorer",
       archSubtitle: "Real topology of clients, APIs, AI models, message queues, and databases.",
       archLayers: {
@@ -1434,16 +1712,136 @@ window.PORTFOLIO_I18N = {
         datos: "Data",
         infra: "Infra"
       },
-      skillsTitle: "Technical Competencies (CV)",
-      skillsSubtitle: "Real technologies used in R&D grants and university projects.",
+      architecture: {
+        title: "System Architecture Explorer",
+        subtitle: "Real topology of clients, APIs, AI models, message queues, and databases.",
+        summaries: {
+          "controlador-cervantes": "Meta Quest headsets (running the MR educational games created by teammates) communicate with my api-servidor controller (FastAPI) for launcher authentication, PIN provisioning, WebSocket audio streaming, and MariaDB grade recording, with Nginx reverse proxying the dockerized ecosystem alongside the teacher portal.",
+          "correos-casillero": "Microservices-oriented backend architecture: the mobile PDA consumes api-core in FastAPI with JWT, heavy computer vision tasks are queued in Redis for the GPU worker running YOLO/ONNX, and PostgreSQL persists parcel slot traceability.",
+          "marchel-asterisk": "VoIP infrastructure with Asterisk v22 and PJSIP on Ubuntu Linux: SIP signaling and RTP audio analyzed with Wireshark, interactive voice synthesis with Festival TTS, CDR in MariaDB, and automated call rating via Cron/Python.",
+          "nika-cloud": "Hybrid WebSockets and Serverless architecture: Flask-SocketIO server for real-time chat and presence, AWS Lambda Python functions for traffic and cost auditing, and Amazon RDS MySQL as the managed database."
+        },
+        layers: {
+          cliente: "Client",
+          web: "Web",
+          api: "API",
+          ia: "AI",
+          datos: "Data",
+          infra: "Infra"
+        }
+      },
+      skillsTitle: "Technical Resume Skills",
+      skillsSubtitle: "Real technologies used in R&D grants and UAH engineering projects.",
+      skills: {
+        title: "Technical Resume Skills",
+        subtitle: "Real technologies used in R&D grants and UAH engineering projects.",
+        groupDescriptions: [
+          "Systems programming, workflow automation, containerization, and technical documentation.",
+          "Asynchronous backends, WebSockets, distributed queues, and serverless deployment.",
+          "IP telephony, SIP signaling, network traffic analysis, and reverse proxying.",
+          "Computer vision, speech transcription/synthesis, LLMs, and relational databases.",
+          "Distributed architecture, robust engineering practices, and agile team workflows."
+        ],
+        groups: [
+          {
+            title: "Languages & Tools",
+            desc: "Systems programming, workflow automation, containerization, and technical documentation."
+          },
+          {
+            title: "Technologies, APIs & Cloud",
+            desc: "Asynchronous backends, WebSockets, distributed queues, and serverless deployment."
+          },
+          {
+            title: "Systems, Networks & VoIP",
+            desc: "IP telephony, SIP signaling, network traffic analysis, and reverse proxying."
+          },
+          {
+            title: "Applied AI & Databases",
+            desc: "Computer vision, speech transcription/synthesis, LLMs, and relational databases."
+          },
+          {
+            title: "Architecture & Methodology",
+            desc: "Distributed architecture, robust engineering practices, and agile team workflows."
+          }
+        ]
+      },
       timelineTitle: "Voyage Logbook",
-      timelineSubtitle: "From early school steps in robotics to research grants at UAH.",
+      timelineSubtitle: "From early high-school steps in robotics to university R&D research grants at UAH.",
       timelineFilters: {
         featured: "Featured",
         all: "All (8)",
         becas: "R&D Grants",
         comunidad: "Community",
         academico: "UAH Projects"
+      },
+      timeline: {
+        title: "Voyage Logbook",
+        subtitle: "From early high-school steps in robotics to university R&D research grants at UAH.",
+        filters: {
+          featured: "Featured",
+          all: "All (8)",
+          becas: "R&D Grants",
+          comunidad: "Community",
+          academico: "UAH Projects"
+        },
+        items: [
+          {
+            period: "Jun 2026 – Present",
+            type: "R&D Grant · One Piece",
+            title: "Research Grant — Distributed Systems & Computer Vision",
+            org: "Chair of Correos and Telegraphs · University of Alcalá (UAH)",
+            summary: "Comprehensive development of the backend and AI architecture (the complete system except the web panel): microservices in Docker Compose with FastAPI (api-core), Redis queues, YOLO/ONNX inference worker with local GPU, PostgreSQL, Nginx, labeling in Label Studio, and active training scripts."
+          },
+          {
+            period: "Oct 26–30, 2026",
+            type: "Community · Avatar Aang",
+            title: "Staff at CNSM 2026 (International Networking Conference)",
+            org: "22nd Int. Conference on Network and Service Management · Alcalá de Henares",
+            summary: "Volunteering as organizational staff, attendee accreditation, and campus guidance during the conference ('Evolving Network and Service Management: From Automation to Agentic Intelligence'), attending technical keynotes, practicing professional English, and networking with global researchers."
+          },
+          {
+            period: "2026",
+            type: "Volunteering · Avatar Aang",
+            title: "Mentor in Technovation Girls (Inteligents Team · Saludea App)",
+            org: "Technovation Girls · Ernest Hemingway School",
+            summary: "Mentoring a team of beginner middle-school girls in designing and developing Saludea, a mobile app helping patients avoid dangerous food-drug interactions. Hands-on guidance in product ideation, agile task organization, and overcoming technical setbacks."
+          },
+          {
+            period: "Dec 2025 – May 2026",
+            type: "R&D Grant · One Piece",
+            title: "Research Grant — XR Backend & Speech Processing",
+            org: "UAH · ALTEN Spain & Instituto Cervantes",
+            summary: "Sole developer responsible for the central backend controller (api-servidor in FastAPI) for an educational Spanish game on Meta Quest headsets: REST/WebSocket endpoints, launcher authentication, MariaDB persistence, automatic scoring, concurrent audio processing (Faster-Whisper STT + Regex/Ollama), Nginx, Docker, and system architecture co-design."
+          },
+          {
+            period: "2025",
+            type: "UAH Projects · One Piece",
+            title: "VoIP Telephony & Serverless Cloud Projects (Marchel & Nika App)",
+            org: "University of Alcalá (UAH) · In partnership with Marcos Santos Aragón",
+            summary: "End-to-end partner development of a full VoIP PBX infrastructure with Asterisk v22, PJSIP, network packet analysis, Festival TTS, and MariaDB (Marchel-Asterisk), and a real-time chat platform with cost auditing built in Flask-SocketIO and deployed on AWS Lambda with AWS RDS MySQL (Nika App)."
+          },
+          {
+            period: "Nov 2022 – Aug 2026",
+            type: "Parallel Work Experience",
+            title: "Weekend Sales Associate",
+            org: "Parfois",
+            summary: "Nearly four years balancing weekend direct customer service with rigorous Telematics Engineering studies, forging exceptional time management, psychological resilience, and composure under pressure."
+          },
+          {
+            period: "Ongoing · Expected Grad. 2027",
+            type: "Education · Internships 450–900 h",
+            title: "B.S. in Telematics Engineering (Senior Year)",
+            org: "University of Alcalá (UAH) · Madrid, Spain",
+            summary: "Enrolled in the senior year of Telematics Engineering (with ambition to pursue the enabling Master's degree). Actively seeking 450-hour curricular internships extendable to 900 hours of extracurricular internships."
+          },
+          {
+            period: "High School · 2019",
+            type: "Youth & Community · Avatar Aang",
+            title: "Early Student Journey: Robocampeones, Endesa Arduino/AutoCAD Challenge & Technovation Girls",
+            org: "High School · First steps in technology and teamwork",
+            summary: "Exploring robotics and programming classes: competing in Robocampeones, participating in an Endesa school challenge designing a 3D robot in AutoCAD, manufacturing with 3D printers and programming an Arduino board, and joining Technovation Girls 2019 as a senior student building an anti-bullying app in App Inventor."
+          }
+        ]
       }
     },
     contact: {

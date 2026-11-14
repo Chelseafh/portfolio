@@ -2422,11 +2422,31 @@
       }
 
       if (summaryEl) {
+        const activeLang = document.documentElement.lang === "en" ? "en" : "es";
+        const dict = window.PORTFOLIO_I18N ? window.PORTFOLIO_I18N[activeLang] : null;
+        let archSummaryText = arch.summary || project.summary || "";
+        let projTitle = project.title;
+
+        if (dict && dict.onepiece && dict.onepiece.architecture && dict.onepiece.architecture.summaries) {
+          if (dict.onepiece.architecture.summaries[project.id]) {
+            archSummaryText = dict.onepiece.architecture.summaries[project.id];
+          }
+        }
+        if (dict && dict.onepiece && dict.onepiece.projects) {
+          const pKey = project.id.startsWith("controlador") ? "controlador"
+                     : project.id.startsWith("correos") ? "correos"
+                     : project.id.startsWith("marchel") ? "marchel"
+                     : project.id.startsWith("nika") ? "nika" : null;
+          if (pKey && dict.onepiece.projects[pKey] && dict.onepiece.projects[pKey].title) {
+            projTitle = dict.onepiece.projects[pKey].title;
+          }
+        }
+
         summaryEl.innerHTML =
           "<strong>" +
-          escapeHtml(project.title) +
+          escapeHtml(projTitle) +
           ":</strong> " +
-          escapeHtml(arch.summary || project.summary || "");
+          escapeHtml(archSummaryText);
       }
 
       const activeId = state.arch.selectedNodeId;
@@ -2505,6 +2525,8 @@
       state.arch.selectedNodeId = preferred ? preferred.id : "";
       renderArchitecture();
     };
+
+    window.__renderArchitecture = renderArchitecture;
 
     tabsEl.addEventListener("click", (e) => {
       const tab = e.target.closest(".arch-tab[data-project]");
@@ -2607,7 +2629,37 @@
     const project = getProjectById(projectId);
     if (!modal || !contentEl || !project) return;
 
-    const highlightsHtml = (project.highlights || [])
+    const activeLang = document.documentElement.lang === "en" ? "en" : "es";
+    const isEn = activeLang === "en";
+    const dict = window.PORTFOLIO_I18N ? window.PORTFOLIO_I18N[activeLang] : null;
+    const pKey = projectId.startsWith("controlador")
+      ? "controlador"
+      : projectId.startsWith("correos")
+      ? "correos"
+      : projectId.startsWith("marchel")
+      ? "marchel"
+      : projectId.startsWith("nika")
+      ? "nika"
+      : null;
+    const pI18n = dict && dict.onepiece && dict.onepiece.projects ? dict.onepiece.projects[pKey] : null;
+
+    const modalTitle = pI18n && pI18n.title ? pI18n.title : project.title;
+    const badgeLabel = pI18n && pI18n.badge ? pI18n.badge : (project.categoryLabel || "Proyecto");
+    const instText = pI18n && pI18n.inst ? pI18n.inst : (project.institution || "");
+    const periodText = pI18n && pI18n.k ? pI18n.k : (project.period || "");
+    const roleHeading = isEn ? "My technical scope and role" : "Mi rol y alcance técnico";
+    const roleText = pI18n && pI18n.role ? pI18n.role : (project.myRole || project.subtitle || "");
+    const teamHeading = isEn ? "Team context" : "Contexto de equipo";
+    const probHeading = isEn ? "Technical problem" : "Problema técnico";
+    const solHeading = isEn ? "Implemented solution" : "Solución implementada";
+    const solText = pI18n && pI18n.summary ? pI18n.summary : (project.solution || project.summary || "");
+    const highHeading = isEn ? "Key achievements" : "Logros destacados";
+    const stackHeading = isEn ? "Technology stack" : "Stack utilizado";
+    const archBtnText = isEn ? "View in architecture explorer" : "Ver en explorador de arquitectura";
+    const dismissBtnText = isEn ? "Close spec sheet" : "Cerrar ficha";
+
+    const rawBullets = (pI18n && Array.isArray(pI18n.bullets)) ? pI18n.bullets : (project.highlights || []);
+    const highlightsHtml = rawBullets
       .map((item) => "<li>" + escapeHtml(item) + "</li>")
       .join("");
 
@@ -2616,7 +2668,9 @@
       .join("");
 
     const teamSectionHtml = project.teamContext
-      ? '<h4 class="modal-section-title">Contexto de equipo</h4>' +
+      ? '<h4 class="modal-section-title">' +
+        escapeHtml(teamHeading) +
+        "</h4>" +
         '<p class="modal-text">' +
         escapeHtml(project.teamContext) +
         "</p>"
@@ -2624,42 +2678,56 @@
 
     contentEl.innerHTML =
       '<span class="modal-badge">' +
-      escapeHtml(project.categoryLabel || "Proyecto") +
+      escapeHtml(badgeLabel) +
       "</span>" +
       '<h3 id="projectModalTitle" class="modal-title">' +
-      escapeHtml(project.title) +
+      escapeHtml(modalTitle) +
       "</h3>" +
       '<p class="modal-subtitle">' +
-      escapeHtml(project.institution || "") +
-      (project.period ? " · " + escapeHtml(project.period) : "") +
+      escapeHtml(instText) +
+      (periodText ? " · " + escapeHtml(periodText) : "") +
       (project.repoFolder ? " · Repo: " + escapeHtml(project.repoFolder) : "") +
       "</p>" +
-      '<div class="modal-role-box"><strong>Mi rol y alcance técnico</strong>' +
-      escapeHtml(project.myRole || project.subtitle || "") +
+      '<div class="modal-role-box"><strong>' +
+      escapeHtml(roleHeading) +
+      "</strong> " +
+      escapeHtml(roleText) +
       "</div>" +
       teamSectionHtml +
-      '<h4 class="modal-section-title">Problema técnico</h4>' +
+      '<h4 class="modal-section-title">' +
+      escapeHtml(probHeading) +
+      "</h4>" +
       '<p class="modal-text">' +
       escapeHtml(project.problem || "") +
       "</p>" +
-      '<h4 class="modal-section-title">Solución implementada</h4>' +
+      '<h4 class="modal-section-title">' +
+      escapeHtml(solHeading) +
+      "</h4>" +
       '<p class="modal-text">' +
-      escapeHtml(project.solution || project.summary || "") +
+      escapeHtml(solText) +
       "</p>" +
       (highlightsHtml
-        ? '<h4 class="modal-section-title">Logros destacados</h4><ul class="modal-list">' +
+        ? '<h4 class="modal-section-title">' +
+          escapeHtml(highHeading) +
+          '</h4><ul class="modal-list">' +
           highlightsHtml +
           "</ul>"
         : "") +
-      '<h4 class="modal-section-title">Stack utilizado</h4>' +
+      '<h4 class="modal-section-title">' +
+      escapeHtml(stackHeading) +
+      "</h4>" +
       '<div class="modal-tech-list">' +
       techHtml +
       "</div>" +
       '<div class="modal-actions">' +
       '<button type="button" class="btn btn-elastic" data-modal-arch="' +
       escapeHtml(project.id) +
-      '">Ver en explorador de arquitectura</button>' +
-      '<button type="button" class="btn btn-elastic btn-elastic--soft" data-modal-dismiss>Cerrar ficha</button>' +
+      '">' +
+      escapeHtml(archBtnText) +
+      "</button>" +
+      '<button type="button" class="btn btn-elastic btn-elastic--soft" data-modal-dismiss>' +
+      escapeHtml(dismissBtnText) +
+      "</button>" +
       "</div>";
 
     openModal(modal, triggerEl);
@@ -3569,8 +3637,15 @@
           updateText("#frierenGameDiceBtn .dice-label", dict.frieren.diceLabels.games);
           updateText("#frierenBookDiceBtn .dice-label", dict.frieren.diceLabels.books);
         }
-        updateText("#staff .staff-prompt", dict.frieren.staffPrompt);
-        updateText("#sobre-mi .seal-text", dict.frieren.sealText);
+        const spellEl = document.getElementById("spell");
+        if (spellEl && (dict.frieren.spell || dict.frieren.staffPrompt)) {
+          spellEl.textContent = dict.frieren.spell || dict.frieren.staffPrompt;
+        }
+        const sealEl = document.querySelector(".seal");
+        if (sealEl && (dict.frieren.seal || dict.frieren.sealText)) {
+          const sText = dict.frieren.seal || dict.frieren.sealText;
+          sealEl.innerHTML = '<span aria-hidden="true">和</span> · ' + sText.replace(/^和\s*·\s*/, "");
+        }
       }
 
       // 4. Avatar
@@ -3578,28 +3653,64 @@
         updateText("#comunidad .sec-head .eyebrow", dict.avatar.avatarEyebrow);
         updateText("#comunidad .sec-head h2", dict.avatar.avatarTitle);
         updateText("#comunidad .sec-head .lead", dict.avatar.avatarLead);
+
+        // Hitos
         if (Array.isArray(dict.avatar.milestones)) {
           dict.avatar.milestones.forEach((m, i) => {
             const card = document.querySelector(`.card-av[data-av-index="${i}"]`);
             if (card) {
+              const tag = card.querySelector(".av-milestone-head .tag");
               const h3 = card.querySelector("h3");
               const p = card.querySelector(".av-text-col > p");
-              if (h3) h3.textContent = m.title;
-              if (p) p.textContent = m.p;
+              const toggleBtnSpan = card.querySelector(".av-bullets-toggle span:not(.av-toggle-dot)");
+              const bullets = card.querySelectorAll("ul.av-milestone-list li");
+              const note = card.querySelector(".av-milestone-note");
+
+              if (tag && m.tag) tag.textContent = m.tag;
+              if (h3 && m.title) h3.textContent = m.title;
+              if (p && (m.desc || m.p)) p.textContent = m.desc || m.p;
+              if (toggleBtnSpan && m.toggleBtn) toggleBtnSpan.textContent = m.toggleBtn;
+              if (Array.isArray(m.bullets)) {
+                m.bullets.forEach((bText, bIdx) => {
+                  if (bullets[bIdx]) bullets[bIdx].textContent = bText;
+                });
+              }
+              if (note && m.note) note.textContent = m.note;
             }
           });
         }
+
+        // 4 Elementos
         if (dict.avatar.elements) {
-          updateText("#comunidad .elements .el--aire .el-name", dict.avatar.elements.aire);
-          updateText("#comunidad .elements .el--agua .el-name", dict.avatar.elements.agua);
-          updateText("#comunidad .elements .el--tierra .el-name", dict.avatar.elements.tierra);
-          updateText("#comunidad .elements .el--fuego .el-name", dict.avatar.elements.fuego);
+          const elKeys = ["aire", "agua", "tierra", "fuego"];
+          elKeys.forEach((k) => {
+            const elLi = document.querySelector(`.elements .el[data-element="${k}"]`);
+            const elData = dict.avatar.elements[k];
+            if (elLi && elData) {
+              const b = elLi.querySelector("div b");
+              const span = elLi.querySelector("div span");
+              if (b) b.textContent = elData.name || elData;
+              if (span && elData.desc) span.textContent = elData.desc;
+            }
+          });
+          const noteEl = document.getElementById("elementPulseNote");
+          if (noteEl && (dict.avatar.elements.note || dict.avatar.elements.prompt)) {
+            noteEl.textContent = dict.avatar.elements.note || dict.avatar.elements.prompt;
+          }
         }
+
         updateText("#comunidad .balance blockquote p", dict.avatar.koiQuote);
         updateText("#comunidad .balance cite", dict.avatar.koiCite);
+
+        // Rincón de té
         if (dict.avatar.teaCorner) {
-          updateText("#comunidad .tea-corner .eyebrow", dict.avatar.teaCorner.label);
+          updateText(".tea-corner-label", dict.avatar.teaCorner.label);
           updateText("#nextQuoteBtn", dict.avatar.teaCorner.btn);
+          updateText("#teaQuoteAuthor", dict.avatar.teaCorner.author);
+          updateText("#teaQuoteSource", dict.avatar.teaCorner.source);
+          if (dict.avatar.teaCorner.initialQuote) {
+            updateText("#teaQuoteText", dict.avatar.teaCorner.initialQuote);
+          }
         }
       }
 
@@ -3608,11 +3719,14 @@
         updateText("#aventura .sec-head .eyebrow", dict.onepiece.opEyebrow);
         updateText("#aventura .sec-head h2", dict.onepiece.opTitle);
         updateText("#aventura .sec-head .lead", dict.onepiece.opLead);
+
         if (dict.onepiece.projectFilters) {
           updateText('.filter-pill[data-category="all"]', dict.onepiece.projectFilters.all);
           updateText('.filter-pill[data-category="profesional"]', dict.onepiece.projectFilters.profesional);
           updateText('.filter-pill[data-category="academico"]', dict.onepiece.projectFilters.academico);
         }
+
+        // Proyectos
         if (dict.onepiece.projects) {
           const pMap = {
             "controlador-cervantes": dict.onepiece.projects.controlador,
@@ -3624,59 +3738,188 @@
             if (!pData) return;
             const card = document.querySelector(`.card-op[data-project-id="${pid}"]`);
             if (card) {
+              const mainDesc = card.querySelector(".card-op-main > p:not(.card-op-inst)");
+              const periodK = card.querySelector(".card-op-sub .k");
               const badge = card.querySelector(".card-op-badge");
-              const tag = card.querySelector(".card-op-tag");
               const h3 = card.querySelector("h3");
               const inst = card.querySelector(".card-op-inst");
-              const mainP = card.querySelector(".card-op-main p");
               const roleBox = card.querySelector(".role-callout");
               const sheetBtn = card.querySelector("[data-project-open]");
               const archBtn = card.querySelector("[data-project-arch]");
               const toyBtn = card.querySelector('[class*="js-toy-"]');
+              const bullets = card.querySelectorAll(".card-op .more li");
+              const consoleLabel = card.querySelector(".console-frame-label");
 
-              if (badge) badge.textContent = pData.badge;
-              if (tag) tag.textContent = pData.tag;
-              if (h3) h3.textContent = pData.title;
-              if (inst) inst.textContent = pData.inst;
-              if (mainP) mainP.textContent = pData.summary;
-              if (roleBox) {
-                roleBox.innerHTML = "<strong>" + pData.roleLabel + "</strong> " + pData.role;
+              if (periodK && (pData.k || pData.tag)) periodK.textContent = pData.k || pData.tag;
+              if (badge && pData.badge) badge.textContent = pData.badge;
+              if (h3 && pData.title) h3.textContent = pData.title;
+              if (inst && pData.inst) inst.textContent = pData.inst;
+              if (mainDesc && pData.summary) mainDesc.textContent = pData.summary;
+              if (roleBox && pData.role) {
+                roleBox.innerHTML = "<strong>" + (pData.roleLabel || "Mi rol exacto") + "</strong> " + pData.role;
               }
-              if (sheetBtn) sheetBtn.textContent = pData.sheetBtn;
-              if (archBtn) archBtn.textContent = pData.archBtn;
-              if (toyBtn) toyBtn.textContent = pData.toyBtn;
+              if (Array.isArray(pData.bullets)) {
+                pData.bullets.forEach((bText, bIdx) => {
+                  if (bullets[bIdx]) bullets[bIdx].textContent = bText;
+                });
+              }
+              if (sheetBtn && pData.sheetBtn) sheetBtn.textContent = pData.sheetBtn;
+              if (archBtn && pData.archBtn) archBtn.textContent = pData.archBtn;
+              if (toyBtn && (pData.toyBtn || (pData.toy && pData.toy.btn))) {
+                toyBtn.textContent = (pData.toy && pData.toy.btn) || pData.toyBtn;
+              }
+              if (consoleLabel && pData.toy && pData.toy.label) {
+                consoleLabel.textContent = pData.toy.label;
+              }
+
+              if (pData.toy) {
+                if (pData.toy.screen) {
+                  const screen = card.querySelector(".toy-vr-screen, .toy-pbx-screen");
+                  if (screen) screen.textContent = pData.toy.screen;
+                }
+                if (pData.toy.readout) {
+                  const readout = card.querySelector(".toy-casillero-readout");
+                  if (readout) readout.textContent = pData.toy.readout;
+                }
+                if (pData.toy.meter) {
+                  const meter = card.querySelector(".toy-chat-meter");
+                  if (meter) meter.textContent = pData.toy.meter;
+                }
+              }
             }
           });
         }
+
+        // Easter eggs
         if (dict.onepiece.easterEggs) {
           updateText("#brookEggBtn span", dict.onepiece.easterEggs.brookBtn);
           updateText("#robinEggBtn span", dict.onepiece.easterEggs.robinBtn);
+          if (dict.onepiece.easterEggs.brookChar) {
+            updateText("#nakamaEggChar", dict.onepiece.easterEggs.brookChar);
+          }
+          if (dict.onepiece.easterEggs.brookQuote) {
+            updateText("#nakamaEggQuote", dict.onepiece.easterEggs.brookQuote);
+          }
         }
-        updateText(".treasure h3", dict.onepiece.treasureTitle);
-        updateText(".treasure .quote p", dict.onepiece.treasureQuote);
-        updateText(".treasure .context p", dict.onepiece.treasureText);
-        updateText("#cvActionBtn", dict.onepiece.cvBtn);
-        updateText("#archTitle", dict.onepiece.archTitle);
-        updateText("#archSubtitle", dict.onepiece.archSubtitle);
-        if (dict.onepiece.archLayers) {
-          const lMap = dict.onepiece.archLayers;
-          Object.entries(lMap).forEach(([layerKey, layerText]) => {
-            const btn = document.querySelector(`.arch-layer-legend [data-layer="${layerKey}"]`);
-            if (btn) {
-              btn.innerHTML = '<span class="legend-dot"></span>' + layerText;
+
+        // Tesoro
+        const isEnLang = lang === "en";
+        const trH3 = document.querySelector(".treasure > div > h3");
+        const trP = document.querySelector(".treasure > div > p");
+        const treasureObj = dict.onepiece.treasure || {};
+        const trTitle = treasureObj.title || dict.onepiece.treasureTitle;
+        if (trH3 && trTitle) trH3.textContent = trTitle;
+
+        if (trP) {
+          if (isEnLang) {
+            const q = treasureObj.quote || dict.onepiece.treasureQuote || "";
+            const t = treasureObj.text || dict.onepiece.treasureText || "";
+            trP.innerHTML = escapeHtml(q) + "<br><br>" + escapeHtml(t);
+          } else {
+            trP.innerHTML =
+              "«Sigo en plena travesía descubriendo cuáles son todos mis sueños y cómo hacerlos realidad, pero tengo claro cómo quiero vivir el viaje: rodeada de buenos nakamas, aprendiendo en cada proyecto complejo y celebrando cada festín por el camino.»" +
+              "<br><br>" +
+              "Compaginar el grado en la UAH (2027) con becas de I+D y casi cuatro años trabajando los fines de semana en <strong>Parfois (Nov 2022 – Ago 2026)</strong> ha entrenado mi gestión del tiempo, resiliencia y trabajo bajo presión. Ahora busco <strong>prácticas curriculares (450 h) ampliables a 900 h</strong>.";
+          }
+        }
+
+        const cvBtnEl = document.getElementById("cvActionBtn");
+        const cvBtnText = treasureObj.cvBtn || dict.onepiece.cvBtn;
+        if (cvBtnEl && cvBtnText) {
+          for (let n of cvBtnEl.childNodes) {
+            if (n.nodeType === 3 && n.textContent.trim()) {
+              n.textContent = " " + cvBtnText;
+              break;
             }
+          }
+        }
+
+        // Arquitectura
+        const archObj = dict.onepiece.architecture || {};
+        if (archObj.title || dict.onepiece.archTitle) {
+          updateText("#arquitectura .op-panel-head h3", archObj.title || dict.onepiece.archTitle);
+        }
+        if (archObj.subtitle || dict.onepiece.archSubtitle) {
+          updateText("#arquitectura .op-panel-head p", archObj.subtitle || dict.onepiece.archSubtitle);
+        }
+        const archLayers = archObj.layers || dict.onepiece.archLayers;
+        if (archLayers) {
+          Object.entries(archLayers).forEach(([layerKey, layerText]) => {
+            const btn = document.querySelector(`.arch-layer-legend [data-layer="${layerKey}"]`);
+            if (btn) btn.innerHTML = '<span class="legend-dot"></span>' + layerText;
           });
         }
-        updateText("#skillsTitle", dict.onepiece.skillsTitle);
-        updateText("#skillsSubtitle", dict.onepiece.skillsSubtitle);
-        updateText("#timelineTitle", dict.onepiece.timelineTitle);
-        updateText("#timelineSubtitle", dict.onepiece.timelineSubtitle);
-        if (dict.onepiece.timelineFilters) {
-          updateText('[data-timeline-filter="featured"]', dict.onepiece.timelineFilters.featured);
-          updateText('[data-timeline-filter="all"]', dict.onepiece.timelineFilters.all);
-          updateText('[data-timeline-filter="becas"]', dict.onepiece.timelineFilters.becas);
-          updateText('[data-timeline-filter="comunidad"]', dict.onepiece.timelineFilters.comunidad);
-          updateText('[data-timeline-filter="academico"]', dict.onepiece.timelineFilters.academico);
+        const archTabMap = {
+          "controlador-cervantes": isEnLang ? "XR Controller (ALTEN)" : "Controlador XR (ALTEN)",
+          "correos-casillero": isEnLang ? "AI Vision (Correos)" : "Visión IA (Correos)",
+          "marchel-asterisk": isEnLang ? "Marchel (Asterisk)" : "Marchel (Asterisk)",
+          "nika-cloud": isEnLang ? "Nika App (AWS)" : "Nika App (AWS)"
+        };
+        Object.entries(archTabMap).forEach(([pid, label]) => {
+          const tabBtn = document.querySelector(`#archProjectTabs .arch-tab[data-project="${pid}"]`);
+          if (tabBtn) tabBtn.textContent = label;
+        });
+        if (typeof window.__renderArchitecture === "function") {
+          window.__renderArchitecture();
+        }
+
+        // Skills
+        const skillsObj = dict.onepiece.skills || {};
+        if (skillsObj.title || dict.onepiece.skillsTitle) {
+          updateText("#habilidades .op-panel-head h3", skillsObj.title || dict.onepiece.skillsTitle);
+        }
+        if (skillsObj.subtitle || dict.onepiece.skillsSubtitle) {
+          updateText("#habilidades .op-panel-head p", skillsObj.subtitle || dict.onepiece.skillsSubtitle);
+        }
+        const skillCards = document.querySelectorAll("#skillsMatrix .skill-group-card");
+        if (Array.isArray(skillsObj.groupDescriptions)) {
+          skillsObj.groupDescriptions.forEach((desc, idx) => {
+            const p = skillCards[idx] ? skillCards[idx].querySelector("p") : null;
+            if (p) p.textContent = desc;
+          });
+        }
+        if (Array.isArray(skillsObj.groups)) {
+          skillsObj.groups.forEach((grp, idx) => {
+            const h4 = skillCards[idx] ? skillCards[idx].querySelector("h4") : null;
+            const p = skillCards[idx] ? skillCards[idx].querySelector("p") : null;
+            if (h4 && grp.title) h4.textContent = grp.title;
+            if (p && grp.desc) p.textContent = grp.desc;
+          });
+        }
+
+        // Timeline / Bitácora de Travesía
+        const timelineObj = dict.onepiece.timeline || {};
+        if (timelineObj.title || dict.onepiece.timelineTitle) {
+          updateText("#trayectoria .op-panel-head h3", timelineObj.title || dict.onepiece.timelineTitle);
+        }
+        if (timelineObj.subtitle || dict.onepiece.timelineSubtitle) {
+          updateText("#trayectoria .op-panel-head p", timelineObj.subtitle || dict.onepiece.timelineSubtitle);
+        }
+        const tlFilters = timelineObj.filters || dict.onepiece.timelineFilters;
+        if (tlFilters) {
+          updateText('[data-timeline-filter="featured"]', tlFilters.featured);
+          updateText('[data-timeline-filter="all"]', tlFilters.all);
+          updateText('[data-timeline-filter="becas"]', tlFilters.becas);
+          updateText('[data-timeline-filter="comunidad"]', tlFilters.comunidad);
+          updateText('[data-timeline-filter="academico"]', tlFilters.academico);
+        }
+        const tlItems = document.querySelectorAll("#timelineContainer .timeline-item");
+        if (Array.isArray(timelineObj.items)) {
+          timelineObj.items.forEach((itemData, idx) => {
+            const el = tlItems[idx];
+            if (el) {
+              const p = el.querySelector(".timeline-period");
+              const t = el.querySelector(".timeline-type");
+              const h4 = el.querySelector("h4");
+              const org = el.querySelector(".timeline-org");
+              const sum = el.querySelector(".timeline-summary");
+              if (p && itemData.period) p.textContent = itemData.period;
+              if (t && itemData.type) t.textContent = itemData.type;
+              if (h4 && itemData.title) h4.textContent = itemData.title;
+              if (org && itemData.org) org.textContent = itemData.org;
+              if (sum && itemData.summary) sum.textContent = itemData.summary;
+            }
+          });
         }
       }
 
