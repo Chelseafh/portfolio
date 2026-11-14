@@ -1173,7 +1173,11 @@ window.PORTFOLIO_I18N = {
         academico: "Proyectos UAH",
         searchPlaceholder: "Buscar por título, beca o tecnología (FastAPI, YOLO, Asterisk, AWS)...",
         clearBtn: "Limpiar",
-        countSuffix: "proyectos"
+        countSuffix: "proyectos",
+        countSuffixSingular: "proyecto",
+        emptyTitle: "Sin coincidencias en la travesía",
+        emptyDesc: "Prueba a buscar con otros términos o limpia los filtros para volver a ver todos los proyectos.",
+        emptyReset: "Restablecer filtros"
       },
       projects: {
         controlador: {
@@ -1269,8 +1273,9 @@ window.PORTFOLIO_I18N = {
           toy: {
             label: "PBX en vivo · Marchel-Asterisk/",
             btn: "Colgar",
-            readout: "Asterisk PBX lista",
-            extIvr: "Voz IVR"
+            readout: "Centralita Asterisk lista",
+            extIvr: "IVR Voz",
+            hangup: "Colgar"
           }
         },
         nika: {
@@ -1596,6 +1601,11 @@ window.PORTFOLIO_I18N = {
       contactAvail: "Madrid · Alcalá de Henares · Español nativo · Inglés ~B2 práctico",
       copyEmailLabel: "Copiar correo chelseafh2003@gmail.com",
       downloadCvBtn: "Descargar CV (PDF)",
+      cvModalBadge: "Currículum Vitae · PDF",
+      cvModalSubtitle: "Ingeniería Telemática (UAH · Promoción 2027) · Prácticas 450–900 h",
+      cvDownloadPdf: "Descargar PDF",
+      cvOpenTab: "Abrir en pestaña nueva",
+      cvClose: "Cerrar",
       formTitle: "Compositor rápido de correo",
       formSubtitle: "Prepara un correo dirigido a chelseafh2003@gmail.com (el teléfono figura únicamente en el PDF del CV).",
       nameLabel: "Tu nombre o equipo",
@@ -1736,7 +1746,11 @@ window.PORTFOLIO_I18N = {
         academico: "UAH Projects",
         searchPlaceholder: "Search by title, grant or technology (FastAPI, YOLO, Asterisk, AWS)...",
         clearBtn: "Clear",
-        countSuffix: "projects"
+        countSuffix: "projects",
+        countSuffixSingular: "project",
+        emptyTitle: "No matches in the voyage",
+        emptyDesc: "Try searching with other keywords or clear filters to view all projects again.",
+        emptyReset: "Reset filters"
       },
       projects: {
         controlador: {
@@ -1833,7 +1847,8 @@ window.PORTFOLIO_I18N = {
             label: "Live PBX · Marchel-Asterisk/",
             btn: "Hang up",
             readout: "Asterisk PBX ready",
-            extIvr: "IVR Voice"
+            extIvr: "IVR Voice",
+            hangup: "Hang up"
           }
         },
         nika: {
@@ -2159,6 +2174,11 @@ window.PORTFOLIO_I18N = {
       contactAvail: "Madrid · Alcalá de Henares · Native Spanish · Practical English (~B2)",
       copyEmailLabel: "Copy email chelseafh2003@gmail.com",
       downloadCvBtn: "Download Resume (PDF)",
+      cvModalBadge: "Curriculum Vitae · PDF",
+      cvModalSubtitle: "Telematics Engineering (UAH · Class of 2027) · Internships 450–900 h",
+      cvDownloadPdf: "Download PDF",
+      cvOpenTab: "Open in new tab",
+      cvClose: "Close",
       formTitle: "Quick Email Composer",
       formSubtitle: "Draft an email to chelseafh2003@gmail.com (phone number is only included inside the PDF CV).",
       nameLabel: "Your name or team",

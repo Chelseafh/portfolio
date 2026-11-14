@@ -1801,6 +1801,29 @@
 
     const emptyResetBtn = emptyBanner.querySelector("button");
 
+    function updateEmptyBannerText() {
+      if (!emptyBanner) return;
+      const activeLang = document.documentElement.lang === "en" ? "en" : "es";
+      const dict = window.PORTFOLIO_I18N ? window.PORTFOLIO_I18N[activeLang] : null;
+      const filtersDict = dict && dict.onepiece && dict.onepiece.projectFilters;
+
+      const title = (filtersDict && filtersDict.emptyTitle) ||
+        (activeLang === "en" ? "No matches in the voyage" : "Sin coincidencias en la travesía");
+      const desc = (filtersDict && filtersDict.emptyDesc) ||
+        (activeLang === "en"
+          ? "No projects match your current filters. Try another keyword or clear the selection."
+          : "Ningún proyecto coincide con los filtros actuales. Prueba otra palabra clave o limpia la selección.");
+      const reset = (filtersDict && filtersDict.emptyReset) ||
+        (activeLang === "en" ? "Reset filters" : "Restablecer filtros");
+
+      const h4 = emptyBanner.querySelector("h4");
+      const p = emptyBanner.querySelector("p");
+      const btn = emptyBanner.querySelector("button");
+      if (h4) h4.textContent = title;
+      if (p) p.textContent = desc;
+      if (btn) btn.textContent = reset;
+    }
+
     function updateFilterUi() {
       const f = state.filters;
       const hasActive = Boolean(
@@ -2015,12 +2038,18 @@
       visibleIds = matchingIds;
 
       if (countBadge) {
-        const label = matchingIds.length === 1 ? "1 proyecto" : matchingIds.length + " proyectos";
-        countBadge.textContent = label;
+        const activeLang = document.documentElement.lang === "en" ? "en" : "es";
+        const dict = window.PORTFOLIO_I18N ? window.PORTFOLIO_I18N[activeLang] : null;
+        const filtersDict = dict && dict.onepiece && dict.onepiece.projectFilters;
+        const suffixSingular = (filtersDict && filtersDict.countSuffixSingular) || (activeLang === "en" ? "project" : "proyecto");
+        const suffixPlural = (filtersDict && filtersDict.countSuffix) || (activeLang === "en" ? "projects" : "proyectos");
+        const suffix = matchingIds.length === 1 ? suffixSingular : suffixPlural;
+        countBadge.textContent = matchingIds.length + " " + suffix;
       }
 
       emptyBanner.hidden = matchingIds.length > 0;
       emptyBanner.style.display = matchingIds.length > 0 ? "none" : "";
+      updateEmptyBannerText();
 
       renderStageCard(animateEntrance, "", "");
       updateFilterUi();
@@ -2161,6 +2190,7 @@
     // Sincronización externa desde #habilidades
     setupSkillsIntegration(applyFilters);
     applyFilters(false);
+    window.__applyProjectFilters = () => applyFilters(false);
   }
 
   const SKILL_TOKEN_ALIASES = {
@@ -2782,28 +2812,57 @@
 
     const cvHref = safeUrl(DEFAULT_CV_PATH);
     const fullName = PROFILE.name || "Chelsea Fernández Hernández";
+    const activeLang = document.documentElement.lang === "en" ? "en" : "es";
+    const isEn = activeLang === "en";
+    const dict = window.PORTFOLIO_I18N ? window.PORTFOLIO_I18N[activeLang] : null;
+    const cDict = (dict && dict.contact) || {};
+
+    const badgeText = cDict.cvModalBadge || (isEn ? "Curriculum Vitae · PDF" : "Currículum Vitae · PDF");
+    const subText = cDict.cvModalSubtitle || (isEn
+      ? "Telematics Engineering (UAH · Class of 2027) · Internships 450–900 h"
+      : "Ingeniería Telemática (UAH · Promoción 2027) · Prácticas 450–900 h");
+    const frameTitle = isEn
+      ? "Curriculum Vitae PDF preview"
+      : "Vista previa del Currículum Vitae en PDF";
+    const downloadText = cDict.cvDownloadPdf || (isEn ? "Download PDF" : "Descargar PDF");
+    const openTabText = cDict.cvOpenTab || (isEn ? "Open in new tab" : "Abrir en nueva pestaña");
+    const closeText = cDict.cvClose || (isEn ? "Close" : "Cerrar");
 
     bodyEl.innerHTML =
-      '<span class="modal-badge">Currículum Vitae · PDF</span>' +
+      '<span class="modal-badge">' +
+      escapeHtml(badgeText) +
+      "</span>" +
       '<h3 class="modal-title">CV — ' +
       escapeHtml(fullName) +
       "</h3>" +
-      '<p class="modal-subtitle">Ingeniería Telemática (UAH · Promoción 2027) · Prácticas 450–900 h</p>' +
+      '<p class="modal-subtitle">' +
+      escapeHtml(subText) +
+      "</p>" +
       '<iframe class="modal-cv-frame" src="' +
       escapeHtml(cvHref) +
-      '" title="Vista previa del Currículum Vitae en PDF"></iframe>' +
+      '" title="' +
+      escapeHtml(frameTitle) +
+      '"></iframe>' +
       '<div class="modal-actions">' +
       '<a class="btn btn-sage" href="' +
       escapeHtml(cvHref) +
-      '" download="CV_Chelsea_Fdez_Hdez.pdf">Descargar PDF</a>' +
+      '" download="CV_Chelsea_Fdez_Hdez.pdf">' +
+      escapeHtml(downloadText) +
+      "</a>" +
       '<a class="btn btn-ghost" href="' +
       escapeHtml(cvHref) +
-      '" target="_blank" rel="noopener noreferrer">Abrir en nueva pestaña</a>' +
-      '<button type="button" class="btn btn-ghost" data-modal-dismiss>Cerrar</button>' +
+      '" target="_blank" rel="noopener noreferrer">' +
+      escapeHtml(openTabText) +
+      "</a>" +
+      '<button type="button" class="btn btn-ghost" data-modal-dismiss>' +
+      escapeHtml(closeText) +
+      "</button>" +
       "</div>";
 
     openModal(modal, triggerEl);
   }
+
+  window.openCvModal = openCvModal;
 
   function setupModals() {
     const projectModal = document.getElementById("projectModal");
@@ -3426,7 +3485,12 @@
 
           if (ext === "hang") {
             pbxToy.classList.remove("is-ringing", "is-active");
-            if (pbxReadout) pbxReadout.textContent = "Centralita Asterisk lista";
+            if (pbxReadout) {
+              const activeLang = document.documentElement.lang === "en" ? "en" : "es";
+              const dict = window.PORTFOLIO_I18N ? window.PORTFOLIO_I18N[activeLang] : null;
+              const marchelToy = dict && dict.onepiece && dict.onepiece.projects && dict.onepiece.projects.marchel && dict.onepiece.projects.marchel.toy;
+              pbxReadout.textContent = (marchelToy && marchelToy.readout) || (activeLang === "en" ? "Asterisk PBX ready" : "Centralita Asterisk lista");
+            }
             soundscape.playToySound("hang");
             return;
           }
@@ -3766,6 +3830,17 @@
           updateText('.filter-pill[data-category="all"]', dict.onepiece.projectFilters.all);
           updateText('.filter-pill[data-category="profesional"]', dict.onepiece.projectFilters.profesional);
           updateText('.filter-pill[data-category="academico"]', dict.onepiece.projectFilters.academico);
+          const searchInput = document.getElementById("projectSearchInput");
+          if (searchInput && dict.onepiece.projectFilters.searchPlaceholder) {
+            searchInput.placeholder = dict.onepiece.projectFilters.searchPlaceholder;
+          }
+          const clearBtnEl = document.getElementById("clearFiltersBtn");
+          if (clearBtnEl && dict.onepiece.projectFilters.clearBtn) {
+            clearBtnEl.textContent = dict.onepiece.projectFilters.clearBtn;
+          }
+        }
+        if (typeof window.__applyProjectFilters === "function") {
+          window.__applyProjectFilters();
         }
 
         // Proyectos
@@ -3820,12 +3895,20 @@
                   if (screen) screen.textContent = pData.toy.screen;
                 }
                 if (pData.toy.readout) {
-                  const readout = card.querySelector(".toy-casillero-readout");
+                  const readout = card.querySelector(".toy-casillero-readout, .toy-mail-readout, .toy-pbx-readout");
                   if (readout) readout.textContent = pData.toy.readout;
                 }
                 if (pData.toy.meter) {
                   const meter = card.querySelector(".toy-chat-meter");
                   if (meter) meter.textContent = pData.toy.meter;
+                }
+                if (pData.toy.extIvr) {
+                  const ivrBtn = card.querySelector('.toy-key[data-ext="IVR"]');
+                  if (ivrBtn) ivrBtn.textContent = pData.toy.extIvr;
+                }
+                if (pData.toy.btn || pData.toy.hangup) {
+                  const hangBtn = card.querySelector('.toy-key[data-ext="hang"]');
+                  if (hangBtn) hangBtn.textContent = pData.toy.btn || pData.toy.hangup;
                 }
               }
             }
@@ -3906,6 +3989,9 @@
         }
         if (activeModal && activeModal.id === "projectModal" && activeProjectModalId) {
           openProjectModal(activeProjectModalId, lastFocusedEl);
+        }
+        if (activeModal && activeModal.id === "cvModal") {
+          openCvModal(lastFocusedEl);
         }
 
         // Skills

@@ -1251,6 +1251,30 @@
         (archInspectorKickerEn.indexOf("SELECTED NODE") !== -1 ||
           archInspectorKickerEn.indexOf("SYSTEM ARCHITECTURE") !== -1);
 
+      // h. Buscador, filtros y juguete PBX en inglés
+      const searchPlaceholderEn = (document.getElementById("projectSearchInput") || {}).placeholder || "";
+      const countBadgeEn = (document.getElementById("projectsCountBadge") || {}).textContent || "";
+      const searchEnOk =
+        searchPlaceholderEn.indexOf("Search by title") !== -1 &&
+        countBadgeEn.indexOf("projects") !== -1;
+
+      const pbxReadoutEn = (document.querySelector(".toy-pbx-readout") || {}).textContent || "";
+      const ivrBtnEn = (document.querySelector('.toy-key[data-ext="IVR"]') || {}).textContent || "";
+      const hangBtnEn = (document.querySelector('.toy-key[data-ext="hang"]') || {}).textContent || "";
+      const pbxToyEnOk =
+        pbxReadoutEn === "Asterisk PBX ready" &&
+        ivrBtnEn === "IVR Voice" &&
+        hangBtnEn === "Hang up";
+
+      // i. Modal de CV en inglés
+      if (typeof window.openCvModal === "function") {
+        window.openCvModal();
+      }
+      const cvSubtitleEn = (document.querySelector("#cvModal .modal-subtitle") || {}).textContent || "";
+      const cvModalEnOk = cvSubtitleEn.indexOf("Class of 2027") !== -1;
+      const cvCloseBtn = document.getElementById("cvModalClose");
+      if (cvCloseBtn) click(cvCloseBtn);
+
       i18nSwitchToEnOk =
         isEn &&
         frierenLinkEn === "Peace" &&
@@ -1264,7 +1288,10 @@
         treasureEnOk &&
         bulletsEnOk &&
         modalEnOk &&
-        archEnOk;
+        archEnOk &&
+        searchEnOk &&
+        pbxToyEnOk &&
+        cvModalEnOk;
 
       // 2. Simular segundo clic para volver a español
       click(langBtn);
@@ -1322,6 +1349,30 @@
         (archInspectorKickerEs.indexOf("NODO SELECCIONADO") !== -1 ||
           archInspectorKickerEs.indexOf("EXPLORADOR DE ARQUITECTURA") !== -1);
 
+      // h. Buscador, filtros y juguete PBX en español
+      const searchPlaceholderEs = (document.getElementById("projectSearchInput") || {}).placeholder || "";
+      const countBadgeEs = (document.getElementById("projectsCountBadge") || {}).textContent || "";
+      const searchEsOk =
+        searchPlaceholderEs.indexOf("Buscar por título") !== -1 &&
+        countBadgeEs.indexOf("proyectos") !== -1;
+
+      const pbxReadoutEs = (document.querySelector(".toy-pbx-readout") || {}).textContent || "";
+      const ivrBtnEs = (document.querySelector('.toy-key[data-ext="IVR"]') || {}).textContent || "";
+      const hangBtnEs = (document.querySelector('.toy-key[data-ext="hang"]') || {}).textContent || "";
+      const pbxToyEsOk =
+        pbxReadoutEs === "Centralita Asterisk lista" &&
+        ivrBtnEs === "IVR Voz" &&
+        hangBtnEs === "Colgar";
+
+      // i. Modal de CV en español
+      if (typeof window.openCvModal === "function") {
+        window.openCvModal();
+      }
+      const cvSubtitleEs = (document.querySelector("#cvModal .modal-subtitle") || {}).textContent || "";
+      const cvModalEsOk = cvSubtitleEs.indexOf("Promoción 2027") !== -1;
+      const cvCloseBtnEs = document.getElementById("cvModalClose");
+      if (cvCloseBtnEs) click(cvCloseBtnEs);
+
       i18nSwitchToEsOk =
         isEs &&
         frierenLinkEs === "Paz" &&
@@ -1335,7 +1386,10 @@
         treasureEsOk &&
         bulletsEsOk &&
         modalEsOk &&
-        archEsOk;
+        archEsOk &&
+        searchEsOk &&
+        pbxToyEsOk &&
+        cvModalEsOk;
     }
 
     check(
