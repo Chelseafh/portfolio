@@ -1085,7 +1085,7 @@ window.PORTFOLIO_I18N = {
       lecturaPassage: "Y aunque de pequeña no era de leer demasiado, con los años los libros han ido ganando cada vez más espacio en mi día a día hasta convertirse en uno de mis refugios favoritos. Entre las historias que más me han marcado está San Manuel Bueno, mártir, cuya reflexión filosófica y religiosa sobre la fe y el cuidado hacia los demás me removió muchísimo precisamente por leerla desde una mirada no creyente pero profundamente empática. Hoy salto de los mangas en edición grimorio de The Witch Hat Atelier a la fantasía de Brandon Sanderson con Trenza del mar esmeralda y Nacidos de la bruma, novelas como El paciente, Últimos días en Berlín o El día que se perdió la cordura, clásicos como 1984 de George Orwell y mi lectura actual, El cuento de la criada —porque, al final, disfrutar de todo esto con calma y junto a quienes quieres es lo que da sentido a cada etapa.",
       travelLabel: "Postales de viaje · Del mar al norte verde",
       diceLabels: {
-        games: "🎲 Tirar dado de juegos",
+        games: "🎲 Juego al azar",
         books: "📚 Tirar dado de libros",
         gamesTitle: "Juegos de mesa desde pequeña",
         booksTitle: "Lectura & tiempo para mí",
@@ -1658,7 +1658,7 @@ window.PORTFOLIO_I18N = {
       lecturaPassage: "And although I wasn't an avid reader as a child, over the years books have earned a central place in my life, becoming one of my favorite sanctuaries. Among stories that touched me most is San Manuel Bueno, Martyr, whose philosophical reflection on faith and caring for others deeply moved me from a non-believing yet deeply empathetic perspective. Today I leap from the grimoire edition of Witch Hat Atelier to Brandon Sanderson's fantasy with Tress of the Emerald Sea and Mistborn, psychological thrillers, classics like Orwell's 1984, and currently The Handmaid's Tale — because enjoying all of this peacefully with those you care about is what gives meaning to every chapter.",
       travelLabel: "Travel postcards · From the sea to the green north",
       diceLabels: {
-        games: "🎲 Random board game",
+        games: "🎲 Random game",
         books: "📚 Random book",
         gamesTitle: "Board games since childhood",
         booksTitle: "Reading & personal time",

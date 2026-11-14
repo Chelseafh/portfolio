@@ -1275,6 +1275,15 @@
       const cvCloseBtn = document.getElementById("cvModalClose");
       if (cvCloseBtn) click(cvCloseBtn);
 
+      // j. Contacto y dados Frieren en inglés (Ronda 20)
+      const contactH2En = (document.querySelector("#contacto h2") || {}).textContent || "";
+      const contactEyebrowEn = (document.querySelector("#contacto .eyebrow") || {}).textContent || "";
+      const frierenDiceEn = (document.querySelector("#frierenGameDiceBtn .dice-label") || {}).textContent || "";
+      const ronda20EnOk =
+        contactH2En.trim() === "Shall we set sail?" &&
+        contactEyebrowEn.trim() === "Contact & Resume" &&
+        frierenDiceEn.trim() === "🎲 Random game";
+
       i18nSwitchToEnOk =
         isEn &&
         frierenLinkEn === "Peace" &&
@@ -1291,7 +1300,8 @@
         archEnOk &&
         searchEnOk &&
         pbxToyEnOk &&
-        cvModalEnOk;
+        cvModalEnOk &&
+        ronda20EnOk;
 
       // 2. Simular segundo clic para volver a español
       click(langBtn);
@@ -1373,6 +1383,15 @@
       const cvCloseBtnEs = document.getElementById("cvModalClose");
       if (cvCloseBtnEs) click(cvCloseBtnEs);
 
+      // j. Contacto y dados Frieren en español (Ronda 20)
+      const contactH2Es = (document.querySelector("#contacto h2") || {}).textContent || "";
+      const contactEyebrowEs = (document.querySelector("#contacto .eyebrow") || {}).textContent || "";
+      const frierenDiceEs = (document.querySelector("#frierenGameDiceBtn .dice-label") || {}).textContent || "";
+      const ronda20EsOk =
+        contactH2Es.trim() === "¿Zarpamos?" &&
+        contactEyebrowEs.trim() === "Contacto & CV" &&
+        frierenDiceEs.trim() === "🎲 Juego al azar";
+
       i18nSwitchToEsOk =
         isEs &&
         frierenLinkEs === "Paz" &&
@@ -1389,7 +1408,8 @@
         archEsOk &&
         searchEsOk &&
         pbxToyEsOk &&
-        cvModalEsOk;
+        cvModalEsOk &&
+        ronda20EsOk;
     }
 
     check(

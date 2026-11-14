@@ -1315,6 +1315,8 @@ html.js-anim .gust.in {
   font-weight: 700;
   color: #2E4635;
   opacity: 0.75;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .frieren-dice-result {

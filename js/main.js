@@ -4056,10 +4056,10 @@
 
       // 6. Contact
       if (dict.contact) {
-        updateText("#contacto .sec-head .eyebrow", dict.contact.contactEyebrow);
-        updateText("#contacto .sec-head h2", dict.contact.contactTitle);
-        updateText("#contacto .sec-head .lead", dict.contact.contactLead);
-        updateText("#contacto .status-note", dict.contact.contactAvail);
+        updateText("#contacto .eyebrow, #contacto .sec-head .eyebrow", dict.contact.contactEyebrow);
+        updateText("#contacto h2, #contacto .sec-head h2", dict.contact.contactTitle);
+        updateText("#contacto .lead, #contacto .sec-head .lead", dict.contact.contactLead);
+        updateText("#contacto .contact-avail, #contacto .status-note", dict.contact.contactAvail);
         const copyEmail = document.getElementById("copyEmailBtn");
         if (copyEmail && dict.contact.copyEmailLabel) {
           copyEmail.setAttribute("aria-label", dict.contact.copyEmailLabel);
