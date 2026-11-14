@@ -1174,6 +1174,16 @@
 
     let i18nSwitchToEnOk = false;
     let i18nSwitchToEsOk = false;
+    let bulletsEnOk = false;
+    let modalEnOk = false;
+    let archEnOk = false;
+    let projDescEnOk = false;
+    let treasureEnOk = false;
+    let bulletsEsOk = false;
+    let modalEsOk = false;
+    let archEsOk = false;
+    let projDescEsOk = false;
+    let treasureEsOk = false;
 
     if (langBtn) {
       // 1. Simular clic para pasar a inglés
@@ -1190,7 +1200,7 @@
       const ctrlCard = document.querySelector('.card-op[data-project-id="controlador-cervantes"]');
       const ctrlDescEn = ctrlCard ? ctrlCard.querySelector(".card-op-main > p:not(.card-op-inst)") : null;
       const ctrlDescEnText = ctrlDescEn ? ctrlDescEn.textContent : "";
-      const projDescEnOk =
+      projDescEnOk =
         ctrlDescEnText.indexOf("Central backend in Docker Compose") !== -1 ||
         ctrlDescEnText.indexOf("Meta Quest") !== -1;
 
@@ -1211,7 +1221,35 @@
 
       // d. Bloque del tesoro en inglés
       const treasureH3En = (document.querySelector(".treasure > div > h3") || {}).textContent || "";
-      const treasureEnOk = treasureH3En === "The treasure is not the destination";
+      treasureEnOk = treasureH3En === "The treasure is not the destination";
+
+      // e. Viñetas de proyectos en inglés
+      const ctrlBullet0En = ctrlCard ? (ctrlCard.querySelector(".more li") || {}).textContent || "" : "";
+      bulletsEnOk = ctrlBullet0En.indexOf("REST/WS Endpoints") !== -1;
+
+      // f. Ficha modal de proyectos en inglés
+      if (typeof window.openProjectModal === "function") {
+        window.openProjectModal("controlador-cervantes");
+      }
+      const modalTitleEn = (document.getElementById("projectModalTitle") || {}).textContent || "";
+      const modalRoleBoxEn = (document.querySelector(".modal-role-box") || {}).textContent || "";
+      modalEnOk =
+        modalTitleEn.indexOf("XR Backend Controller") !== -1 &&
+        modalRoleBoxEn.indexOf("My technical scope and role") !== -1;
+      const modalCloseBtn = document.getElementById("projectModalClose");
+      if (modalCloseBtn) click(modalCloseBtn);
+
+      // g. Explorador de arquitectura en inglés
+      const archNodeTitleEn = (document.querySelector(".arch-node-title") || {}).textContent || "";
+      const archInspectorKickerEn = (document.querySelector(".inspector-kicker") || {}).textContent || "";
+      archEnOk =
+        (archNodeTitleEn.indexOf("Capture") !== -1 ||
+          archNodeTitleEn.indexOf("Headsets") !== -1 ||
+          archNodeTitleEn.indexOf("PDA") !== -1 ||
+          archNodeTitleEn.indexOf("Proxy") !== -1 ||
+          archNodeTitleEn.indexOf("Controller") !== -1) &&
+        (archInspectorKickerEn.indexOf("SELECTED NODE") !== -1 ||
+          archInspectorKickerEn.indexOf("SYSTEM ARCHITECTURE") !== -1);
 
       i18nSwitchToEnOk =
         isEn &&
@@ -1223,7 +1261,10 @@
         projDescEnOk &&
         avatarElementsEnOk &&
         timelineEnOk &&
-        treasureEnOk;
+        treasureEnOk &&
+        bulletsEnOk &&
+        modalEnOk &&
+        archEnOk;
 
       // 2. Simular segundo clic para volver a español
       click(langBtn);
@@ -1237,7 +1278,7 @@
       // Verificaciones de restauración en español:
       const ctrlDescEs = ctrlCard ? ctrlCard.querySelector(".card-op-main > p:not(.card-op-inst)") : null;
       const ctrlDescEsText = ctrlDescEs ? ctrlDescEs.textContent : "";
-      const projDescEsOk =
+      projDescEsOk =
         ctrlDescEsText.indexOf("Backend central en Docker Compose") !== -1 ||
         ctrlDescEsText.indexOf("gafas Meta Quest") !== -1;
 
@@ -1252,7 +1293,34 @@
       const timelineEsOk = tlTitle0Es.indexOf("Beca de Investigación") !== -1;
 
       const treasureH3Es = (document.querySelector(".treasure > div > h3") || {}).textContent || "";
-      const treasureEsOk = treasureH3Es === "El tesoro no es el destino";
+      treasureEsOk = treasureH3Es === "El tesoro no es el destino";
+
+      // e. Viñetas de proyectos en español
+      const ctrlBullet0Es = ctrlCard ? (ctrlCard.querySelector(".more li") || {}).textContent || "" : "";
+      bulletsEsOk = ctrlBullet0Es.indexOf("Endpoints REST/WS") !== -1;
+
+      // f. Ficha modal de proyectos en español
+      if (typeof window.openProjectModal === "function") {
+        window.openProjectModal("controlador-cervantes");
+      }
+      const modalTitleEs = (document.getElementById("projectModalTitle") || {}).textContent || "";
+      const modalRoleBoxEs = (document.querySelector(".modal-role-box") || {}).textContent || "";
+      modalEsOk =
+        modalTitleEs.indexOf("Controlador Backend XR") !== -1 &&
+        modalRoleBoxEs.indexOf("Mi rol y alcance técnico") !== -1;
+      if (modalCloseBtn) click(modalCloseBtn);
+
+      // g. Explorador de arquitectura en español
+      const archNodeTitleEs = (document.querySelector(".arch-node-title") || {}).textContent || "";
+      const archInspectorKickerEs = (document.querySelector(".inspector-kicker") || {}).textContent || "";
+      archEsOk =
+        (archNodeTitleEs.indexOf("Captura") !== -1 ||
+          archNodeTitleEs.indexOf("Visores") !== -1 ||
+          archNodeTitleEs.indexOf("PDA") !== -1 ||
+          archNodeTitleEs.indexOf("Proxy") !== -1 ||
+          archNodeTitleEs.indexOf("Controlador") !== -1) &&
+        (archInspectorKickerEs.indexOf("NODO SELECCIONADO") !== -1 ||
+          archInspectorKickerEs.indexOf("EXPLORADOR DE ARQUITECTURA") !== -1);
 
       i18nSwitchToEsOk =
         isEs &&
@@ -1264,7 +1332,10 @@
         projDescEsOk &&
         avatarElementsEsOk &&
         timelineEsOk &&
-        treasureEsOk;
+        treasureEsOk &&
+        bulletsEsOk &&
+        modalEsOk &&
+        archEsOk;
     }
 
     check(

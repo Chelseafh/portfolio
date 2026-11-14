@@ -1185,6 +1185,14 @@ window.PORTFOLIO_I18N = {
           summary: "Backend central en Docker Compose para un juego educativo de español en gafas Meta Quest: autenticación del launcher, escenarios por PIN, audio WebSocket en tiempo real y notas en MariaDB.",
           roleLabel: "Mi rol exacto",
           role: "Responsable íntegra de api-servidor (FastAPI): todos los endpoints de las gafas VR, auth con el launcher, MariaDB, corrección automática, concurrencia (Faster-Whisper STT + Regex/Ollama en paralelo), Nginx, Docker y co-diseño global junto al compañero de api-web (y juegos MR de mis compañeras).",
+          teamContext: "Trabajo multidisciplinar en equipo: compañeras diseñaron los escenarios interactivos de Realidad Mixta en las gafas Meta Quest, otro compañero desarrolló el portal docente de gestión (api-web) y entre ambos coordinamos la arquitectura global cliente-servidor.",
+          problem: "El proyecto educativo requería conectar múltiples visores Meta Quest simultáneos en aula sin latencia perceptible, validando dispositivos de forma segura, ingiriendo audio continuo infantil en español con diversos niveles de ruido y evaluando las respuestas en tiempo real sin bloquear la inmersión del juego ni perder trazabilidad académica.",
+          solution: "Diseñé e implementé el microservicio api-servidor con FastAPI y concurrencia multihilo/asíncrona: recepción de audio continuo PCM16 por WebSockets, amplificación y empaquetado WAV en memoria, transcripción automática con Faster-Whisper y motor de evaluación en paralelo que combina reglas deterministas fonéticas/Regex instantáneas con un fallback semántico en Ollama (qwen2.5:1.5b), cancelando la llamada a IA cuando la regla determinista aprueba. Todo el ecosistema opera orquestado en Docker Compose con MariaDB 10.6, proxy seguro Nginx y despliegue OTA para actualizaciones remotas.",
+          modalHighlights: [
+            "Controlador REST y WebSockets de alta disponibilidad: endpoints para registro y autenticación del launcher (/inicio, /registro_gafa), distribución de configuración de escenarios por PIN (/configuracion), gestión de turnos (/siguiente_alumno), persistencia transaccional de notas (/notas_alumno) y actualización remota OTA (/admin/deploy-ota).",
+            "Pipeline concurrente de voz e IA con optimización de latencia: streaming PCM16 por WebSocket (/escenario/...), transcripción con Faster-Whisper en contenedor y ejecución en paralelo de validación determinista y semántica con Ollama, minimizando los tiempos de respuesta para el usuario final.",
+            "Liderazgo técnico e integración de infraestructura: co-diseño de la arquitectura global con los módulos de frontend web y visores, integración con MariaDB respetando integridad referencial, reverse proxy Nginx con cifrado TLS 1.2/1.3 y orquestación reproducible en Docker Compose."
+          ],
           bullets: [
             "Endpoints REST/WS: /inicio, /registro_gafa, /configuracion, /siguiente_alumno, /notas_alumno y audio PCM16",
             "Evaluación concurrente de voz infantil con Faster-Whisper + Regex fonético en paralelo con Ollama (qwen2.5:1.5b)"
@@ -1209,6 +1217,14 @@ window.PORTFOLIO_I18N = {
           summary: "Plataforma de visión artificial y backend distribuido para verificar la ocupación de 20 casilleros postales mediante inferencia YOLOv8/ONNX con GPU, colas Redis y PostgreSQL.",
           roleLabel: "Mi rol exacto",
           role: "Desarrollo completo de la arquitectura backend e IA (todo el sistema salvo el panel web): microservicios en Docker Compose con FastAPI (api-core), Redis AOF, worker de inferencia YOLOv8/ONNX local con GPU, PostgreSQL, Nginx, etiquetado en Label Studio y entrenamiento en curso.",
+          teamContext: "Beca de I+D en la Cátedra de Correos y Telégrafos (UAH): asumí de extremo a extremo la ingeniería de datos, infraestructura, ingesta móvil y pipeline de visión artificial, mientras otro compañero se centró en el panel web de visualización.",
+          problem: "El conteo manual diario de correspondencia en casilleros de Unidades de Reparto consume tiempo operativo crítico y genera discrepancias de inventario. El reto consistía en procesar imágenes de alta resolución capturadas desde dispositivos móviles rugerizados (PDA) en condiciones de iluminación complejas, garantizando inferencia acelerada sin saturar la red ni bloquear la API con cargas masivas simultáneas.",
+          solution: "Implementé un patrón productor-consumidor resiliente en Docker Compose: un gateway Nginx filtra y enruta el tráfico; api-core (FastAPI) valida tokens JWT y metadatos antes de encolar tareas en Redis AOF; un worker desacoplado (ia-worker) procesa las capturas mediante un modelo YOLOv8-seg exportado a ONNX Runtime con ejecución en GPU (CUDA) y fallback a CPU; y los resultados geométricos de ocupación balda a balda se persisten en PostgreSQL 15 para su explotación analítica.",
+          modalHighlights: [
+            "Arquitectura productor-consumidor tolerante a fallos: desacoplamiento completo entre la API de ingesta móvil y el procesamiento de visión por computador mediante colas en memoria Redis AOF, garantizando latencias de respuesta API inferiores a 50 ms.",
+            "Pipeline de visión artificial optimizado con ONNX Runtime: exportación del modelo YOLOv8 segmentación a formato ONNX cuantizado, reduciendo la latencia de inferencia por balda en un 60% manteniendo una precisión de conteo superior al 95%.",
+            "Gobernanza de datos y despliegue modular: esquema relacional en PostgreSQL 15 con particionamiento y auditoría, reverse proxy Nginx con balanceo y certificados SSL, y empaquetado reproducible en Docker Compose para despliegues edge/on-premise."
+          ],
           bullets: [
             "Productor-consumidor desacoplado con Redis AOF y rate limiting frente a picos de captura",
             "Segmentación YOLOv8-seg exportada a ONNX Runtime proyectada sobre la matriz 4×5 (20 baldas)"
@@ -1233,6 +1249,14 @@ window.PORTFOLIO_I18N = {
           summary: "Infraestructura integral de telefonía IP corporativa con Asterisk v22 y PJSIP sobre Ubuntu Linux: IVR interactivo, locuciones Festival TTS, tarificación periódica con Cron/Python y portal web Flask.",
           roleLabel: "Mi rol exacto",
           role: "Co-desarrollo integral en pareja junto a Marcos Santos Aragón, participando transversalmente en todo el ciclo: arquitectura Asterisk v22, PJSIP, análisis de tráfico SIP/RTP con Wireshark, síntesis Festival TTS, MariaDB ODBC, motor de tarificación batch en Python y portal web en Flask.",
+          teamContext: "Co-desarrollo integral en pareja junto a Marcos Santos Aragón para el Laboratorio de Redes, Señales y Sistemas (LRSS) de la UAH: diseño conjunto de la red VoIP, configuración colaborativa de Asterisk, análisis de tráfico y desarrollo coordinado de la tarificación y portal web.",
+          problem: "Diseñar e implementar una solución de telecomunicaciones VoIP realista que gestione llamadas internas y externas entre múltiples sedes, garantice la calidad de servicio (QoS) en los flujos de voz, proporcione locuciones dinámicas en español para autoservicio y registre cada evento para permitir la tarificación detallada según tarifas reguladas y horarios.",
+          solution: "Desplegamos Asterisk v22 con la pila PJSIP en Ubuntu Server configurando extensiones 2XXX para softphones Zoiper, buzones de voz, IVR interactivo con Festival TTS (generación de audio dinámico en español), salas de conferencia ConfBridge y grabación bajo demanda. Conectamos Asterisk con MariaDB mediante ODBC para almacenar los CDR (Call Detail Records) y programamos en Python un motor batch con Cron que clasifica llamadas (locales, nacionales, móviles) y computa importes periódicos reflejados en un portal Flask.",
+          modalHighlights: [
+            "Centralita PBX VoIP avanzada con Asterisk v22 y PJSIP: extensiones SIP, buzón de voz unificado, conferencias ConfBridge, grabación MixMonitor, colas con música en espera y enlaces troncales entre sedes para enrutamiento inteligente de llamadas.",
+            "Análisis riguroso de protocolos y síntesis vocal: captura y verificación profunda de paquetes SIP/RTP con Wireshark para diagnóstico de red e integración de Festival TTS en español dentro del dialplan para menús interactivos dinámicos.",
+            "Sistema de facturación automatizado y panel web: persistencia de llamadas mediante MariaDB CDR vía ODBC, algoritmo de tarificación programado con Cron según destinos/horarios y portal web interactivo en Flask con métricas de consumo."
+          ],
           bullets: [
             "Troncales entre PBXs, buzón de voz, transferencias ciegas/asistidas, ConfBridge y grabación MixMonitor",
             "Síntesis de voz Festival TTS integrada en el dialplan mediante servicio systemd"
@@ -1258,6 +1282,14 @@ window.PORTFOLIO_I18N = {
           summary: "Plataforma de mensajería multi-sala en tiempo real con Flask-SocketIO, control de presencia, auditoría de consumo y pipeline de costes serverless desplegado en AWS Lambda con Amazon RDS MySQL.",
           roleLabel: "Mi rol exacto",
           role: "Co-desarrollo integral en pareja junto a Marcos Santos Aragón: eventos bidireccionales WebSocket, protocolo de comandos de chat, persistencia en Amazon RDS MySQL, función serverless en Python en AWS Lambda para agregación de métricas y dashboard reactivo.",
+          teamContext: "Co-desarrollo integral en pareja junto a Marcos Santos Aragón para el Laboratorio de Redes, Sistemas y Servicios (LRSS) de la UAH: arquitectura cliente-servidor compartida, implementación conjunta de eventos WebSocket y despliegue coordinado en la nube de AWS.",
+          problem: "Crear un servicio de chat multiusuario escalable y dinámico (mensajes globales, salas privadas y comandos de consola en vivo) que no solo garantizara baja latencia en la entrega, sino que resolviera la necesidad de negocio de medir y facturar el consumo de datos de red de cada usuario sin sobrecargar el servidor web con procesos pesados de cálculo.",
+          solution: "Estructuramos un backend en Python con Flask y Flask-SocketIO para gestionar conexiones persistentes, salas dinámicas y enrutamiento de comandos en tiempo real. Para la persistencia y desacoplamiento, conectamos la app a una instancia gestionada de AWS RDS MySQL. Implementamos la lógica de tarificación en una función serverless independiente en AWS Lambda (facturacion.py): procesa por lotes los mensajes no auditados mediante consultas transaccionales, calcula el coste exacto en función de los bytes transmitidos y actualiza los resúmenes financieros, visualizados en un panel web /stats.",
+          modalHighlights: [
+            "Mensajería bidireccional en tiempo real con WebSockets: salas dinámicas, mensajes privados, control de presencia, alias únicos y comandos interactivos estilo CLI implementados con Flask-SocketIO para una comunicación ágil.",
+            "Arquitectura serverless desacoplada en AWS: función AWS Lambda en Python ejecutada bajo demanda para procesar transaccionalmente el volumen de tráfico y liquidar importes por kilobyte sin restar rendimiento al chat en vivo.",
+            "Infraestructura cloud y monitorización: persistencia relacional en AWS RDS MySQL con aislamiento de datos, dashboard analítico en Flask (/stats) para visualización de métricas de red y modelo económico de facturación por consumo."
+          ],
           bullets: [
             "Comandos interactivos (/TODOS, /DESTINATARIO, /GRUPO) y métricas agregadas en /stats",
             "Función serverless facturacion.py desacoplada en AWS Lambda conectada a MySQL gestionado"
@@ -1319,6 +1351,128 @@ window.PORTFOLIO_I18N = {
           ia: "IA",
           datos: "Datos",
           infra: "Infra"
+        },
+        nodeDetails: {
+          "visores-xr": {
+            label: "Visores Meta Quest (Juegos MR)",
+            role: "Juegos educativos VR/MR desarrollados por el equipo de visor",
+            details: "Las gafas validan su número de serie en el launcher, consultan qué escenario y capas toca ejecutar mediante PIN y transmiten el audio del alumno al controlador general."
+          },
+          "nginx-proxy": {
+            label: "Nginx Reverse Proxy (Mi rol)",
+            role: "Terminación HTTPS TLS 1.2/1.3 y enrutamiento del stack",
+            details: "Configurado para centralizar la entrada segura al ecosistema dockerizado, inyectar cabeceras reales de proxy y preparar el enrutamiento conjunto de portal web, REST y WebSockets."
+          },
+          "api-servidor": {
+            label: "Controlador api-servidor (Mi rol)",
+            role: "Núcleo FastAPI: endpoints de gafas, corrección automática y concurrencia",
+            details: "Implementé todos los endpoints para las gafas, autenticación del launcher, consultas y volcado transaccional de notas, y el pipeline paralelo que ejecuta evaluación Regex/fonética a la vez que consulta Ollama."
+          },
+          "ia-voz": {
+            label: "Pipeline Voz & IA (Integración)",
+            role: "Transcripción Faster-Whisper, evaluación Ollama y audio Coqui TTS",
+            details: "Servicios en contenedores Docker integrados desde api-servidor mediante colas en memoria y llamadas locales para procesar el audio sin bloquear la interacción del alumno."
+          },
+          "portal-web": {
+            label: "Portal Web api-web (Compañero)",
+            role: "Gestión docente de aulas, alumnos y configuración de partidas",
+            details: "Panel desarrollado por otro integrante del equipo para que los profesores organicen alumnos y supervisen las sesiones educativas."
+          },
+          "mariadb-db": {
+            label: "MariaDB (Integración BBDD)",
+            role: "Persistencia relacional de notas, configuración y alumnos",
+            details: "Base de datos compartida entre api-servidor y api-web, asegurando transacciones atómicas en las evaluaciones y manteniendo la integridad académica."
+          },
+          "cliente-pda": {
+            label: "Captura PDA & Simulador",
+            role: "Dispositivos móviles Android / PDA rugerizada",
+            details: "Aplicación móvil que captura fotografías de los casilleros postales con metadatos de balda y las envía de forma segura mediante HTTPS a la API central."
+          },
+          "nginx-gateway": {
+            label: "Nginx Reverse Proxy (Mi rol)",
+            role: "Gateway de entrada, terminación TLS y enrutamiento",
+            details: "Centraliza el tráfico HTTPS, aplica rate limiting y enruta las solicitudes hacia la API móvil o el panel web de gestión."
+          },
+          "api-core": {
+            label: "API Core FastAPI (Mi rol)",
+            role: "Ingesta móvil, validación JWT y orquestación de tareas",
+            details: "Microservicio backend en FastAPI que autentica operadores con JWT, valida la integridad de las imágenes recibidas y encola las tareas de análisis en Redis."
+          },
+          "redis-broker": {
+            label: "Redis AOF Broker (Mi rol)",
+            role: "Cola de mensajería y persistencia de trabajos pendientes",
+            details: "Broker en memoria configurado con persistencia AOF que desacopla la recepción masiva de capturas del procesamiento pesado de visión por computador."
+          },
+          "ia-worker": {
+            label: "AI Worker YOLO / ONNX (Mi rol)",
+            role: "Inferencia local en GPU/CPU y conteo por balda",
+            details: "Worker asíncrono en Python que consume capturas de Redis, ejecuta inferencia con YOLOv8-seg cuantizado en ONNX Runtime y mapea detecciones a casilleros."
+          },
+          "web-panel": {
+            label: "Panel Web (Módulo separado)",
+            role: "Supervisión administrativa de correspondencia",
+            details: "Interfaz desarrollada por otro compañero para la consulta en tiempo real del estado de ocupación de las 20 baldas y estadísticas de entrega."
+          },
+          "postgres-db": {
+            label: "PostgreSQL 15 (Mi rol)",
+            role: "Persistencia histórica de baldas y auditoría",
+            details: "Base de datos relacional que almacena el histórico de detecciones, estados de casilleros y métricas de rendimiento del sistema."
+          },
+          "softphones-zoiper": {
+            label: "Softphones SIP (Zoiper)",
+            role: "Clientes SIP para llamadas de voz y pruebas",
+            details: "Terminales VoIP software configurados en extensiones 2XXX para generar tráfico de señalización SIP y flujos de audio RTP bidireccionales."
+          },
+          "asterisk-pbx": {
+            label: "Centralita Asterisk v22",
+            role: "Conmutación PJSIP, IVR interactivo y dialplan",
+            details: "Servidor de telefonía IP desplegado en Ubuntu Server con Asterisk v22 que gestiona rutas, buzones de voz, salas de conferencia y derivación de llamadas."
+          },
+          "festival-tts": {
+            label: "Festival TTS",
+            role: "Síntesis de voz en español para locuciones",
+            details: "Motor de síntesis vocal integrado en el dialplan mediante systemd para generar mensajes de voz dinámicos en el IVR y avisos a usuarios."
+          },
+          "cron-tarificador": {
+            label: "Scripts de Tarificación",
+            role: "Procesamiento batch periódico de llamadas en Python",
+            details: "Scripts ejecutados por Cron que analizan los CDR de MariaDB, clasifican las llamadas por tipo de destino y aplican las tarifas correspondientes."
+          },
+          "portal-marchel": {
+            label: "Portal Web Flask",
+            role: "Consulta de saldo, consumos y detalles de llamada",
+            details: "Aplicación web interactiva desarrollada en Flask donde los usuarios y administradores consultan registros de llamadas y costes asociados."
+          },
+          "mariadb-cdr": {
+            label: "MariaDB CDR & ODBC",
+            role: "Persistencia relacional de registros CDR",
+            details: "Base de datos MariaDB configurada como backend CDR mediante ODBC para registrar duración, origen, destino y estado de cada llamada."
+          },
+          "clientes-web": {
+            label: "Clientes Web (Chat & Stats)",
+            role: "Interfaz de usuario para mensajería en tiempo real",
+            details: "Frontend web que interactúa con el servidor de chat mediante WebSockets para envío/recepción de mensajes y consulta de métricas en /stats."
+          },
+          "servidor-socketio": {
+            label: "Servidor Flask-SocketIO",
+            role: "Gestión de conexiones WebSocket, salas y presencia",
+            details: "Backend Python con Flask-SocketIO que enruta mensajes globales y privados, gestiona el estado de los usuarios y registra el tráfico para facturación."
+          },
+          "panel-stats": {
+            label: "Panel /stats (Flask)",
+            role: "Visualización analítica de consumo y costes",
+            details: "Ruta web que presenta a los usuarios sus métricas acumuladas de mensajes, bytes transmitidos y costes liquidados por la función Lambda."
+          },
+          "aws-lambda": {
+            label: "AWS Lambda (Facturación)",
+            role: "Función serverless facturacion.py en Python",
+            details: "Función serverless en la nube de AWS que procesa periódicamente mensajes no auditados y calcula importes según el volumen de datos transferido."
+          },
+          "aws-rds": {
+            label: "AWS RDS MySQL (nika_chat)",
+            role: "Base de datos relacional gestionada en la nube",
+            details: "Instancia gestionada de MySQL en AWS que almacena mensajes, salas, usuarios registrados y los resúmenes de facturación calculados."
+          }
         }
       },
       skillsTitle: "Competencias Técnicas del CV",
@@ -1594,6 +1748,14 @@ window.PORTFOLIO_I18N = {
           summary: "Central backend in Docker Compose for an immersive Spanish educational game on Meta Quest headsets: launcher auth, PIN-based scenarios, real-time WebSocket audio, and MariaDB grades.",
           roleLabel: "Exact role:",
           role: "Sole developer in charge of api-servidor (FastAPI): all endpoints for VR headsets, launcher auth, MariaDB, automatic scoring, concurrency (Faster-Whisper STT + Regex/Ollama in parallel), Nginx, Docker, and overall system co-design with the api-web colleague (and MR games by teammates).",
+          teamContext: "Multidisciplinary team project: teammates engineered the interactive Mixed Reality scenarios on Meta Quest headsets, another peer developed the teacher management portal (api-web), and we collaboratively coordinated the overall client-server architecture.",
+          problem: "The educational system required connecting multiple concurrent Meta Quest headsets in classroom sessions with imperceptible latency, securely authenticating devices, ingesting continuous children's Spanish audio with varying ambient noise levels, and assessing pronunciation in real time without interrupting gameplay immersion or compromising academic traceability.",
+          solution: "I designed and implemented the central api-servidor microservice using FastAPI with asynchronous multithreading: continuous PCM16 audio streaming via WebSockets, in-memory amplification and WAV buffering, automated transcription with Faster-Whisper, and a parallel evaluation pipeline pairing instant deterministic phonetic/Regex heuristics with an Ollama semantic fallback (qwen2.5:1.5b), preempting AI calls whenever deterministic validation passes. The entire ecosystem is orchestrated in Docker Compose with MariaDB 10.6, an Nginx TLS reverse proxy, and OTA remote update deployment.",
+          modalHighlights: [
+            "High-availability REST & WebSocket controller: endpoints for launcher registration and auth (/inicio, /registro_gafa), PIN-based scenario provisioning (/configuracion), student turn orchestration (/siguiente_alumno), transactional grade logging (/notas_alumno), and remote OTA updates (/admin/deploy-ota).",
+            "Concurrent voice & AI latency-optimized pipeline: PCM16 WebSocket streaming (/escenario/...), containerized Faster-Whisper speech-to-text, and parallel evaluation blending deterministic phonetic Regex checks with Ollama semantic analysis, minimizing end-user latency.",
+            "Technical leadership & infrastructure integration: system co-design alongside frontend and VR headset engineers, relational schema persistence in MariaDB, secure Nginx reverse proxy with TLS 1.2/1.3, and reproducible Docker Compose orchestration."
+          ],
           bullets: [
             "REST/WS Endpoints: /inicio, /registro_gafa, /configuracion, /siguiente_alumno, /notas_alumno, and PCM16 audio",
             "Concurrent evaluation of children's voice with Faster-Whisper + phonetic Regex in parallel with Ollama (qwen2.5:1.5b)"
@@ -1618,6 +1780,14 @@ window.PORTFOLIO_I18N = {
           summary: "Computer vision platform and distributed backend to verify the occupancy of 20 postal locker slots using GPU-accelerated YOLOv8/ONNX inference, Redis queues, and PostgreSQL.",
           roleLabel: "Exact role:",
           role: "End-to-end development of the backend and AI architecture (entire system except the web panel): microservices in Docker Compose with FastAPI (api-core), Redis AOF, local GPU YOLOv8/ONNX inference worker, PostgreSQL, Nginx, Label Studio annotation, and ongoing training.",
+          teamContext: "R&D Research Grant at the Chair of Correos and Telegraphs (UAH): full end-to-end ownership of data engineering, backend infrastructure, secure mobile ingestion, and computer vision pipelines, while a teammate developed the monitoring web panel.",
+          problem: "Daily manual mail counting across delivery unit sorting pigeonholes consumes critical operational hours and causes inventory discrepancies. The challenge was processing high-resolution images captured from ruggedized mobile PDAs under challenging lighting, delivering accelerated inference without congesting network bandwidth or blocking the API during simultaneous burst uploads.",
+          solution: "I implemented a resilient producer-consumer architecture in Docker Compose: an Nginx gateway filters and routes traffic; api-core (FastAPI) validates JWT tokens and binary payload metadata before enqueuing jobs into Redis AOF; an isolated inference worker (ia-worker) segments shelf images using YOLOv8-seg exported to ONNX Runtime with CUDA GPU acceleration and CPU fallback; and slot-by-slot occupancy metrics are persisted in PostgreSQL 15 for analytical reporting.",
+          modalHighlights: [
+            "Fault-tolerant producer-consumer architecture: complete decoupling between the mobile ingestion API and computer vision inference via Redis AOF queues, ensuring API response times under 50 ms.",
+            "Optimized computer vision pipeline with ONNX Runtime: YOLOv8-seg model exported to quantized ONNX format, cutting per-shelf inference latency by 60% while maintaining occupancy detection accuracy above 95%.",
+            "Data governance & modular deployment: relational schema in PostgreSQL 15 with partitioning and audit trails, secure Nginx reverse proxy with TLS certificates, and containerized Docker Compose packaging for edge/on-premise delivery.",
+          ],
           bullets: [
             "Decoupled producer-consumer pipeline with Redis AOF and rate limiting against capture bursts",
             "YOLOv8-seg segmentation exported to ONNX Runtime projected onto the 4×5 shelf matrix (20 slots)"
@@ -1642,6 +1812,14 @@ window.PORTFOLIO_I18N = {
           summary: "Corporate IP telephony infrastructure with Asterisk v22 and PJSIP on Ubuntu Linux: interactive IVR, Festival TTS voice synthesis, periodic automated billing with Cron/Python, and Flask user portal.",
           roleLabel: "Exact role:",
           role: "End-to-end joint development in partnership with Marcos Santos Aragón across the entire lifecycle: Asterisk v22 architecture, PJSIP, SIP/RTP traffic analysis with Wireshark, Festival TTS voice synthesis, MariaDB ODBC, Python batch rating engine, and Flask web portal.",
+          teamContext: "Joint end-to-end pair programming with Marcos Santos Aragón for the Lab of Networks, Signals and Systems (LRSS) at UAH: shared VoIP network design, collaborative Asterisk configuration, network packet analysis, and coordinated billing engine and web portal engineering.",
+          problem: "Design and implement an enterprise-grade VoIP telephony solution managing internal and inter-branch calls across multiple offices, ensuring Quality of Service (QoS) across voice streams, delivering dynamic Spanish voice menus for interactive self-service, and logging CDR events for automated tariff-based call rating.",
+          solution: "We deployed Asterisk v22 with the modern PJSIP stack on Ubuntu Server, provisioning 2XXX extensions for Zoiper softphones, unified voicemail, interactive IVR with Festival TTS (dynamic Spanish vocal prompts), ConfBridge audio conference rooms, and on-demand recording. We integrated Asterisk with MariaDB via ODBC to record CDR (Call Detail Records) and automated a Python batch billing engine via Cron that classifies call destinations and computes itemized tariffs surfaced on a Flask web portal.",
+          modalHighlights: [
+            "Advanced VoIP PBX infrastructure with Asterisk v22 & PJSIP: SIP extensions, unified voicemail, ConfBridge conference bridges, MixMonitor recording, music on hold queues, and inter-PBX trunks for intelligent call routing.",
+            "Rigorous protocol analysis & speech synthesis: deep SIP/RTP packet inspection with Wireshark for network diagnostics, and systemd-managed Festival TTS Spanish speech synthesis integrated into the dialplan for dynamic voice menus.",
+            "Automated billing engine & web analytics: transactional CDR logging in MariaDB via ODBC, Cron-scheduled Python rating algorithms across destinations and schedules, and interactive Flask web dashboard displaying consumption analytics."
+          ],
           bullets: [
             "Trunks between PBXs, voicemail, blind/attended transfers, ConfBridge, and MixMonitor recording",
             "Festival TTS voice synthesis integrated into dialplan via systemd service"
@@ -1667,6 +1845,14 @@ window.PORTFOLIO_I18N = {
           summary: "Real-time multi-room messaging platform with Flask-SocketIO, presence tracking, consumption auditing, and a serverless cost pipeline deployed on AWS Lambda with Amazon RDS MySQL.",
           roleLabel: "Exact role:",
           role: "End-to-end joint development in partnership with Marcos Santos Aragón: bidirectional WebSocket events, chat command protocol, Amazon RDS MySQL persistence, serverless Python function on AWS Lambda for metric aggregation, and reactive dashboard.",
+          teamContext: "End-to-end pair programming with Marcos Santos Aragón for the Lab of Networks, Systems and Services (LRSS) at UAH: shared client-server architecture, collaborative WebSocket event design, and coordinated AWS cloud deployment.",
+          problem: "Build a scalable and interactive multi-user chat platform (global broadcasts, private channels, and real-time console commands) delivering low transmission latency while metering and billing network data consumption per user without degrading server responsiveness under intensive compute loads.",
+          solution: "We developed a Python backend using Flask and Flask-SocketIO to handle persistent connections, dynamic rooms, and real-time command routing. For persistent storage and modular decoupling, we integrated managed AWS RDS MySQL. We implemented billing logic inside an independent serverless function on AWS Lambda (facturacion.py): batch-processing pending messages through transactional queries, computing exact costs based on transmitted bytes, and updating financial summaries displayed on a /stats web dashboard.",
+          modalHighlights: [
+            "Bidirectional real-time messaging with WebSockets: dynamic rooms, private messaging, presence tracking, unique aliases, and CLI-style interactive commands built with Flask-SocketIO for responsive communication.",
+            "Decoupled serverless cloud architecture on AWS: on-demand Python AWS Lambda function transactional batch processing traffic volumes and settling cost per kilobyte without compromising live chat responsiveness.",
+            "Cloud infrastructure & operational monitoring: relational persistence in managed AWS RDS MySQL, analytical Flask dashboard (/stats) monitoring network metrics, and consumption-based financial billing model."
+          ],
           bullets: [
             "Interactive commands (/TODOS, /DESTINATARIO, /GRUPO) and aggregated metrics at /stats",
             "Decoupled serverless function facturacion.py on AWS Lambda connected to managed MySQL"
@@ -1728,6 +1914,128 @@ window.PORTFOLIO_I18N = {
           ia: "AI",
           datos: "Data",
           infra: "Infra"
+        },
+        nodeDetails: {
+          "visores-xr": {
+            label: "Meta Quest Headsets (MR Games)",
+            role: "VR/MR educational games developed by headset team",
+            details: "Headsets authenticate their serial number in the launcher, request scenarios and pedagogical layers via PIN, and stream student audio to the central controller."
+          },
+          "nginx-proxy": {
+            label: "Nginx Reverse Proxy (My Role)",
+            role: "HTTPS TLS 1.2/1.3 termination and stack routing",
+            details: "Engineered to centralize secure entry into the dockerized ecosystem, inject proxy headers, and unify routing across web portal, REST endpoints, and WebSockets."
+          },
+          "api-servidor": {
+            label: "api-servidor Controller (My Role)",
+            role: "FastAPI core: headset endpoints, auto-scoring, and concurrency",
+            details: "I built all REST/WS endpoints for VR headsets, launcher authentication, transactional grade queries, and the parallel pipeline executing phonetic Regex checks alongside Ollama queries."
+          },
+          "ia-voz": {
+            label: "Voice & AI Pipeline (Integration)",
+            role: "Faster-Whisper STT, Ollama evaluation, and Coqui TTS audio",
+            details: "Containerized Docker services integrated from api-servidor via in-memory queues and local calls to transcribe and evaluate audio without blocking student interaction."
+          },
+          "portal-web": {
+            label: "api-web Teacher Portal (Teammate)",
+            role: "Classroom, student, and scenario management portal",
+            details: "Management dashboard engineered by a teammate allowing teachers to organize students, configure scenarios, and monitor educational sessions."
+          },
+          "mariadb-db": {
+            label: "MariaDB (Database Integration)",
+            role: "Relational persistence for grades, settings, and students",
+            details: "Shared relational database between api-servidor and api-web, guaranteeing atomic scoring transactions and academic data integrity."
+          },
+          "cliente-pda": {
+            label: "PDA Capture & Simulator",
+            role: "Rugged Android mobile devices / PDA",
+            details: "Mobile client capturing high-resolution parcel locker shelf photos with location metadata and transmitting them securely over HTTPS to the central API."
+          },
+          "nginx-gateway": {
+            label: "Nginx Reverse Proxy (My Role)",
+            role: "Ingress gateway, TLS termination, and routing",
+            details: "Centralizes incoming HTTPS traffic, applies rate limiting policies, and routes requests to the mobile API core or administrative web dashboard."
+          },
+          "api-core": {
+            label: "FastAPI API Core (My Role)",
+            role: "Mobile ingestion, JWT validation, and job orchestration",
+            details: "FastAPI backend microservice authenticating operators via JWT, validating image payload integrity, and queuing analysis jobs into Redis."
+          },
+          "redis-broker": {
+            label: "Redis AOF Broker (My Role)",
+            role: "Message broker and pending job queue persistence",
+            details: "In-memory message broker configured with AOF persistence, decoupling peak photo ingestion bursts from heavy computer vision processing."
+          },
+          "ia-worker": {
+            label: "AI Worker YOLO / ONNX (My Role)",
+            role: "Local GPU/CPU inference and per-slot occupancy analysis",
+            details: "Asynchronous Python worker consuming captures from Redis, running quantized YOLOv8-seg inference on ONNX Runtime, and mapping detections to parcel slots."
+          },
+          "web-panel": {
+            label: "Web Panel (Separate Module)",
+            role: "Administrative mail sorting oversight dashboard",
+            details: "Management interface engineered by a teammate for real-time visualization of 20-slot parcel occupancy and delivery audit statistics."
+          },
+          "postgres-db": {
+            label: "PostgreSQL 15 (My Role)",
+            role: "Historical slot occupancy persistence and auditing",
+            details: "Relational database storing time-series detection records, locker slot statuses, operator audit trails, and inference performance logs."
+          },
+          "softphones-zoiper": {
+            label: "SIP Softphones (Zoiper)",
+            role: "SIP clients for voice calls and validation",
+            details: "VoIP softphone clients provisioned on 2XXX extensions generating SIP signaling traffic and bidirectional RTP voice streams."
+          },
+          "asterisk-pbx": {
+            label: "Asterisk v22 PBX",
+            role: "PJSIP switching, interactive IVR, and dialplan",
+            details: "VoIP telephony server deployed on Ubuntu Server with Asterisk v22 managing routing dialplans, voicemails, conference bridges, and call distribution."
+          },
+          "festival-tts": {
+            label: "Festival TTS",
+            role: "Spanish speech synthesis for voice prompts",
+            details: "Voice synthesis engine integrated into the dialplan via systemd to generate dynamic Spanish voice announcements in the interactive IVR."
+          },
+          "cron-tarificador": {
+            label: "Billing Scripts (Cron)",
+            role: "Periodic batch call rating in Python",
+            details: "Python scripts executed periodically by Cron analyzing MariaDB CDR records, classifying destinations, and calculating tariff balances."
+          },
+          "portal-marchel": {
+            label: "Flask Web Portal",
+            role: "Balance, call itemization, and billing portal",
+            details: "Interactive web application built in Flask where subscribers and administrators inspect call history, destination breakdowns, and billing reports."
+          },
+          "mariadb-cdr": {
+            label: "MariaDB CDR & ODBC",
+            role: "Relational persistence for CDR call logs",
+            details: "MariaDB database configured as the CDR backend via ODBC, persisting duration, caller, destination, timestamp, and status of every call."
+          },
+          "clientes-web": {
+            label: "Web Clients (Chat & Stats)",
+            role: "User interface for real-time messaging",
+            details: "Web frontend interacting with the chat server via WebSockets for real-time messaging and accessing data traffic analytics at /stats."
+          },
+          "servidor-socketio": {
+            label: "Flask-SocketIO Server",
+            role: "WebSocket connection, rooms, and presence manager",
+            details: "Python backend with Flask-SocketIO routing broadcast and private messages, tracking user presence, and logging data consumption for billing."
+          },
+          "panel-stats": {
+            label: "/stats Dashboard (Flask)",
+            role: "Analytical consumption and cost visualization",
+            details: "Web dashboard presenting users with accumulated message counts, transmitted byte totals, and financial charges calculated by Lambda."
+          },
+          "aws-lambda": {
+            label: "AWS Lambda (Billing)",
+            role: "Serverless facturacion.py Python function",
+            details: "Serverless cloud function on AWS periodically processing unbilled messages and computing financial charges based on data volume transferred."
+          },
+          "aws-rds": {
+            label: "AWS RDS MySQL (nika_chat)",
+            role: "Managed relational database in AWS Cloud",
+            details: "Managed MySQL database instance on AWS storing chat messages, rooms, registered aliases, and generated billing summaries."
+          }
         }
       },
       skillsTitle: "Technical Resume Skills",

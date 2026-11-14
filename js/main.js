@@ -2318,30 +2318,49 @@
     }
 
     function renderInspector(project, node, maps) {
+      const activeLang = document.documentElement.lang === "en" ? "en" : "es";
+      const isEn = activeLang === "en";
+      const dict = window.PORTFOLIO_I18N ? window.PORTFOLIO_I18N[activeLang] : null;
+      const archI18n = dict && dict.onepiece && dict.onepiece.architecture ? dict.onepiece.architecture : null;
+      const nodeDetailsI18n = archI18n && archI18n.nodeDetails ? archI18n.nodeDetails : null;
+      const layersI18n = archI18n && (archI18n.layers || archI18n.archLayers) ? (archI18n.layers || archI18n.archLayers) : null;
+
       if (!node) {
+        const emptyKicker = isEn ? "SYSTEM ARCHITECTURE EXPLORER" : "EXPLORADOR DE ARQUITECTURA";
+        const emptyTitle = isEn ? "Select a node" : "Selecciona un nodo";
+        const emptyDesc = isEn
+          ? "Click any block in the map to inspect its role, technologies, and connections."
+          : "Haz clic en cualquier bloque del mapa para ver su rol, tecnologías y conexiones.";
         detailEl.innerHTML =
-          '<p class="inspector-kicker">EXPLORADOR DE ARQUITECTURA</p>' +
-          '<h4 class="inspector-title">Selecciona un nodo</h4>' +
-          '<p class="inspector-desc">Haz clic en cualquier bloque del mapa para ver su rol, tecnologías y conexiones.</p>';
+          '<p class="inspector-kicker">' + escapeHtml(emptyKicker) + "</p>" +
+          '<h4 class="inspector-title">' + escapeHtml(emptyTitle) + "</h4>" +
+          '<p class="inspector-desc">' + escapeHtml(emptyDesc) + "</p>";
         return;
       }
 
-      const layerLabel = LAYER_LABELS[node.layer] || node.layer || "Sistema";
+      const layerKey = node.layer || "api";
+      const layerLabel = (layersI18n && layersI18n[layerKey]) || LAYER_LABELS[layerKey] || layerKey || (isEn ? "System" : "Sistema");
       const outIds = maps.outgoing[node.id] || [];
       const inIds = maps.incoming[node.id] || [];
       const chipsHtml = (node.tech || [])
         .map((t) => '<span class="tech-tag">' + escapeHtml(t) + "</span>")
         .join("");
 
+      const nodeI18n = nodeDetailsI18n && nodeDetailsI18n[node.id] ? nodeDetailsI18n[node.id] : null;
+      const nodeLabel = (nodeI18n && nodeI18n.label) || node.label;
+      const nodeDesc = (nodeI18n && (nodeI18n.details || nodeI18n.role)) || node.details || node.role || "";
+
       const connButtons = [];
       outIds.forEach((cid) => {
         const target = maps.byId[cid];
         if (target) {
+          const targetI18n = nodeDetailsI18n && nodeDetailsI18n[cid];
+          const targetLabel = (targetI18n && targetI18n.label) || target.label;
           connButtons.push(
             '<button type="button" class="arch-conn-chip" data-jump-node="' +
               escapeHtml(cid) +
               '">→ ' +
-              escapeHtml(target.label) +
+              escapeHtml(targetLabel) +
               "</button>"
           );
         }
@@ -2349,37 +2368,41 @@
       inIds.forEach((cid) => {
         const source = maps.byId[cid];
         if (source) {
+          const sourceI18n = nodeDetailsI18n && nodeDetailsI18n[cid];
+          const sourceLabel = (sourceI18n && sourceI18n.label) || source.label;
           connButtons.push(
             '<button type="button" class="arch-conn-chip" data-jump-node="' +
               escapeHtml(cid) +
               '">← ' +
-              escapeHtml(source.label) +
+              escapeHtml(sourceLabel) +
               "</button>"
           );
         }
       });
 
+      const kickerPrefix = isEn ? "SELECTED NODE · LAYER " : "NODO SELECCIONADO · CAPA ";
+      const directConnLabel = isEn ? "Direct connections:" : "Conexiones directas:";
+      const terminalDesc = isEn ? "Terminal persistence node or egress service." : "Nodo terminal de persistencia o servicio de salida.";
+
       detailEl.innerHTML =
-        '<p class="inspector-kicker">NODO SELECCIONADO · CAPA ' +
-        escapeHtml(layerLabel.toUpperCase()) +
-        " · " +
-        escapeHtml(project.repoFolder || "") +
+        '<p class="inspector-kicker">' +
+        escapeHtml(kickerPrefix + layerLabel.toUpperCase() + " · " + (project.repoFolder || "")) +
         "</p>" +
         '<h4 class="inspector-title">' +
-        escapeHtml(node.label) +
+        escapeHtml(nodeLabel) +
         "</h4>" +
         '<p class="inspector-desc">' +
-        escapeHtml(node.details || node.role || "") +
+        escapeHtml(nodeDesc) +
         "</p>" +
         '<div class="inspector-tags">' +
         chipsHtml +
         "</div>" +
         '<div class="inspector-links">' +
         (connButtons.length
-          ? '<span>Conexiones directas:</span><div class="arch-conn-list">' +
+          ? "<span>" + escapeHtml(directConnLabel) + '</span><div class="arch-conn-list">' +
             connButtons.join("") +
             "</div>"
-          : "<span>Nodo terminal de persistencia o servicio de salida.</span>") +
+          : "<span>" + escapeHtml(terminalDesc) + "</span>") +
         "</div>";
     }
 
@@ -2390,6 +2413,11 @@
       const arch = project.architecture;
       const nodes = Array.isArray(arch.nodes) ? arch.nodes : [];
       const maps = getConnectedNodeMaps(nodes);
+      const activeLang = document.documentElement.lang === "en" ? "en" : "es";
+      const dict = window.PORTFOLIO_I18N ? window.PORTFOLIO_I18N[activeLang] : null;
+      const archI18n = dict && dict.onepiece && dict.onepiece.architecture ? dict.onepiece.architecture : null;
+      const nodeDetailsI18n = archI18n && archI18n.nodeDetails ? archI18n.nodeDetails : null;
+      const layersI18n = archI18n && (archI18n.layers || archI18n.archLayers) ? (archI18n.layers || archI18n.archLayers) : null;
 
       // Si el nodo seleccionado no pertenece a este proyecto, elegir el principal (capa api o primero)
       if (!maps.byId[state.arch.selectedNodeId]) {
@@ -2422,14 +2450,12 @@
       }
 
       if (summaryEl) {
-        const activeLang = document.documentElement.lang === "en" ? "en" : "es";
-        const dict = window.PORTFOLIO_I18N ? window.PORTFOLIO_I18N[activeLang] : null;
         let archSummaryText = arch.summary || project.summary || "";
         let projTitle = project.title;
 
-        if (dict && dict.onepiece && dict.onepiece.architecture && dict.onepiece.architecture.summaries) {
-          if (dict.onepiece.architecture.summaries[project.id]) {
-            archSummaryText = dict.onepiece.architecture.summaries[project.id];
+        if (archI18n && archI18n.summaries) {
+          if (archI18n.summaries[project.id]) {
+            archSummaryText = archI18n.summaries[project.id];
           }
         }
         if (dict && dict.onepiece && dict.onepiece.projects) {
@@ -2483,7 +2509,10 @@
           else if (inLabels.length) flowText = "← " + inLabels.join(" · ");
 
           const layerKey = node.layer || "api";
-          const layerName = LAYER_LABELS[layerKey] || layerKey;
+          const layerName = (layersI18n && layersI18n[layerKey]) || LAYER_LABELS[layerKey] || layerKey;
+          const nodeI18n = nodeDetailsI18n && nodeDetailsI18n[node.id] ? nodeDetailsI18n[node.id] : null;
+          const nodeLabel = (nodeI18n && nodeI18n.label) || node.label;
+          const nodeRole = (nodeI18n && (nodeI18n.role || nodeI18n.details)) || node.role;
 
           return (
             '<button type="button" class="' +
@@ -2499,10 +2528,10 @@
             escapeHtml(layerName) +
             "</span>" +
             '<span class="arch-node-title">' +
-            escapeHtml(node.label) +
+            escapeHtml(nodeLabel) +
             "</span>" +
             '<span class="arch-node-role">' +
-            escapeHtml(node.role) +
+            escapeHtml(nodeRole) +
             "</span>" +
             (flowText
               ? '<span class="arch-node-flow">' + escapeHtml(flowText) + "</span>"
@@ -2597,6 +2626,8 @@
     });
   }
 
+  let activeProjectModalId = null;
+
   function openModal(modal, triggerEl) {
     if (!modal) return;
     lastFocusedEl = triggerEl || document.activeElement;
@@ -2616,6 +2647,7 @@
     target.classList.remove("is-open");
     target.setAttribute("aria-hidden", "true");
     activeModal = null;
+    activeProjectModalId = null;
 
     if (lastFocusedEl && typeof lastFocusedEl.focus === "function") {
       lastFocusedEl.focus();
@@ -2628,6 +2660,8 @@
     const contentEl = document.getElementById("projectModalContent");
     const project = getProjectById(projectId);
     if (!modal || !contentEl || !project) return;
+
+    activeProjectModalId = projectId;
 
     const activeLang = document.documentElement.lang === "en" ? "en" : "es";
     const isEn = activeLang === "en";
@@ -2650,15 +2684,21 @@
     const roleHeading = isEn ? "My technical scope and role" : "Mi rol y alcance técnico";
     const roleText = pI18n && pI18n.role ? pI18n.role : (project.myRole || project.subtitle || "");
     const teamHeading = isEn ? "Team context" : "Contexto de equipo";
+    const teamText = pI18n && pI18n.teamContext ? pI18n.teamContext : (project.teamContext || "");
     const probHeading = isEn ? "Technical problem" : "Problema técnico";
+    const problemText = pI18n && pI18n.problem ? pI18n.problem : (project.problem || "");
     const solHeading = isEn ? "Implemented solution" : "Solución implementada";
-    const solText = pI18n && pI18n.summary ? pI18n.summary : (project.solution || project.summary || "");
+    const solutionText = (pI18n && pI18n.solution)
+      ? pI18n.solution
+      : (project.solution || (pI18n && pI18n.summary) || project.summary || "");
     const highHeading = isEn ? "Key achievements" : "Logros destacados";
     const stackHeading = isEn ? "Technology stack" : "Stack utilizado";
     const archBtnText = isEn ? "View in architecture explorer" : "Ver en explorador de arquitectura";
     const dismissBtnText = isEn ? "Close spec sheet" : "Cerrar ficha";
 
-    const rawBullets = (pI18n && Array.isArray(pI18n.bullets)) ? pI18n.bullets : (project.highlights || []);
+    const rawBullets = (pI18n && Array.isArray(pI18n.modalHighlights))
+      ? pI18n.modalHighlights
+      : ((pI18n && Array.isArray(pI18n.bullets)) ? pI18n.bullets : (project.highlights || []));
     const highlightsHtml = rawBullets
       .map((item) => "<li>" + escapeHtml(item) + "</li>")
       .join("");
@@ -2667,12 +2707,12 @@
       .map((tag) => '<span class="tech-tag">' + escapeHtml(tag) + "</span>")
       .join("");
 
-    const teamSectionHtml = project.teamContext
+    const teamSectionHtml = teamText
       ? '<h4 class="modal-section-title">' +
         escapeHtml(teamHeading) +
         "</h4>" +
         '<p class="modal-text">' +
-        escapeHtml(project.teamContext) +
+        escapeHtml(teamText) +
         "</p>"
       : "";
 
@@ -2698,13 +2738,13 @@
       escapeHtml(probHeading) +
       "</h4>" +
       '<p class="modal-text">' +
-      escapeHtml(project.problem || "") +
+      escapeHtml(problemText) +
       "</p>" +
       '<h4 class="modal-section-title">' +
       escapeHtml(solHeading) +
       "</h4>" +
       '<p class="modal-text">' +
-      escapeHtml(solText) +
+      escapeHtml(solutionText) +
       "</p>" +
       (highlightsHtml
         ? '<h4 class="modal-section-title">' +
@@ -2732,6 +2772,8 @@
 
     openModal(modal, triggerEl);
   }
+
+  window.openProjectModal = openProjectModal;
 
   function openCvModal(triggerEl) {
     const modal = document.getElementById("cvModal");
@@ -3747,7 +3789,7 @@
               const sheetBtn = card.querySelector("[data-project-open]");
               const archBtn = card.querySelector("[data-project-arch]");
               const toyBtn = card.querySelector('[class*="js-toy-"]');
-              const bullets = card.querySelectorAll(".card-op .more li");
+              const bullets = card.querySelectorAll(".more li");
               const consoleLabel = card.querySelector(".console-frame-label");
 
               if (periodK && (pData.k || pData.tag)) periodK.textContent = pData.k || pData.tag;
@@ -3861,6 +3903,9 @@
         });
         if (typeof window.__renderArchitecture === "function") {
           window.__renderArchitecture();
+        }
+        if (activeModal && activeModal.id === "projectModal" && activeProjectModalId) {
+          openProjectModal(activeProjectModalId, lastFocusedEl);
         }
 
         // Skills
