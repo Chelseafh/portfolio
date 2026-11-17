@@ -6,6 +6,15 @@
 [![Licencia](https://img.shields.io/badge/Licencia-MIT-lightgrey?style=flat-square)](LICENSE)
 [![i18n](https://img.shields.io/badge/i18n-ES_%7C_EN_(100%25)-informational?style=flat-square)](https://chelseafh.github.io/portfolio/)
 
+<p align="center">
+  <a href="https://chelseafh.github.io/portfolio/" target="_blank" rel="noopener noreferrer">
+    <img src="assets/images/portfolio-preview.png" alt="Previsualización del Portafolio Web de Chelsea Fernández Hernández" width="100%">
+  </a>
+</p>
+<p align="center">
+  <em>🌐 Vista previa del portal interactivo en vivo (<a href="https://chelseafh.github.io/portfolio/">chelseafh.github.io/portfolio</a>) — Navegación metamórfica, síntesis de paisajes sonoros con Web Audio API, diseño editorial y soporte bilingüe integral (ES / EN).</em>
+</p>
+
 Portal web interactivo, bitácora técnica y estudio experimental de ingeniería de software desarrollado por **Chelsea Fernández Hernández**, estudiante de último curso de **Ingeniería Telemática** en la **Universidad de Alcalá (UAH)** (graduación prevista: **2027**), orientada a **prácticas curriculares (450 h) y extracurriculares (hasta 900 h)**.
 
 🔗 **Enlaces Rápidos:**
@@ -224,6 +233,12 @@ npm test
 1. **Contratos DOM 1:1:** Verificación estricta de la presencia de 30+ identificadores y selectores requeridos en el DOM.
 2. **Higiene Visual y Ausencia de Colores Prohibidos:** Comprobación estricta de cero uso de `#000000` puro (utilizando en su lugar la escala `var(--ink)`) y ausencia de colores neón no calibrados.
 3. **Cero Desbordamiento Horizontal (*Zero Overflow*):** Validación geométrica en resoluciones de escritorio (`1440x900`) y móvil (`390x844`), garantizando `overflowPx <= 0`.
+
+<p align="center">
+  <img src="assets/images/preview-mobile.png" alt="Previsualización responsive en dispositivo móvil (390x844)" width="260" style="border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.1);">
+  <br>
+  <em>Vista móvil responsive (390×844) verificada sin desbordamientos ni cortes.</em>
+</p>
 4. **Paridad de Internacionalización (ES / EN):** Comprobación bidireccional de ida y vuelta para más de 318 claves en `window.PORTFOLIO_I18N`.
 5. **Comportamiento del Báculo Rúnico:** Validación de interacción, disparo de efectos en `<canvas id="fx">` y textos atmosféricos.
 6. **Rincón de Té del Tío Iroh:** Validación de rotación de citas en el DOM y accesibilidad de controles.
