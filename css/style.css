@@ -3558,6 +3558,45 @@ html.js-anim .card-av.in .swoosh {
   margin-bottom: 2px;
 }
 
+.role-callout strong:not(:first-child) {
+  display: inline;
+  font-family: inherit;
+  font-size: inherit;
+  text-transform: none;
+  letter-spacing: normal;
+  color: inherit;
+}
+
+.partner-link {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(150, 59, 40, .45);
+  text-underline-offset: 3px;
+  transition: color .2s, text-decoration-color .2s;
+}
+
+.partner-link:hover {
+  color: #963B28;
+  text-decoration-color: #963B28;
+}
+
+.partner-link:focus-visible {
+  outline: 2px solid var(--accent, #90A98F);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.timeline-org .partner-link {
+  color: #1E4656;
+  text-decoration-color: rgba(30, 70, 86, .45);
+}
+
+.timeline-org .partner-link:hover {
+  color: #14323E;
+  text-decoration-color: #14323E;
+}
+
 .card-op .more {
   margin: 12px 0 0;
   padding: 10px 14px;

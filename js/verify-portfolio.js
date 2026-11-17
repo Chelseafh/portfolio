@@ -280,7 +280,7 @@
       "cards=" + avatarCards.length + ", slots=" + avatarSlots.length + ", elements=" + elementsSemanticOk
     );
 
-    // 5. Capítulo III One Piece: 4 encabezados editoriales .card-op-head y 0 .pic svg
+    // 5. Capítulo III One Piece: 4 encabezados editoriales .card-op-head y 0 .pic svg + enlaces a Marcos Santos Aragón
     const projects = Array.isArray(data.projects) ? data.projects : [];
     const cardArticles = Array.from(
       document.querySelectorAll("#projectsGrid .card-op[data-project-id]")
@@ -290,10 +290,19 @@
       cardArticles.every(
         (c) => Boolean(c.querySelector(".card-op-head")) && !c.querySelector(".pic svg")
       );
+    const partnerLinks = Array.from(document.querySelectorAll(".partner-link"));
+    const partnerLinksValid =
+      partnerLinks.length >= 3 &&
+      partnerLinks.every(
+        (a) =>
+          a.getAttribute("href") === "https://www.linkedin.com/in/marcos-santos-aragon/" &&
+          a.getAttribute("target") === "_blank" &&
+          (a.getAttribute("rel") || "").indexOf("noopener") !== -1
+      );
     check(
       "PORTFOLIO_DATA y tarjetas .card-op-head",
-      projects.length === 4 && allEditorialHeads,
-      "projects=" + projects.length + ", cards=" + cardArticles.length + ", editorialHead=" + allEditorialHeads
+      projects.length === 4 && allEditorialHeads && partnerLinksValid,
+      "projects=" + projects.length + ", cards=" + cardArticles.length + ", editorialHead=" + allEditorialHeads + ", partnerLinks=" + partnerLinks.length
     );
 
     // 6. Privacidad sin teléfono expuesto en PORTFOLIO_DATA ni DOM visible
@@ -1025,9 +1034,24 @@
     document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
     const projClosedEsc =
       !projModal.classList.contains("is-open") && projModal.getAttribute("aria-hidden") === "true";
+
+    // Ronda 22: Ficha técnica de Marchel con enlace a Marcos Santos Aragón
+    click(document.querySelector('[data-project-open="marchel-asterisk"]'));
+    const modalPartnerLinks = Array.from(projModal.querySelectorAll(".partner-link"));
+    const modalPartnerOk =
+      modalPartnerLinks.length >= 1 &&
+      modalPartnerLinks.every(
+        (a) =>
+          a.getAttribute("href") === "https://www.linkedin.com/in/marcos-santos-aragon/" &&
+          a.getAttribute("target") === "_blank" &&
+          (a.getAttribute("rel") || "").indexOf("noopener") !== -1
+      );
+    const projModalCloseBtn = document.getElementById("projectModalClose");
+    if (projModalCloseBtn) click(projModalCloseBtn);
+
     check(
       "Modal proyecto accesible",
-      projOpened && jumpedToCorreosArch && modalClosedByJump && projClosedEsc,
+      projOpened && jumpedToCorreosArch && modalClosedByJump && projClosedEsc && modalPartnerOk,
       projTitle
     );
 
@@ -1284,6 +1308,14 @@
         contactEyebrowEn.trim() === "Contact & Resume" &&
         frierenDiceEn.trim() === "🎲 Random game";
 
+      // k. Ronda 22: Enlaces a Marcos Santos Aragón en inglés
+      const tlPartnerEn = document.querySelector("#timelineContainer .timeline-org .partner-link");
+      const partnerEnOk = Boolean(
+        tlPartnerEn &&
+        tlPartnerEn.getAttribute("href") === "https://www.linkedin.com/in/marcos-santos-aragon/" &&
+        tlPartnerEn.getAttribute("target") === "_blank"
+      );
+
       i18nSwitchToEnOk =
         isEn &&
         frierenLinkEn === "Peace" &&
@@ -1301,7 +1333,8 @@
         searchEnOk &&
         pbxToyEnOk &&
         cvModalEnOk &&
-        ronda20EnOk;
+        ronda20EnOk &&
+        partnerEnOk;
 
       // 2. Simular segundo clic para volver a español
       click(langBtn);
@@ -1392,6 +1425,14 @@
         contactEyebrowEs.trim() === "Contacto & CV" &&
         frierenDiceEs.trim() === "🎲 Juego al azar";
 
+      // k. Ronda 22: Enlaces a Marcos Santos Aragón en español
+      const tlPartnerEs = document.querySelector("#timelineContainer .timeline-org .partner-link");
+      const partnerEsOk = Boolean(
+        tlPartnerEs &&
+        tlPartnerEs.getAttribute("href") === "https://www.linkedin.com/in/marcos-santos-aragon/" &&
+        tlPartnerEs.getAttribute("target") === "_blank"
+      );
+
       i18nSwitchToEsOk =
         isEs &&
         frierenLinkEs === "Paz" &&
@@ -1409,7 +1450,8 @@
         searchEsOk &&
         pbxToyEsOk &&
         cvModalEsOk &&
-        ronda20EsOk;
+        ronda20EsOk &&
+        partnerEsOk;
     }
 
     check(

@@ -203,18 +203,18 @@ El portal se aleja del formato de currículum convencional estructurándose en t
   - Persistencia relacional en **PostgreSQL**, etiquetado de datasets en **Label Studio** y scripts de reentrenamiento continuo.
 
 #### 3. Marchel: Central Telefónica PBX VoIP con Asterisk v22
-- **Contexto:** Proyecto de Telemática en la **Universidad de Alcalá (UAH)** (`proyectos/Marchel-Asterisk/`).
+- **Contexto:** Proyecto de Telemática en la **Universidad de Alcalá (UAH)**, desarrollado en pareja junto a [Marcos Santos Aragón](https://www.linkedin.com/in/marcos-santos-aragon/) (`proyectos/Marchel-Asterisk/`).
 - **Rol y Responsabilidades de Chelsea:**
-  - Configuración y despliegue de centralita IP sobre Linux basada en **Asterisk v22.2.0** con soporte para el canal **PJSIP**.
+  - Co-desarrollo integral en pareja junto a [Marcos Santos Aragón](https://www.linkedin.com/in/marcos-santos-aragon/): configuración y despliegue de centralita IP sobre Linux basada en **Asterisk v22.2.0** con soporte para el canal **PJSIP**.
   - Integración de extensiones SIP mediante softphones **Zoiper**.
   - Lógica de enrutamiento telefónico mediante dialplan avanzado, operadora automática **IVR**, colas ACD y salas de conferencia con `ConfBridge`.
   - Grabación de llamadas con `MixMonitor` y síntesis vocal en español mediante **Festival TTS**.
   - Registro de detalle de llamadas (CDR) persistido en **MariaDB** y monitorizado mediante un portal de gestión web en **Flask**.
 
 #### 4. Nika App: Mensajería en Tiempo Real & Tarificación Serverless
-- **Contexto:** Proyecto de Arquitectura Cloud en la **Universidad de Alcalá (UAH)** (`proyectos/LRSS-4/`).
+- **Contexto:** Proyecto de Arquitectura Cloud en la **Universidad de Alcalá (UAH)**, desarrollado en pareja junto a [Marcos Santos Aragón](https://www.linkedin.com/in/marcos-santos-aragon/) (`proyectos/LRSS-4/`).
 - **Rol y Responsabilidades de Chelsea:**
-  - Desarrollo de una aplicación web de chat bidireccional basada en **Flask-SocketIO**.
+  - Co-desarrollo integral en pareja junto a [Marcos Santos Aragón](https://www.linkedin.com/in/marcos-santos-aragon/): desarrollo de una aplicación web de chat bidireccional basada en **Flask-SocketIO**.
   - Arquitectura serverless en **AWS Lambda** programada en Python para el procesamiento asíncrono y tarificación de eventos de mensajería.
   - Integración con base de datos administrada en la nube **AWS RDS MySQL** para auditoría y balance de uso.
 

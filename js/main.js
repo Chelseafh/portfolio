@@ -2685,6 +2685,17 @@
     lastFocusedEl = null;
   }
 
+  const PARTNER_LINK_HTML =
+    '<a href="https://www.linkedin.com/in/marcos-santos-aragon/" target="_blank" rel="noopener noreferrer" class="partner-link">Marcos Santos Aragón</a>';
+
+  function formatWithPartnerLink(htmlOrText) {
+    if (!htmlOrText || typeof htmlOrText !== "string") return htmlOrText || "";
+    if (htmlOrText.indexOf("partner-link") !== -1 || htmlOrText.indexOf("marcos-santos-aragon") !== -1) {
+      return htmlOrText;
+    }
+    return htmlOrText.replace(/Marcos\s+Santos\s+Arag[oó]n/g, PARTNER_LINK_HTML);
+  }
+
   function openProjectModal(projectId, triggerEl) {
     const modal = document.getElementById("projectModal");
     const contentEl = document.getElementById("projectModalContent");
@@ -2742,7 +2753,7 @@
         escapeHtml(teamHeading) +
         "</h4>" +
         '<p class="modal-text">' +
-        escapeHtml(teamText) +
+        formatWithPartnerLink(escapeHtml(teamText)) +
         "</p>"
       : "";
 
@@ -2761,7 +2772,7 @@
       '<div class="modal-role-box"><strong>' +
       escapeHtml(roleHeading) +
       "</strong> " +
-      escapeHtml(roleText) +
+      formatWithPartnerLink(escapeHtml(roleText)) +
       "</div>" +
       teamSectionHtml +
       '<h4 class="modal-section-title">' +
@@ -3873,7 +3884,11 @@
               if (inst && pData.inst) inst.textContent = pData.inst;
               if (mainDesc && pData.summary) mainDesc.textContent = pData.summary;
               if (roleBox && pData.role) {
-                roleBox.innerHTML = "<strong>" + (pData.roleLabel || "Mi rol exacto") + "</strong> " + pData.role;
+                roleBox.innerHTML =
+                  "<strong>" +
+                  escapeHtml(pData.roleLabel || "Mi rol exacto") +
+                  "</strong> " +
+                  formatWithPartnerLink(escapeHtml(pData.role));
               }
               if (Array.isArray(pData.bullets)) {
                 pData.bullets.forEach((bText, bIdx) => {
@@ -4047,7 +4062,7 @@
               if (p && itemData.period) p.textContent = itemData.period;
               if (t && itemData.type) t.textContent = itemData.type;
               if (h4 && itemData.title) h4.textContent = itemData.title;
-              if (org && itemData.org) org.textContent = itemData.org;
+              if (org && itemData.org) org.innerHTML = formatWithPartnerLink(escapeHtml(itemData.org));
               if (sum && itemData.summary) sum.textContent = itemData.summary;
             }
           });
