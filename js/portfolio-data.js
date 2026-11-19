@@ -29,7 +29,7 @@ window.PORTFOLIO_DATA = {
     email: "chelseafh2003@gmail.com",
     github: "https://github.com/Chelseafh",
     linkedin: "https://www.linkedin.com/in/chelsea-fernandez-hernandez-64a339189/",
-    cvPath: "assets/CV_Chelsea_Fdez_Hdez.pdf",
+    cvPath: "assets/CV_Chelsea_Fdez_Hdez.pdf?v=20261117",
     // Teléfono privado confirmado para mostrarse únicamente dentro del PDF del CV
     phoneVisibility: "cv-only",
     languages: [

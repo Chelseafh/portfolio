@@ -18,7 +18,7 @@
 
   const STORAGE_KEY_ANIME = "chelsea_portfolio_anime_v2";
   const DEFAULT_EMAIL = PROFILE.email || "chelseafh2003@gmail.com";
-  const DEFAULT_CV_PATH = PROFILE.cvPath || "assets/CV_Chelsea_Fdez_Hdez.pdf";
+  const DEFAULT_CV_PATH = PROFILE.cvPath || "assets/CV_Chelsea_Fdez_Hdez.pdf?v=20261117";
 
   const THEME_ZONES = ["frieren", "avatar", "onepiece", "contact"];
   const THEME_META_COLOR = {
@@ -2821,7 +2821,11 @@
     const bodyEl = document.getElementById("cvModalBody");
     if (!modal || !bodyEl) return;
 
-    const cvHref = safeUrl(DEFAULT_CV_PATH);
+    const baseCvHref = safeUrl(DEFAULT_CV_PATH);
+    const cvHref =
+      baseCvHref === "#"
+        ? "#"
+        : baseCvHref + (baseCvHref.indexOf("?") === -1 ? "?" : "&") + "t=" + Date.now();
     const fullName = PROFILE.name || "Chelsea Fernández Hernández";
     const activeLang = document.documentElement.lang === "en" ? "en" : "es";
     const isEn = activeLang === "en";
